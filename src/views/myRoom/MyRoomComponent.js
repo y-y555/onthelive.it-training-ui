@@ -1,0 +1,382 @@
+import React, {Component} from 'react';
+import clsx from "clsx";
+import {withStyles} from "@material-ui/core/styles";
+import {Box, Typography, Button, MenuItem, Select, FormControl, InputBase, IconButton, Dialog,DialogTitle,DialogContent,DialogActions} from "@material-ui/core";
+import {ReactComponent as ButtonPlusIcon} from "../../common/images/ButtonPlusIcon.svg";
+import {ReactComponent as NewPostIcon} from "../../common/images/NewPostIcon.svg";
+import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
+import {ReactComponent as PasswordNumberUnCheckedIcon} from "../../common/images/PasswordNumberUnCheckedIcon.svg";
+import {ReactComponent as AsideSettingIcon} from "../../common/images/AsideSettingIcon.svg";
+import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
+import RoomTestImg2 from "../../common/images/RoomTestImg2.png";
+import RoomTestImg3 from "../../common/images/RoomTestImg3.png";
+import {withRouter} from "react-router-dom";
+import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
+import HiddenGroupManagementDialogComponent from "../dialog/HiddenGroupManagementDialogComponent";
+
+const styles = theme => ({
+    root:{
+        background:'#f3f3f3',
+    },
+    titleText:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'1.875rem',
+        },
+        fontSize:'1.563rem',
+        color:'#000'
+    },
+    titleButton:{
+        background:'transparent',
+        boxShadow:'none',
+        "&:hover":{
+            background:'transparent',
+            boxShadow:'none',
+        }
+    },
+    arrowButtonText:{
+        fontSize:'0.75rem',
+        fontWeight:600,
+        color:'#000',
+        paddingRight:5
+    },
+    menuText:{
+        fontFamily: 'NanumSquareRoundOTF' ,
+        fontSize:'0.75rem',
+        color:'#0d0d0d',
+        "&:hover":{
+            background:'#d3d7db'
+        }
+    },
+    roomCreateButton:{
+        '@media all and (min-width: 1500px)': {
+            width:322,
+            height:350,
+            marginRight:30,
+            marginBottom:30,
+        },
+        width:270,
+        height:300,
+        background:'#fff',
+        boxShadow:' 0 2px 4px 0 rgba(0, 0, 0, 0.25)',
+        borderRadius:10,
+        marginRight:20,
+        marginBottom:20,
+        padding:0,
+        "&:hover":{
+            background:'#fff'
+        },
+        "& span":{
+            display:'flex',
+            flexDirection:'column',
+            alignItems:'center'
+        }
+    },
+    roomButton:{
+        "& span":{
+            height:'inherit',
+            alignItems:'flex-start',
+            justifyContent:'flex-start'
+        },
+        "& img":{
+            '@media all and (min-width: 1500px)': {
+                width:322,
+            },
+            width:270,
+            height:180,
+        },
+        "&:nth-child(4n+0)":{
+            marginRight:0
+        },
+    },
+    roomTextBox:{
+        '@media all and (min-width: 1500px)': {
+            height:'calc(350px - 180px)',
+        },
+        width:'100%',
+        height:'calc(300px - 180px)',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent:'space-between',
+        padding:'12px 20px 14px',
+        boxSizing:'border-box',
+    },
+    buttonIcon:{
+        width:100,
+        height:100,
+        borderRadius:'50%',
+        background:'#e1e1e1',
+        marginBottom:21,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    buttonText:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'1.125rem',
+        },
+        width:'100%',
+        fontSize:'0.938rem',
+        color:'#000',
+        fontWeight:600,
+    },
+    buttonTitle:{
+        textAlign:'left',
+        overflow: 'hidden',
+        textOverflow: 'ellipsis',
+        display: '-webkit-box',
+        WebkitLineClamp:2,
+        WebkitBoxOrient:'vertical'
+    },
+    buttonSubText:{
+        fontSize:'0.75rem',
+        color:'#828282'
+    },
+    roomBoxIn:{
+        '@media all and (min-width: 1500px)': {
+            width:1440,
+            padding:'48px 30px 55px',
+        },
+        width:1200,
+        padding:'35px 30px 55px',
+        margin:'0 auto',
+        boxSizing:'border-box',
+        position:'relative'
+    },
+    titleBox:{
+        marginBottom:21,
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'flex-end'
+    },
+    explanationBox:{
+        '@media all and (min-width: 1500px)': {
+            width:418,
+            padding:24,
+            bottom:-155,
+        },
+        width:380,
+        padding:20,
+        background:'#2078e8',
+        boxShadow:'0 2px 7px 0 rgba(0, 0, 0, 0.25)',
+        borderRadius:10,
+        position: 'absolute',
+        zIndex:100,
+        bottom:-140,
+        left:15,
+        "&::before":{
+            backgroundColor: '#2078e8',
+            content: "''",
+            display: 'block',
+            height: '13px',
+            position: 'absolute',
+            top: -7,
+            left: '35px',
+            transform: 'rotate( -45deg ) skew( 0deg )',
+            width: '13px',
+            boxShadow: '2px -2px 2px 0 rgb(178 178 178 / 20%)',
+            zIndex:200
+        }
+    },
+    stepText:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'0.875rem',
+        },
+        fontSize:'0.813rem',
+        color:'#abd0fe',
+        fontWeight:300
+    },
+    stepContents:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'1.125rem',
+        },
+        fontSize:'1rem',
+        color:'#fff',
+        margin:'14px 0 13px',
+        fontWeight:300
+    },
+    stepCheckBtn:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'0.938rem',
+        },
+        fontSize:'0.875rem',
+        padding:0,
+        background:'transparent',
+        color:'#a3a8af',
+        fontWeight:300,
+        "&:hover":{
+            background:'transparent'
+        }
+    },
+    stepBtn:{
+        width:110,
+        height:40,
+        border:'1px solid #0097ff',
+        background:'#fff',
+        borderRadius:7,
+        color:'#2078e8',
+        fontWeight:600,
+        "&:hover":{
+            background:'#fff',
+        }
+    },
+    chipBox:{
+        display:'flex',
+        flexDirection:'row',
+        marginBottom:12,
+    },
+    chip:{
+        maxWidth:90,
+        height:'21px !important',
+        backgroundColor:'#eee',
+        color:'#656565',
+        marginRight:6,
+        padding:'0px 7px',
+        fontSize: '0.75rem',
+        border:'1px solid #eee',
+        borderRadius:50,
+        boxSizing:'border-box',
+        '&:last-child':{
+            marginRight:0,
+        }
+    },
+    btnStyle:{
+        '& svg':{
+            marginRight:4,
+        },
+        '&:hover':{
+            background:'transparent'
+        }
+    }
+});
+
+const BootstrapInput = withStyles(theme => ({
+    root: {
+    },
+    input: {
+        borderRadius: 0,
+        position: 'relative',
+        backgroundColor: 'transparent',
+        border: '0',
+        fontSize:'0.75rem',
+        fontWeight:600,
+        color:'#000',
+        '&:focus': {
+            background:'transparent'
+        },
+        '&.MuiSelect-select':{
+            paddingRight:5,
+        }
+    },
+}))(InputBase);
+
+class MyRoomComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '모임 생성일순',
+            roomList: [
+                {img:RoomTestImg1, title:"영어 스터디", post: true, postText:"최근 게시물 1개", lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업"},
+                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, lastTimeText:"마지막 활동: 1분 전", chip:"특강", chip2:"수업", chip3:"수업"},
+                {img:RoomTestImg3, title:"커뮤니티 가이드", post: false, postText:"", lastTime: false, lastTimeText:"", chip:"스터디", chip2:"수업스터디스터디스터디스터디", chip3:"수업스터디수업스터디수업스터디"},
+            ],
+            dialogOpen: false,
+        };
+    }
+
+    handleChange = event => {
+        this.setState({ value: event.target.value });
+    };
+
+    handleClickRoomType = () => {
+        this.props.history.push("/roomType");
+    };
+
+    handleClickOpenDialog = () => {
+        this.setState({ dialogOpen: true });
+    };
+
+    handleCloseDialog = () => {
+        this.setState({ dialogOpen: false });
+    };
+
+    render() {
+        const { classes } = this.props;
+
+        return (
+            <div className={classes.root}>
+                <Box className={classes.roomBoxIn}>
+                    <Box className={classes.titleBox}>
+                        <Box display='flex'>
+                            <Typography className={classes.titleText}>내 모임</Typography>
+                            <Button disableRipple onClick={this.handleClickOpenDialog} className={classes.btnStyle}><AsideSettingIcon/> 숨김 목록 관리</Button>
+                            <HiddenGroupManagementDialogComponent
+                                dialogOpen={this.state.dialogOpen}
+                                handleClose={this.handleCloseDialog}
+                            />
+                        </Box>
+                        <FormControl>
+                            <Select
+                                value={this.state.value}
+                                onChange={this.handleChange}
+                                input={<BootstrapInput name="type" id="type-select" />}
+                                IconComponent={() => <ArrowDownIcon/>}
+                            >
+                                <MenuItem value={"모임 생성일순"} className={classes.menuText}>모임 생성일순</MenuItem>
+                                <MenuItem value={"최근 업데이트순"} className={classes.menuText}>최근 업데이트순</MenuItem>
+                                <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
+                            </Select>
+                        </FormControl>
+                    </Box>
+                    <Box display='flex' flexWrap='wrap'>
+                        <Box style={{position:'relative'}}>
+                            <Button className={classes.roomCreateButton} disableRipple onClick={this.handleClickRoomType.bind(this)}>
+                                <Box className={classes.buttonIcon}>
+                                    <ButtonPlusIcon/>
+                                </Box>
+                                <Typography className={classes.buttonText}>모임 만들기</Typography>
+                            </Button>
+                            <Box className={classes.explanationBox}>
+                                <Typography className={classes.stepText}>단계 1 of 4</Typography>
+                                <Typography className={classes.stepContents}>수업, 스터디 등 유형별 모임을 만들어 보세요.</Typography>
+                                <Box display='flex' justifyContent='space-between' alignItems='center' >
+                                    <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableRipple>더 이상 안보기</Button>
+                                    <Button className={classes.stepBtn} disableRipple>
+                                        다음
+                                    </Button>
+                                </Box>
+                            </Box>
+                        </Box>
+
+                        {this.state.roomList.map((rooms, i) => (
+                            <Button key={i} className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
+                                <img src={rooms.img} alt='room image'/>
+                                <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
+                                    <Box display='flex' flexDirection='column' alignItems='flex-start'>
+                                        <Box className={classes.chipBox}>
+                                            <Typography className={classes.chip} noWrap>{rooms.chip}</Typography>
+                                            <Typography className={classes.chip} noWrap>{rooms.chip2}</Typography>
+                                            <Typography className={classes.chip} noWrap>{rooms.chip3}</Typography>
+                                        </Box>
+                                        <Typography className={clsx(classes.buttonText, classes.buttonTitle)}>{rooms.title}</Typography>
+                                    </Box>
+                                    {rooms.post === true &&
+                                    <Box display='flex' alignItems='center'>
+                                        <NewPostIcon style={{marginRight:5}}/>
+                                        <Typography className={classes.buttonSubText}>{rooms.postText}</Typography>
+                                    </Box>
+                                    }
+                                    {rooms.lastTime === true &&
+                                    <Typography className={classes.buttonSubText}>{rooms.lastTimeText}</Typography>
+                                    }
+                                </Box>
+                            </Button>
+                        ))}
+                    </Box>
+
+                </Box>
+            </div>
+        );
+    }
+}
+
+export default withRouter(withStyles(styles)(MyRoomComponent));
