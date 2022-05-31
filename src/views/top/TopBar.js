@@ -13,7 +13,7 @@ import {
     MenuList,
     MenuItem, Select, FormControl
 } from "@material-ui/core";
-import {ReactComponent as OntheliveLogo} from "../../common/images/OntheliveLogo.svg";
+import {ReactComponent as OntheliveLogo} from "../../common/images/ItLogo.svg";
 import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";
 import {ReactComponent as CircleWavyQuestionIcon} from "../../common/images/CircleWavyQuestionIcon.svg";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
@@ -38,7 +38,7 @@ const styles = theme => ({
         display:'flex',
         alignItems:'center',
         justifyContent:'space-between',
-        padding:'20px 30px',
+        padding:'24px 32px',
         boxSizing:'border-box'
     },
     iconButton:{

@@ -324,7 +324,7 @@ class ReferenceRoomComponent extends Component {
                                             anchorEl={anchorEl}
                                             open={Boolean(anchorEl)}
                                             onClose={this.handleClose}
-                                            className={classes.menuBox}
+                                            className={classes.menuBox }
                                             anchorOrigin={{
                                                 vertical: 'top',
                                                 horizontal: 'right',
