@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, InputBase, Select, Typography} from "@material-ui/core";
-import {ReactComponent as OntheliveLogo} from "../../common/images/OntheliveLogo.svg";
+import {ReactComponent as OntheliveLogo} from "../../common/images/ItLogo.svg";
 import {ReactComponent as SelectArrow} from "../../common/images/SelectArrow.svg";
 import {Link, withRouter} from "react-router-dom";
 
@@ -9,7 +9,7 @@ const styles = theme => ({
     root:{
         display:'flex',
         justifyContent:'center',
-        background:'#f5f5f5',
+        background:'#fff'
     },
     appBar:{
         '@media all and (min-width: 1500px)': {
@@ -19,8 +19,13 @@ const styles = theme => ({
         display:'flex',
         alignItems:'center',
         justifyContent:'space-between',
-        padding:'13px 40px',
+        padding:'24px 32px',
         boxSizing:'border-box'
+    },
+    topBarRight:{
+        '& button':{
+            marginLeft: '2.5rem'
+        }
     },
     selectBox: {
         width: '100%',
@@ -35,6 +40,14 @@ const styles = theme => ({
         fontWeight:'bold',
         fontSize:'1rem',
         padding:0,
+        "&:hover":{
+            background: 'transparent',
+        }
+    },
+    btnOutlineStyle:{
+        border: '1px solid #bfbfbf',
+        fontSize:'0.938rem',
+        color:'#303030',
         "&:hover":{
             background: 'transparent',
         }
@@ -88,19 +101,21 @@ class HomeTopBar extends Component {
                     <Link to="/">
                         <OntheliveLogo/>
                     </Link>
-                    <Box display='flex' alignItems='center'>
-                        <Select
-                            native
-                            value={this.state.language}
-                            onChange={(e) => this.handleLanguageSelect(e)}
-                            className={classes.selectBox}
-                            input={<BootstrapInput/>}
-                            IconComponent={() => <SelectArrow />}
-                        >
-                            <option value='Korean'>한국어</option>
-                            <option value='English'>영어</option>
-                        </Select>
+                    <Box display='flex' alignItems='center' className={classes.topBarRight}>
+                        {/*<Select*/}
+                        {/*    native*/}
+                        {/*    value={this.state.language}*/}
+                        {/*    onChange={(e) => this.handleLanguageSelect(e)}*/}
+                        {/*    className={classes.selectBox}*/}
+                        {/*    input={<BootstrapInput/>}*/}
+                        {/*    IconComponent={() => <SelectArrow />}*/}
+                        {/*>*/}
+                        {/*    <option value='Korean'>한국어</option>*/}
+                        {/*    <option value='English'>영어</option>*/}
+                        {/*</Select>*/}
                         <Button className={classes.buttonStyle} disableRipple onClick={this.handleClickLogin}>로그인</Button>
+                        <Button className={classes.buttonStyle} disableRipple>회원가입</Button>
+                        <Button className={classes.btnOutlineStyle} disableRipple>기업 서비스</Button>
                     </Box>
                 </Box>
 
