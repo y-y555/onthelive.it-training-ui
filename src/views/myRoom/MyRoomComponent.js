@@ -465,8 +465,8 @@ class MyRoomComponent extends Component {
             selectValue: '전체',
             value: '강의 생성일순',
             roomList: [
-                {img:RoomTestImg1, title:"영어 스터디", post: true, lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업"},
-                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, chip:"특강", chip2:"수업", chip3:"수업"},
+                {img:RoomTestImg1, title:"영어 스터디", post: true, lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업", live: true, vod:true, student: '24', like: '7'},
+                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, chip:"특강", chip2:"수업", chip3:"수업",live: false, vod:false, student: '5', like: '3'},
             ],
             dialogOpen: false,
         };
@@ -481,7 +481,7 @@ class MyRoomComponent extends Component {
     };
 
     handleClickRoomType = () => {
-        this.props.history.push("/roomType");
+        this.props.history.push("/roomCreate");
     };
 
     handleClickOpenDialog = () => {
@@ -498,6 +498,10 @@ class MyRoomComponent extends Component {
 
     handleChangeTabs = (event, classTab) => {
         this.setState({ classTab });
+    };
+
+    handleClickClass = e => {
+        this.props.history.push("/class");
     };
 
     render() {
@@ -583,30 +587,34 @@ class MyRoomComponent extends Component {
 
                         {this.state.classTab === 0 &&
                             this.state.roomList.map((rooms, i) => (
-                                <Button key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
+                                <Box key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
                                         disableRipple>
                                     <Box className={classes.imgBox}>
                                         <img src={rooms.img} alt='room image'/>
                                         <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10}}>
-                                            <Box className={classes.liveBox}>
-                                                <LiveIcon/>
-                                                <Typography>LIVE</Typography>
-                                            </Box>
-                                            <Box className={clsx(classes.liveBox, classes.vodBox)}>
-                                                <VodIcon/>
-                                                <Typography>VOD</Typography>
-                                            </Box>
+                                            {rooms.live === true &&
+                                                <Box className={classes.liveBox}>
+                                                    <LiveIcon/>
+                                                    <Typography>LIVE</Typography>
+                                                </Box>
+                                            }
+                                            {rooms.vod === true &&
+                                                <Box className={clsx(classes.liveBox, classes.vodBox)}>
+                                                    <VodIcon/>
+                                                    <Typography>VOD</Typography>
+                                                </Box>
+                                            }
                                         </Box>
                                         <Box display='flex' alignItems='center' style={{position:'absolute', bottom: 10, left: 10}}>
                                             <Box className={classes.likeBox}>
-                                                <Box>
+                                                <Box display='flex' flexDirection='column' alignItems='center'>
                                                     <Typography className={classes.likeBoxTitle}>수강생</Typography>
-                                                    <Typography className={classes.likeBoxNumber}>24</Typography>
+                                                    <Typography className={classes.likeBoxNumber}>{rooms.student}</Typography>
                                                 </Box>
                                                 <Box className={classes.lineStyle}></Box>
-                                                <Box>
+                                                <Box display='flex' flexDirection='column' alignItems='center'>
                                                     <Typography className={classes.likeBoxTitle}>좋아요</Typography>
-                                                    <Typography className={classes.likeBoxNumber}>7</Typography>
+                                                    <Typography className={classes.likeBoxNumber}>{rooms.like}</Typography>
                                                 </Box>
                                             </Box>
                                         </Box>
@@ -627,12 +635,12 @@ class MyRoomComponent extends Component {
                                             <Button className={classes.buttonStyle} disableRipple>
                                                 수강생 현황
                                             </Button>
-                                            <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} disableRipple>
+                                            <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} onClick={this.handleClickClass} disableRipple>
                                                 강의실 입장
                                             </Button>
                                         </Box>
                                     </Box>
-                                </Button>
+                                </Box>
                             ))
                         }
                         <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>

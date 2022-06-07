@@ -79,7 +79,7 @@ const styles = theme => ({
             width:'154px',
             height:'59px',
             background:'rgba(0, 151, 255, 0.5)',
-            border:'3px solid #0097ff',
+            border:'3px solid #1a457e',
             borderRadius:10,
             content:"''",
             backgroundImage:`url(${GalleryCheckCircleIcon})`,

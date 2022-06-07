@@ -58,7 +58,7 @@ const styles = theme => ({
         }
     },
     search: {
-        width:500,
+        width:365,
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
@@ -66,6 +66,7 @@ const styles = theme => ({
         border:'2px solid #e1e1e1',
         padding:'3px 6px 3px 22px',
         borderRadius:50,
+        marginLeft: 41,
         "& .MuiInputBase-input::placeholder":{
             opacity:1,
             fontSize:'1.125rem',
@@ -107,12 +108,15 @@ const styles = theme => ({
     avatar:{
         width:40,
         height:40,
-        background:'#0097ff'
+        background:'#568cf0'
     },
     iconColor:{
         "& .question-icon":{
             fill:'#0097ff'
-        }
+        },
+        '& .bellringing-icon': {
+            fill: '#0097ff',
+        },
     },
     avatarMember:{
         width:60,
@@ -267,10 +271,6 @@ class TopBar extends Component {
         this.setState({ notificationOpen: false });
     };
 
-    handleClickServiceCenter = e => {
-        this.props.history.push("/serviceCenter");
-    };
-
     handleClickProfileSettings = e => {
         this.props.history.push("/profileSettings");
         this.setState({
@@ -290,36 +290,50 @@ class TopBar extends Component {
         });
     };
 
+    handleClickServiceCenter = e => {
+        this.props.history.push("/serviceCenter");
+    };
+
+
     render() {
         const { classes } = this.props;
         const { anchorEl, notificationOpen } = this.state;
         const open = Boolean(anchorEl);
+        const bellIconClassName = notificationOpen ? classes.iconColor : null;
 
         return (
             <div className={classes.root} >
                 <Box className={classes.appBar}>
-                    <Link to="/rooms">
-                        <OntheliveLogo/>
-                    </Link>
-                    <Box className={classes.search}>
-                        <InputBase
-                            placeholder='모임, 일정 검색을 검색해보세요.'
-                            className={classes.inputRoot}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                        <IconButton className={classes.searchIcon} disableRipple>
-                            <SearchIcon />
-                        </IconButton>
+                    <Box display='flex' alignItems='center'>
+                        <Link to="/rooms">
+                            <OntheliveLogo/>
+                        </Link>
+                        <Box className={classes.search}>
+                            <InputBase
+                                placeholder='모임, 일정 검색을 검색해보세요.'
+                                className={classes.inputRoot}
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                            <IconButton className={classes.searchIcon} disableRipple>
+                                <SearchIcon />
+                            </IconButton>
+                        </Box>
                     </Box>
                     <Box display='flex' alignItems='center'>
                         <Button className={classes.buttonStyle} disableRipple>
-                            내 학습
+                            강의 관리
                         </Button>
 
                         <span className={classes.lineStyle}/>
 
                         <Box className={classes.badgeBox}>
-                            <IconButton className={classes.iconButton} onClick={this.handleNotificationOpen} disableRipple><BellRingingIcon/></IconButton>
+                            <IconButton
+                                className={classes.iconButton}
+                                onClick={this.handleNotificationOpen}
+                                disableRipple
+                            >
+                                <BellRingingIcon className={clsx(bellIconClassName)}/>
+                            </IconButton>
                             <BedgeNewIcon className={classes.badge}/>
                         </Box>
                         
