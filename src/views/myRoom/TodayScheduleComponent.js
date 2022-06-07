@@ -183,14 +183,14 @@ class TodayScheduleComponent extends Component {
             <div className={classes.root}>
                 <Box className={classes.scheduleBox}>
                     <Box display='flex' alignItems='center' className={classes.titleBox}>
-                        <Typography className={classes.titleText}>오늘 일정 피드</Typography>
+                        <Typography className={classes.titleText}>오늘 강의 일정</Typography>
                         <Typography className={classes.dateText}>2021년 12월 06일 (월)</Typography>
                     </Box>
 
                     <Box>
                         {this.state.schedule === false ?
                             <Box className={classes.noScheduleBox}>
-                                <Typography className={classes.textStyle}>등록된 일정이 없습니다.</Typography>
+                                <Typography className={classes.textStyle}>오늘 강의가 없습니다.</Typography>
                             </Box>
                             :
                             <Box display='flex' alignItems='center' flexWrap='wrap' className={classes.scheduleBoxIn}>

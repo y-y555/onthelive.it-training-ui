@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import MyRoomComponent from "./MyRoomComponent";
 import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
+import MyRoomTopComponent from "./MyRoomTopComponent";
 
 const styles = theme => ({
     root:{
@@ -25,6 +26,7 @@ class Rooms extends Component {
 
         return (
             <div className={classes.root}>
+                <MyRoomTopComponent/>
                 <MyRoomComponent/>
                 <TodayScheduleComponent/>
             </div>

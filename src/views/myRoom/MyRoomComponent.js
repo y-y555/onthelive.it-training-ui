@@ -1,7 +1,21 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Button, MenuItem, Select, FormControl, InputBase, IconButton, Dialog,DialogTitle,DialogContent,DialogActions} from "@material-ui/core";
+import {
+    Box,
+    Typography,
+    Button,
+    MenuItem,
+    Select,
+    FormControl,
+    InputBase,
+    IconButton,
+    Dialog,
+    DialogTitle,
+    DialogContent,
+    DialogActions,
+    Tab, Tabs
+} from "@material-ui/core";
 import {ReactComponent as ButtonPlusIcon} from "../../common/images/ButtonPlusIcon.svg";
 import {ReactComponent as NewPostIcon} from "../../common/images/NewPostIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
@@ -13,10 +27,16 @@ import RoomTestImg3 from "../../common/images/RoomTestImg3.png";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import HiddenGroupManagementDialogComponent from "../dialog/HiddenGroupManagementDialogComponent";
+import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
+import {ReactComponent as CalendarBlank2} from "../../common/images/CalendarBlank2.svg";
+import {ReactComponent as LiveIcon} from "../../common/images/LiveIcon.svg";
+import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
+import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
+import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 
 const styles = theme => ({
     root:{
-        background:'#f3f3f3',
+        background:'#fffdf6',
     },
     titleText:{
         '@media all and (min-width: 1500px)': {
@@ -47,6 +67,12 @@ const styles = theme => ({
             background:'#d3d7db'
         }
     },
+    iconButton:{
+        padding: 0,
+        '&:hover':{
+            background:'transparent'
+        }
+    },
     roomCreateButton:{
         '@media all and (min-width: 1500px)': {
             width:322,
@@ -55,7 +81,7 @@ const styles = theme => ({
             marginBottom:30,
         },
         width:270,
-        height:300,
+        height:340,
         background:'#fff',
         boxShadow:' 0 2px 4px 0 rgba(0, 0, 0, 0.25)',
         borderRadius:10,
@@ -88,12 +114,61 @@ const styles = theme => ({
             marginRight:0
         },
     },
+    imgBox:{
+        '@media all and (min-width: 1500px)': {
+            width:322,
+        },
+        position:'relative',
+        width:270,
+        height:180,
+    },
+    liveBox:{
+        width: 66,
+        background: '#fb4a59',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems:'center',
+        '& p':{
+            color:'#fff',
+            fontSize:'1.125rem',
+            fontWeight: 500,
+            marginLeft: 5,
+            paddingTop: 3
+        }
+    },
+    vodBox:{
+        background:'#000',
+        marginLeft:5
+    },
+    likeBox:{
+        padding: '6px 7px',
+        boxSizing:'border-box',
+        borderRadius: 5,
+        background:'#fff',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    likeBoxTitle:{
+        fontSize: '0.75rem',
+        color:'#333'
+    },
+    likeBoxNumber:{
+        fontSize: '0.75rem',
+        color:'#fb4a59'
+    },
+    lineStyle:{
+        width: 1,
+        height: 28,
+        background:'#c0c2c3',
+        margin: '0 8px'
+    },
     roomTextBox:{
         '@media all and (min-width: 1500px)': {
             height:'calc(350px - 180px)',
         },
         width:'100%',
-        height:'calc(300px - 180px)',
+        height:'calc(340px - 180px)',
         display:'flex',
         flexDirection:'column',
         justifyContent:'space-between',
@@ -111,25 +186,56 @@ const styles = theme => ({
         alignItems:'center'
     },
     buttonText:{
-        '@media all and (min-width: 1500px)': {
-            fontSize:'1.125rem',
-        },
         width:'100%',
-        fontSize:'0.938rem',
+        fontSize:'1.5rem',
         color:'#000',
         fontWeight:600,
     },
     buttonTitle:{
+        '@media all and (min-width: 1500px)': {
+            fontSize:'1.125rem',
+        },
+        fontSize:'0.938rem',
         textAlign:'left',
         overflow: 'hidden',
         textOverflow: 'ellipsis',
         display: '-webkit-box',
         WebkitLineClamp:2,
-        WebkitBoxOrient:'vertical'
+        WebkitBoxOrient:'vertical',
+        marginTop: 0
+    },
+    guideText:{
+        marginTop: 10
     },
     buttonSubText:{
         fontSize:'0.75rem',
         color:'#828282'
+    },
+    buttonStyle:{
+        width: 110,
+        height: 40,
+        border:'1px solid #a3a8af',
+        background:'#fff',
+        borderRadius: 7,
+        boxSizing:'border-box',
+        '&:hover':{
+            background:'#fff'
+        },
+        '& span':{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontWeight:600,
+            fontSize:'1rem',
+            color:'#333',
+        }
+    },
+    buttonStyle2:{
+        border:'1px solid #1a457e',
+        marginLeft: 20,
+        '& span':{
+            color:'#1a457e',
+        }
     },
     roomBoxIn:{
         '@media all and (min-width: 1500px)': {
@@ -246,7 +352,61 @@ const styles = theme => ({
         '&:hover':{
             background:'transparent'
         }
-    }
+    },
+    checkBoxStyle:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        color: '#a9adb4',
+        fontSize:'0.875rem',
+        cursor:'pointer',
+        marginRight: 43,
+        '& svg':{
+            width:20,
+            height:20,
+            marginRight:4,
+        }
+    },
+    checkBoxStyleOn:{
+        color:'#0097FF',
+    },
+    trigger:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        margin: '0 0 auto',
+        '& button':{
+            minWidth:90,
+            minHeight:40,
+            position:'relative',
+            opacity:1,
+            marginRight:10,
+            '&:hover':{
+                fontWeight: 700,
+            }
+        },
+        '& button.Mui-selected':{
+            minWidth:90,
+            minHeight:40,
+            backgroundColor:'#fff',
+            color:'#18427c',
+            fontWeight:700,
+            borderRadius:50,
+            overflow:'inherit',
+            border: '2px solid #18427c',
+            boxSizing:'border-box'
+        },
+        '& .MuiTabs-indicator':{
+            display:'none',
+            width:0,
+        }
+    },
+    iconStyle:{
+        position:'absolute',
+        right:'-2px',
+        top:'-2px',
+        zIndex:10,
+    },
 });
 
 const BootstrapInput = withStyles(theme => ({
@@ -269,15 +429,44 @@ const BootstrapInput = withStyles(theme => ({
     },
 }))(InputBase);
 
+const BootstrapInputSelect = withStyles(theme => ({
+    root: {
+        borderRadius: 4,
+        height: 30,
+        background:'#fff',
+        border: '1px solid #bfbfbf',
+        paddingRight: 10,
+        paddingLeft: 10,
+        marginRight: 12,
+        boxSizing: 'border-box'
+    },
+    input: {
+        position: 'relative',
+        backgroundColor: 'transparent',
+        fontSize:'0.75rem',
+        fontWeight:500,
+        color:'#000',
+        minWidth: 25,
+        '&:focus': {
+            backgroundColor: 'transparent',
+        },
+        '&.MuiSelect-select':{
+            paddingRight:5,
+        }
+    },
+}))(InputBase);
+
 class MyRoomComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '모임 생성일순',
+            checkBox:true,
+            classTab: 0,
+            selectValue: '전체',
+            value: '강의 생성일순',
             roomList: [
-                {img:RoomTestImg1, title:"영어 스터디", post: true, postText:"최근 게시물 1개", lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업"},
-                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, lastTimeText:"마지막 활동: 1분 전", chip:"특강", chip2:"수업", chip3:"수업"},
-                {img:RoomTestImg3, title:"커뮤니티 가이드", post: false, postText:"", lastTime: false, lastTimeText:"", chip:"스터디", chip2:"수업스터디스터디스터디스터디", chip3:"수업스터디수업스터디수업스터디"},
+                {img:RoomTestImg1, title:"영어 스터디", post: true, lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업"},
+                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, chip:"특강", chip2:"수업", chip3:"수업"},
             ],
             dialogOpen: false,
         };
@@ -285,6 +474,10 @@ class MyRoomComponent extends Component {
 
     handleChange = event => {
         this.setState({ value: event.target.value });
+    };
+
+    handleSelectChange = event => {
+        this.setState({ selectValue: event.target.value });
     };
 
     handleClickRoomType = () => {
@@ -299,20 +492,61 @@ class MyRoomComponent extends Component {
         this.setState({ dialogOpen: false });
     };
 
+    handleChangeCheckBox= () => {
+        this.setState({ checkBox: !this.state.checkBox });
+    };
+
+    handleChangeTabs = (event, classTab) => {
+        this.setState({ classTab });
+    };
+
     render() {
         const { classes } = this.props;
+        const { classTab } = this.state;
 
         return (
             <div className={classes.root}>
+
+
                 <Box className={classes.roomBoxIn}>
-                    <Box className={classes.titleBox}>
-                        <Box display='flex'>
-                            <Typography className={classes.titleText}>내 모임</Typography>
-                            <Button disableRipple onClick={this.handleClickOpenDialog} className={classes.btnStyle}><AsideSettingIcon/> 숨김 목록 관리</Button>
-                            <HiddenGroupManagementDialogComponent
-                                dialogOpen={this.state.dialogOpen}
-                                handleClose={this.handleCloseDialog}
+                    <Box display='flex' justifyContent='space-between'>
+                        <Tabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
+                            <Tab label="전체 (15)"
+                                 disableRipple
+                                 icon={<BedgeNewIcon className={classes.iconStyle} />}
                             />
+                            <Tab label="진행중 (5)"
+                                 disableRipple
+                                 icon={<BedgeNewIcon className={classes.iconStyle} />}
+                            />
+                            <Tab label="종료 (10)" disableRipple />
+                        </Tabs>
+                        <Box display='flex' alignItems='center'>
+                            <FormControl>
+                                <Select
+                                    value={this.state.selectValue}
+                                    onChange={this.handleSelectChange}
+                                    input={<BootstrapInputSelect name="type" id="type-select" />}
+                                    IconComponent={() => <ArrowDownIcon/>}
+                                >
+                                    <MenuItem value={"전체"} className={classes.menuText}>전체</MenuItem>
+                                    <MenuItem value={"최근 업데이트순"} className={classes.menuText}>최근 업데이트순</MenuItem>
+                                </Select>
+                            </FormControl>
+                            <IconButton className={classes.iconButton} disableRipple>
+                                <CalendarBlank2/>
+                            </IconButton>
+
+                        </Box>
+                    </Box>
+
+                    <Box display='flex' justifyContent='flex-end' alignItems='center' mb={3}>
+                        <Box onClick={this.handleChangeCheckBox} className={this.state.checkBox ? classes.checkBoxStyle : clsx(classes.checkBoxStyle,classes.checkBoxStyleOn) }>
+                            {this.state.checkBox ?
+                                <CheckCircleAgreeOffIcon/> :
+                                <CheckCircleAgreeOnIcon/>
+                            }
+                            예정된 강의만
                         </Box>
                         <FormControl>
                             <Select
@@ -321,7 +555,7 @@ class MyRoomComponent extends Component {
                                 input={<BootstrapInput name="type" id="type-select" />}
                                 IconComponent={() => <ArrowDownIcon/>}
                             >
-                                <MenuItem value={"모임 생성일순"} className={classes.menuText}>모임 생성일순</MenuItem>
+                                <MenuItem value={"강의 생성일순"} className={classes.menuText}>강의 생성일순</MenuItem>
                                 <MenuItem value={"최근 업데이트순"} className={classes.menuText}>최근 업데이트순</MenuItem>
                                 <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
                             </Select>
@@ -333,44 +567,82 @@ class MyRoomComponent extends Component {
                                 <Box className={classes.buttonIcon}>
                                     <ButtonPlusIcon/>
                                 </Box>
-                                <Typography className={classes.buttonText}>모임 만들기</Typography>
+                                <Typography className={classes.buttonText}>강의실 만들기</Typography>
                             </Button>
-                            <Box className={classes.explanationBox}>
-                                <Typography className={classes.stepText}>단계 1 of 4</Typography>
-                                <Typography className={classes.stepContents}>수업, 스터디 등 유형별 모임을 만들어 보세요.</Typography>
-                                <Box display='flex' justifyContent='space-between' alignItems='center' >
-                                    <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableRipple>더 이상 안보기</Button>
-                                    <Button className={classes.stepBtn} disableRipple>
-                                        다음
-                                    </Button>
-                                </Box>
-                            </Box>
+                            {/*<Box className={classes.explanationBox}>*/}
+                            {/*    <Typography className={classes.stepText}>단계 1 of 4</Typography>*/}
+                            {/*    <Typography className={classes.stepContents}>수업, 스터디 등 유형별 모임을 만들어 보세요.</Typography>*/}
+                            {/*    <Box display='flex' justifyContent='space-between' alignItems='center' >*/}
+                            {/*        <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableRipple>더 이상 안보기</Button>*/}
+                            {/*        <Button className={classes.stepBtn} disableRipple>*/}
+                            {/*            다음*/}
+                            {/*        </Button>*/}
+                            {/*    </Box>*/}
+                            {/*</Box>*/}
                         </Box>
 
-                        {this.state.roomList.map((rooms, i) => (
-                            <Button key={i} className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
-                                <img src={rooms.img} alt='room image'/>
-                                <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
-                                    <Box display='flex' flexDirection='column' alignItems='flex-start'>
-                                        <Box className={classes.chipBox}>
-                                            <Typography className={classes.chip} noWrap>{rooms.chip}</Typography>
-                                            <Typography className={classes.chip} noWrap>{rooms.chip2}</Typography>
-                                            <Typography className={classes.chip} noWrap>{rooms.chip3}</Typography>
+                        {this.state.classTab === 0 &&
+                            this.state.roomList.map((rooms, i) => (
+                                <Button key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
+                                        disableRipple>
+                                    <Box className={classes.imgBox}>
+                                        <img src={rooms.img} alt='room image'/>
+                                        <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10}}>
+                                            <Box className={classes.liveBox}>
+                                                <LiveIcon/>
+                                                <Typography>LIVE</Typography>
+                                            </Box>
+                                            <Box className={clsx(classes.liveBox, classes.vodBox)}>
+                                                <VodIcon/>
+                                                <Typography>VOD</Typography>
+                                            </Box>
                                         </Box>
-                                        <Typography className={clsx(classes.buttonText, classes.buttonTitle)}>{rooms.title}</Typography>
+                                        <Box display='flex' alignItems='center' style={{position:'absolute', bottom: 10, left: 10}}>
+                                            <Box className={classes.likeBox}>
+                                                <Box>
+                                                    <Typography className={classes.likeBoxTitle}>수강생</Typography>
+                                                    <Typography className={classes.likeBoxNumber}>24</Typography>
+                                                </Box>
+                                                <Box className={classes.lineStyle}></Box>
+                                                <Box>
+                                                    <Typography className={classes.likeBoxTitle}>좋아요</Typography>
+                                                    <Typography className={classes.likeBoxNumber}>7</Typography>
+                                                </Box>
+                                            </Box>
+                                        </Box>
                                     </Box>
-                                    {rooms.post === true &&
-                                    <Box display='flex' alignItems='center'>
-                                        <NewPostIcon style={{marginRight:5}}/>
-                                        <Typography className={classes.buttonSubText}>{rooms.postText}</Typography>
+
+                                    <Box display='flex' flexDirection='column' alignItems='flex-start'
+                                         className={classes.roomTextBox}>
+                                        <Box display='flex' flexDirection='column' alignItems='flex-start'>
+                                            <Box className={classes.chipBox}>
+                                                <Typography className={classes.chip} noWrap>{rooms.chip}</Typography>
+                                                <Typography className={classes.chip} noWrap>{rooms.chip2}</Typography>
+                                                <Typography className={classes.chip} noWrap>{rooms.chip3}</Typography>
+                                            </Box>
+                                            <Typography
+                                                className={clsx(classes.buttonText, classes.buttonTitle)}>{rooms.title}</Typography>
+                                        </Box>
+                                        <Box display='flex' justifyContent='center' alignItems='center' style={{width: '100%'}}>
+                                            <Button className={classes.buttonStyle} disableRipple>
+                                                수강생 현황
+                                            </Button>
+                                            <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} disableRipple>
+                                                강의실 입장
+                                            </Button>
+                                        </Box>
                                     </Box>
-                                    }
-                                    {rooms.lastTime === true &&
-                                    <Typography className={classes.buttonSubText}>{rooms.lastTimeText}</Typography>
-                                    }
+                                </Button>
+                            ))
+                        }
+                        <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
+                            <img src={RoomTestImg3} alt='room image'/>
+                            <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
+                                <Box display='flex' flexDirection='column' alignItems='flex-start'>
+                                    <Typography className={clsx(classes.buttonText, classes.guideText)}>강사 가이드</Typography>
                                 </Box>
-                            </Button>
-                        ))}
+                            </Box>
+                        </Button>
                     </Box>
 
                 </Box>
