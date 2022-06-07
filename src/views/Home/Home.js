@@ -5,6 +5,8 @@ import MainImage from '../../common/images/SplashImg01.jpg';
 import {ReactComponent as CaretRightIcon} from '../../common/images/CaretRightIcon.svg';
 import HomeCarouselComponent from "./HomeCarouselComponent";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
+import {ReactComponent as ThreeStarIcon} from "../../common/images/ThreeStarIcon.svg";
+import clsx from "clsx";
 
 const styles = theme => ({
     root:{
@@ -60,7 +62,7 @@ const styles = theme => ({
             paddingRight:27,
             cursor:'pointer',
             position:'relative',
-            '& svg':{
+            '& > svg':{
                 position: 'absolute',
                 right:0,
                 top:'50%',
@@ -110,6 +112,22 @@ const styles = theme => ({
         letterSpacing:'-0.3px',
         backgroundColor:'#eee',
         margin:'0 10px 18px 10px',
+    },
+    tag:{
+        display:'inline-flex',
+        alignItems:'center',
+        justifyContent:'center',
+        borderRadius: 3,
+        border:'1px solid #000',
+        backgroundColor:'#ff7144',
+        padding:7,
+        marginRight:12,
+        height:16,
+    },
+    tagNewbie:{
+        fontSize:'0.813rem',
+        fontWeight:400,
+        backgroundColor:'#ffc144',
     },
 });
 
@@ -168,8 +186,19 @@ class TopBar extends Component {
                         <Chip label="1학기" className={classes.chip} />
                         <Chip label="300분" className={classes.chip} />
                     </Box>
-                    <Box className={classes.sliderBox} style={{margin:'90px 0'}}>
+                    <Box className={classes.sliderBox} style={{marginTop:90}}>
                         <Link variant={"h3"}>처음이라면, 오픈 강의부터 훑어보세요! <CaretRightIcon/></Link>
+                        <HomeCarouselComponent/>
+                    </Box>
+                    <Box className={classes.sliderBox} style={{marginTop:80}}>
+                        <Link variant={"h3"}>
+                            <span className={clsx(classes.tag, classes.tagNewbie)}>NEWBIE</span>
+                            초보자를 위한 입문 강의<CaretRightIcon/></Link>
+                        <HomeCarouselComponent/>
+                    </Box>
+                    <Box className={classes.sliderBox} style={{marginTop:80}}>
+                        <Link variant={"h3"}>
+                            <span className={classes.tag}><ThreeStarIcon/></span>전문가를 위한 심화 강의<CaretRightIcon/></Link>
                         <HomeCarouselComponent/>
                     </Box>
                 </Box>

@@ -7,7 +7,7 @@ import {ReactComponent as ArrowRightIcon} from '../../common/images/CaretRightIc
 import {ReactComponent as ArrowLeftIcon} from '../../common/images/ArrowIcon.svg';
 import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon.svg';
 import {ReactComponent as DotIcon} from '../../common/images/DotIcon.svg';
-// import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
+import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
 import {Typography} from "@material-ui/core";
 
 const styles = theme => ({
@@ -117,6 +117,14 @@ const slides = [
     createData('디지털 포렌식 전문가 2급 자격 대비반', '상시', '실습', false),
     createData('최신 해킹사례 및 분석', '1학기', 'LIVE', false),
     createData('최신 해킹사례 및 분석', '1학기', 'VOD', false),
+    {
+        'chip':[
+          "22년 1기 1반"  ,
+            "상시",
+            "1학기",
+            "2학기"
+        ],
+    }
 ];
 
 class HomeCarouselComponent extends Component {
@@ -143,7 +151,8 @@ class HomeCarouselComponent extends Component {
                                         <DotIcon style={{width:10, height:10, marginRight:2}}/> LIVE</span>
                                     :
                                     (slide.tag === "VOD") ?
-                                        <span className={classes.tag} style={{backgroundColor:'#000'}}>VOD</span>
+                                        <span className={classes.tag} style={{backgroundColor:'#000'}}>
+                                            <PlayIcon style={{width:10, height:10, marginRight:2}}/> VOD</span>
                                         :
                                         null
                             }
@@ -151,9 +160,9 @@ class HomeCarouselComponent extends Component {
                         </div>
                         <Box className={classes.carouselContent}>
                             <Chip label={slide.chip} className={classes.chip} />
-                            <Chip label="상시" className={classes.chip} />
-                            <Chip label="1학기" className={classes.chip} />
-                            <Chip label="300분" className={classes.chip} />
+                            {/*<Chip label="상시" className={classes.chip} />*/}
+                            {/*<Chip label="1학기" className={classes.chip} />*/}
+                            {/*<Chip label="300분" className={classes.chip} />*/}
                             <Typography variant={'h5'}>{slide.className}</Typography>
                             {slide.fileName === false ?
                                 <Button className={classes.enterBtn}>강의실 입장</Button>
