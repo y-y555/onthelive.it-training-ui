@@ -1,38 +1,63 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Typography, Link, InputBase, IconButton, Chip} from "@material-ui/core";
-import MainImage from '../../common/images/SplashImg01.jpg';
+import SplashImg01 from '../../common/images/SplashImg01.jpg';
+import SplashImg02 from '../../common/images/SplashImg02.jpg';
 import {ReactComponent as CaretRightIcon} from '../../common/images/CaretRightIcon.svg';
 import HomeCarouselComponent from "./HomeCarouselComponent";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 import {ReactComponent as ThreeStarIcon} from "../../common/images/ThreeStarIcon.svg";
+import 'pure-react-carousel/dist/react-carousel.es.css';
+import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot} from 'pure-react-carousel';
 import clsx from "clsx";
 
 const styles = theme => ({
     root:{
     },
     splashBox:{
-        backgroundImage: `url(${MainImage})`,
-        backgroundRepeat: 'no-repeat',
-        backgroundSize:'cover',
-        backgroundPosition:'center center',
-        width:'100%',
         position:'relative',
-        display: 'flex',
-        alignItems:'center',
-        justifyContent: 'center',
+        '& .carousel__dot-group':{
+            position:'absolute',
+            right:72,
+            bottom:36,
+            display:'flex',
+            alignItems:'center',
+            justifyContent:'flex-end',
+            '& button':{
+                width:44,
+                height:9,
+                border:'0 none',
+                backgroundColor:'#fff',
+                borderRadius:0,
+                marginRight: 8,
+            },
+            '& button.carousel__dot--selected':{
+                backgroundColor:'#1664f5'
+            }
+        }
     },
     titleBox:{
-        '@media all and (min-width: 1500px)': {
-            width:1440,
-        },
-        width:1200,
-        boxSizing:'border-box',
-        display : 'flex',
-        justifyContent : 'flex-start',
-        paddingTop:'15%',
-        paddingLeft:32,
-        paddingBottom:'9%',
+        width:'100vw',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: '0 center',
+        '& > div': {
+            '@media all and (min-width: 1500px)': {
+                width: '1440px!important',
+            },
+            width: '1200px!important',
+            boxSizing: 'border-box',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'flex-start',
+            paddingTop: '0!important',
+            paddingLeft: 32,
+            // paddingBottom:'9%',
+            height: 544,
+            position: 'relative',
+            flexDirection:'column',
+            margin:'0 auto',
+        }
     },
     titleText:{
         fontSize:'2.875rem',
@@ -49,7 +74,7 @@ const styles = theme => ({
         display:'flex',
         flexDirection:'column',
         alignItems:'center',
-        justifyContent:'center'
+        justifyContent:'center',
     },
     sliderBox:{
         // padding:'0 32px',
@@ -100,22 +125,51 @@ const styles = theme => ({
             padding:'6px 7px 4px'
         }
     },
-    chipGroup:{
-        width:860,
+    chipBox:{
+        '@media all and (min-width: 1500px)': {
+            width:840,
+        },
+        width:640,
         display:'flex',
         flexWrap:'wrap',
         justifyContent:'center',
+        '& > div':{
+            height:25,
+            backgroundColor:'#eee',
+            color:'#000',
+            letterSpacing:'-0.3px',
+            margin:'0 10px 18px 10px',
+            fontSize: '0.938rem',
+            cursor:'pointer',
+            '&:hover':{
+                border:'1px solid #dbf0ff',
+                backgroundColor:'#dbf0ff!important',
+                color:'#0097ff!important',
+                fontWeight:600,
+            },
+            "&:focus":{
+                border:'1px solid #eee',
+                backgroundColor:'#eee',
+                color:'#656565',
+            }
+        },
+        "& .MuiChip-label":{
+            paddingLeft:10,
+            paddingRight:10
+        }
     },
-    chip:{
-        fontSize:'0.938rem',
-        color:'#000',
-        letterSpacing:'-0.3px',
-        backgroundColor:'#eee',
-        margin:'0 10px 18px 10px',
+    chipActive:{
+        backgroundColor:'#dbf0ff!important',
+        color:'#0097ff!important',
+        fontWeight:600,
     },
+    // chipBoxList:{
+    //     height:165,
+    //     overflow:'hidden'
+    // },
     tag:{
         display:'inline-flex',
-        alignItems:'center',
+        alignItems:'baseline',
         justifyContent:'center',
         borderRadius: 3,
         border:'1px solid #000',
@@ -136,7 +190,36 @@ class TopBar extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            tagList: [
+                {tag:"수업"},
+                {tag:"스터디"},
+                {tag:"노트필기"},
+                {tag:"기술문서"},
+                {tag:"아카데미"},
+                {tag:"서비스"},
+                {tag:"마케팅"},
+                {tag:"렌딩페이지"},
+                {tag:"노출"},
+                {tag:"도달률"},
+                {tag:"타겟팅광고"},
+                {tag:"이탈률"},
+                {tag:"시즈널키워드"},
+                {tag:"연관검색어"},
+            ],
+            splashList: [
+                {
+                    id:1,
+                    img:SplashImg01,
+                    title:"정보보호 전문가가 되고 싶다면 부스트코스!",
+                    subTitle:"실무형 실습강의로 정보보호 기술 역량을 키워보세요.",
+                },
+                {
+                    id:2,
+                    img:SplashImg02,
+                    title:"자바 블록체인 네트워크 보안 AI 풀스택",
+                    subTitle:"다양한 산업별 알고리즘 기법을 토대로 빅데이터 기술력을 높이세요!",
+                },
+            ],
         };
     }
 
@@ -146,19 +229,38 @@ class TopBar extends Component {
         return (
             <div className={classes.root}>
                 <Box className={classes.splashBox} >
-                    <Box className={classes.titleBox}>
-                        <Box>
-                            <Typography className={classes.titleText} component={"p"}>
-                                정보보호 전문가가 되고 싶다면 부스트코스!
-                            </Typography>
-                            <Typography className={classes.subText}>
-                                실무형 실습강의로 정보보호 기술 역량을 키워보세요.
-                            </Typography>
-                        </Box>
-                    </Box>
+                    <CarouselProvider
+                        naturalSlideWidth={1000}
+                        totalSlides={this.state.splashList.length}
+                        isIntrinsicHeight
+                        visibleSlides={1}
+                        // hasMasterSpinner='true'
+                    >
+                        <Slider>
+                            {this.state.splashList.map((rooms, i) => (
+                            <Slide index={i}>
+                                <Box className={classes.titleBox} style={{ backgroundImage: `url(${rooms.img})`, width:'100vw'}}>
+                                    <Box>
+                                    <Typography className={classes.titleText} component={"p"}>
+                                        {rooms.title}
+                                    </Typography>
+                                    <Typography className={classes.subText}>
+                                        {rooms.subTitle}
+                                    </Typography>
+                                    </Box>
+                                </Box>
+                            </Slide>
+                            ))}
+                        </Slider>
+                        <DotGroup>
+                            {this.state.splashList.map((rooms, i) => (
+                                <Dot slide={this.state.splashList.id}/>
+                            ))}
+                        </DotGroup>
+                    </CarouselProvider>
                 </Box>
                 <Box className={classes.container}>
-                    <Box className={classes.sliderBox} style={{margin:'90px 0'}}>
+                    <Box className={classes.sliderBox} style={{margin:'90px auto'}}>
                         <Link variant={"h3"}>New, 최신강의 <CaretRightIcon/></Link>
                         <HomeCarouselComponent/>
                     </Box>
@@ -172,19 +274,15 @@ class TopBar extends Component {
                             <SearchIcon />
                         </IconButton>
                     </Box>
-                    <Box className={classes.chipGroup}>
-                        <Chip label="22년 1기 1반" className={classes.chip} />
-                        <Chip label="상시" className={classes.chip} />
-                        <Chip label="1학기" className={classes.chip} />
-                        <Chip label="300분" className={classes.chip} />
-                        <Chip label="22년 1기 1반" className={classes.chip} />
-                        <Chip label="상시" className={classes.chip} />
-                        <Chip label="1학기" className={classes.chip} />
-                        <Chip label="300분" className={classes.chip} />
-                        <Chip label="22년 1기 1반" className={classes.chip} />
-                        <Chip label="상시" className={classes.chip} />
-                        <Chip label="1학기" className={classes.chip} />
-                        <Chip label="300분" className={classes.chip} />
+                    <Box className={this.state.tagListButton === true ? classes.chipBox : clsx(classes.chipBox, classes.chipBoxList)}>
+                        {this.state.tagList.map((tag, i) => (
+                            <Chip
+                                key={i}
+                                label={tag.tag}
+                                className={clsx(this.props.classSelectTag === i && classes.chipActive)}
+                                onClick={() => this.props.handleChangeClassSelectTag(i)}
+                            />
+                        ))}
                     </Box>
                     <Box className={classes.sliderBox} style={{marginTop:90}}>
                         <Link variant={"h3"}>처음이라면, 오픈 강의부터 훑어보세요! <CaretRightIcon/></Link>

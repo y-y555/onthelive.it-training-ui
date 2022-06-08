@@ -9,23 +9,40 @@ import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon
 import {ReactComponent as DotIcon} from '../../common/images/DotIcon.svg';
 import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
 import {Typography} from "@material-ui/core";
+import clsx from "clsx";
 
 const styles = theme => ({
     root:{
         position:'relative',
-        width:'calc(100vw - 64px)',
+        // width:'calc(100vw - 64px)',
+        '@media all and (min-width: 1500px)': {
+            width:1440,
+        },
+        width:1200,
+        boxSizing:'border-box',
+        margin: '0 auto',
     },
     carousel:{
-        overflow:'visible',
+        // overflowY:'visible',
+        '@media all and (min-width: 1500px)': {
+            width:1440,
+        },
+        width:1200,
+        // boxSizing:'border-box',
+        // margin: '0 auto',
         // '& > div > div':{
         //     width: '100%!important',
         // }
+        '& .carousel__slider-tray':{
+            padding:'4px 2px',
+        }
     },
     slideItem:{
         boxShadow: '0 2px 4px 0 rgba(0, 0, 0, 0.25)',
         height:350,
         borderRadius:10,
         marginRight: 30,
+        width:'calc(10% - 24px)!important',
     },
     video:{
         width:'100%',
@@ -101,6 +118,7 @@ const styles = theme => ({
         height:40,
         width:200,
         margin: '17px auto',
+        borderRadius:7,
         '&:hover':{
             backgroundColor:'transparent'
         }
@@ -128,16 +146,27 @@ const slides = [
 ];
 
 class HomeCarouselComponent extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            tagList: [
+                {tag:"22년 1기 1반"},
+                {tag:"상시"},
+                {tag:"1학기"},
+                {tag:"300분"},
+            ],
+        };
+    }
     render() {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
             <CarouselProvider
-                naturalSlideWidth={20}
+                naturalSlideWidth={335}
                 // naturalSlideHeight={100}
-                totalSlides={3}
+                totalSlides={slides.length}
                 isIntrinsicHeight
-                visibleSlides={3}
+                visibleSlides={2}
             >
                 <Slider className={classes.carousel}>
                     {slides.map(slide => (
@@ -159,15 +188,18 @@ class HomeCarouselComponent extends Component {
                             <VideoPlayIcon/>
                         </div>
                         <Box className={classes.carouselContent}>
-                            <Chip label={slide.chip} className={classes.chip} />
-                            {/*<Chip label="상시" className={classes.chip} />*/}
-                            {/*<Chip label="1학기" className={classes.chip} />*/}
-                            {/*<Chip label="300분" className={classes.chip} />*/}
+                            {this.state.tagList.map((tag, i) => (
+                                <Chip
+                                    key={i}
+                                    label={tag.tag}
+                                    className={classes.chip}
+                                />
+                            ))}
                             <Typography variant={'h5'}>{slide.className}</Typography>
                             {slide.fileName === false ?
-                                <Button className={classes.enterBtn}>강의실 입장</Button>
-                                :
                                 null
+                                :
+                                <Button className={classes.enterBtn}>강의실 입장</Button>
                             }
                         </Box>
                     </Slide>
