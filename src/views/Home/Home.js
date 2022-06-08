@@ -15,7 +15,6 @@ const styles = theme => ({
     root:{
     },
     splashBox:{
-        position:'relative',
         '& .carousel__dot-group':{
             position:'absolute',
             right:72,
@@ -58,6 +57,14 @@ const styles = theme => ({
             flexDirection:'column',
             margin:'0 auto',
         }
+    },
+    wrap:{
+        '@media all and (min-width: 1500px)': {
+            width: '1440px',
+        },
+        width: '1200px',
+        margin:'0 auto',
+        position:'relative',
     },
     titleText:{
         fontSize:'2.875rem',
@@ -252,11 +259,13 @@ class TopBar extends Component {
                             </Slide>
                             ))}
                         </Slider>
-                        <DotGroup>
-                            {this.state.splashList.map((rooms, i) => (
-                                <Dot slide={this.state.splashList.id}/>
-                            ))}
-                        </DotGroup>
+                        <div className={classes.wrap}>
+                            <DotGroup>
+                                {this.state.splashList.map((rooms, i) => (
+                                    <Dot slide={this.state.splashList.id}/>
+                                ))}
+                            </DotGroup>
+                        </div>
                     </CarouselProvider>
                 </Box>
                 <Box className={classes.container}>
