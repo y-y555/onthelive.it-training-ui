@@ -37,23 +37,24 @@ const styles = theme => ({
                 width:100,
             },
             minWidth:92,
-            minHeight:40,
+            minHeight:67,
             position:'relative',
             opacity:1,
-            borderRadius:10,
             backgroundColor:'#fff',
+            boxSizing:'border-box',
+            padding: 0,
+        },
+        '& button > span':{
+            borderRadius:10,
             border: '1px solid #d9d9d9',
             boxSizing:'border-box',
-            '&:hover':{
-                fontWeight: 700,
-                color:'#18427c',
-            }
+            padding: '5px 10px',
+            boxShadow:'0 2px 2px 0 rgba(0, 0, 0, 0.25)',
         },
-        '& button.Mui-selected':{
+        '& button.Mui-selected > span':{
             overflow:'inherit',
             border: '2px solid rgba(22, 100, 245, 0.8)',
             boxSizing:'border-box',
-            // boxShadow:'0 2px 2px 0 rgba(0, 0, 0, 0.25)',
         },
         '& .MuiTabs-indicator':{
             display:'none',
