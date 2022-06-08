@@ -9,7 +9,7 @@ import {
     OutlinedInput,
     TextareaAutosize,
     Typography,
-    TextField, IconButton, FormHelperText
+    TextField, IconButton, FormHelperText, RadioGroup, Radio
 } from "@material-ui/core";
 import Autocomplete from '@material-ui/lab/Autocomplete';
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
@@ -57,6 +57,8 @@ const styles = theme => ({
         fontWeight:600
     },
     textField:{
+        marginBottom: 30,
+        marginTop: 5,
         "& .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":{
             border:'1px solid #d9dbde'
         },
@@ -69,7 +71,7 @@ const styles = theme => ({
         "& .MuiOutlinedInput-input":{
             padding:'12px 10px',
             color:'#333',
-            fontSize:'1rem',
+            fontSize:'0.938rem',
             "&::placeholder":{
                 color:'#a3a8af',
                 opacity:1,
@@ -77,12 +79,8 @@ const styles = theme => ({
             },
         },
     },
-    textFieldMargin:{
-        margin:'0 10px'
-    },
     textareaStyle: {
         width:'100%',
-        margin:'20px 0',
         border:'1px solid #d9dbde',
         borderRadius:7,
         padding: '10px 10px',
@@ -114,13 +112,6 @@ const styles = theme => ({
             marginTop: 5,
         },
     },
-    boxMargin:{
-        marginTop:30,
-        "& .MuiFormControlLabel-root":{
-            marginLeft: 0,
-            marginRight:0
-        }
-    },
     marginBottom:{
         marginBottom: 15
     },
@@ -129,57 +120,9 @@ const styles = theme => ({
         fontSize:'1.125rem',
         color:'#333',
     },
-    textStyleRequired:{
-        '&:after':{
-            content:'"*"',
-            color:'#ff0000',
-        }
-    },
-    checkedBox:{
-        "& .MuiIconButton-root":{
-            padding:0
-        },
-        "& .MuiFormControlLabel-label":{
-            fontSize:'1rem',
-            color:'#333',
-            marginLeft:10
-        }
-    },
-    autoCompleteBox:{
-        "& .MuiInputBase-root":{
-            padding:'2.5px 6px',
-        },
-        "& .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline":{
-            border:'1px solid #d9dbde'
-        },
-        "& .MuiAutocomplete-input":{
-            color:'#333',
-            fontSize:'1rem',
-            "&::placeholder":{
-                color:'#a3a8af',
-                opacity:1,
-                fontWeight: 300,
-            },
-        },
-        "& .MuiChip-root":{
-            background:'transparent',
-            "& .MuiChip-label":{
-                color:'#333',
-                fontSize:'1rem',
-                paddingLeft:0,
-                paddingRight:5
-            },
-            "& svg":{
-                display:'none'
-            }
-        },
-        "& .MuiAutocomplete-popupIndicator":{
-            display:'none'
-        }
-    },
-    option:{
-        fontSize:'0.875rem',
-        color:'#333'
+    textStyle1:{
+        fontSize:'0.813rem',
+        color:'#a3a8af',
     },
     buttonStyle:{
         marginTop:26,
@@ -220,20 +163,53 @@ const styles = theme => ({
             marginTop: 5,
         },
     },
-    helperText:{
-        letterSpacing:'-.24px',
-        fontSize:'0.813rem',
-        fontWeight:600,
-    }
+    boxTitleText:{
+        fontSize:'1.125rem',
+        fontWeight:'bold',
+        marginBottom: 15
+    },
+    required:{
+        '&:after':{
+            content:'"*"',
+            color:'#ff0000',
+        }
+    },
+    formControl:{
+        marginBottom:30,
+        "& .MuiFormControlLabel-label":{
+            fontSize:'1rem',
+            color:'#333'
+        },
+        '& .MuiFormControlLabel-root':{
+            marginLeft: 0,
+            marginRight: 38,
+            '& > span':{
+                padding: '9px 9px 9px 0'
+            }
+        },
+        "& .MuiButtonBase-root:hover":{
+            background:'transparent'
+        }
+    },
 });
 
 class ScheduleRegistrationComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            selectedValue: "a",
+            selectedLevelValue: "c",
         };
     }
+
+    handleChange = event => {
+        this.setState({ selectedValue: event.target.value });
+    };
+
+    handleChangeLevel = event => {
+        this.setState({ selectedLevelValue: event.target.value });
+    };
+
     render() {
         const { classes } = this.props;
 
@@ -244,123 +220,101 @@ class ScheduleRegistrationComponent extends Component {
                     className={classes.dialogBox}
                 >
                     <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.titleBox}>
-                        <Typography className={classes.titleText}>일정 등록</Typography>
+                        <Typography className={classes.titleText}>강의 기본 정보</Typography>
                         <IconButton className={classes.iconButton} disableRipple onClick={this.props.handleClose}> <DialogCloseIcon /></IconButton>
                     </Box>
 
                     <Box display='flex' flexDirection='column' className={classes.scrollBox}>
+                        <Typography className={clsx(classes.boxTitleText, classes.required)}>강의 이름</Typography>
                         <FormControl className={classes.textField} variant="outlined">
                             <OutlinedInput
                                 inputProps={{'aria-label': 'title input box'}}
                                 id="outlined-title"
                                 labelWidth={0}
-                                placeholder='일정 제목 (최대 50자 이내)'
+                                placeholder='제목 (최대 50자)'
                             />
                         </FormControl>
+                        <Typography className={clsx(classes.boxTitleText, classes.required)}>공개여부</Typography>
+
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <RadioGroup
+                                row
+                                aria-label="Radio"
+                                name="Radio"
+                                className={classes.group}
+                                value={this.state.selectedValue}
+                                onChange={this.handleChange}
+                            >
+                                <FormControlLabel
+                                    value="a"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="공개"
+                                />
+
+                                <FormControlLabel
+                                    value="b"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="비공개"
+                                />
+                            </RadioGroup>
+                            <Typography className={classes.textStyle1}>모든 수강생이 강의를 볼 수 있습니다.</Typography>
+                        </FormControl>
+
+
+                        <Typography className={clsx(classes.boxTitleText, classes.required)}>태그</Typography>
+                        <Typography className={classes.textStyle1}>
+                            * 모든 강의의 성격을 나타내는 대표 태그를 입력하세요.<br/>
+                            사람들이 나의 강의를 언제든지 쉽게 찾을 수 있습니다.
+                        </Typography>
+                        <FormControl className={classes.textField} variant="outlined">
+                            <OutlinedInput
+                                inputProps={{'aria-label': 'tag input box'}}
+                                id="outlined-title"
+                                labelWidth={0}
+                                placeholder='1개 이상 태그 입력 (콤마로 구분하여 입력해주세요. 예 - 훈련, 학습)'
+                            />
+                        </FormControl>
+
+                        <Typography className={clsx(classes.boxTitleText, classes.required)}>난이도</Typography>
+                        <FormControl component="fieldset" className={classes.formControl}>
+                            <RadioGroup
+                                row
+                                aria-label="Radio"
+                                name="Radio"
+                                className={classes.group}
+                                value={this.state.selectedLevelValue}
+                                onChange={this.handleChangeLevel}
+                            >
+                                <FormControlLabel
+                                    value="c"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="초급"
+                                />
+
+                                <FormControlLabel
+                                    value="d"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="중급"
+                                />
+
+                                <FormControlLabel
+                                    value="e"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="고급"
+                                />
+                            </RadioGroup>
+                        </FormControl>
+                        <Typography className={clsx(classes.textStyle, classes.marginBottom)}>강의소개</Typography>
                         <Box style={{width:'100%'}}>
                             <TextareaAutosize
                                 name="contents"
-                                minRows={5}
-                                maxRows={5}
+                                minRows={6}
+                                maxRows={6}
                                 aria-label="content input box"
                                 className={classes.textareaStyle}
-                                placeholder='일정 설명 (최대 100자 이내) '
+                                placeholder='강의 설명 및 커리큘럼 등 자유롭게 적어주세요. (최대 1,000자) '
                             />
                         </Box>
-                        {/* 태그 */}
-                        <Box display='flex' alignItems='center' justifyContent='space-between'>
-                            <FormControl className={classes.textField} variant="outlined">
-                                <OutlinedInput
-                                    inputProps={{'aria-label': 'tag input box'}}
-                                    id="outlined-title"
-                                    labelWidth={0}
-                                    placeholder='태그 (최대 25자)'
-                                />
-                            </FormControl>
-                            <FormControl className={clsx(classes.textField, classes.textFieldMargin)} variant="outlined">
-                                <OutlinedInput
-                                    inputProps={{'aria-label': 'tag input box'}}
-                                    id="outlined-title"
-                                    labelWidth={0}
-                                    placeholder='태그 (최대 25자)'
-                                />
-                            </FormControl>
-                            <FormControl className={classes.textField} variant="outlined">
-                                <OutlinedInput
-                                    inputProps={{'aria-label': 'tag input box'}}
-                                    id="outlined-title"
-                                    labelWidth={0}
-                                    placeholder='태그 (최대 25자)'
-                                />
-                            </FormControl>
-                        </Box>
-
-                        {/* 일시 */}
-                        <Box className={classes.boxMargin}>
-                           <Typography className={clsx(classes.textStyle, classes.marginBottom,classes.textStyleRequired)}>일시</Typography>
-                            <SelectSchedule/>
-                        </Box>
-
-                        {/* 보안 */}
-                        <Box className={classes.boxMargin}>
-                            <Typography className={clsx(classes.textStyle, classes.marginBottom)}>보안</Typography>
-                            <FormControlLabel
-                                control={
-                                    <Checkbox
-                                        icon={<UnCheckedIcon />}
-                                        checkedIcon={<CheckedIcon />}
-                                        value="emailCheck"
-                                    />
-                                }
-                                label="게스트 참석 허용"
-                                className={classes.checkedBox}
-                            />
-                        </Box>
-
-                        {/* 참석자 */}
-                        <Box className={classes.boxMargin}>
-                            <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.marginBottom}>
-                                <Typography className={clsx(classes.textStyle, classes.marginBottom, classes.textStyleRequired)}>참석자</Typography>
-                                <FormControlLabel
-                                    control={
-                                        <Checkbox
-                                            icon={<UnCheckedIcon />}
-                                            checkedIcon={<CheckedIcon />}
-                                            value="emailCheck"
-                                        />
-                                    }
-                                    label="모두"
-                                    className={classes.checkedBox}
-                                />
-                            </Box>
-
-                            <Autocomplete
-                                multiple
-                                id="multiple-limit-tags"
-                                options={memberList}
-                                classes={{
-                                    option: classes.option,
-                                }}
-                                getOptionLabel={(option) => {
-                                    if(option.type === 'member') return `@${option.title}`;
-                                }}
-                                filterSelectedOptions
-                                size='small'
-                                renderInput={(params) => (
-                                    <TextField
-                                        {...params}
-                                        variant="outlined"
-                                        label=""
-                                        placeholder="참석자 닉네임을 입력 또는 선택해주세요."
-                                    />
-                                )}
-                                className={classes.autoCompleteBox}
-                            />
-                            <FormHelperText error className={classes.helperText}>
-                                * 리더와 공동리더에게는 일정이 항상 공개됩니다
-                            </FormHelperText>
-                        </Box>
-
 
                         <Button className={classes.buttonStyle} disableRipple>
                             게시

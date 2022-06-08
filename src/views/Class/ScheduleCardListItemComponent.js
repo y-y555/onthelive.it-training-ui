@@ -9,6 +9,7 @@ import {ReactComponent as StudentFillIcon} from "../../common/images/StudentFill
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
+import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
 import clsx from "clsx";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
@@ -234,8 +235,8 @@ class ScheduleCardListItemComponent extends Component {
                 <Box className={clsx(classes.listBox,classes.liveBox)}>
                     <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>
                         <Box>
-                            <Typography variant="h5"> <span>온더라이브 기획미팅</span>
-                                <span className={clsx(classes.caption, classes.captionLive)}><DotIcon/>Live</span></Typography>
+                            <Typography className={clsx(classes.caption, classes.captionLive)}><DotIcon/>Live</Typography>
+                            <Typography variant="h5"> <span>온더라이브 기획미팅</span></Typography>
                             <Typography variant="subtitle1" className={classes.subText}>하반기 온라인 마케팅 서비스 기획 회의</Typography>
                             <ul className={classes.listStyle}>
                                 <li><SmileyFillIcon/> 서비스 기획팀 | 문진후 소장</li>
@@ -249,6 +250,7 @@ class ScheduleCardListItemComponent extends Component {
                             </ul>
                         </Box>
                         <Box className={classes.asideControl}>
+                            <Typography><BookmarksSimple/>초급</Typography>
                             <Box className={classes.iconButtonBox}>
                                 <Tooltip title="링크" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><LinkFillIcon/></IconButton></Tooltip>
                                 <Tooltip title="학습결과" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><ChartBarFillIcon/></IconButton></Tooltip>
