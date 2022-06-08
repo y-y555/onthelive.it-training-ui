@@ -4,11 +4,13 @@ import {ReactComponent as AsideGlobalIcon} from "../../common/images/AsideGlobal
 import {ReactComponent as AsideUsersThreeIcon} from "../../common/images/AsideUsersThreeIcon.svg";
 import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
 import {ReactComponent as AsideSettingIcon} from "../../common/images/AsideSettingIcon.svg";
+import {ReactComponent as AsideCalendarCheck} from "../../common/images/AsideCalendarCheck.svg";
 import {Button} from "@material-ui/core";
 
 
 const styles = theme => ({
     root:{
+        marginBottom: 80
     },
     listStyle:{
         '& li':{
@@ -41,11 +43,12 @@ class ClassContentInfoComponent extends Component {
         const { classes } = this.props;
 
         return (
-            <div>
+            <div className={classes.root}>
                 <ul className={classes.listStyle}>
                     <li><AsideGlobalIcon/> <span>공개</span> </li>
-                    <li><AsideUsersThreeIcon/> <span>맴버: 200명</span> </li>
-                    <li><AsideUserIcon/> <span>주최자: 김온더</span> </li>
+                    <li><AsideUsersThreeIcon/> <span>수강생: 200명</span> </li>
+                    <li><AsideUserIcon/> <span>강사: 김파이</span> </li>
+                    <li><AsideCalendarCheck/> <span>개설일: 2022. 5. 26</span> </li>
                     <li><Button className={classes.buttonStyle} disableRipple onClick={this.props.handleChangeSetting}><AsideSettingIcon/> <span>설정</span></Button></li>
                 </ul>
             </div>

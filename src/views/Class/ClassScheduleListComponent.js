@@ -86,7 +86,53 @@ const styles = theme => ({
             background:'#d3d7db'
         },
     },
+    trigger:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        margin: '30px 0 50px',
+        '& .MuiTabs-flexContainer':{
+            borderBottom: '3px solid #eeeeee',
+            width: 400
+        },
+        '& button':{
+            minWidth:90,
+            minHeight:40,
+            position:'relative',
+            opacity:1,
+            fontSize:'0.938rem',
+            '&:hover':{
+                fontWeight: 600,
+            }
+        },
+        '& button.Mui-selected':{
+            minWidth:90,
+            minHeight:40,
+            backgroundColor:'#fff',
+            color:'#000',
+            fontWeight:600,
+            borderRadius:50,
+            overflow:'inherit',
+            boxSizing:'border-box'
+        },
+    },
 });
+
+const StyledTabs = withStyles(theme => ({
+    root: {
+
+    },
+    indicator: {
+        display: 'flex',
+        justifyContent: 'center',
+        backgroundColor: 'transparent',
+        height: 3,
+        '& > span': {
+            width: '70%',
+            background:'#1664f5'
+        },
+    },
+}))(props => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
 
 
@@ -97,6 +143,7 @@ class ClassScheduleListComponent extends Component {
             situation: "전체",
             filter:"최근 등록순",
             value:0,
+            classTab: 0,
         };
     }
 
@@ -113,12 +160,35 @@ class ClassScheduleListComponent extends Component {
         this.setState({ value });
     };
 
+    handleChangeTabs = (event, classTab) => {
+        this.setState({ classTab });
+    };
+
     render() {
         const { classes } = this.props;
-        const { value } = this.state;
+        const { classTab } = this.state;
 
         return (
             <div className={classes.root}>
+                <StyledTabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
+                    <Tab
+                        label='전체 (15)'
+                        disableRipple
+                    />
+                    <Tab
+                        label='진행중 (10)'
+                        disableRipple
+                    />
+                    <Tab
+                        label='예정 (2)'
+                        disableRipple
+                    />
+                    <Tab
+                        label='종료 (3)'
+                        disableRipple
+                    />
+                </StyledTabs>
+
                 <Box className={classes.controlBox}>
                     <FormControl className={classes.formControl}>
                         <Select

@@ -33,15 +33,15 @@ class ClassAsideComponent extends Component {
         return (
             <div className={classes.root}>
                 <ClassContentInfoComponent handleChangeSetting={this.props.handleChangeSetting}/>
-                <ClassContentSearchComponent
-                    classTab={this.props.classTab}
-                    classSelectTag={this.props.classSelectTag}
-                    noticeBoard={this.props.noticeBoard}
-                    setting={this.props.setting}
-                    memberRequest={this.props.memberRequest}
-                    memberPermissionSetting={this.props.memberPermissionSetting}
-                    addAdmin={this.props.addAdmin}
-                />
+                {/*<ClassContentSearchComponent*/}
+                {/*    classTab={this.props.classTab}*/}
+                {/*    classSelectTag={this.props.classSelectTag}*/}
+                {/*    noticeBoard={this.props.noticeBoard}*/}
+                {/*    setting={this.props.setting}*/}
+                {/*    memberRequest={this.props.memberRequest}*/}
+                {/*    memberPermissionSetting={this.props.memberPermissionSetting}*/}
+                {/*    addAdmin={this.props.addAdmin}*/}
+                {/*/>*/}
                 <ClassAsiadeLatestComponent/>
             </div>
         );
