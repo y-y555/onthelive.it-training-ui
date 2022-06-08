@@ -19,7 +19,7 @@ const styles = theme => ({
     controlBox:{
         display:'flex',
         alignItems:'center',
-        justifyContent:'space-between',
+        justifyContent:'flex-end',
     },
     buttonBox:{
         display:'flex',
@@ -94,7 +94,7 @@ class ClassScheduleListComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            situation: "현재 진행중",
+            situation: "전체",
             filter:"최근 등록순",
             value:0,
         };
@@ -120,53 +120,23 @@ class ClassScheduleListComponent extends Component {
         return (
             <div className={classes.root}>
                 <Box className={classes.controlBox}>
-
-                    <Tabs value={value} onChange={this.handleListTabChange} className={classes.buttonBox}>
-                        <Tab label="리스트" icon={<RowsListIcon />} disableRipple />
-                        <Tab label="보드" icon={<SquaresFourIcon />} disableRipple />
-                    </Tabs>
                     <FormControl className={classes.formControl}>
-                        {value === 0 &&
-                            <Select
-                                value={this.state.situation}
-                                onChange={this.handleChangeList}
-                                displayEmpty
-                                name="상황"
-                                className={classes.select}
-                                IconComponent={() => <Box style={{width:16, height:16, marginLeft:5}}><ArrowDownIcon/> </Box>}
-                            >
-                                <MenuItem value="현재 진행중" className={classes.menuItem}>현재 진행중</MenuItem>
-                                <MenuItem value="종료" className={classes.menuItem}>종료</MenuItem>
-                                <MenuItem value="예정" className={classes.menuItem}>예정</MenuItem>
-                            </Select>
-                        }
-                        {value === 1 &&
                         <Select
-                            value={this.state.filter}
-                            onChange={this.handleChangeFilter}
+                            value={this.state.situation}
+                            onChange={this.handleChangeList}
                             displayEmpty
                             name="상황"
                             className={classes.select}
                             IconComponent={() => <Box style={{width:16, height:16, marginLeft:5}}><ArrowDownIcon/> </Box>}
                         >
-                            <MenuItem value="최근 등록순" className={classes.menuItem}>최근 등록순</MenuItem>
-                            <MenuItem value="참석 일정말" className={classes.menuItem}>참석 일정만</MenuItem>
+                            <MenuItem value="전체" className={classes.menuItem}>전체</MenuItem>
+                            <MenuItem value="종료" className={classes.menuItem}>종료</MenuItem>
+                            <MenuItem value="예정" className={classes.menuItem}>예정</MenuItem>
                         </Select>
-                        }
                     </FormControl>
                 </Box>
 
-
-                {value === 0 &&
-                    <div>
-                        <ScheduleCardListItemComponent/>
-                    </div>
-                }
-                {value === 1 &&
-                    <div>
-                        <ScheduleCardBoardItemComponent/>
-                    </div>
-                }
+                <ScheduleCardListItemComponent/>
 
             </div>
         );

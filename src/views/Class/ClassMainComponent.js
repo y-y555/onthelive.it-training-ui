@@ -242,9 +242,12 @@ export default function ClassMainComponent() {
                     <ClassCalendarComponent/>
                     }
                     {classTab === 3 &&
+                    <ClassCalendarComponent/>
+                    }
+                    {classTab === 4 &&
                     <ReferenceRoomComponent/>
                     }
-                    {classTab === 4 ?
+                    {classTab === 5 ?
                         noticeBoard === true ?
                             <ClassBoardDetailViewComponent/>
                             :
@@ -252,7 +255,7 @@ export default function ClassMainComponent() {
                         :
                         null
                     }
-                    {classTab === 5 &&
+                    {classTab === 6 &&
                     <MemberListComponent/>
                     }
 

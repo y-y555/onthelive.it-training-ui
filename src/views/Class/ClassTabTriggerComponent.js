@@ -45,14 +45,17 @@ const styles = theme => ({
             marginRight:10,
             '&:hover':{
                 fontWeight: 700,
+                color:'#18427c',
             }
         },
         '& button.Mui-selected':{
-            backgroundColor:'#0097FF',
-            color:'#fff',
+            backgroundColor:'#fff',
+            color:'#18427c',
             fontWeight:700,
             borderRadius:50,
             overflow:'inherit',
+            border: '2px solid #18427c',
+            boxSizing:'border-box'
         },
         '& .MuiTabs-indicator':{
             display:'none',
@@ -68,14 +71,14 @@ const styles = theme => ({
         height:40,
         // marginLeft:50,
         marginLeft:30,
-        backgroundColor:'#0097FF',
+        backgroundColor:'#1a457e',
         color:'#fff',
         borderRadius:7,
         '& svg':{
           marginRight:4,
         },
         '&:hover':{
-            backgroundColor:'#0097FF',
+            backgroundColor:'#1a457e',
         }
     },
     iconStyle:{
@@ -113,21 +116,22 @@ class ClassTabTriggerComponent extends Component {
             <div className={classes.root}>
                 <Box className={classes.wrap}>
                     <Tabs value={classTab} onChange={this.props.handleChange} className={classes.trigger}>
-                        <Tab label="오늘 일정"
+                        <Tab label="강의실 홈"
                             disableRipple
                             icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
-                        <Tab label="모든 일정" disableRipple />
-                        <Tab label="캘린더" disableRipple />
+                        <Tab label="학습현황" disableRipple />
+                        <Tab label="과제" disableRipple />
+                        <Tab label="시험" disableRipple />
                         <Tab label="자료실"
                              disableRipple
                              icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
                         <Tab label="커뮤니티" disableRipple />
-                        <Tab label="맴버" disableRipple />
+                        <Tab label="문의" disableRipple />
                     </Tabs>
 
-                    <Button className={classes.btnStyle}onClick={this.handleClickOpen}  disableRipple><PlusCircleIcon/> 새 일정 등록하기</Button>
+                    <Button className={classes.btnStyle}onClick={this.handleClickOpen}  disableRipple><PlusCircleIcon/>강의 만들기</Button>
 
                 </Box>
 
