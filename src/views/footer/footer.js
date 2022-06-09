@@ -47,7 +47,11 @@ const styles = theme => ({
             '& a':{
                 fontSize:'0.875rem',
                 fontWeight:600,
-                color:'#787878'
+                color:'#787878',
+                cursor:'pointer',
+                '&:hover':{
+                    textDecoration:'none',
+                }
             }
         },
     },
