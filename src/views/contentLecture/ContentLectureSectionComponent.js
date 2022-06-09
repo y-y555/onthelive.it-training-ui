@@ -3,7 +3,9 @@ import {withStyles} from "@material-ui/core/styles";
 
 const styles = theme => ({
     root:{
-        
+        width:'calc(100% - 133px)',
+        height: 'calc(100vh - 59px)',
+        boxSizing:'border-box'
     }
 });
 
