@@ -9,6 +9,7 @@ import {ReactComponent as VideoCamera} from "../../common/images/VideoCamera.svg
 import {ReactComponent as ChalkboardTeacher} from "../../common/images/ChalkboardTeacher.svg";
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
+import {withRouter} from "react-router-dom";
 
 const styles = theme => ({
     root:{
@@ -149,6 +150,10 @@ class ClassTabTriggerComponent extends Component {
         });
     };
 
+    handleClickContentLecture = e => {
+        this.props.history.push("/contentLecture");
+    };
+
     render() {
         const { classes, classTab } = this.props;
         const { anchorEl } = this.state;
@@ -205,7 +210,7 @@ class ClassTabTriggerComponent extends Component {
                             <ListItemText inset primary="라이브 강의" />
                         </MenuItem>
 
-                        <MenuItem>
+                        <MenuItem onClick={this.handleClickContentLecture}>
                             <ListItemIcon>
                                 <ChalkboardTeacher/>
                             </ListItemIcon>
@@ -221,4 +226,4 @@ class ClassTabTriggerComponent extends Component {
     }
 }
 
-export default withStyles(styles)(ClassTabTriggerComponent);
+export default withRouter(withStyles(styles)(ClassTabTriggerComponent));
