@@ -27,7 +27,7 @@ const styles = theme => ({
         listStyle:'none',
         marginBlock:0,
         display:'flex',
-        marginLeft:80,
+        marginLeft:40,
         '& li':{
             marginRight:20,
             position:'relative',
@@ -70,6 +70,10 @@ const styles = theme => ({
             border:'1px solid #bfbfbf'
         }
     },
+    ftLangItem:{
+        fontSize:'0.875rem',
+        color:'#787878',
+    },
     copyright:{
         fontSize: '0.875rem',
         color:'#787878',
@@ -110,8 +114,8 @@ class Footer extends Component {
                                 onChange={this.handleChange}
                                 displayEmpty
                             >
-                                <MenuItem value="">한국어</MenuItem>
-                                <MenuItem value={10}>영어</MenuItem>
+                                <MenuItem value="" className={classes.ftLangItem}>한국어</MenuItem>
+                                <MenuItem value={10} className={classes.ftLangItem}>영어</MenuItem>
                             </Select>
                         </FormControl>
                         <Typography className={classes.copyright}>ITRAINNG© 2022</Typography>
