@@ -109,7 +109,7 @@ export default function ClassMainComponent() {
     };
 
     const handleChangeSetting = () => {
-        setClassTab(6);
+        setClassTab(7);
         setSetting(true);
         setMemberRequest(false);
         setAddAdmin(false);
@@ -120,7 +120,7 @@ export default function ClassMainComponent() {
     };
 
     const handleChangeMemberRequest = () => {
-        setClassTab(6);
+        setClassTab(7);
         setMemberRequest(true);
         setSetting(false);
         setAddAdmin(false);
@@ -131,7 +131,7 @@ export default function ClassMainComponent() {
     };
 
     const handleChangeAddAdmin = () => {
-        setClassTab(6);
+        setClassTab(7);
         setAddAdmin(true);
         setMemberRequest(false);
         setSetting(false);
@@ -141,7 +141,7 @@ export default function ClassMainComponent() {
         setNoticeBoard(false);
     };
     const handleChangeMemberWithdrawal = () => {
-        setClassTab(6);
+        setClassTab(7);
         setMemberWithdrawalOpen(true);
         setAddAdmin(false);
         setMemberRequest(false);
@@ -152,7 +152,7 @@ export default function ClassMainComponent() {
     };
 
     const handleChangeMemberPermissionSetting = () => {
-        setClassTab(6);
+        setClassTab(7);
         setMemberPermissionSetting(true);
         setMemberWithdrawalOpen(false);
         setAddAdmin(false);
@@ -163,7 +163,7 @@ export default function ClassMainComponent() {
     };
 
     const handleChangeClassSelectTag = (tag) => {
-        setClassTab(6);
+        setClassTab(7);
         setClassSelectTag(tag);
         setMemberWithdrawalOpen(false);
         setAddAdmin(false);

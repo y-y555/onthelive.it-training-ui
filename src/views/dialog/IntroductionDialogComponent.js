@@ -80,7 +80,7 @@ class IntroductionDialogComponent extends Component {
                     className={classes.dialogBox}
                 >
                     <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.titleBox}>
-                        <Typography className={classes.titleText}>소개</Typography>
+                        <Typography className={classes.titleText}>강의 내용</Typography>
                         <IconButton className={classes.iconButton} disableRipple onClick={this.props.handleClose}> <DialogCloseIcon /></IconButton>
                     </Box>
 
