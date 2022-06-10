@@ -60,7 +60,7 @@ const styles = theme => ({
             padding:'9px 32px 9px 11px',
             fontSize: '0.875rem',
             color:'#303030',
-            '&:focus, :focus-visible, :hover, *.Mui-focused':{
+            '&:focus, :focus-visible, :hover, &.Mui-focused':{
                 outline:'none',
                 backgroundColor: 'transparent',
                 border:'0 none',

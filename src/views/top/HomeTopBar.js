@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, InputBase, Select, Typography} from "@material-ui/core";
+import {Box, Button, IconButton, InputBase, Select, Typography} from "@material-ui/core";
 import {ReactComponent as OntheliveLogo} from "../../common/images/ItLogo.svg";
 import {ReactComponent as SelectArrow} from "../../common/images/SelectArrow.svg";
 import {Link, withRouter} from "react-router-dom";
+import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -44,6 +45,17 @@ const styles = theme => ({
             background: 'transparent',
         }
     },
+    buttonStyle2: {
+        background: 'transparent',
+        color:'#333',
+        fontWeight:600,
+        fontSize:'1.063rem',
+        padding:0,
+        margin:'0 20px',
+        "&:hover":{
+            background: 'transparent',
+        }
+    },
     btnOutlineStyle:{
         border: '1px solid #bfbfbf',
         fontSize:'0.938rem',
@@ -51,7 +63,32 @@ const styles = theme => ({
         "&:hover":{
             background: 'transparent',
         }
-    }
+    },
+    searchIcon:{
+        padding:7,
+        background:'#f8f8f8',
+        "&:hover":{
+            background:'#f8f8f8',
+        }
+    },
+    search: {
+        width:365,
+        display:'flex',
+        justifyContent:'space-between',
+        alignItems:'center',
+        background: '#fff',
+        border:'2px solid #e1e1e1',
+        padding:'3px 6px 3px 22px',
+        borderRadius:50,
+        "& .MuiInputBase-input::placeholder":{
+            opacity:1,
+            fontSize:'1.125rem',
+            color:'#92979e'
+        },
+        "& .MuiInputBase-input":{
+            padding:'6px 7px 4px'
+        }
+    },
 });
 
 const BootstrapInput = withStyles((theme) => ({
@@ -98,9 +135,22 @@ class HomeTopBar extends Component {
         return (
             <div className={classes.root} >
                 <Box className={classes.appBar}>
-                    <Link to="/">
-                        <OntheliveLogo/>
-                    </Link>
+                    <Box display='flex' alignItems='center' >
+                        <Link to="/">
+                            <OntheliveLogo/>
+                        </Link>
+                        <Button className={classes.buttonStyle2} disableRipple>강의</Button>
+                        <Box className={classes.search}>
+                            <InputBase
+                                placeholder='강의를 검색해보세요.'
+                                className={classes.inputRoot}
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                            <IconButton className={classes.searchIcon} disableRipple>
+                                <SearchIcon />
+                            </IconButton>
+                        </Box>
+                    </Box>
                     <Box display='flex' alignItems='center' className={classes.topBarRight}>
                         {/*<Select*/}
                         {/*    native*/}

@@ -75,7 +75,7 @@ class MyRoomTopComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '강의',
+            value: '강의 관리',
         };
     }
 
@@ -90,7 +90,7 @@ class MyRoomTopComponent extends Component {
             <div className={classes.root}>
                 <Box display='flex'>
                     <Box>
-                        <Typography className={classes.textStyle}>강사 강의실</Typography>
+                        <Typography className={classes.textStyle}>내 강의실</Typography>
                         <Box className={classes.lineStyle}/>
                     </Box>
                     <FormControl className={classes.formControlBox}>

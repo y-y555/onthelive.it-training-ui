@@ -8,6 +8,9 @@ import {ReactComponent as ArrowLeftIcon} from '../../common/images/ArrowIcon.svg
 import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon.svg';
 import {ReactComponent as DotIcon} from '../../common/images/DotIcon.svg';
 import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
+import {ReactComponent as HandsClappingIcon} from '../../common/images/HandsClappingIcon.svg';
+import {ReactComponent as UsersThreeIcon} from '../../common/images/UsersThreeIcon.svg';
+import {ReactComponent as BookmarksSimple} from '../../common/images/BookmarksSimple.svg';
 import {Typography} from "@material-ui/core";
 import clsx from "clsx";
 
@@ -71,11 +74,14 @@ const styles = theme => ({
         minHeight:150,
         padding:'14px 20px',
         boxSizing:'border-box',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         '& h5':{
             fontSize: '1.125rem',
             letterSpacing:'-0.36px',
             marginTop:16,
-        }
+        },
     },
     chip:{
         fontSize:'0.75rem',
@@ -121,6 +127,29 @@ const styles = theme => ({
         borderRadius:7,
         '&:hover':{
             backgroundColor:'transparent'
+        }
+    },
+    commentStyle:{
+        display:'flex',
+        listStyle:'none',
+        paddingInlineStart:0,
+        margin: '20px 0 0 0',
+        '& li': {
+            fontSize:'0.875rem',
+            display:'flex',
+            alignItems:'center',
+            marginLeft:30,
+            '&:first-child':{
+                marginLeft: 0,
+            },
+            '& svg': {
+                width: 20,
+                height: 20,
+                marginRight:8,
+                '& .like-icon':{
+                    fill:'#B6B6BF'
+                }
+            }
         }
     }
 });
@@ -188,6 +217,7 @@ class HomeCarouselComponent extends Component {
                             <VideoPlayIcon/>
                         </div>
                         <Box className={classes.carouselContent}>
+                            <Box>
                             {this.state.tagList.map((tag, i) => (
                                 <Chip
                                     key={i}
@@ -196,10 +226,15 @@ class HomeCarouselComponent extends Component {
                                 />
                             ))}
                             <Typography variant={'h5'}>{slide.className}</Typography>
+                            </Box>
                             {slide.fileName === false ?
-                                null
-                                :
                                 <Button className={classes.enterBtn}>강의실 입장</Button>
+                                :
+                                <ul className={classes.commentStyle}>
+                                    <li><HandsClappingIcon/> 1,200</li>
+                                    <li><UsersThreeIcon/> 200</li>
+                                    <li><BookmarksSimple/> 초급</li>
+                                </ul>
                             }
                         </Box>
                     </Slide>
