@@ -20,10 +20,11 @@ const styles = theme => ({
         fontSize:'1.5rem'
     },
     lineStyle:{
-        width: 107,
+        width: 95,
         height: 4,
         background:'#1664f5',
-        marginTop: 18
+        marginTop: 18,
+        borderRadius: 4,
     },
     buttonStyle:{
         padding: '4px 9px',

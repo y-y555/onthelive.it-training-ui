@@ -33,6 +33,10 @@ import {ReactComponent as LiveIcon} from "../../common/images/LiveIcon.svg";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
+import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
+import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
+import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
+import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -407,6 +411,29 @@ const styles = theme => ({
         top:'-2px',
         zIndex:10,
     },
+    commentStyle:{
+        display:'flex',
+        listStyle:'none',
+        paddingInlineStart:0,
+        margin:0,
+        '& li': {
+            fontSize:'0.875rem',
+            display:'flex',
+            alignItems:'center',
+            marginLeft:30,
+            '&:first-child':{
+                marginLeft: 0,
+            },
+            '& svg': {
+                width: 20,
+                height: 20,
+                marginRight:8,
+                '& .like-icon':{
+                    fill:'#B6B6BF'
+                }
+            }
+        }
+    }
 });
 
 const BootstrapInput = withStyles(theme => ({
@@ -631,14 +658,22 @@ class MyRoomComponent extends Component {
                                             <Typography
                                                 className={clsx(classes.buttonText, classes.buttonTitle)}>{rooms.title}</Typography>
                                         </Box>
-                                        <Box display='flex' justifyContent='center' alignItems='center' style={{width: '100%'}}>
-                                            <Button className={classes.buttonStyle} disableRipple>
-                                                수강생 현황
-                                            </Button>
-                                            <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} onClick={this.handleClickClass} disableRipple>
-                                                강의실 입장
-                                            </Button>
+                                        <Box display='flex' alignItems='center' justifyContent='space-between' style={{width: '100%', marginTop:20}}>
+                                            <ul className={classes.commentStyle}>
+                                                <li><HandsClappingIcon/> 1,200</li>
+                                                <li><UsersThreeIcon/> 200</li>
+                                                <li><BookmarksSimple/> 초급</li>
+                                            </ul>
+                                            <BedgeNewIcon className={classes.badge}/>
                                         </Box>
+                                        {/*<Box display='flex' justifyContent='center' alignItems='center' style={{width: '100%'}}>*/}
+                                        {/*    <Button className={classes.buttonStyle} disableRipple>*/}
+                                        {/*        수강생 현황*/}
+                                        {/*    </Button>*/}
+                                        {/*    <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} onClick={this.handleClickClass} disableRipple>*/}
+                                        {/*        강의실 입장*/}
+                                        {/*    </Button>*/}
+                                        {/*</Box>*/}
                                     </Box>
                                 </Box>
                             ))
