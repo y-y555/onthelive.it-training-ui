@@ -94,6 +94,7 @@ class SurveyDialogComponent extends Component {
             <div className={classes.root}>
                 <Dialog
                     open={this.props.surveyDialogOpen}
+                    // open={true}
                     className={classes.dialogBox}
                 >
                     <Box display='flex' justifyContent='space-between' className={classes.titleBox} >
