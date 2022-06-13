@@ -39,13 +39,13 @@ const styles = theme => ({
         // marginLeft:50,
         marginLeft:30,
         '&>h3':{
-            fontSize:'1.5rem',
-            fontWeight:600,
+            fontSize:'1.875rem',
+            fontWeight:500,
             marginBottom:24,
         },
     },
     subTextBox:{
-        fontSize:'1.063rem',
+        fontSize:'1.125rem',
         color:'#000',
     },
     buttonStyle:{
@@ -78,7 +78,7 @@ class ClassTitleComponent extends Component {
         this.setState({ dialogOpen: false });
     };
 
-    ellipsisText = (text) => text.length > 49 ? text.substr(0, 49) + '...' : text;
+    ellipsisText = (text) => text.length > 47 ? text.substr(0, 47) + '...' : text;
 
     render() {
         const { classes } = this.props;

@@ -56,6 +56,10 @@ const styles = theme => ({
     iconButton:{
         padding: 0,
         marginLeft: 15,
+        '& svg':{
+            width:18,
+            height:18,
+        },
         '&:hover':{
             background: 'transparent'
         }
@@ -68,7 +72,10 @@ const styles = theme => ({
         padding:'14px 16px 20px',
         boxSizing:'border-box',
         '& ul': {
-            paddingBottom:20
+            paddingBottom:20,
+            '& li':{
+                marginBottom: 4,
+            }
         },
         '& ul, ol':{
             margin:0,

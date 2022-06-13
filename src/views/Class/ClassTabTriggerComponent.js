@@ -46,6 +46,7 @@ const styles = theme => ({
             position:'relative',
             opacity:1,
             marginRight:10,
+            fontSize: '0.938rem',
             '&:hover':{
                 fontWeight: 700,
                 color:'#18427c',
@@ -54,7 +55,7 @@ const styles = theme => ({
         '& button.Mui-selected':{
             backgroundColor:'#fff',
             color:'#18427c',
-            fontWeight:700,
+            fontWeight:600,
             borderRadius:50,
             overflow:'inherit',
             border: '2px solid #18427c',
