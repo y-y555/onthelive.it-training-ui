@@ -7,10 +7,11 @@ import Layout2ColumnComponent from "./Layout2columnComponent";
 const styles = theme => ({
     root:{
         width:'calc(100% - 133px)',
-        height: 'calc(100vh - 59px)',
+        minHeight: 'calc(100vh - 59px)',
         boxSizing:'border-box',
         display:'flex',
         justifyContent:'center',
+        background:'#fafafa',
     }
 });
 

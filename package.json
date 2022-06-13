@@ -19,6 +19,7 @@
     "react-calendar": "^3.7.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.1.0",
+    "react-drag-drop-files": "^2.3.7",
     "react-google-recaptcha": "^2.1.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",

@@ -27,6 +27,10 @@ const styles = theme => ({
         fontWeight: 600,
         color:'rgba(0, 0, 0, 0.5)'
     },
+    titleText:{
+        fontSize: '0.875rem',
+        fontWeight: 600,
+    },
     iconButton:{
         padding: 0,
         margin: '0 10px',
@@ -66,25 +70,6 @@ const styles = theme => ({
     },
 });
 
-const BootstrapInput = withStyles(theme => ({
-    root: {
-    },
-    input: {
-        borderRadius: 0,
-        position: 'relative',
-        backgroundColor: 'transparent',
-        border: '0',
-        fontSize:'0.75rem',
-        fontWeight:600,
-        color:'#000',
-        '&:focus': {
-            background:'transparent'
-        },
-        '&.MuiSelect-select':{
-            paddingRight:5,
-        }
-    },
-}))(InputBase);
 
 const BootstrapInputIcon = withStyles(theme => ({
     root: {
@@ -132,17 +117,7 @@ class ContentLectureTopBarComponent extends Component {
                     <Box className={classes.lineStyle}/>
                     <Box display='flex' alignItems='center'>
                         <Info style={{marginRight: 5}}/>
-                        <FormControl>
-                            <Select
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                                input={<BootstrapInput name="type" id="type-select" />}
-                                IconComponent={() => <ArrowDownIcon/>}
-                            >
-                                <MenuItem value={"웹 해킹 보안 입문"} className={classes.menuText}>웹 해킹 보안 입문</MenuItem>
-                                <MenuItem value={"웹 해킹 보안 입문2"} className={classes.menuText}>웹 해킹 보안 입문2</MenuItem>
-                            </Select>
-                        </FormControl>
+                        <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
                     </Box>
 
                 </Box>

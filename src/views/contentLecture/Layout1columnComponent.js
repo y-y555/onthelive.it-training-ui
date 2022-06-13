@@ -2,12 +2,14 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box} from "@material-ui/core";
 import clsx from "clsx";
+import DragDropComponent from "./DragDropComponent";
+import SurveyCreateComponent from "../dialog/survey/SurveyCreateComponent";
 
 const styles = theme => ({
     root:{
         width:'100%',
-        height: '100%',
-        position:'relative'
+        minHeight: '100%',
+        position:'relative',
     },
     lineRowStyle:{
         position: 'absolute',
@@ -16,17 +18,17 @@ const styles = theme => ({
         borderBottom: '1px dashed #000',
         top: 52
     },
-    lineColumnStyle:{
-        position: 'absolute',
+    dragDropBox:{
+        width: 890,
         height: '100%',
-        width: 1,
+        display:'flex',
+        flexDirection:'column',
+        alignItems:'center',
+        paddingTop: 52,
+        boxSizing:'border-box',
+        margin:'0 auto',
         borderRight: '1px dashed #000',
-    },
-    lineColumnStyleLeft:{
-        left: 211
-    },
-    lineColumnStyleRight:{
-        right: 211
+        borderLeft: '1px dashed #000',
     }
 });
 
@@ -44,9 +46,9 @@ class Layout1ColumnComponent extends Component {
         return (
             <div className={classes.root}>
                 <Box className={classes.lineRowStyle}/>
-                <Box className={clsx(classes.lineColumnStyle, classes.lineColumnStyleLeft)}/>
-                <Box className={clsx(classes.lineColumnStyle, classes.lineColumnStyleRight)}/>
-
+                <Box className={classes.dragDropBox}>
+                    <DragDropComponent/>
+                </Box>
 
             </div>
         );
