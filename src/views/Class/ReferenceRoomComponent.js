@@ -18,7 +18,7 @@ import {
     Select, Input, FormControl,
     TextField
 } from '@material-ui/core';
-import {ReactComponent as FolderPlusIcon} from "../../common/images/FolderPlusIcon.svg";
+import {ReactComponent as FolderPlusIcon} from "../../common/images/FolderPlusFillIcon.svg";
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
 import {ReactComponent as FileIcon} from "../../common/images/FileIcon.svg";
 import {ReactComponent as ClipboardTextIcon} from "../../common/images/ClipboardTextIcon.svg";
@@ -81,12 +81,14 @@ const styles = theme => ({
             fontSize:'0.938rem',
             '&.Mui-selected':{
                 fontWeight:700,
-                color:'#0097ff'
+                color:'#000'
             },
         },
         '& .MuiTabs-indicator':{
             height:3,
-            backgroundColor:'#0097ff',
+            backgroundColor:'#1664f5',
+            margin:'0 15px',
+            width:'70px!important',
         }
     },
     menuBox:{
@@ -97,6 +99,18 @@ const styles = theme => ({
         }
     },
     btnStyle:{
+        border: '1px solid #bfbfbf',
+        borderRadius:4,
+        marginLeft:10,
+        color:'#000',
+        padding:'3px 10px',
+        fontWeight:400,
+        fontSize:'0.875rem',
+        '&:hover':{
+            background: 'transparent',
+        }
+    },
+    btnStyle1:{
         border: '1px solid #0097ff',
         borderRadius:7,
         marginLeft:10,
@@ -236,7 +250,7 @@ class ReferenceRoomComponent extends Component {
                                                 aria-haspopup="true"
                                                 onClick={this.handleClick}
                                         >
-                                            <MoreIcon/>
+                                            <MoreIcon width='28px' height="28px"/>
                                         </Button>
                                         <Menu
                                             id="simple-menu"
@@ -271,7 +285,7 @@ class ReferenceRoomComponent extends Component {
                                         <div className={classes.fileInfo}>{row.date} | {row.size} | {row.userName}</div>
                                     </TableCell>
                                     <TableCell align="right"  >
-                                        <Button className={clsx(classes.tableBtnStyle, classes.downloadBtn)} disableRipple style={{fontSize:'0.75rem'}}><DownloadSimpleIcon/> <Typography>다운로드</Typography></Button>
+                                        {/*<Button className={clsx(classes.tableBtnStyle, classes.downloadBtn)} disableRipple style={{fontSize:'0.75rem'}}><DownloadSimpleIcon/> <Typography>다운로드</Typography></Button>*/}
                                     </TableCell>
                                 </TableRow>
                             ))}

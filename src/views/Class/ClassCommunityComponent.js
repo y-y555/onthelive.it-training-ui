@@ -35,12 +35,12 @@ const styles = theme => ({
             fontSize:'0.938rem',
             '&.Mui-selected':{
                 fontWeight:700,
-                color:'#0097ff'
+                color:'#000'
             },
         },
         '& .MuiTabs-indicator':{
             height:3,
-            backgroundColor:'#0097ff',
+            backgroundColor:'#1664f5',
         }
     },
     optionBox:{
