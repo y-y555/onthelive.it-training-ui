@@ -90,7 +90,7 @@ const styles = theme => ({
         },
     },
     captionText:{
-        fontSize:'0.688rem',
+        fontSize:'0.75rem',
         fontWeight:600,
         paddingTop: 2,
     },
@@ -266,6 +266,7 @@ const styles = theme => ({
             },
             '& svg':{
                 marginRight:5,
+                opacity:'0.6'
             },
         },
     }
@@ -327,7 +328,7 @@ class ScheduleCardListItemComponent extends Component {
                                 <HandsClappingIcon/> 좋아요
                             </Button>
                             <Button disableRipple onClick={this.handleClickDetail}>
-                                <ChatIcon/> 댓글 달기
+                                <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
                     </Box>
@@ -374,7 +375,7 @@ class ScheduleCardListItemComponent extends Component {
                                 <HandsClappingIcon/> 좋아요
                             </Button>
                             <Button disableRipple onClick={this.handleClickDetail}>
-                                <ChatIcon/> 댓글 달기
+                                <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
                     </Box>
@@ -411,7 +412,7 @@ class ScheduleCardListItemComponent extends Component {
                                 <HandsClappingIcon/> 좋아요
                             </Button>
                             <Button disableRipple onClick={this.handleClickDetail}>
-                                <ChatIcon/> 댓글 달기
+                                <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
                     </Box>
@@ -447,7 +448,7 @@ class ScheduleCardListItemComponent extends Component {
                                 <HandsClappingIcon/> 좋아요
                             </Button>
                             <Button disableRipple onClick={this.handleClickDetail}>
-                                <ChatIcon/> 댓글 달기
+                                <ChatCircleDotsIcon /> 댓글 달기
                             </Button>
                         </Box>
                     </Box>
