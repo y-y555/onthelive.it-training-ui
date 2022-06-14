@@ -90,6 +90,10 @@ const styles = theme => ({
             left: 115,
         }
     },
+    valuationExplanationBox:{
+        bottom:-90,
+        right: -99,
+    },
     stepText:{
         fontSize:'0.813rem',
         color:'#abd0fe',
@@ -242,7 +246,7 @@ class DragDropComponent extends Component {
                         </IconButton>
 
                         {infoTooltip &&
-                        <Box className={clsx(classes.explanationBox, classes.infoExplanationBox)}>
+                        <Box className={clsx(classes.explanationBox, classes.infoExplanationBox, valuationOpen ? classes.valuationExplanationBox : null)}>
                             <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
                                 {videoOpen ?
                                     <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
