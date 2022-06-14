@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import ClassNoticeComponent from "./ClassNoticeComponent";
 import ClassScheduleListComponent from "./ClassScheduleListComponent";
 import ClassHomeTypeTabComponent from "./ClassHomeTypeTabComponent";
+import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
 
 const styles = theme => ({
     root:{
@@ -23,6 +24,7 @@ class TodayScheduleComponent extends Component {
             <div className={classes.root}>
                 <ClassNoticeComponent/>
                 <ClassHomeTypeTabComponent/>
+                <ClassLearningStatusComponent/>
                 <ClassScheduleListComponent/>
             </div>
         );

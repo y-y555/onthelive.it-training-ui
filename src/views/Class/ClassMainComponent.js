@@ -220,7 +220,6 @@ export default function ClassMainComponent() {
                     handleChange={handleChange}
                 />
             </Box>
-
             <Box className={classes.wrap}>
                 <Box id="myLeft">
                     {(classTab === 0 || classTab === 1 || classTab === 2 || (classTab === 4 && noticeBoard === false) || classSelectTag !== false) ?

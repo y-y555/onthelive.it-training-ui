@@ -92,6 +92,7 @@ const styles = theme => ({
         marginRight:20,
         marginBottom:20,
         padding:0,
+        cursor: 'pointer',
         "&:hover":{
             background:'#fff'
         },
@@ -142,10 +143,10 @@ const styles = theme => ({
     },
     vodBox:{
         background:'#000',
-        marginLeft:5
+        // marginLeft:5
     },
     likeBox:{
-        padding: '6px 7px',
+        padding: '6px 8px',
         boxSizing:'border-box',
         borderRadius: 5,
         background:'#fff',
@@ -615,10 +616,10 @@ class MyRoomComponent extends Component {
                         {this.state.classTab === 0 &&
                             this.state.roomList.map((rooms, i) => (
                                 <Box key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
-                                        disableRipple>
+                                        disableRipple onClick={this.handleClickClass} >
                                     <Box className={classes.imgBox}>
                                         <img src={rooms.img} alt='room image'/>
-                                        <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10}}>
+                                        <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10, borderRadius:3, overflow:'hidden'}}>
                                             {rooms.live === true &&
                                                 <Box className={classes.liveBox}>
                                                     <LiveIcon/>

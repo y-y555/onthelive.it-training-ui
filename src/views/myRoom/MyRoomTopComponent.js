@@ -101,7 +101,7 @@ class MyRoomTopComponent extends Component {
                             input={<BootstrapInput name="type" id="type-select" />}
                             IconComponent={() => <CaretDown/>}
                         >
-                            <MenuItem value={"강의"} className={classes.menuText}>강의</MenuItem>
+                            <MenuItem value={"강의 관리"} className={classes.menuText}>강의 관리</MenuItem>
                             <MenuItem value={"강의1"} className={classes.menuText}>강의1</MenuItem>
                         </Select>
                     </FormControl>
