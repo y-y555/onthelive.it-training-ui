@@ -222,7 +222,7 @@ class ImageContentsComponent extends Component {
                             {file ?
                                 <Box className={classes.imgBox} style={left ? {justifyContent:'flex-start'} : right ? {justifyContent:'flex-end'} : {justifyContent:'center'}}>
                                     {/* src -> 파일 업로드 image 미리보기 */}
-                                    <img src={TestImage3} alt='test-image' />
+                                    <img src={TestImage2} alt='test-image' />
                                 </Box>
                                 :
                                 <>
