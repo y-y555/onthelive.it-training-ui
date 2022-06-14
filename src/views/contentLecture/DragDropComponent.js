@@ -12,6 +12,7 @@ import clsx from "clsx";
 import VideoContentsComponent from "./VideoContentsComponent";
 import ImageContentsComponent from "./ImageContentsComponent";
 import TextComponent from "./TextComponent";
+import VirtualMachinesComponent from "./VirtualMachinesComponent";
 
 const styles = theme => ({
     root:{
@@ -139,6 +140,7 @@ class DragDropComponent extends Component {
             videoButton: false,
             imageButton: false,
             textButton: false,
+            virtualMachinesButton: false,
         };
     }
 
@@ -200,12 +202,17 @@ class DragDropComponent extends Component {
         this.setState({ textButton: true });
     };
 
+    handleClickVirtualMachines = () => {
+        this.setState({ virtualMachinesButton: true });
+    };
+
 
     handleClickRemove = () => {
         this.setState({
             videoButton: false,
             imageButton: false,
             textButton: false,
+            virtualMachinesButton: false,
         });
     };
 
@@ -241,6 +248,7 @@ class DragDropComponent extends Component {
                         handleClickVideo={this.handleClickVideo}
                         handleClickImage={this.handleClickImage}
                         handleClickText={this.handleClickText}
+                        handleClickVirtualMachines={this.handleClickVirtualMachines}
                     />
                     <Box display='flex' justifyContent='flex-end' style={{position:'relative'}}>
                         <IconButton className={classes.iconButton} onClick={this.handleClickInfoTooltip} disableRipple>
@@ -300,6 +308,12 @@ class DragDropComponent extends Component {
                     {this.state.textButton &&
                         <TextComponent/>
                     }
+
+                    {/* 가상 머신*/}
+                    {this.state.virtualMachinesButton &&
+                        <VirtualMachinesComponent/>
+                    }
+
                     <Box display='flex' justifyContent='flex-end' alignItems='center' mt={5}>
                         <IconButton className={classes.iconButton} disableRipple><CopyIcon/></IconButton>
                         <IconButton

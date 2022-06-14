@@ -66,7 +66,7 @@ const styles = theme => ({
 
 class ButtonTopComponent extends Component {
     render() {
-        const { classes, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText  } = this.props;
+        const { classes, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText, handleClickVirtualMachines  } = this.props;
 
         return (
             <div className={classes.root}>
@@ -155,7 +155,7 @@ class ButtonTopComponent extends Component {
                         이미지
                     </MenuItem>
                     <Box className={classes.lineStyle} />
-                    <MenuItem>
+                    <MenuItem onClick={handleClickVirtualMachines}>
                         가상머신
                     </MenuItem>
                 </Popover>
