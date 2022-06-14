@@ -15,16 +15,18 @@ import TextComponent from "./TextComponent";
 
 const styles = theme => ({
     root:{
-        position:'relative'
+        position:'relative',
+        width: 'calc(100% - 180px)'
     },
     contentsBox:{
-        width: 690,
+        width: '100%',
         border:'1px solid #1664f5',
         borderTop: '4px solid #1664f5',
         borderRadius:8,
         boxSizing:'border-box',
         padding: '14px 35px',
-        marginTop: 47
+        marginTop: 47,
+        background:'#fff'
     },
     buttonStyle:{
         width: 235,
