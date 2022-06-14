@@ -41,7 +41,7 @@ const styles = theme => ({
         justifyContent:'center',
         margin: '0 0 auto',
         '& button':{
-            minWidth:90,
+            minWidth:82,
             minHeight:40,
             position:'relative',
             opacity:1,
@@ -168,9 +168,10 @@ class ClassTabTriggerComponent extends Component {
                             disableRipple
                             icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
+                        <Tab label="강의소개" disableRipple />
                         <Tab label="학습현황" disableRipple />
                         <Tab label="과제" disableRipple />
-                        <Tab label="시험" disableRipple />
+                        <Tab label="평가" disableRipple />
                         <Tab label="자료실"
                              disableRipple
                              icon={<BedgeNewIcon className={classes.iconStyle} />}

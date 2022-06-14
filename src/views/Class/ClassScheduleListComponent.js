@@ -294,7 +294,7 @@ class ClassScheduleListComponent extends Component {
 
         return (
             <div className={classes.root}>
-                <Typography variant={"h5"}>학습현황 <CaretRightIcon/></Typography>
+
                 <StyledTabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
                     <Tab
                         label='전체 (15)'

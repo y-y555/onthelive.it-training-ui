@@ -19,6 +19,8 @@ import AddAdminComponent from "../setting/AddAdminComponent";
 import MemberWithdrawalComponent from "../setting/MemberWithdrawalComponent";
 import MemberPermissionSettingComponent from "../setting/MemberPermissionSettingComponent";
 import ClassSelectTagComponent from "./ClassSelectTagComponent";
+import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
+import ClassLearningTableComponent from "./ClassLearningTableComponent";
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -235,18 +237,24 @@ export default function ClassMainComponent() {
                     <TodayScheduleComponent/>
                     }
                     {classTab === 1 &&
-                    <FullScheduleComponent/>
+                     <FullScheduleComponent/>
                     }
                     {classTab === 2 &&
-                    <ClassCalendarComponent/>
+                    // <ClassCalendarComponent/>
+                    <ClassLearningStatusComponent/>
                     }
                     {classTab === 3 &&
-                    <ClassCalendarComponent/>
+                    // <ClassCalendarComponent/>
+                        <ClassLearningTableComponent/>
                     }
                     {classTab === 4 &&
+                    // <ReferenceRoomComponent/>
+                    <ClassLearningTableComponent/>
+                    }
+                    {classTab === 5 &&
                     <ReferenceRoomComponent/>
                     }
-                    {classTab === 5 ?
+                    {classTab === 6 ?
                         noticeBoard === true ?
                             <ClassBoardDetailViewComponent/>
                             :
@@ -254,7 +262,7 @@ export default function ClassMainComponent() {
                         :
                         null
                     }
-                    {classTab === 6 &&
+                    {classTab === 7 &&
                     <MemberListComponent/>
                     }
 
