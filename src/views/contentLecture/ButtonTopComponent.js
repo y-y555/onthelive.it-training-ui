@@ -27,6 +27,14 @@ const styles = theme => ({
             background:'#c7c9cc',
         },
     },
+    listButtonStyle2:{
+        '@media all and (max-width: 1550px)': {
+            width: 100,
+        },
+        '@media all and (max-width: 1360px)': {
+            width: 80,
+        },
+    },
     focusListButtonStyle:{
         background:'#d8e5fc',
         border:'1px solid #1664f5',
@@ -66,12 +74,12 @@ const styles = theme => ({
 
 class ButtonTopComponent extends Component {
     render() {
-        const { classes, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText, handleClickVirtualMachines  } = this.props;
+        const { classes, typeButton2, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText, handleClickVirtualMachines  } = this.props;
 
         return (
             <div className={classes.root}>
                 <Button
-                    className={videoOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
+                    className={typeButton2 ? videoOpen ? clsx(classes.listButtonStyle, classes.listButtonStyle2, classes.focusListButtonStyle) : clsx(classes.listButtonStyle, classes.listButtonStyle2) : videoOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
                     aria-owns={videoOpen ? 'simple-popper' : undefined}
                     onClick={handleClickVideoPopover}
                     disableRipple
@@ -79,7 +87,7 @@ class ButtonTopComponent extends Component {
                     동영상
                 </Button>
                 <Button
-                    className={trainingOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
+                    className={typeButton2 ? trainingOpen ? clsx(classes.listButtonStyle, classes.listButtonStyle2, classes.focusListButtonStyle) : clsx(classes.listButtonStyle, classes.listButtonStyle2) : trainingOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
                     aria-owns={trainingOpen ? 'simple-popper' : undefined}
                     onClick={handleClickTrainingPopover}
                     disableRipple
@@ -87,7 +95,7 @@ class ButtonTopComponent extends Component {
                     실습
                 </Button>
                 <Button
-                    className={valuationOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
+                    className={typeButton2 ? valuationOpen ? clsx(classes.listButtonStyle, classes.listButtonStyle2, classes.focusListButtonStyle) : clsx(classes.listButtonStyle, classes.listButtonStyle2) : valuationOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
                     aria-owns={valuationOpen ? 'simple-popper' : undefined}
                     onClick={handleClickEvaluationPopover}
                     disableRipple
@@ -95,7 +103,7 @@ class ButtonTopComponent extends Component {
                     평가
                 </Button>
                 <Button
-                    className={taskOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
+                    className={typeButton2 ? taskOpen ? clsx(classes.listButtonStyle, classes.listButtonStyle2, classes.focusListButtonStyle) : clsx(classes.listButtonStyle, classes.listButtonStyle2) : taskOpen ? clsx(classes.listButtonStyle, classes.focusListButtonStyle) : classes.listButtonStyle}
                     aria-owns={taskOpen ? 'simple-popper' : undefined}
                     onClick={handleClickTaskPopover}
                     disableRipple

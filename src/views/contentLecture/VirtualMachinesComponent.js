@@ -52,7 +52,7 @@ const styles = theme => ({
         boxShadow:'0px 2px 4px rgba(0, 0, 0, 0.25)',
         zIndex:1000,
         '&:hover':{
-            background:'#fff'
+            background:'#fff !important'
         }
     },
     popoverBox:{

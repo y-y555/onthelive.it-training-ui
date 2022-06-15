@@ -17,7 +17,17 @@ import VirtualMachinesComponent from "./VirtualMachinesComponent";
 const styles = theme => ({
     root:{
         position:'relative',
-        width: 'calc(100% - 180px)'
+        width: 'calc(100% - 180px)',
+        margin:'0 auto'
+    },
+    root2:{
+        '@media all and (min-width: 1600px)': {
+            width: 'calc(100% - 80px)',
+        },
+        '@media all and (min-width: 1960px)': {
+            width: 'calc(100% - 180px)',
+        },
+        width: 'calc(100% - 40px)',
     },
     contentsBox:{
         width: '100%',
@@ -26,7 +36,6 @@ const styles = theme => ({
         borderRadius:8,
         boxSizing:'border-box',
         padding: '14px 35px',
-        marginTop: 47,
         background:'#fff'
     },
     buttonStyle:{
@@ -75,7 +84,20 @@ const styles = theme => ({
             width: '13px',
             // boxShadow: '2px -2px 2px 0 rgb(178 178 178 / 20%)',
             zIndex:200
-        }
+        },
+    },
+    //2단
+    explanationBox2:{
+        '@media all and (min-width: 1500px) and (max-width: 1800px)': {
+            left: '15%',
+        },
+        '@media all and (max-width: 1500px)': {
+            width:280,
+            left: '20%',
+            "&::before":{
+                left: 150,
+            },
+        },
     },
     infoExplanationBox:{
         width:210,
@@ -91,7 +113,17 @@ const styles = theme => ({
         "&::before":{
             top: -6,
             left: 115,
-        }
+        },
+    },
+    //2단
+    infoExplanationBox2:{
+        '@media all and (max-width: 1600px)': {
+            width:180,
+            right: -30,
+            "&::before":{
+                left: 154,
+            }
+        },
     },
     valuationExplanationBox:{
         bottom:-90,
@@ -101,19 +133,31 @@ const styles = theme => ({
         fontSize:'0.813rem',
         color:'#abd0fe',
         fontWeight:300,
-        marginRight: 14
+        marginRight: 14,
     },
     stepContents:{
         fontSize:'1.125rem',
         color:'#fff',
-        fontWeight:300
+        fontWeight:300,
+    },
+    stepContents2:{
+        '@media all and (max-width: 1500px)': {
+            fontSize:'0.938rem',
+        },
     },
     infoStepContents:{
         fontSize: '0.813rem'
     },
     titleText:{
         fontWeight: 600,
-        fontSize: '1.375rem'
+        fontSize: '1.375rem',
+
+    },
+    // 2단
+    titleText2:{
+        '@media all and (max-width: 1500px)': {
+            fontSize:'1rem',
+        },
     },
     iconButton:{
         padding:0,
@@ -217,7 +261,7 @@ class DragDropComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, typeButton2 } = this.props;
         const { videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl, tooltip, infoTooltip } = this.state;
         const videoOpen = Boolean(videoAnchorEl);
         const trainingOpen = Boolean(trainingAnchorEl);
@@ -225,7 +269,7 @@ class DragDropComponent extends Component {
         const taskOpen = Boolean(taskAnchorEl);
 
         return (
-            <div className={classes.root}>
+            <div className={typeButton2 ? clsx(classes.root, classes.root2) : classes.root }>
                 <Box className={classes.contentsBox}>
                     <Box display='flex' justifyContent='center'>
                         <SurveyDragIcon style={{cursor: 'pointer'}}/>
@@ -249,6 +293,8 @@ class DragDropComponent extends Component {
                         handleClickImage={this.handleClickImage}
                         handleClickText={this.handleClickText}
                         handleClickVirtualMachines={this.handleClickVirtualMachines}
+                        //
+                        typeButton2={typeButton2}
                     />
                     <Box display='flex' justifyContent='flex-end' style={{position:'relative'}}>
                         <IconButton className={classes.iconButton} onClick={this.handleClickInfoTooltip} disableRipple>
@@ -256,7 +302,7 @@ class DragDropComponent extends Component {
                         </IconButton>
 
                         {infoTooltip &&
-                        <Box className={clsx(classes.explanationBox, classes.infoExplanationBox, valuationOpen ? classes.valuationExplanationBox : null)}>
+                        <Box className={typeButton2 ? clsx(classes.explanationBox, classes.infoExplanationBox, classes.infoExplanationBox2, valuationOpen ? classes.valuationExplanationBox : null) : clsx(classes.explanationBox, classes.infoExplanationBox, valuationOpen ? classes.valuationExplanationBox : null)}>
                             <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
                                 {videoOpen ?
                                     <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
@@ -326,17 +372,17 @@ class DragDropComponent extends Component {
                     </Box>
                 </Box>
                 {tooltip &&
-                    <Box className={classes.explanationBox}>
+                    <Box className={typeButton2 ? clsx(classes.explanationBox, classes.explanationBox2) : classes.explanationBox}>
                         <Box display='flex' justifyContent='space-between' alignItems='flex-end' mb={2}>
                             <Box display='flex' alignItems='center'>
                                 <Typography className={classes.stepText}>단계 2 of 2</Typography>
-                                <Typography className={clsx(classes.stepContents, classes.titleText)}>강의 콘텐츠 만들기</Typography>
+                                <Typography className={typeButton2 ? clsx(classes.stepContents, classes.titleText, classes.titleText2) : clsx(classes.stepContents, classes.titleText)}>강의 콘텐츠 만들기</Typography>
                             </Box>
                             <IconButton className={classes.iconButton} onClick={this.handleCloseTooltip} disableRipple>
                                 <X style={{marginBottom: 10}}/>
                             </IconButton>
                         </Box>
-                        <Typography className={classes.stepContents}>콘텐츠 유형 (동영상, 실습, 평가, 과제)을 선택하면강의 내용을 디자인할 수 있습니다.</Typography>
+                        <Typography className={typeButton2 ? clsx(classes.stepContents, classes.stepContents2) : classes.stepContents}>콘텐츠 유형 (동영상, 실습, 평가, 과제)을 선택하면강의 내용을 디자인할 수 있습니다.</Typography>
                     </Box>
                 }
                 <Button className={classes.buttonStyle} disableRipple>

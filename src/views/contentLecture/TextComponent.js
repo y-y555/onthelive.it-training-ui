@@ -5,7 +5,8 @@ import {Box, Typography} from "@material-ui/core";
 const styles = theme => ({
     root:{
         display:'flex',
-        position:'relative'
+        position:'relative',
+        marginBottom: 20,
     },
     textBox:{
         width:42,
@@ -36,6 +37,7 @@ const styles = theme => ({
         boxShadow:'0px 4px 16px rgba(0, 0, 0, 0.24), 0px 0px 2px rgba(0, 0, 0, 0.24)',
         marginTop: 14,
         background: '#fff',
+        zIndex: 2000,
         '& ul':{
             listStyle:'none',
             paddingLeft: 0,

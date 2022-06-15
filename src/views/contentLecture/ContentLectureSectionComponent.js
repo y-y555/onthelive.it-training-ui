@@ -32,7 +32,7 @@ class ContentLectureSectionComponent extends Component {
                     <Layout1ColumnComponent/>
                 }
                 {typeButton2 &&
-                    <Layout2ColumnComponent/>
+                    <Layout2ColumnComponent typeButton2={typeButton2}/>
                 }
             </div>
         );
