@@ -4,7 +4,7 @@ import {Box, Button, IconButton, MenuItem, Popover, Typography} from "@material-
 import {ReactComponent as VideoInputImage} from "../../common/images/VideoInputImage.svg";
 import {FileUploader} from "react-drag-drop-files";
 import clsx from "clsx";
-import {ReactComponent as MoreIcon} from "../../common/images/MoreIcon.svg";
+import {ReactComponent as More} from "../../common/images/More.svg";
 import TestImage3 from "../../common/images/TestImage3.jpg";
 
 const styles = theme => ({
@@ -28,8 +28,8 @@ const styles = theme => ({
     },
     fileBoxMoreBtn:{
         position: 'absolute',
-        top: -20,
-        right: -20
+        top: 12,
+        right: 11
     },
     iconButton:{
         padding: 0,
@@ -38,9 +38,9 @@ const styles = theme => ({
         }
     },
     moreBtn:{
-        width: 40,
-        height: 40,
-        background:'#fff',
+        width: 30,
+        height: 30,
+        background:'rgba(255, 255, 255, 0.9)',
         borderRadius: '50%',
         boxShadow:'0px 2px 4px rgba(0, 0, 0, 0.25)',
         zIndex:1000,
@@ -91,11 +91,11 @@ const styles = theme => ({
         },
         '& .MuiListItem-root': {
             display:'flex',
-            justifyContent:'center',
             alignItems:'center',
             padding: '3px 10px',
             fontSize: '0.813rem',
             color:'#000',
+            textAlign: 'left',
             '&:hover': {
                 background: '#d3d7db',
             },
@@ -176,7 +176,7 @@ class VideoContentsComponent extends Component {
                         onClick={this.handleClickPopover}
                         disableRipple
                     >
-                        <MoreIcon/>
+                        <More/>
                     </IconButton>
 
                     <Popover

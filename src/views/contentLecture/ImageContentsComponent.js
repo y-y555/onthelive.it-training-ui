@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, IconButton, ListItemIcon, ListItemText, MenuItem, Popover, Typography} from "@material-ui/core";
 import {ReactComponent as VideoInputImage} from "../../common/images/VideoInputImage.svg";
-import {ReactComponent as MoreIcon} from "../../common/images/MoreIcon.svg";
+import {ReactComponent as More} from "../../common/images/More.svg";
 import TestImage from "../../common/images/TestImage.png";
 import TestImage2 from "../../common/images/TestImage2.png";
 import TestImage3 from "../../common/images/TestImage3.jpg";
@@ -30,8 +30,8 @@ const styles = theme => ({
     },
     fileBoxMoreBtn:{
         position: 'absolute',
-        top: -20,
-        right: -20
+        top: 12,
+        right: 11
     },
     iconButton:{
         padding: 0,
@@ -40,14 +40,14 @@ const styles = theme => ({
         }
     },
     moreBtn:{
-        width: 40,
-        height: 40,
-        background:'#fff',
+        width: 30,
+        height: 30,
+        background:'rgba(255, 255, 255, 0.9)',
         borderRadius: '50%',
         boxShadow:'0px 2px 4px rgba(0, 0, 0, 0.25)',
         zIndex:1000,
         '&:hover':{
-            background:'#fff'
+            background:'#fff !important'
         }
     },
     videoText:{
@@ -90,11 +90,11 @@ const styles = theme => ({
         },
         '& .MuiListItem-root': {
             display:'flex',
-            justifyContent:'center',
             alignItems:'center',
             padding: '3px 10px',
             fontSize: '0.813rem',
             color:'#000',
+            textAlign: 'left',
             '&:hover': {
                 background: '#d3d7db',
             },
@@ -176,7 +176,7 @@ class ImageContentsComponent extends Component {
                             onClick={this.handleClickPopover}
                             disableRipple
                         >
-                            <MoreIcon/>
+                            <More/>
                         </IconButton>
 
                         <Popover

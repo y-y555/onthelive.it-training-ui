@@ -191,7 +191,7 @@ const styles = theme => ({
     },
     buttonText:{
         width: 90,
-        fontSize:'0.875rem',
+        fontSize:'0.813rem',
         color:'#1A457E',
         textTransform: 'none'
     }

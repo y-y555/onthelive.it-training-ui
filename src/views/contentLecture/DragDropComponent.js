@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, IconButton, Typography} from "@material-ui/core";
+import {Box, Button, IconButton, Tooltip, Typography} from "@material-ui/core";
 import {ReactComponent as SurveyDragIcon} from "../../common/images/SurveyDragIcon.svg";
 import ButtonTopComponent from "./ButtonTopComponent";
 import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";
@@ -41,14 +41,14 @@ const styles = theme => ({
     buttonStyle:{
         width: 235,
         height: 40,
-        background:'#1a568e',
+        background:'#1a457e',
         borderRadius: 7,
         boxSizing: 'border-box',
         boxShadow:'0 1px 1px 0 rgba(0, 0, 0, 0.25)',
         marginTop: 30,
         marginBottom:80,
         '&:hover':{
-            background:'#1a568e',
+            background:'#1a457e',
         },
         '& span':{
             display:'flex',
@@ -158,6 +158,16 @@ const styles = theme => ({
         '@media all and (max-width: 1500px)': {
             fontSize:'1rem',
         },
+    },
+
+    lightTooltip: {
+        backgroundColor: '#FFFFF5',
+        color: '#000',
+        border:'1px solid #000',
+        fontSize:'0.688rem',
+        borderRadius:0,
+        marginLeft:0,
+        marginTop:8
     },
     iconButton:{
         padding:0,
@@ -361,14 +371,18 @@ class DragDropComponent extends Component {
                     }
 
                     <Box display='flex' justifyContent='flex-end' alignItems='center' mt={5}>
-                        <IconButton className={classes.iconButton} disableRipple><CopyIcon/></IconButton>
-                        <IconButton
-                            className={clsx(classes.iconButton, classes.marginLeft)}
-                            disableRipple
-                            onClick={this.handleClickRemove}
-                        >
-                            <Remove/>
-                        </IconButton>
+                        <Tooltip title="복제" classes={{ tooltip: classes.lightTooltip }}>
+                            <IconButton className={classes.iconButton} disableRipple><CopyIcon/></IconButton>
+                        </Tooltip>
+                        <Tooltip title="삭제" classes={{ tooltip: classes.lightTooltip }}>
+                            <IconButton
+                                className={clsx(classes.iconButton, classes.marginLeft)}
+                                disableRipple
+                                onClick={this.handleClickRemove}
+                            >
+                                <Remove/>
+                            </IconButton>
+                        </Tooltip>
                     </Box>
                 </Box>
                 {tooltip &&
