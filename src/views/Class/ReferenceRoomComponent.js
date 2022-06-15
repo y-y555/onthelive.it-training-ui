@@ -142,7 +142,7 @@ const styles = theme => ({
         }
     },
     menuItem:{
-        fontSize:'0.75rem',
+        fontSize:'0.875rem',
         fontFamily: 'NanumSquareRoundOTF' ,
         color:'#000',
         "&:hover":{
@@ -340,8 +340,8 @@ class ReferenceRoomComponent extends Component {
                                             onClose={this.handleClose}
                                             className={classes.menuBox }
                                             anchorOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'right',
+                                                vertical: 'bottom',
+                                                horizontal: 'left',
                                             }}
                                             transformOrigin={{
                                                 vertical: 'top',

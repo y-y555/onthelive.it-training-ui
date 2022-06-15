@@ -21,6 +21,11 @@ import MemberPermissionSettingComponent from "../setting/MemberPermissionSetting
 import ClassSelectTagComponent from "./ClassSelectTagComponent";
 import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
 import ClassLearningTableComponent from "./ClassLearningTableComponent";
+import ClassLectureIntroductionComponent from "./ClassLectureIntroductionComponent";
+import ClassLectureIntroductionModifyComponent from "./ClassLectureIntroductionModifyComponent";
+import ClassInquiryComponent from "./ClassInquiryComponent";
+
+
 
 const useStyles = makeStyles((theme) => ({
     root:{
@@ -234,25 +239,25 @@ export default function ClassMainComponent() {
 
                 <Box id="myCenter">
                     {classTab === 0 &&
-                    <TodayScheduleComponent/>
+                        <TodayScheduleComponent/>
                     }
                     {classTab === 1 &&
-                     <FullScheduleComponent/>
+                        // <ClassLectureIntroductionComponent/>
+                        <ClassLectureIntroductionModifyComponent/>
+                        // <FullScheduleComponent/>
                     }
                     {classTab === 2 &&
-                    // <ClassCalendarComponent/>
-                    <ClassLearningStatusComponent/>
+                        <ClassLearningStatusComponent/>
                     }
                     {classTab === 3 &&
                     // <ClassCalendarComponent/>
                         <ClassLearningTableComponent/>
                     }
                     {classTab === 4 &&
-                    // <ReferenceRoomComponent/>
-                    <ClassLearningTableComponent/>
+                        <ClassLearningTableComponent/>
                     }
                     {classTab === 5 &&
-                    <ReferenceRoomComponent/>
+                        <ReferenceRoomComponent/>
                     }
                     {classTab === 6 ?
                         noticeBoard === true ?
@@ -263,7 +268,8 @@ export default function ClassMainComponent() {
                         null
                     }
                     {classTab === 7 &&
-                    <MemberListComponent/>
+                    //<MemberListComponent/>
+                        <ClassInquiryComponent/>
                     }
 
                     {classSelectTag !== false && <ClassSelectTagComponent />}
