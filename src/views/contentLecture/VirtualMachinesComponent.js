@@ -14,8 +14,9 @@ import clsx from "clsx";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 import {ReactComponent as WindowsIcon} from "../../common/images/WindowsIcon.svg";
-import {ReactComponent as OnTheLiveIcon} from "../../common/images/OnTheLiveIcon.svg";
-import {ReactComponent as NewVMIcon} from "../../common/images/NewVMIcon.svg";
+import {ReactComponent as LinuxLogo} from "../../common/images/LinuxLogo.svg";
+import {ReactComponent as AppleLogo} from "../../common/images/AppleLogo.svg";
+import {ReactComponent as AndroidLogo} from "../../common/images/AndroidLogo.svg";
 
 const styles = theme => ({
     root:{
@@ -26,7 +27,7 @@ const styles = theme => ({
     },
     videoBox:{
         width: '100%',
-        height: 360,
+        height: 430,
         border: '1px solid rgba(0, 0, 0, 0.6)',
         borderRadius: 8,
         boxSizing: 'border-box',
@@ -34,7 +35,8 @@ const styles = theme => ({
         flexDirection:'column',
         alignItems: 'center',
         justifyContent:'center',
-        marginBottom:20
+        marginBottom:20,
+        padding: '34px 34px 17px'
     },
     fileBoxMoreBtn:{
         position: 'absolute',
@@ -75,12 +77,13 @@ const styles = theme => ({
     },
     titleStyle:{
         fontSize:'1.25rem',
+        color:'#0d0d0d',
         fontWeight: 600
     },
     subTextStyle:{
         fontSize:'1rem',
         color:'#333',
-        margin: '20px 0 17px'
+        margin: '14px 0 17px'
     },
     numberText:{
         fontSize:'0.813rem',
@@ -88,8 +91,9 @@ const styles = theme => ({
         marginLeft: 8
     },
     listBox:{
+        width: '100%',
         marginTop: 11,
-        maxHeight: 214,
+        maxHeight: 260,
         borderTop:'1px solid #A3A8AF',
         borderBottom:'1px solid #A3A8AF',
         padding: '10px 24px',
@@ -109,14 +113,18 @@ const styles = theme => ({
         },
     },
     marginBox:{
+        width: '100%',
         margin: '10px 0'
     },
+    leftWidth:{
+        width: 'calc(100% - 32px)'
+    },
     listText:{
-        width: 250,
+        width: 'calc(100% - 35px - 10px)',
         fontSize: '1rem',
         color:'#333',
         fontWeight: 600,
-        marginLeft: 20
+        marginLeft: 20,
     },
     formControl:{
         marginTop:10,
@@ -198,67 +206,95 @@ class VirtualMachinesComponent extends Component {
                     </Popover>
                 </Box>
                 <Box className={classes.videoBox}>
-                    <Box>
-                        <Box pl={3} pr={3 }>
-                            <Typography className={classes.titleStyle}>가상머신 OS선택</Typography>
-                            <Typography className={classes.subTextStyle}>아래 목록에서 한개를 선택해주세요.</Typography>
-                            <Box display='flex' alignItems='center'>
-                                <Book/>
-                                <Typography className={classes.numberText}>3개</Typography>
-                            </Box>
-                        </Box>
-
-                        <Box className={classes.listBox}>
-                            <Box display='flex' alignItems='center' jusitfyContent='space-between' className={classes.marginBox}>
-                                <Box display='flex' alignItems='center'>
-                                    <WindowsIcon/>
-                                    <Typography className={classes.listText} noWrap>Windows 10 and later x64 </Typography>
-                                </Box>
-                                <Radio
-                                    checked={this.state.selectedValue === 'a'}
-                                    onChange={this.handleChange}
-                                    value="a"
-                                    name="radio-button-demo"
-                                    inputProps={{ 'aria-label': 'A' }}
-                                    icon={<UnCheckedIcon/>}
-                                    checkedIcon={<CheckedIcon/>}
-                                />
-                            </Box>
-
-                            <Box display='flex' alignItems='center' jusitfyContent='space-between' className={classes.marginBox}>
-                                <Box display='flex' alignItems='center'>
-                                    <OnTheLiveIcon/>
-                                    <Typography className={classes.listText} noWrap>Onthelive - Linux</Typography>
-                                </Box>
-                                <Radio
-                                    checked={this.state.selectedValue === 'b'}
-                                    onChange={this.handleChange}
-                                    value="b"
-                                    name="radio-button-demo"
-                                    inputProps={{ 'aria-label': 'B' }}
-                                    icon={<UnCheckedIcon/>}
-                                    checkedIcon={<CheckedIcon/>}
-                                />
-                            </Box>
-
-                            <Box display='flex' alignItems='center' jusitfyContent='space-between' className={classes.marginBox}>
-                                <Box display='flex' alignItems='center' >
-                                    <NewVMIcon/>
-                                    <Typography className={classes.listText} noWrap>New VM name</Typography>
-                                </Box>
-                                <Radio
-                                    checked={this.state.selectedValue === 'c'}
-                                    onChange={this.handleChange}
-                                    value="c"
-                                    name="radio-button-demo"
-                                    inputProps={{ 'aria-label': 'C' }}
-                                    icon={<UnCheckedIcon/>}
-                                    checkedIcon={<CheckedIcon/>}
-                                />
-                            </Box>
+                    <Box pl={3} pr={3} style={{width: '100%'}}>
+                        <Typography className={classes.titleStyle}>가상머신 OS선택</Typography>
+                        <Typography className={classes.subTextStyle}>아래 목록에서 실습에 사용할 항목을 선택해주세요. (다중선택 가능)</Typography>
+                        <Box display='flex' alignItems='center'>
+                            <Book/>
+                            <Typography className={classes.numberText}>3개</Typography>
                         </Box>
                     </Box>
 
+                    <Box className={classes.listBox}>
+                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
+                            <Box display='flex' alignItems='center' className={classes.leftWidth}>
+                                <WindowsIcon/>
+                                <Typography className={classes.listText} noWrap>Windows 10 and later x64Windows 10 and later x64Windows 10 and later x64Windows 10 and later x64</Typography>
+                            </Box>
+                            <Radio
+                                checked={this.state.selectedValue === 'a'}
+                                onChange={this.handleChange}
+                                value="a"
+                                name="radio-button-demo"
+                                inputProps={{ 'aria-label': 'A' }}
+                                icon={<UnCheckedIcon/>}
+                                checkedIcon={<CheckedIcon/>}
+                            />
+                        </Box>
+
+                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
+                            <Box display='flex' alignItems='center' className={classes.leftWidth}>
+                                <LinuxLogo/>
+                                <Typography className={classes.listText} noWrap>Onthelive - Linux</Typography>
+                            </Box>
+                            <Radio
+                                checked={this.state.selectedValue === 'b'}
+                                onChange={this.handleChange}
+                                value="b"
+                                name="radio-button-demo"
+                                inputProps={{ 'aria-label': 'B' }}
+                                icon={<UnCheckedIcon/>}
+                                checkedIcon={<CheckedIcon/>}
+                            />
+                        </Box>
+
+                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
+                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
+                                <AppleLogo/>
+                                <Typography className={classes.listText} noWrap>New VM name</Typography>
+                            </Box>
+                            <Radio
+                                checked={this.state.selectedValue === 'c'}
+                                onChange={this.handleChange}
+                                value="c"
+                                name="radio-button-demo"
+                                inputProps={{ 'aria-label': 'C' }}
+                                icon={<UnCheckedIcon/>}
+                                checkedIcon={<CheckedIcon/>}
+                            />
+                        </Box>
+
+                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
+                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
+                                <AndroidLogo/>
+                                <Typography className={classes.listText} noWrap>Windows 10 and later x64</Typography>
+                            </Box>
+                            <Radio
+                                checked={this.state.selectedValue === 'd'}
+                                onChange={this.handleChange}
+                                value="d"
+                                name="radio-button-demo"
+                                inputProps={{ 'aria-label': 'D' }}
+                                icon={<UnCheckedIcon/>}
+                                checkedIcon={<CheckedIcon/>}
+                            />
+                        </Box>
+                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
+                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
+                                <WindowsIcon/>
+                                <Typography className={classes.listText} noWrap>Windows 10 and later x64</Typography>
+                            </Box>
+                            <Radio
+                                checked={this.state.selectedValue === 'e'}
+                                onChange={this.handleChange}
+                                value="e"
+                                name="radio-button-demo"
+                                inputProps={{ 'aria-label': 'E' }}
+                                icon={<UnCheckedIcon/>}
+                                checkedIcon={<CheckedIcon/>}
+                            />
+                        </Box>
+                    </Box>
                 </Box>
             </div>
         );

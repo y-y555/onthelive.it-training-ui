@@ -155,12 +155,12 @@ class ButtonTopComponent extends Component {
                         horizontal: 'left',
                     }}
                 >
-                    <MenuItem onClick={handleClickVideo}>
-                        동영상
-                    </MenuItem>
-                    <Box className={classes.lineStyle} />
                     <MenuItem onClick={handleClickImage}>
                         이미지
+                    </MenuItem>
+                    <Box className={classes.lineStyle} />
+                    <MenuItem onClick={handleClickText}>
+                        텍스트
                     </MenuItem>
                     <Box className={classes.lineStyle} />
                     <MenuItem onClick={handleClickVirtualMachines}>

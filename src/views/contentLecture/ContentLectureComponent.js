@@ -4,6 +4,7 @@ import {Box} from "@material-ui/core";
 import ContentLectureTopBarComponent from "./ContentLectureTopBarComponent";
 import ContentLectureSideBarComponent from "./ContentLectureSideBarComponent";
 import ContentLectureSectionComponent from "./ContentLectureSectionComponent";
+import ContentLecturePreviewComponent from "./ContentLecturePreviewComponent";
 
 const styles = theme => ({
     root:{
@@ -17,6 +18,7 @@ class ContentLectureComponent extends Component {
         this.state = {
             typeButton1: true,
             typeButton2: false,
+            preview: false,
         };
     }
 
@@ -34,24 +36,48 @@ class ContentLectureComponent extends Component {
         });
     };
 
+    handleClickPreview = () => {
+        this.setState({
+            preview: true,
+        });
+    };
+    handleClickBack = () => {
+        this.setState({
+            preview: false,
+        });
+    };
+
     render() {
         const { classes } = this.props;
+        const { preview } = this.state;
 
         return (
             <div className={classes.root}>
-                <ContentLectureTopBarComponent/>
-                <Box display='flex'>
-                    <ContentLectureSideBarComponent
-                        typeButton1={this.state.typeButton1}
-                        typeButton2={this.state.typeButton2}
-                        handleChangeTypeButton1={this.handleChangeTypeButton1}
-                        handleChangeTypeButton2={this.handleChangeTypeButton2}
-                    />
-                    <ContentLectureSectionComponent
-                        typeButton1={this.state.typeButton1}
-                        typeButton2={this.state.typeButton2}
-                    />
-                </Box>
+                {preview ?
+                    <>
+                        <ContentLectureTopBarComponent handleClickPreview={this.handleClickPreview}/>
+                        <ContentLecturePreviewComponent/>
+                    </>
+                    :
+                    <>
+                        <ContentLectureTopBarComponent handleClickPreview={this.handleClickPreview}/>
+                        <Box display='flex'>
+                            <ContentLectureSideBarComponent
+                                typeButton1={this.state.typeButton1}
+                                typeButton2={this.state.typeButton2}
+                                handleChangeTypeButton1={this.handleChangeTypeButton1}
+                                handleChangeTypeButton2={this.handleChangeTypeButton2}
+                            />
+                            <ContentLectureSectionComponent
+                                typeButton1={this.state.typeButton1}
+                                typeButton2={this.state.typeButton2}
+                            />
+                        </Box>
+                    </>
+                }
+
+
+
 
             </div>
         );

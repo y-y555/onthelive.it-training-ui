@@ -108,7 +108,7 @@ class ContentLectureTopBarComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, handleClickPreview } = this.props;
 
         return (
             <div className={classes.root}>
@@ -143,7 +143,7 @@ class ContentLectureTopBarComponent extends Component {
                         </Select>
                     </FormControl>
 
-                    <IconButton className={classes.iconButton} disableRipple>
+                    <IconButton className={classes.iconButton} onClick={handleClickPreview} disableRipple>
                         <Eye/>
                     </IconButton>
 
