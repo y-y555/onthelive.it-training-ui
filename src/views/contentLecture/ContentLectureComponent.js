@@ -79,7 +79,7 @@ class ContentLectureComponent extends Component {
                             previewPc={this.state.previewPc}
                             previewMobile={this.state.previewMobile}
                         />
-                        <ContentLecturePreviewComponent previewPc={this.state.previewPc}/>
+                        <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>
                     </>
                     :
                     <>

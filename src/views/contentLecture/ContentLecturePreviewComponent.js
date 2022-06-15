@@ -9,7 +9,7 @@ const styles = theme => ({
         width:'100%',
         minHeight: 'calc(100vh - 59px)',
         background:'#fafafa',
-        padding: 20,
+        padding: '0 20px 20px',
         boxSizing:'border-box'
     },
     topText:{
@@ -73,6 +73,13 @@ const styles = theme => ({
             position:'absolute'
         }
     },
+    lineStyle:{
+        position:'absolute',
+        width:1,
+        height: 'calc(100vh - 59px)',
+        borderLeft:'1px dashed #000',
+        left: '50%'
+    }
 });
 
 class ContentLecturePreviewComponent extends Component {
@@ -92,11 +99,14 @@ class ContentLecturePreviewComponent extends Component {
     }
 
     render() {
-        const { classes, previewPc } = this.props;
+        const { classes, previewPc, typeButton1, typeButton2 } = this.props;
 
         return (
             <div className={classes.root}>
-                <Box display='flex' alignItems='flex-start' mb={6}>
+                {typeButton2 &&
+                    <Box className={classes.lineStyle}/>
+                }
+                <Box display='flex' alignItems='flex-start' pt={3} mb={6}>
                     <Typography className={classes.topText}>태그</Typography>
                     <Box display='flex' alignItems='center' flexWrap='wrap'>
                         {this.state.chipList.map((chip, i) => (
@@ -105,35 +115,46 @@ class ContentLecturePreviewComponent extends Component {
                     </Box>
                 </Box>
 
-                {previewPc &&
-                    <Box display='flex' justifyContent='center' >
-                        <Box className={classes.contentsBox} >
-                            <Box className={classes.marginBottom}>
-                                <Typography className={classes.titleText}>인터넷 기반의 각종 해킹, 침해에 대응하는 보안기술!</Typography>
-                            </Box>
+                {typeButton1 ?
+                    previewPc ?
+                        <Box display='flex' justifyContent='center' >
+                            <Box className={classes.contentsBox} >
+                                <Box className={classes.marginBottom}>
+                                    <Typography className={classes.titleText}>인터넷 기반의 각종 해킹, 침해에 대응하는 보안기술!</Typography>
+                                </Box>
 
 
-                            <Box className={classes.videoBox}>
-                                <Box className={classes.imgBox} style={{justifyContent:'center'}}>
-                                    <img src={TestVideoImg} alt="동영상"/>
+                                <Box className={classes.videoBox}>
+                                    <Box className={classes.imgBox} style={{justifyContent:'center'}}>
+                                        <img src={TestVideoImg} alt="동영상"/>
 
-                                    <VideoPlayIcon/>
+                                        <VideoPlayIcon/>
 
+                                    </Box>
+                                </Box>
+
+                                <Box className={classes.marginBottom}>
+                                    <Typography className={classes.textStyle}>
+                                        · 윈도우 파일시스템 구조<br/>
+                                        - Master File Table 및 개인정보파일 검색<br/><br/>
+
+                                        · 메모리 분석, 파일 실행이력관리<br/>
+                                        - 네트워크 프로토콜 구조
+                                    </Typography>
                                 </Box>
                             </Box>
-
-                            <Box className={classes.marginBottom}>
-                                <Typography className={classes.textStyle}>
-                                    · 윈도우 파일시스템 구조<br/>
-                                    - Master File Table 및 개인정보파일 검색<br/><br/>
-
-                                    · 메모리 분석, 파일 실행이력관리<br/>
-                                    - 네트워크 프로토콜 구조
-                                </Typography>
-                            </Box>
                         </Box>
-                    </Box>
+                        :
+                        null
+                    :
+                    previewPc ?
+                        <Box>
+                            2단 미리보기
+                        </Box>
+                        :
+                        null
                 }
+
             </div>
         );
     }
