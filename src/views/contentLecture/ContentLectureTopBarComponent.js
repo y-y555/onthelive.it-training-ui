@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, FormControl, IconButton, InputBase, MenuItem, Select, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
 import {ReactComponent as Desktop} from "../../common/images/Desktop.svg";
+import {ReactComponent as Mobile} from "../../common/images/Mobile.svg";
 import {ReactComponent as Eye} from "../../common/images/Eye.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import clsx from "clsx";
@@ -10,6 +11,8 @@ import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon
 
 const styles = theme => ({
     root:{
+        height: 59,
+        boxSizing:'border-box',
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
@@ -139,7 +142,7 @@ class ContentLectureTopBarComponent extends Component {
                             IconComponent={() => <ArrowDownIcon/>}
                         >
                             <MenuItem value={"PC"} className={classes.menuText}><Desktop/></MenuItem>
-                            <MenuItem value={"PC2"} className={classes.menuText}><Eye/></MenuItem>
+                            <MenuItem value={"mobile"} className={classes.menuText}><Mobile/></MenuItem>
                         </Select>
                     </FormControl>
 

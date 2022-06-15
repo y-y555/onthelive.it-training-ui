@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, IconButton, ListItemIcon, ListItemText, MenuItem, Popover, Typography} from "@material-ui/core";
-import {ReactComponent as VideoInputImage} from "../../common/images/VideoInputImage.svg";
+import {ReactComponent as ImgInputImage} from "../../common/images/ImgInputImage.svg";
 import {ReactComponent as More} from "../../common/images/More.svg";
 import TestImage from "../../common/images/TestImage.png";
 import TestImage2 from "../../common/images/TestImage2.png";
@@ -226,7 +226,7 @@ class ImageContentsComponent extends Component {
                                 </Box>
                                 :
                                 <>
-                                    <VideoInputImage/>
+                                    <ImgInputImage/>
                                     <Typography className={classes.videoText}>
                                         이미지 콘텐츠가 여기에 표시됩니다.
                                     </Typography>

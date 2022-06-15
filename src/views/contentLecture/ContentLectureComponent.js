@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box} from "@material-ui/core";
 import ContentLectureTopBarComponent from "./ContentLectureTopBarComponent";
+import ContentLectureTopBarPreviewComponent from "./ContentLectureTopBarPreviewComponent";
 import ContentLectureSideBarComponent from "./ContentLectureSideBarComponent";
 import ContentLectureSectionComponent from "./ContentLectureSectionComponent";
 import ContentLecturePreviewComponent from "./ContentLecturePreviewComponent";
@@ -19,6 +20,8 @@ class ContentLectureComponent extends Component {
             typeButton1: true,
             typeButton2: false,
             preview: false,
+            previewPc: true,
+            previewMobile: false,
         };
     }
 
@@ -47,6 +50,20 @@ class ContentLectureComponent extends Component {
         });
     };
 
+    handleClickPreviewPc = () => {
+        this.setState({
+            previewPc: true,
+            previewMobile: false,
+        });
+    };
+
+    handleClickPreviewMobile = () => {
+        this.setState({
+            previewPc: false,
+            previewMobile: true,
+        });
+    };
+
     render() {
         const { classes } = this.props;
         const { preview } = this.state;
@@ -55,8 +72,14 @@ class ContentLectureComponent extends Component {
             <div className={classes.root}>
                 {preview ?
                     <>
-                        <ContentLectureTopBarComponent handleClickPreview={this.handleClickPreview}/>
-                        <ContentLecturePreviewComponent/>
+                        <ContentLectureTopBarPreviewComponent
+                            handleClickBack={this.handleClickBack}
+                            handleClickPreviewPc={this.handleClickPreviewPc}
+                            handleClickPreviewMobile={this.handleClickPreviewMobile}
+                            previewPc={this.state.previewPc}
+                            previewMobile={this.state.previewMobile}
+                        />
+                        <ContentLecturePreviewComponent previewPc={this.state.previewPc}/>
                     </>
                     :
                     <>

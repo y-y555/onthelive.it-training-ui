@@ -5,7 +5,7 @@ import {ReactComponent as VideoInputImage} from "../../common/images/VideoInputI
 import {FileUploader} from "react-drag-drop-files";
 import clsx from "clsx";
 import {ReactComponent as More} from "../../common/images/More.svg";
-import TestImage3 from "../../common/images/TestImage3.jpg";
+
 
 const styles = theme => ({
     root:{
