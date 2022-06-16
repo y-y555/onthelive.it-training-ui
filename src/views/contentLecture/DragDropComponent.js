@@ -13,6 +13,8 @@ import VideoContentsComponent from "./VideoContentsComponent";
 import ImageContentsComponent from "./ImageContentsComponent";
 import TextComponent from "./TextComponent";
 import VirtualMachinesComponent from "./VirtualMachinesComponent";
+import ScoreComponent from "./ScoreComponent";
+import QuizComponent from "./QuizComponent";
 
 const styles = theme => ({
     root:{
@@ -214,6 +216,7 @@ class DragDropComponent extends Component {
             imageButton: false,
             textButton: false,
             virtualMachinesButton: false,
+            quizButton: false,
         };
     }
 
@@ -295,6 +298,10 @@ class DragDropComponent extends Component {
         this.setState({ virtualMachinesButton: true });
     };
 
+    handleClickQuiz = () => {
+        this.setState({ quizButton: true });
+    };
+
 
     handleClickRemove = () => {
         this.setState({
@@ -302,6 +309,7 @@ class DragDropComponent extends Component {
             imageButton: false,
             textButton: false,
             virtualMachinesButton: false,
+            quizButton: false,
         });
     };
 
@@ -338,11 +346,12 @@ class DragDropComponent extends Component {
                         handleClickImage={this.handleClickImage}
                         handleClickText={this.handleClickText}
                         handleClickVirtualMachines={this.handleClickVirtualMachines}
+                        handleClickQuiz={this.handleClickQuiz}
                         //
                         typeButton2={typeButton2}
                     />
                     <Box display='flex' justifyContent='flex-end' style={{position:'relative'}}>
-                        <IconButton className={classes.iconButton} onClick={this.handleClickInfoTooltip} disableRipple>
+                        <IconButton className={classes.iconButton} style={{marginBottom: 5}} onClick={this.handleClickInfoTooltip} disableRipple>
                             <Info/>
                         </IconButton>
 
@@ -395,10 +404,13 @@ class DragDropComponent extends Component {
                             <ImageContentsComponent/>
                             :
                             evaluation ?
-                                <ImageContentsComponent/>
+                                <QuizComponent/>
                                 :
                                 task ?
+                                    <>
                                     <ImageContentsComponent/>
+                                    <ScoreComponent/>
+                                    </>
                                     :
                                     <VideoContentsComponent/>
                     }
@@ -423,7 +435,13 @@ class DragDropComponent extends Component {
                         <VirtualMachinesComponent/>
                     }
 
-                    <Box display='flex' justifyContent='flex-end' alignItems='center' mt={5}>
+                    {/* 퀴즈*/}
+                    {this.state.quizButton &&
+                        <QuizComponent/>
+                    }
+
+
+                    <Box display='flex' justifyContent='flex-end' alignItems='center' mt={2}>
                         <Tooltip title="복제" classes={{ tooltip: classes.lightTooltip }}>
                             <IconButton className={classes.iconButton} disableRipple><CopyIcon/></IconButton>
                         </Tooltip>

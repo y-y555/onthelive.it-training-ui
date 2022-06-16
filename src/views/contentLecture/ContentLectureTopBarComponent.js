@@ -8,6 +8,7 @@ import {ReactComponent as Eye} from "../../common/images/Eye.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import clsx from "clsx";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
+import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 
 const styles = theme => ({
     root:{
@@ -36,10 +37,12 @@ const styles = theme => ({
     },
     iconButton:{
         padding: 0,
-        margin: '0 10px',
         '&:hover':{
             background:'transparent'
         }
+    },
+    margin:{
+        margin: '0 10px',
     },
     buttonStyle:{
         width: 126,
@@ -111,7 +114,7 @@ class ContentLectureTopBarComponent extends Component {
     };
 
     render() {
-        const { classes, handleClickPreview } = this.props;
+        const { classes, handleClickPreview, handleClickInfoDialog } = this.props;
 
         return (
             <div className={classes.root}>
@@ -119,16 +122,19 @@ class ContentLectureTopBarComponent extends Component {
                     <Typography className={classes.textStyle}>강사 강의실</Typography>
                     <Box className={classes.lineStyle}/>
                     <Box display='flex' alignItems='center'>
-                        <Info style={{marginRight: 5}}/>
+                        <IconButton className={classes.iconButton} onClick={handleClickInfoDialog} disableRipple>
+                            <Info style={{marginRight: 5}}/>
+                        </IconButton>
+
                         <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
                     </Box>
 
                 </Box>
                 <Box display='flex' alignItems='center'>
-                    <IconButton className={classes.iconButton} disableRipple>
+                    <IconButton className={clsx(classes.iconButton, classes.margin)} disableRipple>
                         <ArrowCounterClockwise/>
                     </IconButton>
-                    <IconButton className={classes.iconButton} disableRipple>
+                    <IconButton className={clsx(classes.iconButton, classes.margin)} disableRipple>
                         <ArrowCounterClockwise style={{transform: 'scaleX(-1)'}}/>
                     </IconButton>
 
@@ -146,7 +152,7 @@ class ContentLectureTopBarComponent extends Component {
                         </Select>
                     </FormControl>
 
-                    <IconButton className={classes.iconButton} onClick={handleClickPreview} disableRipple>
+                    <IconButton className={clsx(classes.iconButton, classes.margin)} onClick={handleClickPreview} disableRipple>
                         <Eye/>
                     </IconButton>
 
