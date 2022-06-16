@@ -13,6 +13,7 @@ import VideoContentsComponent from "./VideoContentsComponent";
 import ImageContentsComponent from "./ImageContentsComponent";
 import TextComponent from "./TextComponent";
 import VirtualMachinesComponent from "./VirtualMachinesComponent";
+import ScoreComponent from "./ScoreComponent";
 
 const styles = theme => ({
     root:{
@@ -398,7 +399,10 @@ class DragDropComponent extends Component {
                                 <ImageContentsComponent/>
                                 :
                                 task ?
+                                    <>
                                     <ImageContentsComponent/>
+                                    <ScoreComponent/>
+                                    </>
                                     :
                                     <VideoContentsComponent/>
                     }
@@ -423,7 +427,7 @@ class DragDropComponent extends Component {
                         <VirtualMachinesComponent/>
                     }
 
-                    <Box display='flex' justifyContent='flex-end' alignItems='center' mt={5}>
+                    <Box display='flex' justifyContent='flex-end' alignItems='center' mt={2}>
                         <Tooltip title="복제" classes={{ tooltip: classes.lightTooltip }}>
                             <IconButton className={classes.iconButton} disableRipple><CopyIcon/></IconButton>
                         </Tooltip>
