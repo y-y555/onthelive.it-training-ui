@@ -6,6 +6,7 @@ import ContentLectureTopBarPreviewComponent from "./ContentLectureTopBarPreviewC
 import ContentLectureSideBarComponent from "./ContentLectureSideBarComponent";
 import ContentLectureSectionComponent from "./ContentLectureSectionComponent";
 import ContentLecturePreviewComponent from "./ContentLecturePreviewComponent";
+import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 
 const styles = theme => ({
     root:{
@@ -22,6 +23,8 @@ class ContentLectureComponent extends Component {
             preview: false,
             previewPc: true,
             previewMobile: false,
+            //
+            dialogOpen: false
         };
     }
 
@@ -64,6 +67,18 @@ class ContentLectureComponent extends Component {
         });
     };
 
+    handleClickInfoDialog = () => {
+        this.setState({
+            dialogOpen: true,
+        });
+    };
+
+    handleClose = () => {
+        this.setState({
+            dialogOpen: false,
+        });
+    };
+
     render() {
         const { classes } = this.props;
         const { preview } = this.state;
@@ -78,12 +93,20 @@ class ContentLectureComponent extends Component {
                             handleClickPreviewMobile={this.handleClickPreviewMobile}
                             previewPc={this.state.previewPc}
                             previewMobile={this.state.previewMobile}
+
+                            //
+                            handleClickInfoDialog={this.handleClickInfoDialog}
                         />
                         <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>
                     </>
                     :
                     <>
-                        <ContentLectureTopBarComponent handleClickPreview={this.handleClickPreview}/>
+                        <ContentLectureTopBarComponent
+                            handleClickPreview={this.handleClickPreview}
+                            //
+                            handleClickInfoDialog={this.handleClickInfoDialog}
+
+                        />
                         <Box display='flex'>
                             <ContentLectureSideBarComponent
                                 typeButton1={this.state.typeButton1}
@@ -98,10 +121,7 @@ class ContentLectureComponent extends Component {
                         </Box>
                     </>
                 }
-
-
-
-
+                <ScheduleRegistrationComponent handleClose={this.handleClose} dialogOpen={this.state.dialogOpen}/>
             </div>
         );
     }
