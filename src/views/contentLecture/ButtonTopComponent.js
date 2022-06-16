@@ -74,7 +74,7 @@ const styles = theme => ({
 
 class ButtonTopComponent extends Component {
     render() {
-        const { classes, typeButton2, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText, handleClickVirtualMachines  } = this.props;
+        const { classes, typeButton2, handleClickVideoPopover, handleClickTrainingPopover, handleClickEvaluationPopover, handleClickTaskPopover,  videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl,  videoOpen, trainingOpen, valuationOpen, taskOpen, handleClosePopover, handleClickVideo, handleClickImage, handleClickText, handleClickVirtualMachines, handleClickQuiz  } = this.props;
 
         return (
             <div className={classes.root}>
@@ -183,7 +183,7 @@ class ButtonTopComponent extends Component {
                         horizontal: 'left',
                     }}
                 >
-                    <MenuItem>
+                    <MenuItem onClick={handleClickQuiz}>
                         퀴즈
                     </MenuItem>
                     <Box className={classes.lineStyle} />
