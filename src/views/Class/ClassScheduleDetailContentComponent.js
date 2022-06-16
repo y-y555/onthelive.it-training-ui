@@ -200,7 +200,7 @@ const styles = theme => ({
     },
     menuItem:{
         fontFamily: 'NanumSquareRoundOTF' ,
-        fontSize:'0.75rem',
+        fontSize:'0.875rem',
         color:'#0d0d0d',
         textAlign:'center',
         "&:hover":{
