@@ -17,6 +17,7 @@ import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
 import {ReactComponent as Paperclip} from "../../common/images/Paperclip.svg";
 import {ReactComponent as FileIcon} from "../../common/images/FileIcon.svg";
 import {ReactComponent as DownloadSimpleIcon} from "../../common/images/DownloadSimpleIcon.svg";
+import {ReactComponent as ArrowIcon} from "../../common/images/ArrowIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -73,10 +74,13 @@ const styles = theme => ({
     iconSelect:{
         width: 30,
         height: 30,
-        borderRadius:0,
-        background:'rgba(26, 69, 126, 0.2)',
+        borderRadius:3,
+        background:'rgba(0, 0, 0, 0.8)',
         '&:hover':{
-            background:'rgba(26, 69, 126, 0.2)'
+            background:'rgba(0, 0, 0, 0.8)'
+        },
+        '& path':{
+            fill: '#fff'
         }
     },
     buttonStyle:{
@@ -84,13 +88,15 @@ const styles = theme => ({
         height: 30,
         boxSizing:'border-box',
         background:'#fff',
-        border:'1px solid #c4c4c4',
         borderRadius: 2,
         fontSize:'0.938rem',
         color:'#1e2121',
-        margin: '0 10px',
+        margin: '0 0 0 10px',
         '&:hover':{
             background:'#fff'
+        },
+        '& svg':{
+            marginRight: 5
         }
     },
     saveButton:{
@@ -210,7 +216,7 @@ class ContentLectureTopBarPreviewComponent extends Component {
 
         return (
             <div className={classes.root}>
-                <Box display='flex' alignItems='center'>
+                <Box display='flex' alignItems='center' style={{width: 450}}>
                     <Box display='flex' alignItems='center'>
                         <Info style={{marginRight: 5}}/>
                         <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
@@ -289,10 +295,10 @@ class ContentLectureTopBarPreviewComponent extends Component {
                     </IconButton>
                 </Box>
 
-                <Box display='flex' alignItems='center'>
+                <Box display='flex' alignItems='center' justifyContent='flex-end' style={{width: 450}}>
 
                     <Button className={classes.buttonStyle} onClick={handleClickBack} disableRipple>
-                       ← 돌아가기
+                       <ArrowIcon/> 돌아가기
                     </Button>
 
                     <Button className={clsx(classes.buttonStyle, classes.saveButton)} disableRipple>

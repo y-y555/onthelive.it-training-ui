@@ -127,7 +127,7 @@ const styles = theme => ({
         }
     },
     infoExplanationBox:{
-        width:285,
+        width:270,
         padding:'10px 10px 10px 0',
         borderRadius:3,
         bottom: -56,
@@ -136,11 +136,12 @@ const styles = theme => ({
             height: 16
         },
         "&::before":{
-            top: 60,
+            top: 52,
         },
         '& ul':{
             margin: 0,
-            marginRight: 10
+            marginRight: 10,
+            paddingLeft: 25
         }
     },
     stepText:{

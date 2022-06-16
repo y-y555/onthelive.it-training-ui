@@ -129,6 +129,18 @@ const styles = theme => ({
         bottom:-90,
         right: -99,
     },
+    valuationExplanationBox2:{
+        bottom:-90,
+        '@media all and (max-width: 1600px)': {
+            bottom:-108,
+            right: -30,
+        },
+    },
+    trainingExplanationBox2:{
+        '@media all and (max-width: 1600px)': {
+            bottom:-90,
+        },
+    },
     stepText:{
         fontSize:'0.813rem',
         color:'#abd0fe',
@@ -190,6 +202,13 @@ class DragDropComponent extends Component {
             taskAnchorEl: null,
             tooltip: true,
             infoTooltip: true,
+
+            //
+            video: true,
+            training: false,
+            evaluation: false,
+            task: false,
+
             //
             videoButton: false,
             imageButton: false,
@@ -201,24 +220,40 @@ class DragDropComponent extends Component {
     handleClickVideoPopover = event => {
         this.setState({
             videoAnchorEl: event.currentTarget,
+            video: true,
+            training: false,
+            evaluation: false,
+            task: false,
         });
     };
 
     handleClickTrainingPopover = event => {
         this.setState({
             trainingAnchorEl: event.currentTarget,
+            video: false,
+            training: true,
+            evaluation: false,
+            task: false,
         });
     };
 
     handleClickEvaluationPopover = event => {
         this.setState({
             evaluationAnchorEl: event.currentTarget,
+            video: false,
+            training: false,
+            evaluation: true,
+            task: false,
         });
     };
 
     handleClickTaskPopover = event => {
         this.setState({
             taskAnchorEl: event.currentTarget,
+            video: false,
+            training: false,
+            evaluation: false,
+            task: true,
         });
     };
 
@@ -272,7 +307,7 @@ class DragDropComponent extends Component {
 
     render() {
         const { classes, typeButton2 } = this.props;
-        const { videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl, tooltip, infoTooltip } = this.state;
+        const { videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl, tooltip, infoTooltip, video, training, evaluation, task } = this.state;
         const videoOpen = Boolean(videoAnchorEl);
         const trainingOpen = Boolean(trainingAnchorEl);
         const valuationOpen = Boolean(evaluationAnchorEl);
@@ -312,25 +347,30 @@ class DragDropComponent extends Component {
                         </IconButton>
 
                         {infoTooltip &&
-                        <Box className={typeButton2 ? clsx(classes.explanationBox, classes.infoExplanationBox, classes.infoExplanationBox2, valuationOpen ? classes.valuationExplanationBox : null) : clsx(classes.explanationBox, classes.infoExplanationBox, valuationOpen ? classes.valuationExplanationBox : null)}>
+                        <Box
+                            className={
+                                typeButton2 ?
+                                    clsx(classes.explanationBox, classes.infoExplanationBox, classes.infoExplanationBox2, evaluation ? classes.valuationExplanationBox2 : training ? classes.trainingExplanationBox2 : null)
+                                    :
+                                    clsx(classes.explanationBox, classes.infoExplanationBox, evaluation ? classes.valuationExplanationBox : null)}>
                             <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
-                                {videoOpen ?
+                                {video ?
                                     <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
                                         동영상 위아래에 이미지, 텍스트를 추가할 수 있습니다.
                                     </Typography>
                                     :
-                                    trainingOpen ?
+                                    training ?
                                         <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
                                             가상머신 (VMware)을 이용하여 실습 환경을 만들 수 있습니다.
                                         </Typography>
                                         :
-                                        valuationOpen?
+                                        evaluation?
                                             <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
                                                 객관식 단답형, 객관식 다답형, 주관식 등 여러 유형에서 선택하세요.
                                                 각 퀴즈에 답안과 점수를 설정해보세요.
                                             </Typography>
                                             :
-                                            taskOpen?
+                                            task?
                                                 <Typography className={clsx(classes.stepContents, classes.infoStepContents)}>
                                                     과제는 이미지, 텍스트, 이미지 + 로 작성할 수 있습니다.
                                                 </Typography>
@@ -348,9 +388,22 @@ class DragDropComponent extends Component {
                         }
                     </Box>
 
-                    {/* 동영상 */}
-                    <VideoContentsComponent/>
+                    {video ?
+                        <VideoContentsComponent/>
+                        :
+                        training ?
+                            <ImageContentsComponent/>
+                            :
+                            evaluation ?
+                                <ImageContentsComponent/>
+                                :
+                                task ?
+                                    <ImageContentsComponent/>
+                                    :
+                                    <VideoContentsComponent/>
+                    }
 
+                    {/* 동영상 */}
                     {this.state.videoButton &&
                         <VideoContentsComponent/>
                     }
