@@ -48,7 +48,7 @@ class App extends React.Component {
             <div className={classes.root}>
 
                 <Router>
-                    <HomeTopBar/>
+                    {/*<HomeTopBar/>*/}
                     {/*<TopBar/>*/}
                     <Switch>
                         <Route exact path="/" render={() =><Home/>}/>

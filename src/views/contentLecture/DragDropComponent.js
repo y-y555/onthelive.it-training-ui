@@ -108,6 +108,7 @@ const styles = theme => ({
         left:'inherit',
         right: -99,
         borderRadius:3,
+        zIndex:2000,
         '& svg':{
             width: 16,
             height: 16
@@ -203,7 +204,7 @@ class DragDropComponent extends Component {
             evaluationAnchorEl: null,
             taskAnchorEl: null,
             tooltip: true,
-            infoTooltip: true,
+            infoTooltip: false,
 
             //
             video: true,

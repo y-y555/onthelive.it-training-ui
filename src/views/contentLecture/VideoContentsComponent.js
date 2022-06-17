@@ -62,8 +62,10 @@ const styles = theme => ({
         width: 120,
         height: 40,
         boxSizing:'border-box',
-        border:'1px solid #c4c4c4',
-        borderRadius: 2,
+        border:'1px solid #333',
+        borderRadius: 7,
+        fontSize:'0.938rem',
+        fontWeight: 600,
         '&:hover':{
             background:'transparent'
         }

@@ -219,9 +219,11 @@ class ContentLectureTopBarPreviewComponent extends Component {
             <div className={classes.root}>
                 <Box display='flex' alignItems='center' style={{width: 450}}>
                     <Box display='flex' alignItems='center'>
-                        <IconButton className={classes.iconButton} style={{margin: 0}} onClick={handleClickInfoDialog} disableRipple>
-                            <Info style={{marginRight: 5}}/>
-                        </IconButton>
+                        <Tooltip title="강의기본정보 설정" classes={{ tooltip: classes.lightTooltip }}>
+                            <IconButton className={classes.iconButton} style={{margin: 0}} onClick={handleClickInfoDialog} disableRipple>
+                                <Info style={{marginRight: 5}}/>
+                            </IconButton>
+                        </Tooltip>
                         <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
                     </Box>
                     {/*<Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionLive)}>*/}

@@ -57,15 +57,23 @@ const styles = theme => ({
     videoText2:{
         fontSize: '0.875rem',
         color:'#6d7175',
-        margin: '10px 0 20px',
+        margin: '10px 0 5px',
         textAlign:'center'
+    },
+    textStyle:{
+        fontSize: '0.75rem',
+        fontWeight: 400,
+        color: '#a3a8af',
+        marginBottom: 20
     },
     videoButton:{
         width: 120,
         height: 40,
         boxSizing:'border-box',
-        border:'1px solid #c4c4c4',
-        borderRadius: 2,
+        border:'1px solid #333',
+        borderRadius: 7,
+        fontSize:'0.938rem',
+        fontWeight: 600,
         '&:hover':{
             background:'transparent'
         }
@@ -234,6 +242,7 @@ class ImageContentsComponent extends Component {
                                         업로드 버튼을 눌러 이미지 파일을 선택하거나 마우스로 끌어오세요.<br/>
                                         용량이 큰 경우 표시되기까지 몇 분 정도 걸릴 수 있습니다.
                                     </Typography>
+                                    <Typography className={classes.textStyle}>이미지 추가 시 권장 사이즈는 363*360px 이상입니다.</Typography>
                                     <Button className={classes.videoButton} disableRipple>
                                         파일올리기
                                     </Button>

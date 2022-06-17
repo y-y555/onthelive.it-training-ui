@@ -155,7 +155,31 @@ const styles = theme => ({
             fontSize:'0.875rem'
         },
     },
+    btnBox:{
+        width: 690,
+        display:'flex',
+        justifyContent:'flex-end'
+    },
+    completionBtn:{
+        width: 280,
+        height: 60,
+        boxSizing:'border-box',
+        borderRadius: 7,
+        background:'#1a457e',
+        color:'#fff',
+        fontSize: '1.25rem',
+        marginTop: 60,
+        '&:hover':{
+            background:'#1a457e'
+        }
+    }
 });
+
+class Buton extends Component {
+    render() {
+        return null;
+    }
+}
 
 class ContentLecturePreviewComponent extends Component {
     constructor(props) {
@@ -285,8 +309,13 @@ class ContentLecturePreviewComponent extends Component {
 
                 {typeButton1 ?
                     previewPc ?
-                        <Box display='flex' justifyContent='center' >
+                        <Box display='flex' flexDirection='column' alignItems='center' >
                             {videoContents}
+                            {this.props.lectureClass &&
+                                <Box className={classes.btnBox}>
+                                    <Button className={classes.completionBtn} disableRipple>수강완료</Button>
+                                </Box>
+                            }
                         </Box>
                         :
                         null
@@ -300,6 +329,12 @@ class ContentLecturePreviewComponent extends Component {
                             </Box>
                             <Box className={clsx(classes.leftBox, classes.rightBox)}>
                                 {videoContents}
+
+                                {this.props.lectureClass &&
+                                    <Box className={classes.btnBox}>
+                                        <Button className={classes.completionBtn} disableRipple>수강완료</Button>
+                                    </Box>
+                                }
                             </Box>
                         </Box>
                         :
