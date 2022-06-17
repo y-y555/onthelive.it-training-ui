@@ -49,9 +49,9 @@ const styles = theme => ({
         justifyContent:'flex-end',
     },
     btnStyle:{
-        border: '1px solid #0097ff',
+        border: '1px solid #1664f5',
         borderRadius:7,
-        color:'#0097ff',
+        color:'#1664f5',
         padding:'7px 23px',
         fontWeight:600,
         '&:hover':{
