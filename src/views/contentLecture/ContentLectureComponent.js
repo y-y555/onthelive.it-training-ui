@@ -112,7 +112,7 @@ class ContentLectureComponent extends Component {
 
                         />
                         {this.state.lectureClass ?
-                            <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2} lectureClass={this.state.lectureClass}/>
+                            <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>
                             :
                             <Box display='flex'>
                                 <ContentLectureSideBarComponent

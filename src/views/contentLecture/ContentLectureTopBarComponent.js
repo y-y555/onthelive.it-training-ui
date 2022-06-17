@@ -79,6 +79,14 @@ const styles = theme => ({
             background:'#c7c9cc'
         }
     },
+    btnStyle:{
+        background:'#1a457e',
+        border:'1px solid #1a457e',
+        color:'#fff',
+        '&:hover':{
+            background:'#1a457e'
+        }
+    },
     menuText:{
         fontFamily: 'NanumSquareRoundOTF' ,
         fontSize:'0.75rem',
@@ -275,6 +283,12 @@ class ContentLectureTopBarComponent extends Component {
 
                             <Box className={classes.lineStyle}/>
                         </>
+                    }
+
+                    {this.props.lectureClass &&
+                        <Button className={clsx(classes.buttonStyle, classes.btnStyle)} onClick={this.handleClickBack} disableRipple>
+                            수강완료
+                        </Button>
                     }
 
                     <Button className={classes.buttonStyle} onClick={this.handleClickBack} disableRipple>

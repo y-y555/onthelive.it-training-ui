@@ -12,7 +12,7 @@ const styles = theme => ({
         width:'100%',
         minHeight: 'calc(100vh - 59px)',
         background:'#fafafa',
-        padding: '0 20px 20px',
+        padding: '0 20px 0',
         boxSizing:'border-box'
     },
     topText:{
@@ -115,18 +115,31 @@ const styles = theme => ({
         transform: 'translate(-50%,0)'
     },
     leftBox:{
-        width:'48%',
-        minHeight: '100vh',
+        width:'50%',
         boxSizing:'border-box',
         display:'flex',
         flexDirection: 'column',
         alignItems:'center',
         padding: '0 30px 0 15px',
-        borderRight:'1px dashed #000',
+        borderRight:'1px solid #dbdbdb',
+        overflowY:'auto',
+        overflowX:'hidden',
+        "&::-webkit-scrollbar": {
+            width: '15px',
+        },
+        "&::-webkit-scrollbar-thumb": {
+            background: '#dbdbdb',
+            borderRadius: '10px',
+            backgroundClip: 'padding-box',
+            border: '5px solid transparent'
+        },
+        "&::-webkit-scrollbar-track": {
+            background: 'transparent',
+            marginTop: 5,
+        },
     },
     rightBox:{
         padding: '0 15px 0 30px',
-        borderLeft:'1px dashed #000',
         borderRight: 0
     },
     inputBox:{
@@ -155,31 +168,7 @@ const styles = theme => ({
             fontSize:'0.875rem'
         },
     },
-    btnBox:{
-        width: 690,
-        display:'flex',
-        justifyContent:'flex-end'
-    },
-    completionBtn:{
-        width: 280,
-        height: 60,
-        boxSizing:'border-box',
-        borderRadius: 7,
-        background:'#1a457e',
-        color:'#fff',
-        fontSize: '1.25rem',
-        marginTop: 60,
-        '&:hover':{
-            background:'#1a457e'
-        }
-    }
 });
-
-class Buton extends Component {
-    render() {
-        return null;
-    }
-}
 
 class ContentLecturePreviewComponent extends Component {
     constructor(props) {
@@ -295,9 +284,6 @@ class ContentLecturePreviewComponent extends Component {
 
         return (
             <div className={classes.root}>
-                {/*{typeButton2 &&*/}
-                {/*    <Box className={classes.lineStyle}/>*/}
-                {/*}*/}
                 <Box display='flex' alignItems='flex-start' pt={3} mb={6}>
                     <Typography className={classes.topText}>태그</Typography>
                     <Box display='flex' alignItems='center' flexWrap='wrap'>
@@ -311,30 +297,19 @@ class ContentLecturePreviewComponent extends Component {
                     previewPc ?
                         <Box display='flex' flexDirection='column' alignItems='center' >
                             {videoContents}
-                            {this.props.lectureClass &&
-                                <Box className={classes.btnBox}>
-                                    <Button className={classes.completionBtn} disableRipple>수강완료</Button>
-                                </Box>
-                            }
                         </Box>
                         :
                         null
                     :
                     previewPc ?
                         <Box display='flex' justifyContent='space-between'>
-                            <Box className={classes.leftBox}>
+                            <Box className={classes.leftBox} style={{height: 'calc(100vh - 59px - 111px)'}}>
                                 {videoContents}
                                 {imgContents}
                                 {quizContents}
                             </Box>
-                            <Box className={clsx(classes.leftBox, classes.rightBox)}>
+                            <Box className={clsx(classes.leftBox, classes.rightBox)} style={{height: 'calc(100vh - 59px - 111px)'}}>
                                 {videoContents}
-
-                                {this.props.lectureClass &&
-                                    <Box className={classes.btnBox}>
-                                        <Button className={classes.completionBtn} disableRipple>수강완료</Button>
-                                    </Box>
-                                }
                             </Box>
                         </Box>
                         :
