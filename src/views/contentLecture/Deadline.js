@@ -117,17 +117,6 @@ const useStyles = makeStyles({
             padding: 0
         }
     },
-    clearBtn:{
-        padding:0,
-        '&:hover':{
-            background:'transparent'
-        },
-        '& p':{
-            fontSize: '0.813rem',
-            color:'#1664f5',
-            marginLeft: 5
-        }
-    }
 });
 
 function StyledRadio(props) {
@@ -219,15 +208,6 @@ export default function Deadline() {
                     <FormControlLabel value="afternoon" control={<StyledRadio />} label="오후" />
                 </RadioGroup>
             </FormControl>
-
-            <Box display='flex' alignItems='center' justifyContent='flex-end'>
-                <Button className={classes.clearBtn} disableRipple>
-                    <ClearAll/>
-                    <Typography>초기화</Typography>
-                </Button>
-
-            </Box>
-
         </div>
     );
 }

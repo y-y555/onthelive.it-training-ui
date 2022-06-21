@@ -120,7 +120,7 @@ class CalendarButtonComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, allDate } = this.props;
         const { open, arrow, arrowRef } = this.state;
 
         return (
@@ -132,7 +132,7 @@ class CalendarButtonComponent extends Component {
                     disableRipple
                 >
                     <CalendarBlank2/>
-                    <Typography>기한 없음</Typography>
+                    <Typography> {allDate ? '전체 기간' : '기한 없음'}</Typography>
                     <ArrowDownIcon/>
                 </Button>
 
@@ -157,7 +157,7 @@ class CalendarButtonComponent extends Component {
                     <Paper className={classes.paper}>
                         <ClickAwayListener onClickAway={this.handleClose}>
                             {open &&
-                            <CalendarComponent/>
+                            <CalendarComponent allDate={allDate}/>
                             }
                         </ClickAwayListener>
                     </Paper>

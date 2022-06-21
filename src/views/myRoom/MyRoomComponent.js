@@ -37,6 +37,7 @@ import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClap
 import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
 import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";
+import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 
 const styles = theme => ({
     root:{
@@ -358,23 +359,6 @@ const styles = theme => ({
             background:'transparent'
         }
     },
-    checkBoxStyle:{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        color: '#a9adb4',
-        fontSize:'0.875rem',
-        cursor:'pointer',
-        marginRight: 43,
-        '& svg':{
-            width:20,
-            height:20,
-            marginRight:4,
-        }
-    },
-    checkBoxStyleOn:{
-        color:'#0097FF',
-    },
     trigger:{
         display:'flex',
         alignItems:'center',
@@ -439,6 +423,7 @@ const styles = theme => ({
 
 const BootstrapInput = withStyles(theme => ({
     root: {
+        marginLeft: 20
     },
     input: {
         borderRadius: 0,
@@ -488,15 +473,17 @@ class MyRoomComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            checkBox:true,
             classTab: 0,
             selectValue: '전체',
-            value: '강의 생성일순',
+            value: '업데이트순',
             roomList: [
                 {img:RoomTestImg1, title:"영어 스터디", post: true, lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업", live: true, vod:true, student: '24', like: '7'},
                 {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, chip:"특강", chip2:"수업", chip3:"수업",live: false, vod:false, student: '5', like: '3'},
             ],
             dialogOpen: false,
+
+            //
+            allDate: true
         };
     }
 
@@ -520,10 +507,6 @@ class MyRoomComponent extends Component {
         this.setState({ dialogOpen: false });
     };
 
-    handleChangeCheckBox= () => {
-        this.setState({ checkBox: !this.state.checkBox });
-    };
-
     handleChangeTabs = (event, classTab) => {
         this.setState({ classTab });
     };
@@ -541,7 +524,7 @@ class MyRoomComponent extends Component {
 
 
                 <Box className={classes.roomBoxIn}>
-                    <Box display='flex' justifyContent='space-between'>
+                    <Box display='flex' justifyContent='space-between' mb={5}>
                         <Tabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
                             <Tab label="전체 (15)"
                                  disableRipple
@@ -553,46 +536,24 @@ class MyRoomComponent extends Component {
                             />
                             <Tab label="종료 (10)" disableRipple />
                         </Tabs>
-                        <Box display='flex' alignItems='center'>
+
+                        <Box display='flex' justifyContent='flex-end' alignItems='center'>
+                            <CalendarButtonComponent allDate={this.state.allDate}/>
                             <FormControl>
                                 <Select
-                                    value={this.state.selectValue}
-                                    onChange={this.handleSelectChange}
-                                    input={<BootstrapInputSelect name="type" id="type-select" />}
+                                    value={this.state.value}
+                                    onChange={this.handleChange}
+                                    input={<BootstrapInput name="type" id="type-select" />}
                                     IconComponent={() => <ArrowDownIcon/>}
                                 >
-                                    <MenuItem value={"전체"} className={classes.menuText}>전체</MenuItem>
-                                    <MenuItem value={"최근 업데이트순"} className={classes.menuText}>최근 업데이트순</MenuItem>
+                                    <MenuItem value={"강의 생성일순"} className={classes.menuText}>강의 생성일순</MenuItem>
+                                    <MenuItem value={"업데이트순"} className={classes.menuText}>업데이트순</MenuItem>
+                                    <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
                                 </Select>
                             </FormControl>
-                            <IconButton className={classes.iconButton} disableRipple>
-                                <CalendarBlank2/>
-                            </IconButton>
-
                         </Box>
                     </Box>
 
-                    <Box display='flex' justifyContent='flex-end' alignItems='center' mb={3}>
-                        <Box onClick={this.handleChangeCheckBox} className={this.state.checkBox ? classes.checkBoxStyle : clsx(classes.checkBoxStyle,classes.checkBoxStyleOn) }>
-                            {this.state.checkBox ?
-                                <CheckCircleAgreeOffIcon/> :
-                                <CheckCircleAgreeOnIcon/>
-                            }
-                            예정된 강의만
-                        </Box>
-                        <FormControl>
-                            <Select
-                                value={this.state.value}
-                                onChange={this.handleChange}
-                                input={<BootstrapInput name="type" id="type-select" />}
-                                IconComponent={() => <ArrowDownIcon/>}
-                            >
-                                <MenuItem value={"강의 생성일순"} className={classes.menuText}>강의 생성일순</MenuItem>
-                                <MenuItem value={"최근 업데이트순"} className={classes.menuText}>최근 업데이트순</MenuItem>
-                                <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
                     <Box display='flex' flexWrap='wrap'>
                         <Box style={{position:'relative'}}>
                             <Button className={classes.roomCreateButton} disableRipple onClick={this.handleClickRoomType.bind(this)}>

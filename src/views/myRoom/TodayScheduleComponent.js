@@ -4,6 +4,8 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Typography, Button} from "@material-ui/core";
 import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
 import {ReactComponent as AlarmIcon} from "../../common/images/AlarmIcon.svg";
+import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
+import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -162,6 +164,23 @@ const styles = theme => ({
         border:'1px solid #0097ff',
         color:'#0097ff',
     },
+    checkBoxStyle:{
+        display:'flex',
+        alignItems:'center',
+        justifyContent:'center',
+        color: '#a9adb4',
+        fontSize:'0.875rem',
+        cursor:'pointer',
+        marginRight: 43,
+        '& svg':{
+            width:20,
+            height:20,
+            marginRight:4,
+        }
+    },
+    checkBoxStyleOn:{
+        color:'#0097FF',
+    },
 });
 
 class TodayScheduleComponent extends Component {
@@ -169,6 +188,7 @@ class TodayScheduleComponent extends Component {
         super(props);
         this.state = {
             schedule: true,
+            checkBox:true,
             scheduleData: [
                 {roomName:"기초수학특강", title:"오늘의 생활영어 한마디를 배워보자", live: true, time:"오전 11:00 ~  오전 12:00", buttonText: "참석하기"},
                 {roomName:"하루영어클럽", title:"오늘의 생활영어 한마디를 배워보자", live: false, time:"오전 11:00 ~  오전 12:00", buttonText: "미리 살펴보기"},
@@ -176,16 +196,30 @@ class TodayScheduleComponent extends Component {
         };
     }
 
+    handleChangeCheckBox= () => {
+        this.setState({ checkBox: !this.state.checkBox });
+    };
+
     render() {
         const { classes } = this.props;
 
         return (
             <div className={classes.root}>
                 <Box className={classes.scheduleBox}>
-                    <Box display='flex' alignItems='center' className={classes.titleBox}>
-                        <Typography className={classes.titleText}>오늘 강의 일정</Typography>
-                        <Typography className={classes.dateText}>2021년 12월 06일 (월)</Typography>
+                    <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.titleBox}>
+                        <Box display='flex' alignItems='center' >
+                            <Typography className={classes.titleText}>오늘 강의 일정</Typography>
+                            <Typography className={classes.dateText}>2021년 12월 06일 (월)</Typography>
+                        </Box>
+                        <Box onClick={this.handleChangeCheckBox} className={this.state.checkBox ? classes.checkBoxStyle : clsx(classes.checkBoxStyle,classes.checkBoxStyleOn) }>
+                            {this.state.checkBox ?
+                                <CheckCircleAgreeOffIcon/> :
+                                <CheckCircleAgreeOnIcon/>
+                            }
+                            예정된 강의만
+                        </Box>
                     </Box>
+
 
                     <Box>
                         {this.state.schedule === false ?
