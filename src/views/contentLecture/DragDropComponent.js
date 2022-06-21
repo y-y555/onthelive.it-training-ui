@@ -409,8 +409,8 @@ class DragDropComponent extends Component {
                                 :
                                 task ?
                                     <>
-                                    <ImageContentsComponent/>
-                                    <ScoreComponent/>
+                                        <ImageContentsComponent/>
+                                        <ScoreComponent/>
                                     </>
                                     :
                                     <VideoContentsComponent/>

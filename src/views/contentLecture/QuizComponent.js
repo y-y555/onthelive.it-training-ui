@@ -4,12 +4,12 @@ import {
     BottomNavigation, BottomNavigationAction,
     Box,
     Button,
-    Checkbox, FormControl,
+    Checkbox, ClickAwayListener, FormControl,
     FormControlLabel,
     IconButton,
     Input, InputAdornment, MenuItem,
-    MenuList,
-    Popover, Select, TextField,
+    MenuList, Paper,
+    Popover, Popper, Select, TextField,
     Typography
 } from "@material-ui/core";
 import clsx from "clsx";
@@ -23,6 +23,10 @@ import {ReactComponent as PollCreatePlus} from "../../common/images/PollCreatePl
 import {ReactComponent as ClipboardTextIcon} from "../../common/images/ClipboardTextIcon.svg";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
+import {ReactComponent as CalendarBlank2} from "../../common/images/CalendarBlank2.svg";
+import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
+import CalendarComponent from "./CalendarComponent";
+import CalendarButtonComponent from "./CalendarButtonComponent";
 
 const styles = theme => ({
     root:{
@@ -249,7 +253,7 @@ const styles = theme => ({
         '&:hover':{
             background:'#fff'
         }
-    }
+    },
 });
 
 class QuizComponent extends Component {
@@ -622,7 +626,11 @@ class QuizComponent extends Component {
                     </>
                     }
                 </Box>
-                <Button className={classes.bottomButton} disableRipple><PollCreatePlus style={{marginRight:8}}/>질문 추가</Button>
+                <Box display='flex' justifyContent='space-between' alignItems='center' style={{marginBottom: 20}}>
+                    <Button className={classes.bottomButton} disableRipple><PollCreatePlus style={{marginRight:8}}/>질문 추가</Button>
+                    <CalendarButtonComponent/>
+                </Box>
+
             </div>
         );
     }

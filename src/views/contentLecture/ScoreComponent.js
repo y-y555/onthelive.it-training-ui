@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {ReactComponent as ClipboardTextIcon} from "../../common/images/ClipboardTextIcon.svg";
 import {Box, Button, InputAdornment, MenuItem, Popover, TextField, Typography} from "@material-ui/core";
+import CalendarButtonComponent from "./CalendarButtonComponent";
 
 const styles = theme => ({
     root:{
-
+        marginBottom: 20
     },
     textStyle:{
         fontSize: '0.875rem'
@@ -112,10 +113,13 @@ class ScoreComponent extends Component {
         const open = Boolean(anchorEl);
         return (
             <div className={classes.root}>
-                <Box display='flex' alignItems='center'>
-                    <Typography className={classes.textStyle}>여기에 점수 항목을 추가하려면</Typography>
-                    <Button className={classes.buttonStyle} onClick={this.handleClickScore} disableRipple>+ 점수 추가</Button>
-                    <Typography className={classes.textStyle}>를 눌러주세요.</Typography>
+                <Box display='flex' alignItems='center' justifyContent='space-between'>
+                    <Box display='flex' alignItems='center'>
+                        <Typography className={classes.textStyle}>여기에 점수 항목을 추가하려면</Typography>
+                        <Button className={classes.buttonStyle} onClick={this.handleClickScore} disableRipple>+ 점수 추가</Button>
+                        <Typography className={classes.textStyle}>를 눌러주세요.</Typography>
+                    </Box>
+                    <CalendarButtonComponent/>
                 </Box>
 
                 {this.state.scoreOpen &&

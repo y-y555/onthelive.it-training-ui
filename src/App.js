@@ -49,7 +49,7 @@ class App extends React.Component {
 
                 <Router>
                     {/*<HomeTopBar/>*/}
-                    {/*<TopBar/>*/}
+                    <TopBar/>
                     <Switch>
                         <Route exact path="/" render={() =><Home/>}/>
                         <Route exact path="/rooms" render={() =><Rooms/>}/>
