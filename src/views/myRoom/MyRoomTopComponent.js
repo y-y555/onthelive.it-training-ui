@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, FormControl, InputBase, MenuItem, Select, Typography} from "@material-ui/core";
+import {Box, Button, FormControl, InputBase, MenuItem, Select, Tab, Tabs, Typography} from "@material-ui/core";
 import {ReactComponent as CaretDown} from "../../common/images/CaretDown.svg";
+import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -85,26 +86,30 @@ class MyRoomTopComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, classTab, handleChangeTabs } = this.props;
 
         return (
             <div className={classes.root}>
-                <Box display='flex'>
-                    <Box>
-                        <Typography className={classes.textStyle}>내 강의실</Typography>
-                        <Box className={classes.lineStyle}/>
-                    </Box>
-                    <FormControl className={classes.formControlBox}>
-                        <Select
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                            input={<BootstrapInput name="type" id="type-select" />}
-                            IconComponent={() => <CaretDown/>}
-                        >
-                            <MenuItem value={"강의 관리"} className={classes.menuText}>강의 관리</MenuItem>
-                            <MenuItem value={"강의1"} className={classes.menuText}>강의1</MenuItem>
-                        </Select>
-                    </FormControl>
+                <Box>
+                    <Tabs value={classTab} onChange={handleChangeTabs} className={classes.trigger}>
+                        <Tab label="내 강의실" disableRipple/>
+                        <Tab label="강의 관리" disableRipple/>
+                    </Tabs>
+                    {/*<Box>*/}
+                    {/*    <Typography className={classes.textStyle}>내 강의실</Typography>*/}
+                    {/*    <Box className={classes.lineStyle}/>*/}
+                    {/*</Box>*/}
+                    {/*<FormControl className={classes.formControlBox}>*/}
+                    {/*    <Select*/}
+                    {/*        value={this.state.value}*/}
+                    {/*        onChange={this.handleChange}*/}
+                    {/*        input={<BootstrapInput name="type" id="type-select" />}*/}
+                    {/*        IconComponent={() => <CaretDown/>}*/}
+                    {/*    >*/}
+                    {/*        <MenuItem value={"강의 관리"} className={classes.menuText}>강의 관리</MenuItem>*/}
+                    {/*        <MenuItem value={"강의1"} className={classes.menuText}>강의1</MenuItem>*/}
+                    {/*    </Select>*/}
+                    {/*</FormControl>*/}
 
                 </Box>
                 <Button className={classes.buttonStyle} disableRipple>기업 서비스</Button>

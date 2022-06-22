@@ -18,18 +18,27 @@ class Rooms extends Component {
     constructor(props) {
         super(props);
         this.state = {
-
+            classTab: 0
         };
     }
 
+    handleChangeTabs = (event, classTab) => {
+        this.setState({ classTab });
+    };
+
     render() {
         const { classes } = this.props;
+        const { classTab } = this.state;
 
         return (
             <div className={classes.root}>
-                <MyRoomTopComponent/>
-                <MyRoomComponent/>
-                <TodayScheduleComponent/>
+                <MyRoomTopComponent handleChangeTabs={this.handleChangeTabs} classTab={classTab}/>
+                {classTab === 0 &&
+                    <>
+                        <MyRoomComponent/>
+                        <TodayScheduleComponent/>
+                    </>
+                }
                 <Footer/>
             </div>
         );

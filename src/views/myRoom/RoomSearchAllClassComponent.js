@@ -77,7 +77,7 @@ class RoomSearchAllClassComponent extends Component {
                         </Tabs>
                     </Box>
                 </Box>
-                <Box className={classes.wrap}>
+                <Box className={classes.wrap} style={{marginBottom: 120}}>
                 {classTabs === 0 && <Box>
                     <SearchRoomComponent/>
                 </Box>}

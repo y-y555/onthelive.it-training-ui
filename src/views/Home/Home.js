@@ -304,7 +304,7 @@ class TopBar extends Component {
                             초보자를 위한 입문 강의<CaretRightIcon/></Link>
                         <HomeCarouselComponent/>
                     </Box>
-                    <Box className={classes.sliderBox} style={{marginTop:80}}>
+                    <Box className={classes.sliderBox} style={{marginTop:80, marginBottom: 120}}>
                         <Link variant={"h3"}>
                             <span className={classes.tag}><ThreeStarIcon/></span>전문가를 위한 심화 강의<CaretRightIcon/></Link>
                         <HomeCarouselComponent/>

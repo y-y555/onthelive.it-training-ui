@@ -6,7 +6,7 @@ import {Select, Typography, Box, FormControl, InputLabel, OutlinedInput, MenuIte
 const styles = theme => ({
     root:{
         borderTop:'1px solid #c0c2c3',
-        marginTop:120,
+        // marginTop:120,
     },
     wrap:{
         '@media all and (min-width: 1500px)': {
