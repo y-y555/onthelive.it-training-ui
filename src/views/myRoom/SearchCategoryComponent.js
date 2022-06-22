@@ -11,7 +11,7 @@ import {
     Select,
     Typography,
     Input,
-    ListItemText, InputBase
+    ListItemText, InputBase, Icon
 } from "@material-ui/core";
 import {ReactComponent as ListIcon} from "../../common/images/ListIcon.svg";
 import clsx from "clsx";
@@ -22,6 +22,8 @@ import 'pure-react-carousel/dist/react-carousel.es.css';
 import {ButtonBack, ButtonNext, CarouselProvider, Dot, DotGroup, Slide, Slider} from "pure-react-carousel";
 import {ReactComponent as ArrowLeftIcon} from "../../common/images/ArrowIcon.svg";
 import {ReactComponent as ArrowRightIcon} from "../../common/images/CaretRightIcon.svg";
+import {ReactComponent as Close} from "../../common/images/Close.svg";
+import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
 const styles = theme => ({
     root:{
         padding:'50px 0 50px 33px',
@@ -45,6 +47,16 @@ const styles = theme => ({
                 }
             }
         },
+    },
+    titleStyle:{
+        fontSize:'1.125rem',
+        fontWeight: 600,
+        display:'flex',
+        alignItems:'center',
+        margin:'0 6px'
+    },
+    titleStyleDefault:{
+        opacity:0.4,
     },
     chipBox:{
         // margin:'30px 0 14px',
@@ -168,6 +180,9 @@ const styles = theme => ({
             background:'transparent',
         }
     },
+    iconBtn:{
+      padding:0,
+    },
     buttonStyle:{
         fontSize:'0.938rem',
         color:'#fff',
@@ -177,6 +192,20 @@ const styles = theme => ({
         padding:'9px 13px',
         margin:'10px 20px',
         width:'calc(100% - 40px)',
+        '&:hover':{
+            backgroundColor:'#1a457e',
+        }
+    },
+    buttonStyle2:{
+        display:'flex',
+        width:200,
+        fontSize:'0.938rem',
+        color:'#fff',
+        fontWeight:600,
+        borderRadius: 7,
+        backgroundColor:'#1a457e',
+        padding:'9px 13px',
+        margin:'10px 0 10px auto',
         '&:hover':{
             backgroundColor:'#1a457e',
         }
@@ -213,6 +242,119 @@ const styles = theme => ({
             }
         },
     },
+    formControlPopover:{
+        '&>div':{
+            fontSize:'0.875rem',
+            fontWeight:600,
+            '&:before, &:after':{
+                content:'',
+                display:'none',
+                width:0,
+                size:0,
+            },
+        },
+        "& .MuiSelect-select:focus":{
+            background:'transparent'
+        },
+        "& .MuiSelect-select.MuiSelect-select":{
+            paddingRight:0
+        }
+    },
+    menuItemPopover:{
+        fontFamily: 'NanumSquareRoundOTF' ,
+        fontSize:'0.875rem',
+        color:'#0d0d0d',
+        "&:hover":{
+            background:'#d3d7db'
+        },
+        "&.Mui-selected":{
+            background:'transparent'
+        },
+        "&.Mui-selected:hover":{
+            background:'#d3d7db'
+        },
+    },
+    popover:{
+        '@media all and (min-width: 1500px)': {
+            width:1440,
+        },
+        width:1200,
+        padding:30,
+        boxSizing: 'border-box',
+        position:'relative',
+    },
+    popoverClose:{
+        position:'absolute',
+        right:30,
+        top:30,
+        padding:0,
+        '& svg':{
+            width:32,
+            height:32,
+        },
+        '&:hover':{
+            background:'transparent',
+        },
+    },
+    popovertitle:{
+        marginBottom:20,
+          '& h5':{
+              fontSize:'1.125rem',
+              fontWeight:600,
+              marginBottom: 10,
+          },
+        '& p':{
+         fontSize:'0.938rem',
+            color:'#656565'
+        }
+
+    },
+    refreshIcon:{
+        color:'#1664f5',
+        marginRight:26,
+        padding:0,
+        '&:hover':{
+            background:'transparent',
+        },
+        '& svg' :{
+            marginRight:4,
+            '& path':{
+            fill:'#1664f5'
+            },
+        }
+    },
+    chipBoxCont:{
+        margin:'30px 0 14px',
+        '& > div':{
+            height:25,
+            backgroundColor:'#eee',
+            color:'#656565',
+            margin:'0 6px 10px 0',
+            fontSize: '0.938rem',
+            border:'1px solid #eee',
+            cursor:'pointer',
+            '&:hover':{
+                border:'1px solid #dbf0ff',
+                backgroundColor:'#dbf0ff!important',
+                color:'#0097ff!important',
+                fontWeight:600,
+            },
+            "&:focus":{
+                border:'1px solid #eee',
+                backgroundColor:'#eee',
+                color:'#656565',
+            }
+        },
+        "& .MuiChip-label":{
+            paddingLeft:10,
+            paddingRight:10
+        }
+    },
+    chipActive:{
+        backgroundColor:'#dbf0ff!important',
+        color:'#0097ff!important',
+        fontWeight:600,
+    },
 });
 
 const levelList = [
@@ -228,43 +370,19 @@ class SearchCategoryComponent extends Component {
         super(props);
         this.state = {
             level: "난이도",
-            tagList: [
+            tagListItem: [
                 {tag:"수업"},
                 {tag:"스터디"},
                 {tag:"노트필기"},
                 {tag:"기술문서"},
                 {tag:"아카데미"},
-                {tag:"서비스"},
-                {tag:"마케팅"},
-                {tag:"렌딩페이지"},
-                {tag:"노출"},
-                {tag:"도달률"},
-                {tag:"타겟팅광고"},
-                {tag:"이탈률"},
-                {tag:"시즈널키워드"},
-                {tag:"연관검색어"},
-                {tag:"수업"},
-                {tag:"스터디"},
-                {tag:"노트필기"},
-                {tag:"기술문서"},
-                {tag:"아카데미"},
-                {tag:"서비스"},
-                {tag:"마케팅"},
-                {tag:"렌딩페이지"},
-                {tag:"노출"},
-                {tag:"도달률"},
-                {tag:"타겟팅광고"},
-                {tag:"이탈률"},
-                {tag:"시즈널키워드"},
-                {tag:"연관검색어"},
             ],
             levelList: [
-                // "초급" ,"중급", "고급",
             ],
             freeStatus:[
-
             ],
-
+            searchOpen: null,
+            filter: "가나다순",
         };
     }
 
@@ -326,36 +444,121 @@ class SearchCategoryComponent extends Component {
     };
 
 
+    searchOpen = event => {
+        this.setState({
+            searchOpen: event.currentTarget,
+        });
+    };
 
+    searchOpenClose = () => {
+        this.setState({
+            searchOpen: null,
+        });
+    };
 
+    handleChangeFilter = event => {
+        this.setState({ filter: event.target.value });
+    };
 
     render() {
-        const { classes } = this.props;
-        const {anchorEl } = this.state;
-        const open = Boolean(anchorEl);
+        const { classes, tagList } = this.props;
+        const {anchorEl, searchOpen} = this.state;
+        const open = Boolean(anchorEl, searchOpen);
+        // const open = Boolean(searchOpen);
+
         return (
             <div className={classes.root}>
                 <Box>
-                <Typography variant="h3"> <ListIcon/> 모든강의</Typography>
-                <Box className={classes.chipBox}>
-                    {/*{this.state.tagList.map((tag, i) => (*/}
-                    {/*    <Chip*/}
-                    {/*        key={i}*/}
-                    {/*        label={tag.tag}*/}
-                    {/*        className={clsx(this.props.classSelectTag === i && classes.chipActive)}*/}
-                    {/*        // onClick={() => this.props.handleChangeClassSelectTag(i)}*/}
-                    {/*    />*/}
-                    {/*))}*/}
+                <Box display='flex' alignItems='center' mb={5}>
+                        <IconButton
+                            // aria-owns={open ? 'simple-popper' : undefined}
+                            aria-haspopup="true"
+                            onClick={this.searchOpen}
+                            disableRipple
+                            className={clsx(classes.iconButton, classes.iconBtn)}
+                        ><ListIcon/>
+                        </IconButton>
+                    <Typography variant="h3">
+                    <span className={this.state.searchOpen === null ? classes.titleStyle : clsx(classes.titleStyle, classes.titleStyleDefault)}>
+                        {this.props.title}</span>
+                    </Typography>
+                    {/*<Typography>| 파이썬문법 <span style={{fontSize:'0.75rem'}}>(15)</span></Typography>*/}
+                </Box>
+                    <Popover
+                        id="simple-popper"
+                        open={searchOpen}
+                        anchorEl={searchOpen}
+                        onClose={this.searchOpenClose}
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'left',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'left',
+                        }}
+                        style={{
 
+                        }}
+                    >
+                        <Box className={classes.popover}>
+                            <IconButton className={classes.popoverClose} onClick={this.searchOpenClose} disableRipple><Close/></IconButton>
+                            <Box className={classes.popovertitle}>
+                                <Typography variant={'h5'} >모든 강의</Typography>
+                                <Typography variant={'body1'}>개설된 모든 강의의 주제입니다.  주제 태그를 선택하거나 검색하여 원하는 강의를 찾을 수 있습니다.</Typography>
+                            </Box>
+                            <Box display='flex' alignItems='center' justifyContent='space-between'>
+                                <Box className={classes.search}>
+                                    <InputBase
+                                        placeholder='태그 검색'
+                                        className={classes.inputRoot}
+                                        inputProps={{ 'aria-label': 'search' }}
+                                    />
+                                    <IconButton className={classes.searchIcon} disableRipple>
+                                        <SearchIcon />
+                                    </IconButton>
+                                </Box>
+                                <Box display='flex' alignItems='center' >
+                                    <Button className={classes.refreshIcon} disableRipple><ArrowCounterClockwise/> 초기화</Button>
+                                    <FormControl className={classes.formControlPopover}>
+                                        <Select
+                                            value={this.state.filter}
+                                            onChange={this.handleChangeFilter}
+                                            displayEmpty
+                                            IconComponent={() => <Box style={{width:16, height:16, marginLeft:5}}><ArrowDownIcon/> </Box>}
+                                        >
+                                            <MenuItem value="가나다순" className={classes.menuItemPopover}>가나다순</MenuItem>
+                                            <MenuItem value="최신순" className={classes.menuItemPopover}>최신순</MenuItem>
+                                            <MenuItem value="등록순" className={classes.menuItemPopover}>등록순</MenuItem>
+                                        </Select>
+                                    </FormControl>
+                                </Box>
+                            </Box>
+                            <Box className={classes.chipBoxCont}>
+                                {this.state.tagListItem.map((tag, i) => (
+                                <Chip
+                                    key={i}
+                                    label={tag.tag}
+                                    className={clsx(this.props.classSelectTag === i && classes.chipActive)}
+                                    // onClick={() => this.props.handleChangeClassSelectTag(i)}
+                                />
+                                ))}
+                            </Box>
+                            <Button className={classes.buttonStyle2} disableRipple onClick={this.searchOpenClose}>적용하기</Button>
+                        </Box>
+                    </Popover>
+
+
+                <Box className={classes.chipBox}>
                     <CarouselProvider
                         naturalSlideWidth={1000}
-                        totalSlides={this.state.tagList.length}
+                        totalSlides={tagList.length}
                         isIntrinsicHeight
                         visibleSlides={'auto'}
                         // hasMasterSpinner='true'
                     >
                         <Slider>
-                            {this.state.tagList.map((tag, i) => (
+                            {tagList.map((tag, i) => (
                                 <Slide index={i}>
                                     <Chip
                                         key={i}

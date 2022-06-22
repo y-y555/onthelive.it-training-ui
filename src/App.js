@@ -23,7 +23,7 @@ import SearchComponent from "./views/search/SearchComponent";
 import ClassScheduleDetailContentComponent from "./views/Class/ClassScheduleDetailContentComponent";
 import InvitationComponent from "./views/invitation/InvitationComponent";
 import ContentLectureComponent from "./views/contentLecture/ContentLectureComponent";
-import RoomsSearchComponent from "./views/myRoom/RoomSearchAllClassComponent";
+import RoomsSearchComponent from "./views/myRoom/RoomsSearchComponent";
 
 const styles = theme => ({
     root:{
