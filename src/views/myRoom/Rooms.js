@@ -5,6 +5,7 @@ import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
 import MyRoomTopComponent from "./MyRoomTopComponent";
 import Footer from "../footer/Footer";
+import CourseManagementComponent from "../courseManagement/CourseManagementComponent";
 
 const styles = theme => ({
     root:{
@@ -38,6 +39,9 @@ class Rooms extends Component {
                         <MyRoomComponent/>
                         <TodayScheduleComponent/>
                     </>
+                }
+                {classTab === 1 &&
+                    <CourseManagementComponent/>
                 }
                 <Footer/>
             </div>
