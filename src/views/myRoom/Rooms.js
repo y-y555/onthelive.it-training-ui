@@ -4,6 +4,7 @@ import MyRoomComponent from "./MyRoomComponent";
 import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
 import MyRoomTopComponent from "./MyRoomTopComponent";
+import Footer from "../footer/Footer";
 
 const styles = theme => ({
     root:{
@@ -29,6 +30,7 @@ class Rooms extends Component {
                 <MyRoomTopComponent/>
                 <MyRoomComponent/>
                 <TodayScheduleComponent/>
+                <Footer/>
             </div>
         );
     }

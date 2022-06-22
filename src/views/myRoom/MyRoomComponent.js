@@ -477,8 +477,36 @@ class MyRoomComponent extends Component {
             selectValue: '전체',
             value: '업데이트순',
             roomList: [
-                {img:RoomTestImg1, title:"영어 스터디", post: true, lastTime: false, lastTimeText:"", chip:"수업", chip2:"수업", chip3:"수업", live: true, vod:true, student: '24', like: '7'},
-                {img:RoomTestImg2, title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초", post: false, postText:"", lastTime: true, chip:"특강", chip2:"수업", chip3:"수업",live: false, vod:false, student: '5', like: '3'},
+                {
+                    img:RoomTestImg1,
+                    title:"영어 스터디",
+                    post: true,
+                    lastTime: false,
+                    lastTimeText:"",
+                    chip:"수업",
+                    chip2:"수업",
+                    chip3:"수업",
+                    live: true,
+                    vod:true,
+                    student: '200',
+                    like: '1200',
+                    level: 1,
+                },
+                {
+                    img:RoomTestImg2,
+                    title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초",
+                    post: false,
+                    postText:"",
+                    lastTime: true,
+                    chip:"특강",
+                    chip2:"수업",
+                    chip3:"수업",
+                    live: false,
+                    vod:false,
+                    student: '100',
+                    like: '200',
+                    level: 1,
+                },
             ],
             dialogOpen: false,
 
@@ -594,19 +622,6 @@ class MyRoomComponent extends Component {
                                                 </Box>
                                             }
                                         </Box>
-                                        <Box display='flex' alignItems='center' style={{position:'absolute', bottom: 10, left: 10}}>
-                                            <Box className={classes.likeBox}>
-                                                <Box display='flex' flexDirection='column' alignItems='center'>
-                                                    <Typography className={classes.likeBoxTitle}>수강생</Typography>
-                                                    <Typography className={classes.likeBoxNumber}>{rooms.student}</Typography>
-                                                </Box>
-                                                <Box className={classes.lineStyle}></Box>
-                                                <Box display='flex' flexDirection='column' alignItems='center'>
-                                                    <Typography className={classes.likeBoxTitle}>좋아요</Typography>
-                                                    <Typography className={classes.likeBoxNumber}>{rooms.like}</Typography>
-                                                </Box>
-                                            </Box>
-                                        </Box>
                                     </Box>
 
                                     <Box display='flex' flexDirection='column' alignItems='flex-start'
@@ -622,9 +637,15 @@ class MyRoomComponent extends Component {
                                         </Box>
                                         <Box display='flex' alignItems='center' justifyContent='space-between' style={{width: '100%', marginTop:20}}>
                                             <ul className={classes.commentStyle}>
-                                                <li><HandsClappingIcon/> 1,200</li>
-                                                <li><UsersThreeIcon/> 200</li>
-                                                <li><BookmarksSimple/> 초급</li>
+                                                {rooms.like &&
+                                                    <li><HandsClappingIcon/> {rooms.like}</li>
+                                                }
+                                                {rooms.student &&
+                                                    <li><UsersThreeIcon/> {rooms.student}</li>
+                                                }
+                                                {rooms.level &&
+                                                    <li><BookmarksSimple/> 초급</li>
+                                                }
                                             </ul>
                                             <BedgeNewIcon className={classes.badge}/>
                                         </Box>

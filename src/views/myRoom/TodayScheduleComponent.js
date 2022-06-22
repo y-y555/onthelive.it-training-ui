@@ -6,6 +6,12 @@ import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIc
 import {ReactComponent as AlarmIcon} from "../../common/images/AlarmIcon.svg";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
+import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
+import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
+import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
+import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
+import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
+import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
 
 const styles = theme => ({
     root:{
@@ -88,8 +94,12 @@ const styles = theme => ({
         color:'#000'
     },
     contentsBox:{
-        padding:'10px 35px 0px',
+        height: 'calc(100% - 40px)',
+        padding:15,
         boxSizing:'border-box',
+        display:'flex',
+        flexDirection:'column',
+        justifyContent: 'space-between',
         "& svg":{
             width:22,
             height:22,
@@ -98,29 +108,38 @@ const styles = theme => ({
             }
         }
     },
-    box:{
-        width:40,
-        height:16,
-        background:'#a3a8af',
-        display:'inline-flex',
-        alignItems:'center',
-        justifyContent:'center'
-    },
-    liveBox:{
-        background:'#fb4a59'
-    },
-    boxText:{
-        fontFamily:'Montserrat',
-        fontSize:'0.625rem',
+    caption:{
+        width: 43,
+        height: 20,
+        borderRadius: 2,
+        boxSizing: 'border-box',
+        marginRight: 7,
         color:'#fff',
-        fontWeight:600
+        '& svg':{
+            marginRight:3,
+        },
     },
-    circle:{
-        width:4,
-        height:4,
-        borderRadius:'50%',
-        background:'#fff',
-        marginRight:4
+    captionText:{
+        fontSize:'0.75rem',
+        fontWeight:600,
+        paddingTop: 2,
+    },
+    captionLive:{
+        backgroundColor:'#FB4A59',
+        '& svg':{
+            width: 5,
+            height: 5
+        }
+    },
+    captionVod:{
+        backgroundColor:'#000',
+        '& svg':{
+            width: 9,
+            height: 9
+        }
+    },
+    captionGreen:{
+        backgroundColor:'#00c880',
     },
     scheduleTitleText:{
         '@media all and (min-width: 1500px)': {
@@ -181,6 +200,29 @@ const styles = theme => ({
     checkBoxStyleOn:{
         color:'#0097FF',
     },
+    commentStyle:{
+        display:'flex',
+        listStyle:'none',
+        paddingInlineStart:0,
+        margin:0,
+        '& li': {
+            fontSize:'0.875rem',
+            display:'flex',
+            alignItems:'center',
+            marginLeft:30,
+            '&:first-child':{
+                marginLeft: 0,
+            },
+            '& svg': {
+                width: 20,
+                height: 20,
+                marginRight:8,
+                '& .like-icon':{
+                    fill:'#B6B6BF'
+                }
+            }
+        }
+    }
 });
 
 class TodayScheduleComponent extends Component {
@@ -190,8 +232,32 @@ class TodayScheduleComponent extends Component {
             schedule: true,
             checkBox:true,
             scheduleData: [
-                {roomName:"모의 해킹 클럽", title:"리눅스 커널 해킹", live: true, time:"오전 11:00 ~  오전 12:00", buttonText: "참석하기"},
-                {roomName:"모의 해킹 클럽", title:"리눅스 커널 해킹", live: false, time:"오전 11:00 ~  오전 12:00", buttonText: "미리 살펴보기"},
+                {
+                    roomName:"모의 해킹 클럽",
+                    title:"리눅스 커널 해킹",
+                    live: true,
+                    vod: true,
+                    training:true,
+                    time:"오전 11:00 ~  오전 12:00",
+                    buttonText: "참석하기",
+                    student: 200,
+                    like: 1200,
+                    level: 1,
+                    private: false,
+                },
+                {
+                    roomName:"모의 해킹 클럽",
+                    title:"리눅스 커널 해킹",
+                    live: true,
+                    vod: true,
+                    training:false,
+                    time:"오전 11:00 ~  오전 12:00",
+                    buttonText: "미리 살펴보기",
+                    student: 0,
+                    like: 0,
+                    level: 1,
+                    Private: true
+                },
             ],
         };
     }
@@ -235,21 +301,49 @@ class TodayScheduleComponent extends Component {
                                             <Typography className={classes.roomNameText} noWrap>{schedule.roomName}</Typography>
                                         </Box>
                                         <Box className={classes.contentsBox}>
-                                            <Box className={schedule.live === true ? clsx(classes.box, classes.liveBox) : classes.box}>
-                                                <Box className={classes.circle} />
-                                                <Typography className={classes.boxText}>{schedule.live === true ? "LIVE" : "예정"} </Typography>
+                                            <Box>
+                                                <Box display='flex' alignItems='center'>
+                                                    {schedule.live &&
+                                                    <Box display='flex' justifyContent='center' alignItems='center'
+                                                         className={clsx(classes.caption, classes.captionLive)}>
+                                                        <DotIcon/>
+                                                        <Typography className={classes.captionText}>LIVE</Typography>
+                                                    </Box>
+                                                    }
+                                                    {schedule.vod &&
+                                                    <Box display='flex' justifyContent='center' alignItems='center'
+                                                         className={clsx(classes.caption, classes.captionVod)}>
+                                                        <VodIcon/>
+                                                        <Typography className={classes.captionText}>VOD</Typography>
+                                                    </Box>
+                                                    }
+                                                    {schedule.training &&
+                                                    <Box display='flex' justifyContent='center' alignItems='center'
+                                                         className={clsx(classes.caption, classes.captionGreen)}>
+                                                        <Typography className={classes.captionText}>실습</Typography>
+                                                    </Box>
+                                                    }
+                                                </Box>
+
+                                                <Typography className={classes.scheduleTitleText}>{schedule.title}</Typography>
                                             </Box>
-                                            <Typography className={classes.scheduleTitleText}>{schedule.title}</Typography>
-                                            <Box display='flex' alignItems='center'>
-                                                <AlarmIcon/>
-                                                <Typography className={classes.timeText}>{schedule.time}</Typography>
-                                            </Box>
-                                            <Box display='flex' justifyContent='center' style={{marginTop:20}}>
-                                                {schedule.live === true ?
-                                                    <Button className={clsx(classes.buttonStyle, classes.liveButtonStyle)} disableRipple>{schedule.buttonText}</Button>
-                                                    :
-                                                    <Button className={classes.buttonStyle} disableRipple>{schedule.buttonText}</Button>
-                                                }
+
+
+                                            <Box display='flex' alignItems='center' justifyContent='space-between' style={{width: '100%', marginTop:20}}>
+                                                <ul className={classes.commentStyle}>
+                                                    {schedule.like > 0 &&
+                                                        <li><HandsClappingIcon/> {schedule.like}</li>
+                                                    }
+                                                    {schedule.student > 0 &&
+                                                        <li><UsersThreeIcon/> {schedule.student}</li>
+                                                    }
+                                                    {schedule.Private &&
+                                                        <li><LockKey/> 비공개</li>
+                                                    }
+                                                    {schedule.level &&
+                                                        <li><BookmarksSimple/> 초급</li>
+                                                    }
+                                                </ul>
                                             </Box>
 
                                         </Box>
