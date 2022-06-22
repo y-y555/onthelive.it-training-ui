@@ -190,8 +190,8 @@ class TodayScheduleComponent extends Component {
             schedule: true,
             checkBox:true,
             scheduleData: [
-                {roomName:"기초수학특강", title:"오늘의 생활영어 한마디를 배워보자", live: true, time:"오전 11:00 ~  오전 12:00", buttonText: "참석하기"},
-                {roomName:"하루영어클럽", title:"오늘의 생활영어 한마디를 배워보자", live: false, time:"오전 11:00 ~  오전 12:00", buttonText: "미리 살펴보기"},
+                {roomName:"모의 해킹 클럽", title:"리눅스 커널 해킹", live: true, time:"오전 11:00 ~  오전 12:00", buttonText: "참석하기"},
+                {roomName:"모의 해킹 클럽", title:"리눅스 커널 해킹", live: false, time:"오전 11:00 ~  오전 12:00", buttonText: "미리 살펴보기"},
             ],
         };
     }

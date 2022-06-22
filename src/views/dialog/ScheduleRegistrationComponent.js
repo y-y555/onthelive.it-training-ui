@@ -256,6 +256,12 @@ class ScheduleRegistrationComponent extends Component {
                                     control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
                                     label="비공개"
                                 />
+
+                                <FormControlLabel
+                                    value="c"
+                                    control={<Radio icon={<UnCheckedIcon/>} checkedIcon={<CheckedIcon/>} disableRipple/>}
+                                    label="무료강의"
+                                />
                             </RadioGroup>
                             <Typography className={classes.textStyle1}>모든 수강생이 강의를 볼 수 있습니다.</Typography>
                         </FormControl>

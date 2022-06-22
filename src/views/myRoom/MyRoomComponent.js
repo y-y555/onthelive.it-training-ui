@@ -546,8 +546,8 @@ class MyRoomComponent extends Component {
                                     input={<BootstrapInput name="type" id="type-select" />}
                                     IconComponent={() => <ArrowDownIcon/>}
                                 >
-                                    <MenuItem value={"강의 생성일순"} className={classes.menuText}>강의 생성일순</MenuItem>
                                     <MenuItem value={"업데이트순"} className={classes.menuText}>업데이트순</MenuItem>
+                                    <MenuItem value={"개설일순"} className={classes.menuText}>업데이트순</MenuItem>
                                     <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
                                 </Select>
                             </FormControl>
