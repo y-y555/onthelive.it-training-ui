@@ -22,6 +22,16 @@ const styles = theme => ({
             fontSize:'1.5rem'
         },
     },
+    buttonStyle:{
+        padding: '4px 9px',
+        background:'#fff',
+        border:'1px solid #bfbfbf',
+        color:'#303030',
+        fontSize: '0.938rem',
+        '&:hover':{
+            background:'#fff'
+        }
+    },
 });
 
 const StyledTabs = withStyles(theme => ({
