@@ -17,73 +17,35 @@ const styles = theme => ({
         margin:'0 auto',
         boxSizing:'border-box',
     },
-    textStyle:{
-        fontSize:'1.5rem'
-    },
-    lineStyle:{
-        width: 95,
-        height: 4,
-        background:'#1664f5',
-        marginTop: 18,
-        borderRadius: 4,
-    },
-    buttonStyle:{
-        padding: '4px 9px',
-        background:'#fff',
-        border:'1px solid #bfbfbf',
-        color:'#303030',
-        fontSize: '0.938rem',
-        '&:hover':{
-            background:'#fff'
-        }
-    },
-    formControlBox:{
-        marginTop: 3,
-        marginLeft: 35,
-        '& svg':{
-            marginTop: -10
-        }
-    },
-    menuText:{
-        fontFamily: 'NanumSquareRoundOTF' ,
-        fontSize:'1.125rem',
-        color:'#0d0d0d',
-        "&:hover":{
-            background:'#d3d7db'
-        }
+    trigger:{
+        '& .MuiTab-wrapper':{
+            fontSize:'1.5rem'
+        },
     },
 });
 
-const BootstrapInput = withStyles(theme => ({
+const StyledTabs = withStyles(theme => ({
     root: {
+
     },
-    input: {
-        borderRadius: 0,
-        position: 'relative',
+    indicator: {
+        display: 'flex',
+        justifyContent: 'center',
         backgroundColor: 'transparent',
-        border: '0',
-        fontSize:'1.5rem',
-        color:'#000',
-        '&:focus': {
-            background:'transparent'
+        height: 4,
+        '& > span': {
+            width: '60%',
+            background:'#1664f5'
         },
-        '&.MuiSelect-select':{
-            paddingRight:5,
-        }
     },
-}))(InputBase);
+}))(props => <Tabs {...props} TabIndicatorProps={{ children: <span /> }} />);
 
 class MyRoomTopComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '강의 관리',
         };
     }
-
-    handleChange = event => {
-        this.setState({ value: event.target.value });
-    };
 
     render() {
         const { classes, classTab, handleChangeTabs } = this.props;
@@ -91,25 +53,10 @@ class MyRoomTopComponent extends Component {
         return (
             <div className={classes.root}>
                 <Box>
-                    <Tabs value={classTab} onChange={handleChangeTabs} className={classes.trigger}>
+                    <StyledTabs value={classTab} onChange={handleChangeTabs} className={classes.trigger}>
                         <Tab label="내 강의실" disableRipple/>
                         <Tab label="강의 관리" disableRipple/>
-                    </Tabs>
-                    {/*<Box>*/}
-                    {/*    <Typography className={classes.textStyle}>내 강의실</Typography>*/}
-                    {/*    <Box className={classes.lineStyle}/>*/}
-                    {/*</Box>*/}
-                    {/*<FormControl className={classes.formControlBox}>*/}
-                    {/*    <Select*/}
-                    {/*        value={this.state.value}*/}
-                    {/*        onChange={this.handleChange}*/}
-                    {/*        input={<BootstrapInput name="type" id="type-select" />}*/}
-                    {/*        IconComponent={() => <CaretDown/>}*/}
-                    {/*    >*/}
-                    {/*        <MenuItem value={"강의 관리"} className={classes.menuText}>강의 관리</MenuItem>*/}
-                    {/*        <MenuItem value={"강의1"} className={classes.menuText}>강의1</MenuItem>*/}
-                    {/*    </Select>*/}
-                    {/*</FormControl>*/}
+                    </StyledTabs>
 
                 </Box>
                 <Button className={classes.buttonStyle} disableRipple>기업 서비스</Button>
