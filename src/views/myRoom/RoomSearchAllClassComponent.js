@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Tabs, Tab} from "@material-ui/core";
 import SearchRoomComponent from './SearchRoomComponent';
-import Footer from "../footer/footer";
+import Footer from "../footer/Footer";
 const styles = theme => ({
     root:{
     },
