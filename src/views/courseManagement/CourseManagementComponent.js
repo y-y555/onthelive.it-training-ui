@@ -10,6 +10,7 @@ import {withRouter} from "react-router-dom";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";
 import DashboardComponent from "./DashboardComponent";
+import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
 
 const styles = theme => ({
     root:{
@@ -130,7 +131,7 @@ class CourseManagementComponent extends Component {
 
                     {/* 개설강의 */}
                     {classTab === 1 &&
-                    <Box>개설강의</Box>
+                    <OpenLectureRoomCompononet/>
                     }
 
                     {/* 수강생 관리 */}

@@ -288,6 +288,7 @@ class ReferenceRoomComponent extends Component {
                                         {/*<Button className={clsx(classes.tableBtnStyle, classes.downloadBtn)} disableRipple style={{fontSize:'0.75rem'}}><DownloadSimpleIcon/> <Typography>다운로드</Typography></Button>*/}
                                     </TableCell>
                                 </TableRow>
+
                             ))}
                         </TableBody>
                     </Table>

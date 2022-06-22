@@ -26,9 +26,7 @@ import {ReactComponent as Close} from "../../common/images/Close.svg";
 import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
 const styles = theme => ({
     root:{
-        padding:'50px 0 50px 33px',
-        border:'0 solid #c0c2c3',
-        borderWidth: '1px 0 ',
+
         '& > div':{
             '@media all and (min-width: 1500px)': {
                 width:1440,
@@ -114,6 +112,7 @@ const styles = theme => ({
         borderRadius: 4,
         width:190,
         color:'#a3a8af',
+        backgroundColor:'#fff',
         '& .MuiOutlinedInput-root, .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root:hover .MuiOutlinedInput-notchedOutline, .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline':{
             borderColor:'#bfbfbf',
             borderWidth:1
@@ -504,7 +503,7 @@ class SearchCategoryComponent extends Component {
                         <Box className={classes.popover}>
                             <IconButton className={classes.popoverClose} onClick={this.searchOpenClose} disableRipple><Close/></IconButton>
                             <Box className={classes.popovertitle}>
-                                <Typography variant={'h5'} >모든 강의</Typography>
+                                <Typography variant={'h5'} >{this.props.title}</Typography>
                                 <Typography variant={'body1'}>개설된 모든 강의의 주제입니다.  주제 태그를 선택하거나 검색하여 원하는 강의를 찾을 수 있습니다.</Typography>
                             </Box>
                             <Box display='flex' alignItems='center' justifyContent='space-between'>

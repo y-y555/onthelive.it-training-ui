@@ -91,7 +91,12 @@ const styles = theme => ({
         '&:hover':{
             backgroundColor:'#fff'
         }
+    },
+    searchCategoryComponent:{
+        padding:'50px 0 50px 33px',
+        borderBottom:'1px solid #c0c2c3',
     }
+
 });
 class RoomsSearchComponent extends Component {
     constructor(props) {
@@ -146,11 +151,12 @@ class RoomsSearchComponent extends Component {
         const { tabs } = this.state;
         return (
             <div className={classes.root}>
-                <SearchCategoryComponent
-                    title={this.state.categoryTitle}
-                    tagList={this.state.tagList}
-                />
-
+                <Box className={classes.searchCategoryComponent}>
+                    <SearchCategoryComponent
+                        title={this.state.categoryTitle}
+                        tagList={this.state.tagList}
+                    />
+                </Box>
                 <Box className={classes.wrap}>
                     <Box display='flex' alignItems='center' justifyContent='space-between'>
                         <Tabs value={tabs} onChange={this.handleChange} className={classes.tabTrigger}>
