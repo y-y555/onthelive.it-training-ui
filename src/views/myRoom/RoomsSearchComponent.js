@@ -165,7 +165,7 @@ class RoomsSearchComponent extends Component {
                                 <CheckCircleAgreeOffIcon/> :
                                 <CheckCircleAgreeOnIcon/>
                             }
-                            종료된 강의 포함!!
+                            종료된 강의 포함
                         </Box>
                     </Box>
                     {tabs === 0 &&

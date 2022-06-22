@@ -20,7 +20,7 @@ import MemberWithdrawalComponent from "../setting/MemberWithdrawalComponent";
 import MemberPermissionSettingComponent from "../setting/MemberPermissionSettingComponent";
 import ClassSelectTagComponent from "./ClassSelectTagComponent";
 import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
-import ClassLearningTableComponent from "./ClassLearningTableComponent";
+import ClassAssignmentTableCompononet from "./ClassAssignmentTableCompononet";
 import ClassLectureIntroductionComponent from "./ClassLectureIntroductionComponent";
 import ClassLectureIntroductionModifyComponent from "./ClassLectureIntroductionModifyComponent";
 import ClassInquiryComponent from "./ClassInquiryComponent";
@@ -251,10 +251,10 @@ export default function ClassMainComponent() {
                     }
                     {classTab === 3 &&
                     // <ClassCalendarComponent/>
-                        <ClassLearningTableComponent/>
+                        <ClassAssignmentTableCompononet/>
                     }
                     {classTab === 4 &&
-                        <ClassLearningTableComponent/>
+                        <ClassAssignmentTableCompononet/>
                     }
                     {classTab === 5 &&
                         <ReferenceRoomComponent/>
