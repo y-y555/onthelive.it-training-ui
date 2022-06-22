@@ -11,6 +11,7 @@ import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.s
 import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";
 import DashboardComponent from "./DashboardComponent";
 import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
+import LectureSupportManagementComponent from "./LectureSupportManagementComponent";
 
 const styles = theme => ({
     root:{
@@ -139,9 +140,9 @@ class CourseManagementComponent extends Component {
                     <Box>수강생 관리</Box>
                     }
 
-                    {/* 학습지원 관리 */}
+                    {/* 강의지원 관리 */}
                     {classTab === 3 &&
-                    <Box>학습지원 관리</Box>
+                        <LectureSupportManagementComponent/>
                     }
 
                 </Box>
