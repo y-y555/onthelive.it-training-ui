@@ -188,15 +188,9 @@ class ContentLectureTopBarPreviewComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '웹 해킹 보안 입문',
-            iconValue: 'PC',
             anchorEl: null,
         };
     }
-
-    handleChange = event => {
-        this.setState({ value: event.target.value });
-    };
 
     handleClickPopover = event => {
         this.setState({

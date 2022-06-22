@@ -32,13 +32,17 @@ class TodayScheduleComponent extends Component {
             progress2Value:'50.0',
             totalLearningTime:'100시간 10분',
             learningTime:'1시간 20분',
-            toolTipOpen: true,
-            infoTooltip: true,
+            toolTipOpen: false,
+            infoTooltip: false,
         };
     }
 
     handleCloseInfoTooltip = () => {
-        this.setState({ infoTooltip: false });
+        this.setState({
+            infoTooltip: false,
+            toolTipOpen: false,
+            averageTooltip: false,
+        });
     };
 
     handleClickInfoTooltip = () => {

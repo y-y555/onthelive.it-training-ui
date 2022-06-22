@@ -178,14 +178,9 @@ class ContentLectureTopBarComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '웹 해킹 보안 입문',
             iconValue: 'PC',
         };
     }
-
-    handleChange = event => {
-        this.setState({ value: event.target.value });
-    };
 
     handleChangeIcon = event => {
         this.setState({ iconValue: event.target.value });

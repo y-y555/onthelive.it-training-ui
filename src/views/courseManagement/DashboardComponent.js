@@ -1,10 +1,33 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
+import {Box, IconButton, Typography} from "@material-ui/core";
+import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
+import {ReactComponent as Info} from "../../common/images/Info.svg";
+import LectureStatusComponent from "./LectureStatusComponent";
+import LearningStatusComponent from "./LearningStatusComponent";
 
 const styles = theme => ({
     root:{
-        
+
     },
+    dateText:{
+        fontSize: '0.875rem',
+        marginRight: 7
+    },
+    iconButton:{
+        padding:0,
+        '&:hover':{
+            background:'transparent'
+        },
+        '& .arrow-counter':{
+            fill:'#000'
+        }
+    },
+    paddingLeft:{
+        width: '100%',
+        boxSizing:'border-box',
+        paddingLeft: 120
+    }
 });
 
 class DashboardComponent extends Component {
@@ -20,7 +43,15 @@ class DashboardComponent extends Component {
         
         return (
             <div className={classes.root}>
-                대시보드
+                <Box display='flex' justifyContent='flex-end' alignItems='center' mb={8}>
+                    <Typography className={classes.dateText}>2022. 6. 21 (화) 오후 3:33</Typography>
+                    <IconButton className={classes.iconButton} disableRipple><ArrowCounterClockwise style={{transform: 'scaleX(-1)'}}/></IconButton>
+                </Box>
+                <Box className={classes.paddingLeft}>
+                    <LectureStatusComponent/>
+                    <LearningStatusComponent/>
+                </Box>
+
             </div>
         );
     }
