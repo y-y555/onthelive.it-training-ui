@@ -23,7 +23,7 @@ import SearchComponent from "./views/search/SearchComponent";
 import ClassScheduleDetailContentComponent from "./views/Class/ClassScheduleDetailContentComponent";
 import InvitationComponent from "./views/invitation/InvitationComponent";
 import ContentLectureComponent from "./views/contentLecture/ContentLectureComponent";
-import RoomsSearchComponent from "./views/myRoom/RoomsSearchComponent";
+import RoomsSearchComponent from "./views/myRoom/RoomSearchAllClassComponent";
 
 const styles = theme => ({
     root:{
@@ -48,7 +48,7 @@ class App extends React.Component {
             <div className={classes.root}>
 
                 <Router>
-                    {/*<HomeTopBar/>*/}
+                    <HomeTopBar/>
                     <TopBar/>
                     <Switch>
                         <Route exact path="/" render={() =><Home/>}/>

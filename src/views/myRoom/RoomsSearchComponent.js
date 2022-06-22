@@ -67,6 +67,9 @@ const styles = theme => ({
         color:'#333333',
         marginTop: 110,
         marginBottom: 16,
+        '&:hover':{
+            textDecoration:'none',
+        },
         '& span':{
             color:'#1664f5',
         },

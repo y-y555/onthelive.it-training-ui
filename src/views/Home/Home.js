@@ -10,7 +10,7 @@ import {ReactComponent as ThreeStarIcon} from "../../common/images/ThreeStarIcon
 import 'pure-react-carousel/dist/react-carousel.es.css';
 import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot} from 'pure-react-carousel';
 import clsx from "clsx";
-import Footer from "../footer/footer";
+import Footer from "../footer/Footer";
 
 const styles = theme => ({
     root:{
