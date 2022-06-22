@@ -99,6 +99,37 @@ class RoomsSearchComponent extends Component {
         this.state = {
             tabs: 0,
             checkBox:true,
+            categoryTitle: "모든강의",
+            tagList: [
+                {tag:"시즈널키워드"},
+                {tag:"연관검색어"},
+                {tag:"수업"},
+                {tag:"스터디"},
+                {tag:"노트필기"},
+                {tag:"기술문서"},
+                {tag:"아카데미"},
+                {tag:"서비스"},
+                {tag:"마케팅"},
+                {tag:"렌딩페이지"},
+                {tag:"노출"},
+                {tag:"도달률"},
+                {tag:"타겟팅광고"},
+                {tag:"이탈률"},
+                {tag:"시즈널키워드"},
+                {tag:"연관검색어"},
+                {tag:"수업"},
+                {tag:"스터디"},
+                {tag:"노트필기"},
+                {tag:"기술문서"},
+                {tag:"아카데미"},
+                {tag:"서비스"},
+                {tag:"마케팅"},
+                {tag:"렌딩페이지"},
+                {tag:"노출"},
+                {tag:"도달률"},
+                {tag:"타겟팅광고"},
+                {tag:"이탈률"},
+            ],
         };
     }
 
@@ -115,7 +146,10 @@ class RoomsSearchComponent extends Component {
         const { tabs } = this.state;
         return (
             <div className={classes.root}>
-                <SearchCategoryComponent/>
+                <SearchCategoryComponent
+                    title={this.state.categoryTitle}
+                    tagList={this.state.tagList}
+                />
 
                 <Box className={classes.wrap}>
                     <Box display='flex' alignItems='center' justifyContent='space-between'>

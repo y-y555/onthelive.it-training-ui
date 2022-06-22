@@ -10,7 +10,8 @@ const styles = theme => ({
     root:{
         display:'flex',
         justifyContent:'center',
-        background:'#fff'
+        background:'#fff',
+        borderBottom:'1px solid #C0C2C3'
     },
     appBar:{
         '@media all and (min-width: 1500px)': {
