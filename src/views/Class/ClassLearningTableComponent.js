@@ -193,12 +193,18 @@ const styles = theme => ({
         backgroundColor:'#fff',
         color:'#000',
         fontSize:'0.875rem',
-        padding:'6px 23px'
+        padding:'6px 23px',
+        '&:hover':{
+            backgroundColor:'#fff',
+        }
     },
     btnStyleActive:{
         backgroundColor:'#1664f5',
         borderColor:'#1664f5',
         color:'#fff',
+        '&:hover':{
+            backgroundColor:'#1664f5',
+        }
     }
 });
 class ClassLearningTableComponent extends Component {
@@ -369,7 +375,7 @@ class ClassLearningTableComponent extends Component {
                         <Box className={classes.flexCenter}>
                             <Avatar className={classes.avatar}><Browsers/></Avatar>
                             <Box display='flex' flexDirection='column'>
-                                <span className={item.btn === '복습하기' ? clsx(classes.name, classes.lineThrough) : classes.name } >{item.title}</span>
+                                <span className={item.btn === '학습하기' ?  classes.name : clsx(classes.name, classes.lineThrough)  } >{item.title}</span>
                                 <span className={classes.groupInfo}>{item.date}  |  {item.time}분/{item.totalTime}분</span>
                             </Box>
                         </Box>
