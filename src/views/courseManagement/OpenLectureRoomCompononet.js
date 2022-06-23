@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import SearchCategoryComponent from "../myRoom/SearchCategoryComponent";
+import SearchCategoryManagementComponent from "./SearchCategoryManagementComponent";
 import CourseOpenLectureTableComponent from "./CourseOpenLectureTableComponent"
 const styles = theme => ({
 });
@@ -27,7 +27,7 @@ class OpenLectureRoomCompononet extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
-                <SearchCategoryComponent
+                <SearchCategoryManagementComponent
                     title={this.state.categoryTitle}
                     tagList={this.state.tagList}
                 />

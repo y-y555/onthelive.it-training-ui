@@ -27,11 +27,6 @@ import {ReactComponent as ArrowCounterClockwise} from "../../common/images/Arrow
 const styles = theme => ({
     root:{
         '& > div':{
-            '@media all and (min-width: 1500px)': {
-                width:1440,
-            },
-            width:1200,
-            margin:'0 auto',
             boxSizing:'border-box',
             '&>h3':{
                 fontSize:'1.125rem',
@@ -179,7 +174,7 @@ const styles = theme => ({
         }
     },
     iconBtn:{
-      padding:0,
+        padding:0,
     },
     buttonStyle:{
         fontSize:'0.938rem',
@@ -296,13 +291,13 @@ const styles = theme => ({
     },
     popovertitle:{
         marginBottom:20,
-          '& h5':{
-              fontSize:'1.125rem',
-              fontWeight:600,
-              marginBottom: 10,
-          },
+        '& h5':{
+            fontSize:'1.125rem',
+            fontWeight:600,
+            marginBottom: 10,
+        },
         '& p':{
-         fontSize:'0.938rem',
+            fontSize:'0.938rem',
             color:'#656565'
         }
 
@@ -317,7 +312,7 @@ const styles = theme => ({
         '& svg' :{
             marginRight:4,
             '& path':{
-            fill:'#1664f5'
+                fill:'#1664f5'
             },
         }
     },
@@ -363,7 +358,7 @@ const freeStatus = [
     "전체" ,"무료강의",
 ];
 
-class SearchCategoryComponent extends Component {
+class SearchCategoryManagementComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -467,7 +462,7 @@ class SearchCategoryComponent extends Component {
         return (
             <div className={classes.root}>
                 <Box>
-                <Box display='flex' alignItems='center' mb={5}>
+                    <Box display='flex' alignItems='center' mb={5}>
                         <IconButton
                             // aria-owns={open ? 'simple-popper' : undefined}
                             aria-haspopup="true"
@@ -476,12 +471,12 @@ class SearchCategoryComponent extends Component {
                             className={clsx(classes.iconButton, classes.iconBtn)}
                         ><ListIcon/>
                         </IconButton>
-                    <Typography variant="h3">
+                        <Typography variant="h3">
                     <span className={this.state.searchOpen === null ? classes.titleStyle : clsx(classes.titleStyle, classes.titleStyleDefault)}>
                         {this.props.title}</span>
-                    </Typography>
-                    {/*<Typography>| 파이썬문법 <span style={{fontSize:'0.75rem'}}>(15)</span></Typography>*/}
-                </Box>
+                        </Typography>
+                        {/*<Typography>| 파이썬문법 <span style={{fontSize:'0.75rem'}}>(15)</span></Typography>*/}
+                    </Box>
                     <Popover
                         id="simple-popper"
                         open={searchOpen}
@@ -534,12 +529,12 @@ class SearchCategoryComponent extends Component {
                             </Box>
                             <Box className={classes.chipBoxCont}>
                                 {this.state.tagListItem.map((tag, i) => (
-                                <Chip
-                                    key={i}
-                                    label={tag.tag}
-                                    className={clsx(this.props.classSelectTag === i && classes.chipActive)}
-                                    // onClick={() => this.props.handleChangeClassSelectTag(i)}
-                                />
+                                    <Chip
+                                        key={i}
+                                        label={tag.tag}
+                                        className={clsx(this.props.classSelectTag === i && classes.chipActive)}
+                                        // onClick={() => this.props.handleChangeClassSelectTag(i)}
+                                    />
                                 ))}
                             </Box>
                             <Button className={classes.buttonStyle2} disableRipple onClick={this.searchOpenClose}>적용하기</Button>
@@ -547,104 +542,104 @@ class SearchCategoryComponent extends Component {
                     </Popover>
 
 
-                <Box className={classes.chipBox}>
-                    <CarouselProvider
-                        naturalSlideWidth={1000}
-                        totalSlides={tagList.length}
-                        isIntrinsicHeight
-                        visibleSlides={'auto'}
-                        // hasMasterSpinner='true'
-                    >
-                        <Slider>
-                            {tagList.map((tag, i) => (
-                                <Slide index={i}>
-                                    <Chip
-                                        key={i}
-                                        label={tag.tag}
-                                        className={clsx(this.props.classSelectTag === i && classes.chipActive)}
-                                        // onClick={() => this.props.handleChangeClassSelectTag(i)}
-                                    />
-                                </Slide>
-                            ))}
-                        </Slider>
-                        <Box className={classes.btnGroup}>
-                            <ButtonBack className={classes.btnLeftStyle}><ArrowLeftIcon/></ButtonBack>
-                            <ButtonNext className={classes.btnRightStyle}><ArrowRightIcon/></ButtonNext>
-                        </Box>
-                    </CarouselProvider>
-
-                </Box>
-
-                <Box display='flex' alignItems='center' justifyContent='center' style={{margin:'33px 0 0'}}>
-                    <FormControl variant="outlined" className={classes.formControl}>
-                        <Select
-                            multiple
-                            value={this.state.levelList}
-                            onChange={this.handleChange}
-                            input={<Input id="select-multiple-checkbox" />}
-                            className={classes.select}
-                            IconComponent={() => <Box className={classes.arrowStyle} ><ArrowDownIcon/> </Box>}
-                            renderValue={selected => {
-                                if (selected.length === 0) {
-                                    return <Typography className={classes.placeholder} >난이도</Typography>;
-                                }
-                                return selected.join(', ');
-                            }}
-                            displayEmpty
+                    <Box className={classes.chipBox}>
+                        <CarouselProvider
+                            naturalSlideWidth={1000}
+                            totalSlides={tagList.length}
+                            isIntrinsicHeight
+                            visibleSlides={'auto'}
+                            // hasMasterSpinner='true'
                         >
-                            {levelList.map(levelList => (
-                                <MenuItem key={levelList} value={levelList} className={classes.menuItem} disableRipple>
-                                    <Checkbox checked={this.state.levelList.indexOf(levelList) > -1} />
-                                    <ListItemText primary={levelList} />
-                                </MenuItem>
-                            ))}
-                                <Button className={classes.buttonStyle} disableRipple onClick={this.filterClose}>적용하기</Button>
-                        </Select>
-                    </FormControl>
+                            <Slider>
+                                {tagList.map((tag, i) => (
+                                    <Slide index={i}>
+                                        <Chip
+                                            key={i}
+                                            label={tag.tag}
+                                            className={clsx(this.props.classSelectTag === i && classes.chipActive)}
+                                            // onClick={() => this.props.handleChangeClassSelectTag(i)}
+                                        />
+                                    </Slide>
+                                ))}
+                            </Slider>
+                            <Box className={classes.btnGroup}>
+                                <ButtonBack className={classes.btnLeftStyle}><ArrowLeftIcon/></ButtonBack>
+                                <ButtonNext className={classes.btnRightStyle}><ArrowRightIcon/></ButtonNext>
+                            </Box>
+                        </CarouselProvider>
 
-
-                    <FormControl variant="outlined" className={classes.formControl} style={{margin:'0 26px'}}>
-                        <Select
-                            multiple
-                            value={this.state.freeStatus}
-                            onChange={this.handleChangeFreeStatus}
-                            input={<Input id="select-multiple-checkbox" />}
-                            className={classes.select}
-                            IconComponent={() => <Box className={classes.arrowStyle} ><ArrowDownIcon/> </Box>}
-                            renderValue={selected => {
-                                if (selected.length === 0) {
-                                    return <Typography className={classes.placeholder} >무료강의 여부</Typography>;
-                                }
-                                return selected.join(', ');
-                            }}
-                            displayEmpty
-                        >
-                            {freeStatus.map(levelList => (
-                                <MenuItem key={freeStatus} value={freeStatus} className={classes.menuItem} disableRipple>
-                                    <Checkbox checked={this.state.freeStatus.indexOf(levelList) > -1} />
-                                    <ListItemText primary={levelList} />
-                                </MenuItem>
-                            ))}
-                            <Button className={classes.buttonStyle} disableRipple onClick={this.handleChangeFreeStatus}>적용하기</Button>
-                        </Select>
-                    </FormControl>
-
-                    <Box className={classes.search}>
-                        <InputBase
-                            placeholder='강의명, 강의 소개, 태그 검색'
-                            className={classes.inputRoot}
-                            inputProps={{ 'aria-label': 'search' }}
-                        />
-                        <IconButton className={classes.searchIcon} disableRipple>
-                            <SearchIcon />
-                        </IconButton>
                     </Box>
-                </Box>
+
+                    <Box display='flex' alignItems='center' justifyContent='center' style={{margin:'33px 0 0'}}>
+                        <FormControl variant="outlined" className={classes.formControl}>
+                            <Select
+                                multiple
+                                value={this.state.levelList}
+                                onChange={this.handleChange}
+                                input={<Input id="select-multiple-checkbox" />}
+                                className={classes.select}
+                                IconComponent={() => <Box className={classes.arrowStyle} ><ArrowDownIcon/> </Box>}
+                                renderValue={selected => {
+                                    if (selected.length === 0) {
+                                        return <Typography className={classes.placeholder} >난이도</Typography>;
+                                    }
+                                    return selected.join(', ');
+                                }}
+                                displayEmpty
+                            >
+                                {levelList.map(levelList => (
+                                    <MenuItem key={levelList} value={levelList} className={classes.menuItem} disableRipple>
+                                        <Checkbox checked={this.state.levelList.indexOf(levelList) > -1} />
+                                        <ListItemText primary={levelList} />
+                                    </MenuItem>
+                                ))}
+                                <Button className={classes.buttonStyle} disableRipple onClick={this.filterClose}>적용하기</Button>
+                            </Select>
+                        </FormControl>
+
+
+                        <FormControl variant="outlined" className={classes.formControl} style={{margin:'0 26px'}}>
+                            <Select
+                                multiple
+                                value={this.state.freeStatus}
+                                onChange={this.handleChangeFreeStatus}
+                                input={<Input id="select-multiple-checkbox" />}
+                                className={classes.select}
+                                IconComponent={() => <Box className={classes.arrowStyle} ><ArrowDownIcon/> </Box>}
+                                renderValue={selected => {
+                                    if (selected.length === 0) {
+                                        return <Typography className={classes.placeholder} >무료강의 여부</Typography>;
+                                    }
+                                    return selected.join(', ');
+                                }}
+                                displayEmpty
+                            >
+                                {freeStatus.map(levelList => (
+                                    <MenuItem key={freeStatus} value={freeStatus} className={classes.menuItem} disableRipple>
+                                        <Checkbox checked={this.state.freeStatus.indexOf(levelList) > -1} />
+                                        <ListItemText primary={levelList} />
+                                    </MenuItem>
+                                ))}
+                                <Button className={classes.buttonStyle} disableRipple onClick={this.handleChangeFreeStatus}>적용하기</Button>
+                            </Select>
+                        </FormControl>
+
+                        <Box className={classes.search}>
+                            <InputBase
+                                placeholder='강의명, 강의 소개, 태그 검색'
+                                className={classes.inputRoot}
+                                inputProps={{ 'aria-label': 'search' }}
+                            />
+                            <IconButton className={classes.searchIcon} disableRipple>
+                                <SearchIcon />
+                            </IconButton>
+                        </Box>
+                    </Box>
                 </Box>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(SearchCategoryComponent);
+export default withStyles(styles)(SearchCategoryManagementComponent);
 
