@@ -575,7 +575,7 @@ class MyRoomComponent extends Component {
                                     IconComponent={() => <ArrowDownIcon/>}
                                 >
                                     <MenuItem value={"업데이트순"} className={classes.menuText}>업데이트순</MenuItem>
-                                    <MenuItem value={"개설일순"} className={classes.menuText}>업데이트순</MenuItem>
+                                    <MenuItem value={"개설일순"} className={classes.menuText}>개설일순</MenuItem>
                                     <MenuItem value={"가나다순"} className={classes.menuText}>가나다순</MenuItem>
                                 </Select>
                             </FormControl>

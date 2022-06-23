@@ -9,10 +9,9 @@ const styles = theme => ({
         width: '100%'
     },
     box:{
-        padding:'20px 30px',
+        padding:'22px 30px',
         boxSizing:'border-box',
-        background:'#eee',
-        border:'1px solid #C4C4C4',
+        borderBottom:'1px solid #e1e1e1',
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center'
@@ -23,13 +22,16 @@ const styles = theme => ({
         justifyContent:'center',
         margin: '0 0 auto',
         '& button':{
-            minWidth:90,
-            minHeight:30,
+            minWidth:70,
+            minHeight:25,
             position:'relative',
             opacity:1,
             marginRight:10,
             background:'#D2D2D2',
             borderRadius:50,
+            fontSize: '0.938rem',
+            paddingTop:0,
+            paddingBottom:0
         },
         '& button.Mui-selected':{
             minWidth:90,
@@ -53,12 +55,12 @@ const styles = theme => ({
         }
     },
     search: {
-        width:300,
+        width:500,
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
         background: '#fff',
-        border:'1px solid #C4C4C4',
+        border:'1px solid #bfbfbf',
         padding:'3px 6px 3px',
         borderRadius:3,
         "& .MuiInputBase-input::placeholder":{
@@ -66,9 +68,15 @@ const styles = theme => ({
             fontSize:'0.875rem',
             color:'#A3A8AF'
         },
+        '& .MuiInputBase-root':{
+            width: '90%'
+        },
         "& .MuiInputBase-input":{
-            padding:5
-        }
+            padding:5,
+        },
+        "&:focus-within":{
+            border:'1px solid #1664F5',
+        },
     },
 });
 
@@ -92,8 +100,9 @@ class SearchBoxTabComponent extends Component {
                         <Tab label="문의 내역 관리" disableRipple />
                     </Tabs>
 
-                    <Box className={classes.search}>
+                    <Box className={classes.search} for={"input"}>
                         <InputBase
+                            id={"input"}
                             placeholder='검색'
                             className={classes.inputRoot}
                             inputProps={{ 'aria-label': 'search' }}

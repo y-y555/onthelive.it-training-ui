@@ -12,6 +12,7 @@ import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIc
 import DashboardComponent from "./DashboardComponent";
 import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
 import LectureSupportManagementComponent from "./LectureSupportManagementComponent";
+import NoticeDialog from "./NoticeDialog";
 
 const styles = theme => ({
     root:{
@@ -85,11 +86,20 @@ class CourseManagementComponent extends Component {
         super(props);
         this.state = {
             classTab: 0,
+            dialogOpen: false,
         };
     }
 
     handleChangeTabs = (event, classTab) => {
         this.setState({ classTab });
+    };
+
+    handleClickNotice = () => {
+        this.setState({ dialogOpen: true });
+    };
+
+    handleClose = () => {
+        this.setState({ dialogOpen: false });
     };
 
     render() {
@@ -111,17 +121,20 @@ class CourseManagementComponent extends Component {
                         </Tabs>
 
                         {(classTab === 1 || classTab === 3) &&
-                        <Button className={classes.btnStyle} disableRipple>
-                            {classTab === 1 &&
-                            <>
-                                <PlusCircleIcon/>
-                                강의 만들기
-                            </>
-                            }
-                            {classTab === 3 &&
-                            "공지사항 등록"
-                            }
-                        </Button>
+                            classTab === 1 ?
+                                <Button className={classes.btnStyle} disableRipple>
+                                    <PlusCircleIcon/>
+                                    강의 만들기
+                                </Button>
+                            :
+                                classTab === 3 ?
+                                    <Button className={classes.btnStyle} onClick={this.handleClickNotice} disableRipple>
+                                        공지사항등록
+
+                                    </Button>
+                                    :
+                                    null
+
                         }
                     </Box>
 
@@ -145,6 +158,8 @@ class CourseManagementComponent extends Component {
                         <LectureSupportManagementComponent/>
                     }
 
+
+                    <NoticeDialog dialogOpen={this.state.dialogOpen} handleClose={this.handleClose}/>
                 </Box>
             </div>
         );
