@@ -26,16 +26,51 @@ const styles = theme => ({
         '& table':{
             borderSpacing: 0,
             border:'1px solid #B9B9B9',
-            '& thead tr':{
-                background:'rgba(0, 0, 0, 0.05)',
-            },
-
+        },
+        '& th':{
+            background:'rgba(0, 0, 0, 0.05)',
+            padding: '10px 15px'
+        },
+        '& td':{
+            verticalAlign: 'top',
+            paddingTop: 15
+        },
+        '& td:last-child':{
+            padding: 0
+        },
+        '& th, td':{
+            borderBottom: '1px solid #B9B9B9',
+            fontSize:'0.875rem'
+        },
+        '& td:nth-child(2), th:nth-child(2)':{
+            width: 110,
+            borderLeft: '1px solid #B9B9B9',
+            borderRight: '1px solid #B9B9B9',
+        },
+        '& td:nth-child(1), th:nth-child(1)':{
+            width: 75,
+        },
+        '& ul':{
+            paddingLeft: 30,
+            paddingRight: 10,
         }
+    },
+    lastBox:{
+        '& > td':{
+            background:'rgba(0, 79, 172, 0.5)',
+            padding: '15px 10px',
+            borderBottom: 0
+        },
     },
     boxInLeft:{
         boxSizing: 'border-box',
         paddingRight: 35,
         paddingLeft: 30
+    },
+    boxLine:{
+        borderRight:'1px solid #D3D7DB',
+        paddingRight: 30,
+        height: '100%'
     },
     Percentage:{
         fontSize: '1.875rem',
@@ -68,9 +103,9 @@ class CompletionManagementComponent extends Component {
                         <Typography className={classes.titleText}>수료 기준 가이드</Typography>
                     </Box>
 
-                    <Box display='flex' alignItems='center' mt={3}>
+                    <Box display='flex' mt={3}>
                         <Box className={clsx(classes.boxIn, classes.boxInLeft)}>
-                            <Box style={{borderRight:'1px solid #D3D7DB', paddingRight: 30}}>
+                            <Box className={classes.boxLine}>
                                 <Box display='flex' alignItems='center'>
                                     <Typography className={classes.titleText}>총 진도율 기준</Typography>
                                     <Typography className={classes.Percentage}>100%</Typography>
@@ -145,14 +180,13 @@ class CompletionManagementComponent extends Component {
                                         </ul>
                                     </td>
                                 </tr>
-                                <tr align="center" bgcolor="white">
+                                <tr align="center" bgcolor="white" className={classes.lastBox}>
                                     <td>총 진도율</td>
                                     <td>100%</td>
-                                    <td align="left">
+                                    <td>
 
                                     </td>
                                 </tr>
-                                
                                 </tbody>
                             </table>
                         </Box>
