@@ -13,6 +13,7 @@ import DashboardComponent from "./DashboardComponent";
 import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
 import LectureSupportManagementComponent from "./LectureSupportManagementComponent";
 import NoticeDialog from "./NoticeDialog";
+import CourseStudentManagementComponent from "./CourseStudentManagementComponent";
 
 const styles = theme => ({
     root:{
@@ -150,7 +151,7 @@ class CourseManagementComponent extends Component {
 
                     {/* 수강생 관리 */}
                     {classTab === 2 &&
-                    <Box>수강생 관리</Box>
+                    <CourseStudentManagementComponent/>
                     }
 
                     {/* 강의지원 관리 */}

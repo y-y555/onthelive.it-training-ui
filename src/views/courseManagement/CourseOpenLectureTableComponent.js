@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Book} from "@material-ui/icons";
-import {Avatar, Box, Button, FormControl, Menu, MenuItem, Select, TableCell, Typography,TablePagination} from "@material-ui/core";
+import {
+    Avatar,
+    Box,
+    Button,
+    FormControl,
+    Menu,
+    MenuItem,
+    Select,
+    TableCell,
+    Typography,
+    TablePagination,
+    IconButton
+} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
@@ -14,6 +26,11 @@ import {ReactComponent as BookmarksSimpleRed} from "../../common/images/Bookmark
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as PlayIcon} from "../../common/images/PlayIcon.svg";
 import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
+import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
+import {ReactComponent as X} from "../../common/images/X.svg";
+import CancelApprovalDialogComponent from "./CancelApprovalDialogComponent";
+import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
+import StudentStatusDetailComponent from "./StudentStatusDetailComponent";
 const styles = theme => ({
     root:{
         backgroundColor:'#fff',
@@ -203,17 +220,116 @@ const styles = theme => ({
     captionEnd:{
         backgroundColor:'#1a5177'
     },
+    // listStyleOn:{
+    //     borderRadius: 10,
+    //     overflow:'hidden',
+    //     boxShadow: '0 2px 7px 0 rgba(0, 0, 0, 0.45)',
+    //     position:'absolute',
+    //     top:0,
+    //     left:0,
+    //     zIndex:99,
+    //     width:'100%'
+    // },
+    // listItemStyleOn:{
+    //     backgroundColor: '#eee',
+    //     padding:'21px 25px',
+    //     cursor:'pointer',
+    //     display:'flex',
+    //     alignItems:'center',
+    //     justifyContent:'space-between',
+    // },
+    // titleName:{
+    //     fontSize:'1.25rem'
+    // },
+    // listItemContent:{
+    //     padding:21,
+    //     backgroundColor:'#fff'
+    // },
+    // stateStyle:{
+    //     fontSize:'1.5rem',
+    //     color:'#8f8f8f',
+    // },
+    // userBar:{
+    //     display:'flex',
+    //     alignItems:'center',
+    //     margin:'20px 0 4px',
+    //     '& > span':{
+    //         fontSize:'0.813rem',
+    //         color:'#a3a8af',
+    //         marginLeft:4
+    //     }
+    // },
+    // btnStyle:{
+    //     backgroundColor:'#fff',
+    //     border:'1px solid #bfbfbf',
+    //     borderRadius:4,
+    //     fontSize:'0.938rem',
+    //     padding:'4px 12px',
+    //     "&:hover":{
+    //         background:'#fff'
+    //     }
+    // },
+    // txtGray:{
+    //     color:'#8f8f8f',
+    // },
+    // txtRed:{
+    //     color:'#ff1226',
+    //     fontSize:'1rem',
+    //     "&:hover":{
+    //         background:'transparent'
+    //     }
+    // },
+    explanationBox:{
+        width:255,
+        padding:'10px',
+        background:'#2078e8',
+        boxShadow:'0 2px 7px 0 rgba(0, 0, 0, 0.25)',
+        borderRadius:3,
+        position: 'absolute',
+        zIndex:100,
+        bottom:-70,
+        left: 48,
+        "&::before":{
+            backgroundColor: '#2078e8',
+            content: "''",
+            display: 'block',
+            height: '13px',
+            position: 'absolute',
+            top: -6,
+            left: 130,
+            transform: 'rotate( -227deg ) skew( 0deg )',
+            width: '13px',
+            zIndex:300
+        },
+        '& svg':{
+            width: 16,
+            height: 16
+        },
+    },
+    stepContents:{
+        fontSize: '0.813rem',
+        color:'#fff',
+        fontWeight:300,
+        padding:0,
+        margin:0,
+        paddingLeft:'1.2rem',
+        '& li':{
+            marginTop:8,
+            '&:first-child':{
+                marginTop:0,
+            }
+        }
+    },
 });
 
 
-const badge =[
 
-];
 class CourseOpenLectureTableComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
             filter: "최근등록일순",
+            filterOn: "최근학습완료일순",
             checkBox:true,
             anchorEl: null,
             tableTd:[
@@ -270,8 +386,21 @@ class CourseOpenLectureTableComponent extends Component {
             ],
             page: 0,
             rowsPerPage: 5,
+            listItem:false,
+            LearningList:[
+                {name:'변요한',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습완료', confirm:'수강승인'},
+                {name:'박서윤',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습전', confirm:'미이수'},
+                {name:'김민준',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습중', confirm:'이수완료'},
+                {name:'김민준',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'수강승인', confirm:'승인취소'},
+            ],
+            dialogOpen: false,
         };
     }
+
+    listItemChange= () => {
+        this.setState({ listItem: !this.state.listItem });
+    };
+
     handleChangeCheckBox= () => {
         this.setState({ checkBox: !this.state.checkBox });
     };
@@ -292,6 +421,16 @@ class CourseOpenLectureTableComponent extends Component {
         this.setState({ rowsPerPage: event.target.value });
     };
 
+    handleClickOpen = () => {
+        this.setState({ dialogOpen: true });
+    };
+
+    handleClose = () => {
+        this.setState({
+            dialogOpen: false,
+            anchorEl: null,
+        });
+    };
     render() {
         const { classes } = this.props;
         const { anchorEl} = this.state;
@@ -322,7 +461,7 @@ class CourseOpenLectureTableComponent extends Component {
 
                 <Box className={classes.listStyle}>
                     {this.state.tableTd.map((td, i) => (
-                    <Box className={classes.listItemStyle}>
+                    <Box className={classes.listItemStyle}  onClick={this.listItemChange}>
                         <Box className={classes.flexCenter}>
                             <Avatar className={classes.avatar}><Browsers/></Avatar>
                             <Box display='flex' flexDirection='column'>
@@ -352,27 +491,6 @@ class CourseOpenLectureTableComponent extends Component {
                                              <PlayIcon style={{width:10, height:10, marginRight:2}}/> VOD</span>
                                        <span className={classes.tag} style={{backgroundColor:'#4282fa'}}>평가</span>
                                          <span className={classes.tag} style={{backgroundColor:'#8a42ff'}}>과제</span>
-                                        {/*{td.badge = '실습' ?*/}
-                                        {/*        <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>*/}
-                                        {/*        :*/}
-                                        {/*        (td.badge = 'LIVE') ?*/}
-                                        {/*        <span className={classes.tag} style={{backgroundColor:'#fb4a59'}}>*/}
-                                        {/*        <DotIcon style={{width:10, height:10, marginRight:2}}/> LIVE</span>*/}
-                                        {/*            :*/}
-                                        {/*            (td.badge = 'VOD') ?*/}
-                                        {/*        <span className={classes.tag} style={{backgroundColor:'#000'}}>*/}
-                                        {/*        <PlayIcon style={{width:10, height:10, marginRight:2}}/> VOD</span>*/}
-                                        {/*                :*/}
-                                        {/*        (td.badge = '평가') ?*/}
-                                        {/*        <span className={classes.tag} style={{backgroundColor:'#4282fa'}}>평가</span>*/}
-                                        {/*        :*/}
-                                        {/*        (td.badge = '과제') ?*/}
-                                        {/*        <span className={classes.tag} style={{backgroundColor:'#8a42ff'}}>과제</span>*/}
-                                        {/*        :*/}
-                                        {/*                null*/}
-                                        {/*}*/}
-
-                                         {/*))}*/}
                                 </Box>
                                 <Box display='flex' justifyContent='flex-end' alignItems='center'>
                                     {td.freeClass === true ?
@@ -423,14 +541,31 @@ class CourseOpenLectureTableComponent extends Component {
                         </Box>
                     </Box>
                     ))}
-                    {/*<TablePagination*/}
-                    {/*    component="div"*/}
-                    {/*    count={100}*/}
-                    {/*    page={page}*/}
-                    {/*    onPageChange={handleChangePage}*/}
-                    {/*    rowsPerPage={rowsPerPage}*/}
-                    {/*    onRowsPerPageChange={handleChangeRowsPerPage}*/}
-                    {/*/>*/}
+
+
+                    {this.state.listItem === true ?
+                        <div>
+                            <StudentStatusDetailComponent
+                                handleClickOpen={this.handleClickOpen}
+                                handleClose={this.handleClose}
+                                dialogOpen={this.state.dialogOpen}
+                                handleChangeCheckBox={this.handleChangeCheckBox}
+                                handleChangeSort={this.handleChangeSort}
+                                listItemChange={this.listItemChange}
+                                filterOn={this.state.filterOn}
+                                LearningList={this.state.LearningList}
+                            />
+                            <CancelApprovalDialogComponent
+                                handleClose={this.handleClose} dialogOpen={this.state.dialogOpen}
+                            />
+                        </div>
+
+                        :
+                        null
+                    }
+
+
+
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 25]}
                         component="div"

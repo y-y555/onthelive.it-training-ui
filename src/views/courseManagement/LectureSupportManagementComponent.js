@@ -3,6 +3,8 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Typography} from "@material-ui/core";
 import SearchBoxTabComponent from "./SearchBoxTabComponent";
 import CompletionManagementComponent from "./CompletionManagementComponent";
+import CourseNoticeBoradComponent from "./CourseNoticeBoradComponent";
+import CourseInquiryHistoryManagementComponent from "./CourseInquiryHistoryManagementComponent";
 
 const styles = theme => ({
     root:{
@@ -53,8 +55,8 @@ class LectureSupportManagementComponent extends Component {
                     />
 
                     {this.state.classTab === 0 &&
-                    "공지사항"
-                    }
+                    <CourseNoticeBoradComponent/>
+                                        }
 
                     {this.state.classTab === 1 &&
                         <Box className={classes.paddingBox}>
@@ -64,7 +66,7 @@ class LectureSupportManagementComponent extends Component {
                     }
 
                     {this.state.classTab === 2 &&
-                    "문의 내역 관리"
+                        <CourseInquiryHistoryManagementComponent/>
                     }
                 </Box>
 
