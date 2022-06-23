@@ -365,14 +365,14 @@ class SignUp extends Component {
                         가입
                     </Button>
 
-                    <Box className={classes.lineStyle}/>
+                    {/*<Box className={classes.lineStyle}/>*/}
 
-                    <SocialLoginComponent
-                        naverText={"네이버로 시작하기"}
-                        kakaoText={"네이버로 시작하기"}
-                        facebookText={"네이버로 시작하기"}
-                        googleText={"네이버로 시작하기"}
-                    />
+                    {/*<SocialLoginComponent*/}
+                    {/*    naverText={"네이버로 시작하기"}*/}
+                    {/*    kakaoText={"네이버로 시작하기"}*/}
+                    {/*    facebookText={"네이버로 시작하기"}*/}
+                    {/*    googleText={"네이버로 시작하기"}*/}
+                    {/*/>*/}
 
                 </Box>
             </div>

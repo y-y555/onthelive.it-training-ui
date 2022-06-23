@@ -14,8 +14,10 @@ import {withRouter} from "react-router-dom";
 const styles = theme => ({
     root:{
         width:'100%',
+        height: 'calc(100vh - 95px)',
         display:'inline-flex',
-        justifyContent:'center'
+        justifyContent:'center',
+        alignItems:'center'
     },
     loginBox:{
         display:'flex',
@@ -24,7 +26,7 @@ const styles = theme => ({
         padding:'50px 90px 30px',
         boxSizing:'border-box',
         borderRadius:12,
-        marginTop:45
+        // marginTop:45
     },
     loginText:{
         fontSize:'1.75rem',
@@ -218,14 +220,14 @@ class Login extends Component {
                         </Button>
                     </Box>
 
-                    <Box className={classes.lineStyle}/>
+                    {/*<Box className={classes.lineStyle}/>*/}
 
-                    <SocialLoginComponent
-                        naverText={"네이버로 로그인"}
-                        kakaoText={"카카오로 로그인"}
-                        facebookText={"페이스북으로 로그인"}
-                        googleText={"구글로 로그인"}
-                    />
+                    {/*<SocialLoginComponent*/}
+                    {/*    naverText={"네이버로 로그인"}*/}
+                    {/*    kakaoText={"카카오로 로그인"}*/}
+                    {/*    facebookText={"페이스북으로 로그인"}*/}
+                    {/*    googleText={"구글로 로그인"}*/}
+                    {/*/>*/}
 
                 </Box>
             </div>
