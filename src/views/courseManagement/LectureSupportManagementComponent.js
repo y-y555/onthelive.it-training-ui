@@ -24,9 +24,6 @@ const styles = theme => ({
         border:'1px solid #bfbfbf',
         background:'#fff'
     },
-    paddingBox:{
-        padding: '20px 30px'
-    }
 });
 
 
@@ -34,38 +31,30 @@ class LectureSupportManagementComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            classTab: 0
         };
     }
-
-    handleChangeTabs = (event, classTab) => {
-        this.setState({ classTab });
-    };
     
     render() {
-        const { classes } = this.props;
+        const { classes, lectureSupportClassTab, handleChangeLectureSupportTabs } = this.props;
 
         return (
             <div className={classes.root}>
                 <Box className={classes.box}>
                     <Typography className={classes.titleText}>강의지원 관리</Typography>
                     <SearchBoxTabComponent
-                        classTab={this.state.classTab}
-                        handleChangeTabs={this.handleChangeTabs}
+                        lectureSupportClassTab={lectureSupportClassTab}
+                        handleChangeLectureSupportTabs={handleChangeLectureSupportTabs}
                     />
 
-                    {this.state.classTab === 0 &&
+                    {lectureSupportClassTab === 0 &&
                     <CourseNoticeBoradComponent/>
                                         }
 
-                    {this.state.classTab === 1 &&
-                        <Box className={classes.paddingBox}>
-                            <CompletionManagementComponent/>
-                        </Box>
-
+                    {lectureSupportClassTab === 1 &&
+                        <CompletionManagementComponent/>
                     }
 
-                    {this.state.classTab === 2 &&
+                    {lectureSupportClassTab === 2 &&
                         <CourseInquiryHistoryManagementComponent/>
                     }
                 </Box>

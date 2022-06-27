@@ -14,6 +14,7 @@ import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
 import LectureSupportManagementComponent from "./LectureSupportManagementComponent";
 import NoticeDialog from "./NoticeDialog";
 import CourseStudentManagementComponent from "./CourseStudentManagementComponent";
+import QuestionDialog from "./QuestionDialog";
 
 const styles = theme => ({
     root:{
@@ -88,24 +89,36 @@ class CourseManagementComponent extends Component {
         this.state = {
             classTab: 0,
             dialogOpen: false,
+            QuestionDialogOpen: false,
+            lectureSupportClassTab:0
         };
     }
 
     handleChangeTabs = (event, classTab) => {
         this.setState({ classTab });
     };
+    handleChangeLectureSupportTabs = (event, lectureSupportClassTab) => {
+        this.setState({ lectureSupportClassTab });
+    };
 
     handleClickNotice = () => {
         this.setState({ dialogOpen: true });
     };
 
+    handleClickQuestion = () => {
+        this.setState({ QuestionDialogOpen: true });
+    };
+
     handleClose = () => {
-        this.setState({ dialogOpen: false });
+        this.setState({
+            dialogOpen: false,
+            QuestionDialogOpen: false,
+        });
     };
 
     render() {
         const { classes } = this.props;
-        const { classTab } = this.state;
+        const { classTab, lectureSupportClassTab } = this.state;
 
         return (
             <div className={classes.root}>
@@ -129,10 +142,17 @@ class CourseManagementComponent extends Component {
                                 </Button>
                             :
                                 classTab === 3 ?
-                                    <Button className={classes.btnStyle} onClick={this.handleClickNotice} disableRipple>
-                                        공지사항등록
-
-                                    </Button>
+                                    lectureSupportClassTab === 0 ?
+                                        <Button className={classes.btnStyle} onClick={this.handleClickNotice} disableRipple>
+                                            공지사항등록
+                                        </Button>
+                                        :
+                                        lectureSupportClassTab === 1 ?
+                                            null
+                                            :
+                                            <Button className={classes.btnStyle} onClick={this.handleClickQuestion} disableRipple>
+                                                자주 묻는 질문 등록
+                                            </Button>
                                     :
                                     null
 
@@ -156,11 +176,15 @@ class CourseManagementComponent extends Component {
 
                     {/* 강의지원 관리 */}
                     {classTab === 3 &&
-                        <LectureSupportManagementComponent/>
+                        <LectureSupportManagementComponent
+                            handleChangeLectureSupportTabs={this.handleChangeLectureSupportTabs}
+                            lectureSupportClassTab={this.state.lectureSupportClassTab}
+                        />
                     }
 
 
                     <NoticeDialog dialogOpen={this.state.dialogOpen} handleClose={this.handleClose}/>
+                    <QuestionDialog dialogOpen={this.state.QuestionDialogOpen} handleClose={this.handleClose} />
                 </Box>
             </div>
         );

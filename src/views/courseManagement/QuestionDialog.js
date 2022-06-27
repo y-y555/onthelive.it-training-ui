@@ -152,7 +152,7 @@ const BootstrapInput = withStyles(theme => ({
 }))(InputBase);
 
 
-class NoticeDialog extends Component {
+class QuestionDialog extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -175,7 +175,7 @@ class NoticeDialog extends Component {
                     className={classes.dialogBox}
                 >
                     <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.titleBox}>
-                        <Typography className={classes.titleText}>공지사항 등록</Typography>
+                        <Typography className={classes.titleText}>자주 묻는 질문 등록</Typography>
                         <IconButton className={classes.iconButton} disableRipple onClick={this.props.handleClose}> <DialogCloseIcon /></IconButton>
                     </Box>
 
@@ -188,12 +188,12 @@ class NoticeDialog extends Component {
                                 IconComponent={() => <ArrowDownIcon/>}
                             >
                                 <MenuItem value={" "} style={{display:'none'}} className={classes.menuText}>강의실을 선택해주세요.</MenuItem>
-                                <MenuItem value={"강의실 선택"} className={classes.menuText}>
+                                <MenuItem value={"모든 강의실"} className={classes.menuText}>
                                     <ListItemIcon>
                                         {/* 선택된 Item 일경우 체크 아이콘 */}
                                         <SelectCheckIcon/>
                                     </ListItemIcon>
-                                    <Typography>강의실 선택</Typography>
+                                    <Typography>모든 강의실</Typography>
                                 </MenuItem>
                                 <MenuItem value={"강의실 이름1"} className={classes.menuText}>
                                     <ListItemIcon>
@@ -245,4 +245,4 @@ class NoticeDialog extends Component {
     }
 }
 
-export default withStyles(styles)(NoticeDialog);
+export default withStyles(styles)(QuestionDialog);

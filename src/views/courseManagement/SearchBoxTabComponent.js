@@ -49,20 +49,23 @@ const styles = theme => ({
     },
     searchIcon:{
         padding:7,
-        background:'#f8f8f8',
         "&:hover":{
-            background:'#f8f8f8',
+            background:'transparent',
+        },
+        '& path':{
+            stroke:'#a3a8af'
         }
     },
     search: {
         width:500,
+        height: 32,
         display:'flex',
         justifyContent:'space-between',
         alignItems:'center',
         background: '#fff',
         border:'1px solid #bfbfbf',
         padding:'3px 6px 3px',
-        borderRadius:3,
+        borderRadius:4,
         "& .MuiInputBase-input::placeholder":{
             opacity:1,
             fontSize:'0.875rem',
@@ -89,12 +92,12 @@ class SearchBoxTabComponent extends Component {
     }
 
     render() {
-        const { classes, classTab, handleChangeTabs } = this.props;
+        const { classes, lectureSupportClassTab, handleChangeLectureSupportTabs } = this.props;
 
         return (
             <div className={classes.root}>
                 <Box className={classes.box}>
-                    <Tabs value={classTab} onChange={handleChangeTabs} className={classes.trigger}>
+                    <Tabs value={lectureSupportClassTab} onChange={handleChangeLectureSupportTabs} className={classes.trigger}>
                         <Tab label="공지사항 " disableRipple/>
                         <Tab label="이수/수료 관리" disableRipple/>
                         <Tab label="문의 내역 관리" disableRipple />

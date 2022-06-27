@@ -7,25 +7,26 @@ import clsx from "clsx";
 const styles = theme => ({
     root:{
         width: '100%',
-        marginTop: 13
     },
     box:{
         background:'#fff',
         borderRadius: 8,
         boxSizing:'border-box',
-        border:'1px solid #BABFC3',
-        padding: '14px 16px 30px'
+        border:'1px solid #d3d7db',
+        padding: '20px 20px 30px',
+        boxShadow:'0 2px 7px 0 rgba(0, 0, 0, 0.45)',
+        marginBottom: 42
     },
     titleText:{
-        fontSize: '1.25rem',
-        fontWeight: 600,
-        marginLeft: 5
+        fontSize: '1.125rem',
+        marginRight: 5
     },
     boxIn:{
         width: '50%',
         '& table':{
             borderSpacing: 0,
-            border:'1px solid #B9B9B9',
+            border:'1px solid #d3d7db',
+            marginBottom: 130
         },
         '& th':{
             background:'rgba(0, 0, 0, 0.05)',
@@ -39,13 +40,13 @@ const styles = theme => ({
             padding: 0
         },
         '& th, td':{
-            borderBottom: '1px solid #B9B9B9',
+            borderBottom: '1px solid #d3d7db',
             fontSize:'0.875rem'
         },
         '& td:nth-child(2), th:nth-child(2)':{
             width: 110,
-            borderLeft: '1px solid #B9B9B9',
-            borderRight: '1px solid #B9B9B9',
+            borderLeft: '1px solid #d3d7db',
+            borderRight: '1px solid #d3d7db',
         },
         '& td:nth-child(1), th:nth-child(1)':{
             width: 75,
@@ -57,7 +58,7 @@ const styles = theme => ({
     },
     lastBox:{
         '& > td':{
-            background:'rgba(0, 79, 172, 0.5)',
+            background:'rgba(22, 100, 245, 0.2)',
             padding: '15px 10px',
             borderBottom: 0
         },
@@ -65,21 +66,19 @@ const styles = theme => ({
     boxInLeft:{
         boxSizing: 'border-box',
         paddingRight: 35,
-        paddingLeft: 30
     },
     boxLine:{
-        borderRight:'1px solid #D3D7DB',
+        borderRight:'1px solid #d3d7db',
         paddingRight: 30,
         height: '100%'
     },
     Percentage:{
-        fontSize: '1.875rem',
+        fontSize: '2rem',
         color:'#1664F5',
         fontWeight: 600,
-        marginLeft: 30
     },
     textStyle:{
-        fontSize:'0.813rem',
+        fontSize:'1rem',
         marginTop: 20
     }
 });
@@ -99,8 +98,8 @@ class CompletionManagementComponent extends Component {
             <div className={classes.root}>
                 <Box className={classes.box}>
                     <Box display='flex' alignItems='center'>
-                        <Info/>
                         <Typography className={classes.titleText}>수료 기준 가이드</Typography>
+                        <Info/>
                     </Box>
 
                     <Box display='flex' mt={3}>
