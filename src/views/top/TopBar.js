@@ -294,6 +294,10 @@ class TopBar extends Component {
         this.props.history.push("/serviceCenter");
     };
 
+    handleClickRooms = e => {
+        this.props.history.push("/rooms");
+    };
+
 
     render() {
         const { classes } = this.props;
@@ -320,7 +324,7 @@ class TopBar extends Component {
                         </Box>
                     </Box>
                     <Box display='flex' alignItems='center'>
-                        <Button className={classes.buttonStyle} disableRipple>
+                        <Button className={classes.buttonStyle} onClick={this.handleClickRooms} disableRipple>
                             강의 관리
                         </Button>
 
