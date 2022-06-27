@@ -3,9 +3,10 @@ import {withStyles} from "@material-ui/core/styles";
 import MyRoomComponent from "./MyRoomComponent";
 import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
-import MyRoomTopComponent from "./MyRoomTopComponent";
+import MyRoomTopComponent from "./MyRoomTopStudentComponent";
 import Footer from "../footer/Footer";
 import CourseManagementComponent from "../courseManagement/CourseManagementComponent";
+import LearningManagementComponent from "../learningManagement/LearningManagementComponent";
 
 const styles = theme => ({
     root:{
@@ -41,7 +42,8 @@ class Rooms extends Component {
                     </>
                 }
                 {classTab === 1 &&
-                    <CourseManagementComponent/>
+                    // <CourseManagementComponent/>
+                    <LearningManagementComponent/>
                 }
                 <Footer/>
             </div>
