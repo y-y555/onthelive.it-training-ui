@@ -550,7 +550,7 @@ class SearchCategoryManagementComponent extends Component {
                             visibleSlides={'auto'}
                             // hasMasterSpinner='true'
                         >
-                            <Slider>
+                            <Slider style={{margin:'0 30px'}}>
                                 {tagList.map((tag, i) => (
                                     <Slide index={i}>
                                         <Chip

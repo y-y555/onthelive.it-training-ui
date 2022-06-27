@@ -559,7 +559,6 @@ class CourseOpenLectureTableComponent extends Component {
                                 handleClose={this.handleClose} dialogOpen={this.state.dialogOpen}
                             />
                         </div>
-
                         :
                         null
                     }

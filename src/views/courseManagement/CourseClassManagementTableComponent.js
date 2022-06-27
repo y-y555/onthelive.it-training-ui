@@ -24,6 +24,7 @@ import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
 import {ReactComponent as DownloadSimpleIcon} from "../../common/images/DownloadSimpleIcon.svg";
 import {ReactComponent as FolderPlusFillIcon} from "../../common/images/FolderPlusFillIcon.svg";
+import MemberCourseStatusManagementComponent from "./MemberCourseStatusManagementComponent";
 const styles = theme => ({
     root:{
         backgroundColor:'#fff',
@@ -34,109 +35,12 @@ const styles = theme => ({
         width:790,
         margin:'0 auto -56px',
     },
-    flexCenter:{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-    },
-    checkBoxStyle:{
-        display:'flex',
-        alignItems:'center',
-        justifyContent:'center',
-        color: '#656565',
-        fontSize:'0.875rem',
-        cursor:'pointer',
-        '& svg':{
-            width:20,
-            height:20,
-            marginRight:4,
-            color:'#656565',
-        }
-    },
-    checkBoxStyleOn:{
-        color:'#0097FF',
-    },
-    formControl:{
-        display:'flex',
-        alignItems:'flex-end',
-        '&>div':{
-            fontSize:'0.75rem',
-            fontWeight:600,
-            '&:before, &:after':{
-                content:'',
-                display:'none',
-                width:0,
-                size:0,
-            },
-        },
-        "& .MuiSelect-select:focus":{
-            background:'transparent'
-        },
-        "& .MuiSelect-select.MuiSelect-select":{
-            paddingRight:0
-        }
-    },
-    menuItem:{
-        fontFamily: 'NanumSquareRoundOTF' ,
-        fontSize:'0.875rem',
-        color:'#0d0d0d',
-        "&:hover":{
-            background:'#d3d7db'
-        },
-        "&.Mui-selected:hover":{
-            background:'#d3d7db'
-        },
-        "&.Mui-selected":{
-            background:'transparent'
-        }
-    },
-    listStyle:{
-        position:'relative',
-        marginBottom:60,
-        '&:last-child':{
-            marginBottom: 0
-        },
-        '& h5': {
-            borderBottom: '1px solid #d3d7db',
-            fontSize:'0.875rem',
-            fontWeight:700,
-            paddingBottom:8,
-        }
-    },
-    listItemStyle:{
-        display:'flex',
-        alignItems: 'center',
-        justifyContent:'space-between',
-        borderBottom: '1px solid #d3d7db',
-        padding:'17px 0 17px 23px',
-        cursor:'pointer',
-        '&:first-child':{
-            borderTop: '1px solid #d3d7db',
-        }
-    },
-    avatar:{
-        marginRight: 10,
-        backgroundColor:'#a3a8af',
-        '& svg path':{
-            fill:'#fff'
-        }
-    },
-    name:{
-        fontSize:'0.875rem',
-        fontWeight:600,
-        display:'flex',
-        alignItems: 'center',
-    },
-    groupInfo:{
-        fontSize:'0.75rem',
-        color:'#666666',
-        marginTop:7,
-    },
-    tableBtnStyle:{
-        '&:hover':{
-            background: 'transparent',
-        }
-    },
+    // flexCenter:{
+    //     display:'flex',
+    //     alignItems:'center',
+    //     justifyContent:'center',
+    // },
+
     tagBox:{
         display:'flex',
         alignItems:'center',
@@ -273,7 +177,7 @@ class CourseClassManagementTableComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            filter: "최근가입일순",
+
             checkBox:true,
             anchorEl: null,
             tableTd:[
@@ -299,8 +203,6 @@ class CourseClassManagementTableComponent extends Component {
                 },
 
             ],
-            page: 0,
-            rowsPerPage: 5,
             classTabs:0,
         };
     }
@@ -316,13 +218,7 @@ class CourseClassManagementTableComponent extends Component {
         this.setState({ anchorEl: null });
     };
 
-    handleChangePage = (event, page) => {
-        this.setState({ page });
-    };
 
-    handleChangeRowsPerPage = event => {
-        this.setState({ rowsPerPage: event.target.value });
-    };
 
     handleChangeTabs = (event, classTabs) => {
         this.setState({ classTabs });
@@ -351,97 +247,21 @@ class CourseClassManagementTableComponent extends Component {
                     <DownloadSimpleIcon/>
                 </Button>
                 </Box>
-                {classTabs === 0 && <Box>
+                {classTabs === 0 &&
 
-                    <Box display='flex' alignItems='center' justifyContent='space-between' style={{borderBottom:'1px solid #e1e1e1'}}>
-                        <Box onClick={this.handleChangeCheckBox}
-                             className={this.state.checkBox ? classes.checkBoxStyle : clsx(classes.checkBoxStyle,classes.checkBoxStyleOn) }>
-                            {this.state.checkBox ?
-                                <CheckCircleAgreeOffIcon/> :
-                                <CheckCircleAgreeOnIcon/>
-                            }
-                            수강 기록 없는 학생만
-                        </Box>
-                        <FormControl className={classes.formControl}>
-                            <Select
-                                value={this.state.filter}
-                                onChange={this.handleChangeSort}
-                                displayEmpty
-                                IconComponent={() => <Box style={{width:16, height:16, marginLeft:5}}><ArrowDownIcon/> </Box>}
-                            >
-                                <MenuItem value="최근가입일순" className={classes.menuItem}>최근 가입일 순</MenuItem>
-                                <MenuItem value="최근제출일순" className={classes.menuItem}>최근 제출일 순</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Box>
+                <MemberCourseStatusManagementComponent
+                    handleChangeCheckBox={this.handleChangeCheckBox}
+                    checkBox={this.state.checkBox}
+                    anchorEl={anchorEl}
+                    clickMore={this.clickMore}
+                    clickMoreClose={this.clickMoreClose}
+                    tableTd={this.state.tableTd}
+                />
 
-                    <Box className={classes.listStyle}>
-                        {this.state.tableTd.map((td, i) => (
-                            <Box className={classes.listItemStyle}>
-                                <Box className={classes.flexCenter}>
-                                    <Avatar className={classes.avatar}><AsideUserIcon/></Avatar>
-                                    <Box display='flex' flexDirection='column'>
-                                        <Typography className={classes.name}>{td.userName} </Typography>
-                                        <span className={classes.groupInfo}>{td.className}  |  {td.date} 가입</span>
-                                    </Box>
-                                </Box>
-                                <Box display='flex'>
-                                    <Button disableRipple className={classes.tableBtnStyle}
-                                            aria-owns={anchorEl ? 'simple-menu' : undefined}
-                                            aria-haspopup="true"
-                                            onClick={this.clickMore}
-                                            disableTouchRipple
-                                            disableFocusRipple
-                                    >
-                                        <MoreIcon/>
-                                    </Button>
-                                    <Menu
-                                        id="simple-menu"
-                                        anchorEl={anchorEl}
-                                        open={Boolean(anchorEl)}
-                                        onClose={this.clickMoreClose}
-                                        className={classes.menuBox }
-                                        anchorOrigin={{
-                                            vertical: 'bottom',
-                                            horizontal: 'right',
-                                        }}
-                                        transformOrigin={{
-                                            vertical: 'top',
-                                            horizontal: 'right',
-                                        }}
-                                    >
-                                        <MenuItem onClick={this.clickMoreClose} className={classes.menuItem}>수강생 현황</MenuItem>
-                                    </Menu>
-                                </Box>
-                            </Box>
-                        ))}
-
-                        <TablePagination
-                            rowsPerPageOptions={[5, 10, 25]}
-                            component="div"
-                            count={this.state.tableTd.length}
-                            rowsPerPage={this.state.rowsPerPage}
-                            page={this.state.page}
-                            backIconButtonProps={{
-                                'aria-label': '페이지당 행 수',
-                            }}
-                            nextIconButtonProps={{
-                                'aria-label': '다음 페이지',
-                            }}
-                            onChangePage={this.handleChangePage}
-                            onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                        />
-                    </Box>
-
-
-
-
-
-
-
-
+                }
+                {classTabs === 1 && <Box>
+                    그룹
                 </Box>}
-                {classTabs === 1 && <Box>Item Two</Box>}
 
 
 
