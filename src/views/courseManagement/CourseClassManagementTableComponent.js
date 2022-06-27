@@ -232,7 +232,7 @@ class CourseClassManagementTableComponent extends Component {
             <div className={classes.root}>
 
                     <Tabs value={classTabs} onChange={this.handleChangeTabs} className={classes.tabStyle}>
-                        <Tab label="맴버 (20)" disableRipple />
+                        <Tab label="멤버 (20)" disableRipple />
                         <Tab label="그룹 (3)" disableRipple />
                     </Tabs>
 
@@ -259,9 +259,17 @@ class CourseClassManagementTableComponent extends Component {
                 />
 
                 }
-                {classTabs === 1 && <Box>
-                    그룹
-                </Box>}
+                {classTabs === 1 &&
+
+                <MemberCourseStatusManagementComponent
+                    handleChangeCheckBox={this.handleChangeCheckBox}
+                    checkBox={this.state.checkBox}
+                    anchorEl={anchorEl}
+                    clickMore={this.clickMore}
+                    clickMoreClose={this.clickMoreClose}
+                    tableTd={this.state.tableTd}
+                />
+                }
 
 
 
