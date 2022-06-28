@@ -8,7 +8,6 @@ import {
 import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
-import VideoPlayer from "../video/VideoPlayer";
 
 const styles = theme => ({
     root:{

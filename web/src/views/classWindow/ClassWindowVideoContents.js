@@ -4,6 +4,7 @@ import clsx from "clsx";
 import {Box, Typography} from "@material-ui/core";
 import TestVideoImg from "../../common/images/TestVideoImg.png";
 import {ReactComponent as VideoPlayIcon} from "../../common/images/VideoPlayIcon.svg";
+import VideoPlayer from "../video/VideoPlayer";
 
 
 const styles = theme => ({
@@ -97,9 +98,10 @@ class ClassWindowVideoContents extends Component {
 
                     <Box className={classes.videoBox}>
                         <Box className={classes.imgBox} style={{justifyContent:'center'}}>
-                            <img src={TestVideoImg} alt="동영상"/>
+                            {/*<img src={TestVideoImg} alt="동영상"/>*/}
 
-                            <VideoPlayIcon/>
+                            {/*<VideoPlayIcon/>*/}
+                            <VideoPlayer videoSrc={null}/>
 
                         </Box>
                     </Box>

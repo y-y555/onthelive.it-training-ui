@@ -5,6 +5,8 @@ import {ReactComponent as Info} from "../../common/images/Info.svg";
 import clsx from "clsx";
 import TestVideoImg from "../../common/images/TestVideoImg.png";
 
+const DUMMY_VM_ACCESS_URL = 'http://146.56.37.19/guacamole/#/client/MzEAYwBteXNxbA==';
+
 const styles = theme => ({
     root:{
         width: 690,
@@ -63,6 +65,12 @@ class ConsoleComponent extends Component {
         };
     }
 
+    handleClickVmImage = (e, url) => {
+        e.stopPropagation();
+
+        window.open(url);
+    }
+
     render() {
         const { classes, typeButton2, image1 } = this.props;
 
@@ -75,7 +83,13 @@ class ConsoleComponent extends Component {
 
                 {!typeButton2 ?
                     <Box display='flex' flexDirection='column' alignItems='center'>
-                        <Box display='flex' justifyContent='center' alignItems='center' className={classes.boxStyle}>
+                        <Box
+                            display='flex'
+                            justifyContent='center'
+                            alignItems='center'
+                            className={classes.boxStyle}
+                            onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                        >
                             <Typography className={clsx(classes.titleText, classes.textColor)}>이미지를 클릭하면 새탭에서<br/>콘솔이 실행됩니다.</Typography>
                         </Box>
                         <Typography className={clsx(classes.titleText, classes.bold)}>Windows 10 and later x64 </Typography>
@@ -83,7 +97,13 @@ class ConsoleComponent extends Component {
                     :
                     image1 ?
                         <Box display='flex' flexDirection='column' alignItems='center'>
-                            <Box display='flex' justifyContent='center' alignItems='center' className={classes.boxStyle}>
+                            <Box
+                                display='flex'
+                                justifyContent='center'
+                                alignItems='center'
+                                className={classes.boxStyle}
+                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                            >
                                 <Typography className={clsx(classes.titleText, classes.textColor)}>이미지를 클릭하면 새탭에서<br/>콘솔이 실행됩니다.</Typography>
                             </Box>
                             <Typography className={clsx(classes.titleText, classes.bold)}>Windows 10 and later x64 </Typography>
