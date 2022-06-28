@@ -1,0 +1,22 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.onthelive.training.lms.repository.mapper.AuthenticationMapper">
+    
+    <select id="isSessionExist" parameterType="String" resultType="java.lang.Integer">
+        SELECT COUNT(*)
+        FROM SPRING_SESSION
+        WHERE SESSION_ID = #{userToken} AND PRINCIPAL_NAME = #{userId} AND EXPIRY_TIME > (SELECT ROUND(UNIX_TIMESTAMP(NOW(3)) * 1000))
+    </select>
+    
+    <delete id="destroySessionAttributes" parameterType="String">
+        DELETE SPRING_SESSION_ATTRIBUTES
+        FROM SPRING_SESSION_ATTRIBUTES
+        INNER JOIN SPRING_SESSION ON SPRING_SESSION_ATTRIBUTES.SESSION_PRIMARY_ID = SPRING_SESSION.PRIMARY_ID
+        WHERE SPRING_SESSION.PRINCIPAL_NAME = #{email}
+    </delete>
+
+    <delete id="destroySession" parameterType="String">
+        DELETE FROM SPRING_SESSION
+        WHERE PRINCIPAL_NAME = #{email}
+    </delete>
+    
+</mapper>

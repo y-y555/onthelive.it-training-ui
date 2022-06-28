@@ -1,0 +1,135 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="demo.onthelive.training.lms.repository.mapper.UserMapper">
+    <resultMap id="LmsUserResultMap" type="LmsUser">
+        <id property="id"                       column="id" />
+        <result property="name"                 column="name" />
+        <result property="email"                column="email" />
+        <result property="password"             column="password" />
+        <result property="organization"         column="organization" />
+        <result property="department"           column="department" />
+        <result property="type"                 column="type" />
+        <result property="state"                column="state" />
+        <result property="accessToken"          column="access_token" />
+        <result property="platformType"         column="platform_type" />
+        <result property="parentId"             column="parent_id" />
+        <result property="enabled"              column="is_enabled" typeHandler="BooleanYnTypeHandler"/>
+        <result property="shouldChangePassword" column="should_change_password" typeHandler="BooleanYnTypeHandler"/>
+        <result property="allowEmail"           column="is_allow_email" typeHandler="BooleanYnTypeHandler"/>
+        <result property="createdDatetime"      column="created_datetime" />
+        <result property="updatedDatetime"      column="updated_datetime" />
+    </resultMap>
+
+    <resultMap id="LmsSimpleUserResultMap" type="LmsSimpleUser">
+        <id property="id"                       column="id" />
+        <result property="name"                 column="name" />
+        <result property="email"                column="email" />
+        <result property="organization"         column="organization" />
+        <result property="department"           column="department" />
+        <result property="type"                 column="type" />
+        <result property="state"                 column="state" />
+        <result property="parentId"             column="parent_id" />
+        <result property="enabled"            column="is_enabled" typeHandler="BooleanYnTypeHandler"/>
+        <result property="shouldChangePassword" column="should_change_password" typeHandler="BooleanYnTypeHandler"/>
+        <result property="allowEmail"         column="is_allow_email" typeHandler="BooleanYnTypeHandler"/>
+        <result property="createdDatetime"      column="created_datetime" />
+        <result property="updatedDatetime"      column="updated_datetime" />
+    </resultMap>
+
+    <select id="selectUser" parameterType="String" resultMap="LmsUserResultMap">
+        SELECT
+            id,
+            name,
+            email,
+            password,
+            organization,
+            department,
+            type,
+            state,
+            access_token,
+            platform_type,
+            parent_id,
+            is_enabled,
+            should_change_password,
+            is_allow_email,
+            created_datetime,
+            updated_datetime
+        FROM otl_users
+        WHERE email = #{value}
+    </select>
+
+    <select id="selectUserById" parameterType="java.lang.Long" resultMap="LmsSimpleUserResultMap">
+        SELECT
+            id,
+            name,
+            email,
+            organization,
+            department,
+            type,
+            state,
+            parent_id,
+            is_enabled,
+            should_change_password,
+            is_allow_email,
+            created_datetime,
+            updated_datetime
+        FROM otl_users
+        WHERE id = #{value}
+    </select>
+
+    <select id="selectAllUsersWhereType" parameterType="LmsUserType" resultMap="LmsUserResultMap">
+        SELECT id,
+               name,
+               email,
+               password,
+               type,
+               state,
+               is_enabled,
+               created_datetime,
+               updated_datetime
+        FROM otl_users
+        WHERE type = #{value}
+        ORDER BY created_datetime DESC
+    </select>
+
+    <insert id="insertUser" parameterType="LmsUser">
+        INSERT INTO otl_users (
+            name,
+            email,
+            password,
+            organization,
+            department,
+            type,
+            state,
+            access_token,
+            platform_type,
+            <if test="enabled != null" >
+                is_enabled,
+            </if>
+            is_allow_email,
+            created_datetime,
+            updated_datetime
+        ) VALUES (
+            #{name},
+            #{email},
+            #{password},
+            #{organization},
+            #{department},
+            #{type},
+            #{state},
+            #{accessToken},
+            #{platformType},
+            <if test="enabled != null" >
+                #{enabled, typeHandler=BooleanYnTypeHandler},
+            </if>
+            #{allowEmail, typeHandler=BooleanYnTypeHandler},
+            NOW(),
+            NOW()
+        )
+
+        <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+
+</mapper>
