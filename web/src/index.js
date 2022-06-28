@@ -1,14 +1,26 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import {Provider as MobxProvider} from "mobx-react";
+import {BrowserRouter} from "react-router-dom";
+import {serverContextPath} from "./AppConstants";
+import {stores} from "./AppStores";
+import {MuiThemeProvider} from "@material-ui/core";
+import configureTheme from "./AppTheme";
+import ReactDOM from "react-dom/client";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+const theme = configureTheme();
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+root.render(
+    <BrowserRouter basename={serverContextPath} >
+        <MobxProvider {...stores} >
+            <MuiThemeProvider theme={theme} >
+                <App />
+            </MuiThemeProvider>
+        </MobxProvider>
+    </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

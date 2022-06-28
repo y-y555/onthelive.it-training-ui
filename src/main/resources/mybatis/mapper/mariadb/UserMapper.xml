@@ -131,5 +131,23 @@
         </selectKey>
     </insert>
 
+    <select id="checkUserEmail" parameterType="String" resultMap="LmsSimpleUserResultMap">
+        SELECT id,
+               name,
+               email,
+               organization,
+               department,
+               type,
+               state,
+               parent_id,
+               is_enabled,
+               should_change_password,
+               is_allow_email,
+               created_datetime,
+               updated_datetime
+        FROM otl_users
+        WHERE email = #{userEmail}
+    </select>
+
 
 </mapper>

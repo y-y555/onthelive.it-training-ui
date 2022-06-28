@@ -22,6 +22,7 @@ import TestAvatar from "../../common/images/TestAvatar.jpg";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import NotificationComponent from "../Notification/NotificationComponent";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
+import {inject, observer} from "mobx-react";
 
 const styles = theme => ({
     root:{
@@ -233,7 +234,8 @@ const StyledBadge = withStyles((theme) => ({
         width:12,
         height:12,
         borderRadius:'50%',
-        background:'#00c880'
+        background:'#00c880',
+        overlap : 'rectangular',
     },
 }))(Badge);
 
@@ -245,7 +247,8 @@ const StyledBadgeMember = withStyles((theme) => ({
         width:15,
         height:15,
         borderRadius:'50%',
-        background:'#00c880'
+        background:'#00c880',
+        overlap : 'rectangular',
     },
 }))(Badge);
 
@@ -297,6 +300,12 @@ class TopBar extends Component {
     handleClickRooms = e => {
         this.props.history.push("/rooms");
     };
+
+    handleClickLogout = e => {
+        e.preventDefault();
+
+        this.props.authStore.doLogout();
+    }
 
 
     render() {
@@ -362,8 +371,10 @@ class TopBar extends Component {
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'right',
+                                    overlap : 'rectangular',
                                 }}
                                 variant="dot"
+                                overlap='rectangular'
                             >
                                 <Avatar className={classes.avatar}>N</Avatar>
                             </StyledBadge>
@@ -391,8 +402,10 @@ class TopBar extends Component {
                                             anchorOrigin={{
                                                 vertical: 'bottom',
                                                 horizontal: 'right',
+                                                overlap : 'rectangular',
                                             }}
                                             variant="dot"
+                                            overlap='rectangular'
                                         >
                                             <Avatar src={TestAvatar} alt="profile image" className={classes.avatarMember}>N</Avatar>
                                         </StyledBadgeMember>
@@ -416,7 +429,11 @@ class TopBar extends Component {
                                 </Box>
                                 <MenuList>
                                     <MenuItem className={clsx(classes.menuItem, classes.menuItemLine)} onClick={this.handleClickProfileSettings} disableRipple>프로필 설정</MenuItem>
-                                    <MenuItem className={classes.menuItem} disableRipple>로그아웃</MenuItem>
+                                    <MenuItem
+                                        className={classes.menuItem}
+                                        disableRipple
+                                        onClick={this.handleClickLogout}
+                                    >로그아웃</MenuItem>
                                 </MenuList>
                             </Box>
                         </Popover>
@@ -427,4 +444,4 @@ class TopBar extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(TopBar));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(TopBar))));

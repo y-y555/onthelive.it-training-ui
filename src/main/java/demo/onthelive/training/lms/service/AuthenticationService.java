@@ -70,10 +70,10 @@ public class AuthenticationService {
     public LmsSimpleUser getUser() {
 
         final Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        final LmsSimpleUser convertedLmsUser = (LmsSimpleUser) authentication.getDetails();
-        final LmsSimpleUser findLmsUser = userService.checkUserEmail(convertedLmsUser.getEmail());
+//        final LmsSimpleUser convertedLmsUser = (LmsSimpleUser) authentication.getDetails();
+//        final LmsSimpleUser findLmsUser = userService.checkUserEmail(convertedLmsUser.getEmail());
 
-        return findLmsUser;
+        return (LmsSimpleUser) authentication.getDetails();
     }
 
     @Transactional

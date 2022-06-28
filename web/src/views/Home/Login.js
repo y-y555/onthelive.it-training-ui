@@ -10,6 +10,7 @@ import { ReactComponent as UnCheckedIcon } from '../../common/images/UnCheckedIc
 import { ReactComponent as CheckedIcon } from '../../common/images/CheckedIcon.svg';
 import SocialLoginComponent from "./SocialLoginComponent";
 import {withRouter} from "react-router-dom";
+import {inject, observer} from "mobx-react";
 
 const styles = theme => ({
     root:{
@@ -137,6 +138,27 @@ class Login extends Component {
         this.props.history.push("/passwordFind");
     };
 
+    handleChangeLoginEmail = (e) => {
+        const { target : { value } } = e;
+
+        this.props.authStore.changeLoginEmail(value);
+    };
+
+    handleChangeLoginPassword = (e) => {
+        const { target : { value } } = e;
+
+        this.props.authStore.changeLoginPassword(value);
+    }
+
+    handleClickLoginBtn = (e) => {
+        e.preventDefault();
+
+        this.props.authStore.doLogin({
+            successAction : () => {
+                this.props.history.push("/rooms");
+            }});
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -157,6 +179,7 @@ class Login extends Component {
                             }
                             labelWidth={0}
                             placeholder="이메일"
+                            onChange={this.handleChangeLoginEmail}
                         />
 
                         {/* 이메일 형식이 아니면 */}
@@ -187,6 +210,7 @@ class Login extends Component {
                             }
                             labelWidth={0}
                             placeholder="비밀번호"
+                            onChange={this.handleChangeLoginPassword}
                         />
                     </FormControl>
 
@@ -201,7 +225,11 @@ class Login extends Component {
                         label="이메일 기억하기"
                         className={classes.checkedBox}
                     />
-                    <Button className={classes.buttonStyle} disableRipple>
+                    <Button
+                        className={classes.buttonStyle}
+                        disableRipple
+                        onClick={this.handleClickLoginBtn}
+                    >
                         로그인
                     </Button>
 
@@ -235,4 +263,4 @@ class Login extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(Login));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(Login))));

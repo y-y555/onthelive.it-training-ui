@@ -293,6 +293,11 @@ class ScheduleCardListItemComponent extends Component {
         this.props.history.push("/scheduleDetail");
     };
 
+    handleClickAttend = e => {
+        e.stopPropagation();
+        this.props.history.push("/classWindow");
+    }
+
     render() {
         const { classes } = this.props;
 
@@ -318,7 +323,13 @@ class ScheduleCardListItemComponent extends Component {
                             <Box>
                                 <Typography className={classes.rightText}><BookmarksSimple/>초급</Typography>
                             </Box>
-                            <Button className={classes.btnOutlineStyle} disableRipple>참석하기</Button>
+                            <Button
+                                className={classes.btnOutlineStyle}
+                                disableRipple
+                                onClick={this.handleClickAttend}
+                            >
+                                참석하기
+                            </Button>
                         </Box>
                     </Box>
                     <Box className={classes.boxFooter}>

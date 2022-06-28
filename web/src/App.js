@@ -25,6 +25,8 @@ import InvitationComponent from "./views/invitation/InvitationComponent";
 import ContentLectureComponent from "./views/contentLecture/ContentLectureComponent";
 import RoomsSearchComponent from "./views/myRoom/RoomsSearchComponent";
 import ClassWindowComponent from "./views/classWindow/ClassWindowComponent";
+import {inject, observer} from "mobx-react";
+import {LoginState} from "./stores/AuthStore";
 
 const styles = theme => ({
     root:{
@@ -35,6 +37,38 @@ const styles = theme => ({
 
 });
 
+const ROUTES = {
+    private : [
+        {path : "/", component : <Rooms/>},
+        {path : "/rooms", component : <Rooms/>},
+        {path : "/serviceCenter", component : <ServiceCenter/>},
+        {path : "/search", component : <SearchComponent/>},
+        {path : "/contentLecture", component : <ContentLectureComponent/>},
+        {path : "/classWindow", component : <ClassWindowComponent/>},
+        {path : "/scheduleDetail", component : <ClassScheduleDetailContentComponent/>},
+        {path : "/serviceCenter", component : <ServiceCenter/>},
+        {path : "/profileSettings", component : <ProfileSettingsComponent/>},
+        {path : "/profileView", component : <ProfileViewComponent/>},
+        {path : "/roomType", component : <RoomTypeComponent/>},
+        {path : "/roomCreate", component : <RoomCreateComponent/>},
+        {path : "/roomModify", component : <RoomModifyComponent/>},
+        {path : "/invitation", component : <InvitationComponent/>},
+        {path : "/class", component : <ClassMainComponent/>},
+    ],
+    public : [
+        {path : "/", component : <Home/>},
+        {path : "/serviceCenter", component : <ServiceCenter/>},
+        {path : "/roomSearch", component : <RoomsSearchComponent/>},
+        {path : "/login", component : <Login/>},
+        {path : "/signup", component : <SignUp/>},
+        {path : "/signupDialog", component : <SignUpDialogComponent/>},
+        {path : "/socialAgree", component : <SocialAgreeComponent/>},
+        {path : "/passwordFind", component : <PasswordFindComponent/>},
+        {path : "/passwordReset", component : <PasswordResetComponent/>},
+        {path : "/passwordComplete", component : <PasswordResetCompleteComponent/>},
+    ]
+}
+
 class App extends React.Component {
     constructor(props) {
         super(props);
@@ -43,41 +77,39 @@ class App extends React.Component {
         };
     }
 
+    componentDidMount() {
+        this.props.authStore.checkLogin();
+    }
+
+    getRoutes = () => {
+        const { authStore } = this.props;
+        const routes = authStore.loginState === LoginState.Authenticated ? ROUTES.private : ROUTES.public;
+        if(routes.length) {
+            return routes.map(route => {
+                return <Route key={route.path} exact path={route.path} render={() => route.component} />;
+            });
+        }
+
+        return [];
+
+    }
+
     render() {
-        const {classes} = this.props;
+        const {classes, authStore } = this.props;
+        const renderRoutes = this.getRoutes();
+
         return (
             <div className={classes.root}>
 
                 <Router>
-                    {/*<HomeTopBar/>*/}
-                    {/*<TopBar/>*/}
+                    {
+                        authStore.loginState === LoginState.Authenticated
+                            ? <TopBar/>
+                            : <HomeTopBar/>
+                    }
                     <Switch>
-                        <Route exact path="/" render={() =><Home/>}/>
-                        <Route exact path="/rooms" render={() =><Rooms/>}/>
-                        <Route exact path="/roomSearch" render={() =><RoomsSearchComponent/>}/>
-                        <Route exact path="/contentLecture" render={() =><ContentLectureComponent/>}/>
-                        <Route exact path="/classWindow" render={() =><ClassWindowComponent/>}/>
-                        <Route exact path="/search" render={() =><SearchComponent/>}/>
-                        <Route exact path="/scheduleDetail" render={() =><ClassScheduleDetailContentComponent/>}/>
-                        <Route exact path="/serviceCenter" render={() =><ServiceCenter/>}/>
-                        <Route exact path="/profileSettings" render={() =><ProfileSettingsComponent/>}/>
-                        <Route exact path="/profileView" render={() =><ProfileViewComponent/>}/>
-                        <Route exact path="/roomType" render={() =><RoomTypeComponent/>}/>
-                        <Route exact path="/roomCreate" render={() =><RoomCreateComponent/>}/>
-                        <Route exact path="/roomModify" render={() =><RoomModifyComponent/>}/>
-                        <Route exact path="/login" render={() =><Login/>}/>
-                        <Route exact path="/signup" render={() =><SignUp/>}/>
-                        <Route exact path="/signupDialog" render={() =><SignUpDialogComponent/>}/>
-                        <Route exact path="/socialAgree" render={() =><SocialAgreeComponent />}/>
-                        <Route exact path="/passwordFind" render={() =><PasswordFindComponent/>}/>
-                        <Route exact path="/passwordReset" render={() =><PasswordResetComponent/>}/>
-                        <Route exact path="/passwordComplete" render={() =><PasswordResetCompleteComponent/>}/>
-                        <Route exact path="/invitation" render={() =><InvitationComponent/>}/>
-
-                        {/* Class */}
-                        <Route exact path="/class" render={() =><ClassMainComponent/>}/>
-
-                        <Redirect path={"/"} to="/" />
+                        {renderRoutes}
+                        <Redirect path={"/*"} to="/" />
                     </Switch>
                 </Router>
             </div>
@@ -85,4 +117,4 @@ class App extends React.Component {
     }
 }
 
-export default withStyles(styles)(App);
+export default withStyles(styles)(inject('authStore')(observer(App)));

@@ -19,7 +19,7 @@ class ClassWindowComponent extends Component {
         const { classes } = this.props;
 
         return (
-            <div className={classes.root}>
+            <div className={classes.root} >
                 <ClassWindowTopBarComponent/>
                 <ContentLectureClassWindowComponent/>
             </div>

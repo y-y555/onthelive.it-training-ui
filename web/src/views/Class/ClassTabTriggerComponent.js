@@ -10,6 +10,7 @@ import {ReactComponent as ChalkboardTeacher} from "../../common/images/Chalkboar
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
 import {withRouter} from "react-router-dom";
+import {inject, observer} from "mobx-react";
 
 const styles = theme => ({
     root:{
@@ -85,6 +86,16 @@ const styles = theme => ({
             backgroundColor:'#1a457e',
         }
     },
+    emptyBtnStyle: {
+        '@media all and (min-width: 1500px)': {
+            width:235,
+            marginLeft:90
+        },
+        width:230,
+        height:40,
+        // marginLeft:50,
+        marginLeft:30,
+    },
     iconStyle:{
         position:'absolute',
         right:'-2px',
@@ -156,7 +167,7 @@ class ClassTabTriggerComponent extends Component {
     };
 
     render() {
-        const { classes, classTab } = this.props;
+        const { classes, classTab, authStore } = this.props;
         const { anchorEl } = this.state;
         const open = Boolean(anchorEl);
 
@@ -179,16 +190,22 @@ class ClassTabTriggerComponent extends Component {
                         <Tab label="커뮤니티" disableRipple />
                         <Tab label="문의" disableRipple />
                     </Tabs>
+                    {
+                        !authStore.isGuestUser
+                            ?
+                                <Button
+                                    className={classes.btnStyle}
+                                    disableRipple
+                                    aria-owns={open ? 'simple-popper' : undefined}
+                                    onClick={this.handleClickPopover}
+                                >
+                                    <PlusCircleIcon/>
+                                    강의 만들기
+                                </Button>
+                            : <Box className={classes.emptyBtnStyle} />
 
-                    <Button
-                        className={classes.btnStyle}
-                        disableRipple
-                        aria-owns={open ? 'simple-popper' : undefined}
-                        onClick={this.handleClickPopover}
-                    >
-                        <PlusCircleIcon/>
-                        강의 만들기
-                    </Button>
+                    }
+
 
                     <Popover
                         id="simple-popper"
@@ -228,4 +245,4 @@ class ClassTabTriggerComponent extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(ClassTabTriggerComponent));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(ClassTabTriggerComponent))));

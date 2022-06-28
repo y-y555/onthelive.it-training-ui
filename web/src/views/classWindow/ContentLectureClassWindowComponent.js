@@ -6,6 +6,7 @@ import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon
 import {ReactComponent as CheckSquareOffset} from '../../common/images/CheckSquareOffset.svg';
 import clsx from "clsx";
 import TestImg from "../../common/images/TestImg.png";
+import VideoPlayer from "../video/VideoPlayer";
 
 const styles = theme => ({
     root:{
@@ -202,10 +203,19 @@ class ContentLectureClassWindowComponent extends Component {
 
                 <Box className={classes.videoBox}>
                     <Box className={classes.imgBox} style={{justifyContent:'center'}}>
-                        <img src={TestVideoImg} alt="동영상"/>
+                        {/*<img src={TestVideoImg} alt="동영상"/>*/}
+                        {/**/}
+                        {/*<VideoPlayIcon/>*/}
+                        {/*<video controls >*/}
+                        {/*    <source src="/media/cc0-videos/flower.webm"*/}
+                        {/*            type="video/webm">*/}
 
-                        <VideoPlayIcon/>
+                        {/*        <source src="/media/cc0-videos/flower.mp4"*/}
+                        {/*                type="video/mp4">*/}
 
+                        {/*            Sorry, your browser doesn't support embedded videos.*/}
+                        {/*</video>*/}
+                        <VideoPlayer videoSrc={'http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'} />
                     </Box>
                 </Box>
 
