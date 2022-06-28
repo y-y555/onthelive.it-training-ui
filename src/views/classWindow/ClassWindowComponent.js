@@ -13,15 +13,25 @@ class ClassWindowComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            classTab: 0,
         };
     }
+
+    handleChangeTabs = (event, classTab) => {
+        this.setState({ classTab });
+    };
+
     render() {
         const { classes } = this.props;
+        const { classTab } = this.state;
 
         return (
             <div className={classes.root}>
                 <ClassWindowTopBarComponent/>
-                <ContentLectureClassWindowComponent/>
+                <ContentLectureClassWindowComponent
+                    classTab={classTab}
+                    handleChangeTabs={this.handleChangeTabs}
+                />
             </div>
         );
     }
