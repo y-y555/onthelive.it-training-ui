@@ -3,22 +3,22 @@
 @font-face{
   font-family:"NanumSquareRoundOTF" ;
   font-weight: 300;
-  src:url("./common/fonts/NanumSquareRoundOTFL.woff") format("woff");
+  src:url("src/common/fonts/NanumSquareRoundOTFL.woff") format("woff");
 }
 @font-face{
   font-family:"NanumSquareRoundOTF" ;
   font-weight: 500;
-  src:url("./common/fonts/NanumSquareRoundOTFR.woff") format("woff");
+  src:url("src/common/fonts/NanumSquareRoundOTFR.woff") format("woff");
 }
 @font-face{
   font-family:"NanumSquareRoundOTF" ;
   font-weight: 600;
-  src:url("./common/fonts/NanumSquareRoundOTFB.woff") format("woff");
+  src:url("src/common/fonts/NanumSquareRoundOTFB.woff") format("woff");
 }
 @font-face{
   font-family:"NanumSquareRoundOTF" ;
   font-weight: 800;
-  src:url("./common/fonts/NanumSquareRoundOTFEB.woff") format("woff");
+  src:url("src/common/fonts/NanumSquareRoundOTFEB.woff") format("woff");
 }
 
 body {
