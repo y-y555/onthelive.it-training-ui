@@ -549,8 +549,6 @@ class MyRoomComponent extends Component {
 
         return (
             <div className={classes.root}>
-
-
                 <Box className={classes.roomBoxIn}>
                     <Box display='flex' justifyContent='space-between' mb={5}>
                         <Tabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
