@@ -7,6 +7,7 @@ import {
 } from "@material-ui/core";
 import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
+import LearningStatus from "./LearningStatus";
 import VideoPlayer from "../video/VideoPlayer";
 
 const styles = theme => ({
@@ -54,6 +55,10 @@ class ContentLectureClassWindowComponent extends Component {
             previewPc: true,
             typeButton1:true,
             typeButton2:false,
+
+            //이미지 1개
+            image1:true,
+
             selectedValue: "a",
         };
     }
@@ -64,7 +69,7 @@ class ContentLectureClassWindowComponent extends Component {
 
     render() {
         const { classes,classTab, handleChangeTabs } = this.props;
-        const { previewPc, typeButton1, typeButton2 } = this.state;
+        const { previewPc, typeButton1, typeButton2, image1} = this.state;
 
         return (
             <div className={classes.root}>
@@ -90,9 +95,18 @@ class ContentLectureClassWindowComponent extends Component {
                         typeButton1={typeButton1}
                         typeButton2={typeButton2}
                         previewPc={previewPc}
+                        image1={image1}
                     />
                     :
-                    null
+                    classTab === 1 ?
+                        <LearningStatus
+                            typeButton1={typeButton1}
+                            typeButton2={typeButton2}
+                            previewPc={previewPc}
+                        />
+                        :
+
+                        null
                 }
             </div>
         );

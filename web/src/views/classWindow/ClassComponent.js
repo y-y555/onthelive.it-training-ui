@@ -7,6 +7,7 @@ import ClassWindowMultipleChoice from "./ClassWindowMultipleChoice";
 import ClassWindowImgContents from "./ClassWindowImgContents";
 import ClassWindowQuizContents from "./ClassWindowQuizContents";
 import clsx from "clsx";
+import ConsoleComponent from "./ConsoleComponent";
 
 const styles = theme => ({
     root:{
@@ -49,7 +50,7 @@ class ClassComponent extends Component {
     }
 
     render() {
-        const {classes, typeButton1, previewPc, typeButton2} = this.props;
+        const {classes, typeButton1, previewPc, typeButton2, image1} = this.props;
 
         return (
             <div className={classes.root}>
@@ -57,6 +58,7 @@ class ClassComponent extends Component {
                     previewPc ?
                         <Box display='flex' flexDirection='column' alignItems='center'>
                             <ClassWindowVideoContents typeButton2={typeButton2}/>
+                            <ConsoleComponent typeButton2={typeButton2} image1={image1}/>
                             <ClassWindowMultipleSingle typeButton2={typeButton2}/>
                             <ClassWindowMultipleChoice typeButton2={typeButton2}/>
                             <ClassWindowQuizContents typeButton2={typeButton2}/>
@@ -74,7 +76,7 @@ class ClassComponent extends Component {
                             </Box>
                             <Box className={clsx(classes.leftBox, classes.rightBox)}
                                  style={{height: 'calc(100vh - 59px - 111px)'}}>
-                                <ClassWindowVideoContents typeButton2={typeButton2}/>
+                                <ConsoleComponent typeButton2={typeButton2} image1={image1} />
                             </Box>
                         </Box>
                         :
