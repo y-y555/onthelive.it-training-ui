@@ -57,12 +57,15 @@ const styles = theme => ({
         fontWeight: 600
     },
     subText:{
+        '@media all and (min-width: 1500px)': {
+            width: 480,
+        },
         marginTop:5,
         fontSize:'0.938rem',
         lineHeight:1.3,
         fontWeight: 600,
         color:'#0d0d0d',
-        width: 480,
+        width: 420,
         textAlign:'left',
         overflow: 'hidden',
         textOverflow: 'ellipsis',

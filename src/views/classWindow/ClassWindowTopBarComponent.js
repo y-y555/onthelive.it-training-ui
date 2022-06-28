@@ -21,6 +21,7 @@ import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
+import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
 
 const styles = theme => ({
@@ -47,6 +48,7 @@ const styles = theme => ({
     titleText:{
         fontSize: '0.875rem',
         fontWeight: 600,
+        marginRight: 15
     },
     iconButton:{
         padding: 0,
@@ -100,7 +102,7 @@ const styles = theme => ({
         height: 20,
         borderRadius: 2,
         boxSizing: 'border-box',
-        margin: '0 20px',
+        margin: '0 5px',
         color:'#fff',
         '& svg':{
             marginRight:3,
@@ -139,7 +141,7 @@ const styles = theme => ({
     },
     bottomButtonStyle:{
         padding: 0,
-        marginRight: 10,
+        marginLeft: 15,
         '&:hover':{
             background:'transparent',
         },
@@ -154,44 +156,19 @@ const styles = theme => ({
     },
 });
 
-
-const BootstrapInputIcon = withStyles(theme => ({
-    root: {
-        marginLeft: 10,
-    },
-    input: {
-        borderRadius: 0,
-        position: 'relative',
-        backgroundColor: 'transparent',
-        border: '0',
-        '&:focus': {
-            background:'transparent'
-        },
-        '&.MuiSelect-select':{
-            paddingRight:5,
-            paddingBottom: 0
-        }
-    },
-}))(InputBase);
-
-class ContentLectureTopBarComponent extends Component {
+class ClassWindowTopBarComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            iconValue: 'PC',
         };
     }
-
-    handleChangeIcon = event => {
-        this.setState({ iconValue: event.target.value });
-    };
 
     handleClickBack = e => {
         this.props.history.push("/class");
     };
 
     render() {
-        const { classes, handleClickPreview, handleClickInfoDialog } = this.props;
+        const { classes } = this.props;
 
         return (
             <div className={classes.root}>
@@ -199,50 +176,36 @@ class ContentLectureTopBarComponent extends Component {
                     <Typography className={classes.textStyle}>강사 강의실</Typography>
                     <Box className={classes.lineStyle}/>
                     <Box display='flex' alignItems='center'>
-                        <Tooltip title="강의기본정보 설정" classes={{ tooltip: classes.lightTooltip }}>
-                            <IconButton className={classes.iconButton} onClick={handleClickInfoDialog} disableRipple>
-                                <Info style={{marginRight: 5}}/>
-                            </IconButton>
-                        </Tooltip>
-
+                        <Info style={{marginRight: 5}}/>
                         <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
                     </Box>
+
+                     <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionLive)}>
+                         <DotIcon/>
+                         <Typography className={classes.captionText}>LIVE</Typography>
+                    </Box>
+                    <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionVod)}>
+                        <VodIcon/>
+                        <Typography className={classes.captionText}>VOD</Typography>
+                    </Box>
+                    <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionGreen)}>
+                        <Typography className={classes.captionText}>실습</Typography>
+                    </Box>
+                    <Tooltip title="화상 강의를 하려면 눌러주세요." classes={{tooltip: classes.lightTooltip}}>
+                        <Button
+                            className={classes.bottomButtonStyle}
+                            disableRipple
+                        >
+                            <CameraOn/>
+                            <Typography className={classes.buttonTextStyle}>화상 강의</Typography>
+                        </Button>
+                    </Tooltip>
+
                 </Box>
                 <Box display='flex' alignItems='center'>
-
-                    <IconButton className={clsx(classes.iconButton, classes.margin)} disableRipple>
-                        <ArrowCounterClockwise/>
-                    </IconButton>
-                    <IconButton className={clsx(classes.iconButton, classes.margin)} disableRipple>
-                        <ArrowCounterClockwise style={{transform: 'scaleX(-1)'}}/>
-                    </IconButton>
-
-                    <Box className={classes.lineStyle}/>
-
-                    <FormControl>
-                        <Select
-                            value={this.state.iconValue}
-                            onChange={this.handleChangeIcon}
-                            input={<BootstrapInputIcon name="type" id="type-select"/>}
-                            IconComponent={() => <ArrowDownIcon/>}
-                        >
-                            <MenuItem value={"PC"} className={classes.menuText}><Desktop/></MenuItem>
-                            <MenuItem value={"mobile"} className={classes.menuText}><Mobile/></MenuItem>
-                        </Select>
-                    </FormControl>
-
-                    <IconButton className={clsx(classes.iconButton, classes.margin)} onClick={handleClickPreview}
-                                disableRipple>
-                        <Eye/>
-                    </IconButton>
-
-                    <Button className={clsx(classes.buttonStyle, classes.saveButton)} disableRipple>
-                        저장
+                    <Button className={clsx(classes.buttonStyle, classes.btnStyle)} onClick={this.handleClickBack} disableRipple>
+                        수강완료
                     </Button>
-
-                    <Box className={classes.lineStyle}/>
-
-
                     <Button className={classes.buttonStyle} onClick={this.handleClickBack} disableRipple>
                         나가기
                     </Button>
@@ -252,4 +215,4 @@ class ContentLectureTopBarComponent extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(ContentLectureTopBarComponent));
+export default withRouter(withStyles(styles)(ClassWindowTopBarComponent));

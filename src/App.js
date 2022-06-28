@@ -24,6 +24,7 @@ import ClassScheduleDetailContentComponent from "./views/Class/ClassScheduleDeta
 import InvitationComponent from "./views/invitation/InvitationComponent";
 import ContentLectureComponent from "./views/contentLecture/ContentLectureComponent";
 import RoomsSearchComponent from "./views/myRoom/RoomsSearchComponent";
+import ClassWindowComponent from "./views/classWindow/ClassWindowComponent";
 
 const styles = theme => ({
     root:{
@@ -49,12 +50,13 @@ class App extends React.Component {
 
                 <Router>
                     {/*<HomeTopBar/>*/}
-                    <TopBar/>
+                    {/*<TopBar/>*/}
                     <Switch>
                         <Route exact path="/" render={() =><Home/>}/>
                         <Route exact path="/rooms" render={() =><Rooms/>}/>
                         <Route exact path="/roomSearch" render={() =><RoomsSearchComponent/>}/>
                         <Route exact path="/contentLecture" render={() =><ContentLectureComponent/>}/>
+                        <Route exact path="/classWindow" render={() =><ClassWindowComponent/>}/>
                         <Route exact path="/search" render={() =><SearchComponent/>}/>
                         <Route exact path="/scheduleDetail" render={() =><ClassScheduleDetailContentComponent/>}/>
                         <Route exact path="/serviceCenter" render={() =><ServiceCenter/>}/>

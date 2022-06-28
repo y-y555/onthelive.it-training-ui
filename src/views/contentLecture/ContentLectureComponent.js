@@ -25,8 +25,6 @@ class ContentLectureComponent extends Component {
             previewMobile: false,
             //
             dialogOpen: false,
-            //강의수업창일경우
-            lectureClass: false
         };
     }
 
@@ -107,8 +105,6 @@ class ContentLectureComponent extends Component {
                             handleClickPreview={this.handleClickPreview}
                             //
                             handleClickInfoDialog={this.handleClickInfoDialog}
-                            //강의수업창
-                            lectureClass={this.state.lectureClass}
 
                         />
                         {this.state.lectureClass ?
