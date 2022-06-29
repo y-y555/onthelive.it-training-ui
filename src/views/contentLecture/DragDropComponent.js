@@ -15,6 +15,7 @@ import TextComponent from "./TextComponent";
 import VirtualMachinesComponent from "./VirtualMachinesComponent";
 import ScoreComponent from "./ScoreComponent";
 import QuizComponent from "./QuizComponent";
+import AnswerComponent from "./AnswerComponent";
 
 const styles = theme => ({
     root:{
@@ -422,8 +423,22 @@ class DragDropComponent extends Component {
                     }
 
                     {/* 이미지 */}
-                    {this.state.imageButton &&
-                        <ImageContentsComponent/>
+                    {this.state.imageButton ?
+                        evaluation ?
+                            <>
+                                <ImageContentsComponent/>
+                                <AnswerComponent evaluation={evaluation}/>
+                            </>
+                            :
+                            task ?
+                                <>
+                                    <ImageContentsComponent/>
+                                    <ScoreComponent/>
+                                </>
+                                :
+                                <ImageContentsComponent />
+                        :
+                        null
                     }
 
                     {/* 텍스트  */}

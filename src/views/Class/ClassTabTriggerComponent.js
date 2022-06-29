@@ -183,42 +183,43 @@ class ClassTabTriggerComponent extends Component {
                     <Button
                         className={classes.btnStyle}
                         disableRipple
-                        aria-owns={open ? 'simple-popper' : undefined}
-                        onClick={this.handleClickPopover}
+                        onClick={this.handleClickContentLecture}
+                        // aria-owns={open ? 'simple-popper' : undefined}
+                        // onClick={this.handleClickPopover}
                     >
                         <PlusCircleIcon/>
                         강의 만들기
                     </Button>
 
-                    <Popover
-                        id="simple-popper"
-                        open={open}
-                        anchorEl={anchorEl}
-                        onClose={this.handleClosePopover}
-                        className={classes.popoverBox}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                    >
-                        <MenuItem onClick={this.handleClickOpen}>
-                            <ListItemIcon>
-                                <VideoCamera/>
-                            </ListItemIcon>
-                            <ListItemText inset primary="라이브 강의" />
-                        </MenuItem>
+                    {/*<Popover*/}
+                    {/*    id="simple-popper"*/}
+                    {/*    open={open}*/}
+                    {/*    anchorEl={anchorEl}*/}
+                    {/*    onClose={this.handleClosePopover}*/}
+                    {/*    className={classes.popoverBox}*/}
+                    {/*    anchorOrigin={{*/}
+                    {/*        vertical: 'bottom',*/}
+                    {/*        horizontal: 'right',*/}
+                    {/*    }}*/}
+                    {/*    transformOrigin={{*/}
+                    {/*        vertical: 'top',*/}
+                    {/*        horizontal: 'right',*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    <MenuItem onClick={this.handleClickOpen}>*/}
+                    {/*        <ListItemIcon>*/}
+                    {/*            <VideoCamera/>*/}
+                    {/*        </ListItemIcon>*/}
+                    {/*        <ListItemText inset primary="라이브 강의" />*/}
+                    {/*    </MenuItem>*/}
 
-                        <MenuItem onClick={this.handleClickContentLecture}>
-                            <ListItemIcon>
-                                <ChalkboardTeacher/>
-                            </ListItemIcon>
-                            <ListItemText inset primary="콘텐츠 강의" />
-                        </MenuItem>
-                    </Popover>
+                    {/*    <MenuItem onClick={this.handleClickContentLecture}>*/}
+                    {/*        <ListItemIcon>*/}
+                    {/*            <ChalkboardTeacher/>*/}
+                    {/*        </ListItemIcon>*/}
+                    {/*        <ListItemText inset primary="콘텐츠 강의" />*/}
+                    {/*    </MenuItem>*/}
+                    {/*</Popover>*/}
 
                 </Box>
 
