@@ -191,7 +191,7 @@ const styles = theme => ({
     },
 });
 
-class ClassAssignmentTableCompononet extends Component {
+class StudentClassAssignmentTableComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -390,4 +390,4 @@ class ClassAssignmentTableCompononet extends Component {
     }
 }
 
-export default withStyles(styles)(ClassAssignmentTableCompononet);
+export default withStyles(styles)(StudentClassAssignmentTableComponent);

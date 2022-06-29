@@ -1,11 +1,11 @@
-import React, {Component} from 'react';
-import {withStyles} from "@material-ui/core/styles";
-import {Avatar, Box, Button, FormControl, MenuItem, Select} from "@material-ui/core";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as Browsers} from "../../common/images/Browsers.svg";
+import React, {useState} from 'react';
+import {Avatar, Box, Button, Typography} from "@material-ui/core";
+import {ReactComponent as Browsers} from "../../../common/images/Browsers.svg";
+import {ReactComponent as AsideUserIcon} from "../../../common/images/AsideUserIcon.svg";
+import {makeStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
 
-const styles = theme => ({
+const useStyles = makeStyles((theme) => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,
@@ -189,103 +189,76 @@ const styles = theme => ({
             backgroundColor:'#1664f5',
         }
     }
-});
-class ClassLearningTableComponent extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            checkBox:true,
-            filter: "이름순",
-            anchorElManager: null,
-            anchorGeneral: null,
-            listItem:false,
-            LearningList:[
-                {name:'변요한',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습완료'},
-                {name:'박서윤',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습전'},
-                {name:'김민준',lastDate:'2022.5.31',learnCont:'5',learnTime:'30',learnTimeTotal:'50',state:'학습중'},
-            ],
-            tableItem: [
-                {
-                    title:"파이썬 기본 문법 익히기 1",
-                    date:'2022.5.31',
-                    time:'30',
-                    totalTime:'50',
-                    state:'학습완료',
-                    btn:'복습하기'
-                },
-                {
-                    title:"파이썬 기본 문법 익히기 2",
-                    date:'2022.5.31',
-                    time:'20',
-                    totalTime:'50',
-                    state:'수강중',
-                    btn:'학습하기'
-                },
-                {
-                    title:"파이썬 기본 문법 익히기 3",
-                    date:'2022.5.31',
-                    time:'0',
-                    totalTime:'50',
-                    state:'수강대기',
-                    btn:'학습하기'
-                },
+}))
 
-            ],
-        };
-    }
-
-    handleChangeCheckBox= () => {
-        this.setState({ checkBox: !this.state.checkBox });
-    };
-
-    handleClickManager = event => {
-        this.setState({ anchorElManager: event.currentTarget });
-    };
-    handleClickGeneral = event => {
-        this.setState({ anchorGeneral: event.currentTarget });
-    };
-
-    listItemChange= () => {
-        this.setState({ listItem: !this.state.listItem });
-    };
+const DUMMY_TABLE_ITEMS = [
+    {
+        title:"파이썬 기본 문법 익히기 1",
+        date:'2022.5.31',
+        time:'30',
+        totalTime:'50',
+        state:'학습완료',
+        btn:'복습하기'
+    },
+    {
+        title:"파이썬 기본 문법 익히기 2",
+        date:'2022.5.31',
+        time:'20',
+        totalTime:'50',
+        state:'수강중',
+        btn:'학습하기'
+    },
+    {
+        title:"파이썬 기본 문법 익히기 3",
+        date:'2022.5.31',
+        time:'0',
+        totalTime:'50',
+        state:'수강대기',
+        btn:'학습하기'
+    },
+]
 
 
-    handleClose = () => {
-        this.setState({
-            anchorElManager: null,
-            anchorGeneral: null,
-        });
-    };
+function LearningTableForStudent(props) {
+    const [tableItems, setTableItems] = useState(DUMMY_TABLE_ITEMS);
+    const classes = useStyles();
 
-
-    render() {
-        const { classes, children } = this.props;
-        const { anchorElManager, anchorGeneral } = this.state;
-        const manager = Boolean(anchorElManager);
-        const general = Boolean(anchorGeneral);
-
-        return (
-            <div className={classes.root}>
-                <Box>
-                    <FormControl className={classes.formControl}>
-                        <Select
-                            value={this.state.filter}
-                            onChange={this.handleChangeSort}
-                            displayEmpty
-                            IconComponent={() => <Box style={{width:16, height:16, marginLeft:5}}><ArrowDownIcon/> </Box>}
-                        >
-                            <MenuItem value="이름순" className={classes.menuItem}>최근 등록일 순</MenuItem>
-                            <MenuItem value="등록순" className={classes.menuItem}>최근 제출일 순</MenuItem>
-                        </Select>
-                    </FormControl>
+    return (
+        <>
+            {tableItems.map((item, i) => (
+                <Box key={i} className={classes.listItemStyle}>
+                    <Box className={classes.flexCenter}>
+                        <Avatar className={classes.avatar}><Browsers/></Avatar>
+                        <Box display='flex' flexDirection='column'>
+                            <span className={item.btn === '학습하기' ?  classes.name : clsx(classes.name, classes.lineThrough)  } >{item.title}</span>
+                            <span className={classes.groupInfo}>{item.date}  |  {item.time}분/{item.totalTime}분</span>
+                        </Box>
+                    </Box>
+                    <Box display='flex' alignItems='center'>
+                        {item.state === '학습완료' ?
+                            <span className={classes.stateStyle} style={{color:'#f51666'}}>학습완료</span>
+                            :
+                            (item.state === "수강중") ?
+                                <span className={classes.stateStyle} style={{color:'#1664f5'}}>수강중</span>
+                                :
+                                (item.state === "수강대기") ?
+                                    <span className={classes.stateStyle} style={{color:'#8f8f8f'}}>수강대기</span>
+                                    :
+                                    null
+                        }
+                        {item.btn === '복습하기' ?
+                            <Button className={classes.btnStyle} disableRipple>복습하기</Button>
+                            :
+                            (item.btn === '학습하기') ?
+                                <Button className={clsx(classes.btnStyle, classes.btnStyleActive)} disableRipple>학습하기</Button>
+                                :
+                                null
+                        }
+                    </Box>
                 </Box>
-
-                <Box className={classes.listStyle}>
-                    {children}
-                </Box>
-            </div>
-        );
-    }
+            ))}
+        </>
+    );
 }
 
-export default withStyles(styles)(ClassLearningTableComponent);
+export default LearningTableForStudent;

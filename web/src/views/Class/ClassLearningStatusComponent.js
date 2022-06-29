@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import ClassNumericalComponent from "./ClassNumericalComponent";
 import ClassLearningTableComponent from "./ClassLearningTableComponent";
+import {inject, observer} from "mobx-react";
+import LearningTableForStudent from "./tables/LearningTableForStudent";
+import LearningTableForTeacher from "./tables/LearningTableForTeacher";
 
 const styles = _theme => ({
 
@@ -31,8 +34,17 @@ class ClassLearningStatusComponent extends Component {
         this.setState({ toolTipOpen: !this.state.toolTipOpen  });
     };
 
+    selectRenderTable = () => {
+        const { authStore } = this.props;
+        if(authStore.isGuestUser) {
+            return <LearningTableForStudent />
+        }
+        return <LearningTableForTeacher />
+    }
+
     render() {
-        const { classes } = this.props;
+        const { classes, authStore } = this.props;
+        const RenderTable = this.selectRenderTable();
         return (
             <div className={classes.root}>
                 <ClassNumericalComponent
@@ -45,10 +57,12 @@ class ClassLearningStatusComponent extends Component {
                     learningTime={this.state.learningTime}
                     toolTipOpen={this.state.toolTipOpen}
                     infoTooltip={this.state.infoTooltip}/>
-                <ClassLearningTableComponent/>
+                <ClassLearningTableComponent>
+                    {RenderTable}
+                </ClassLearningTableComponent>
             </div>
         );
     }
 }
 
-export default withStyles(styles)(ClassLearningStatusComponent);
+export default withStyles(styles)(inject('authStore')(observer(ClassLearningStatusComponent)));
