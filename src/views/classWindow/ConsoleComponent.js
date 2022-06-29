@@ -13,6 +13,7 @@ const styles = theme => ({
     },
     root2:{
         width: '100%',
+        marginBottom: 20,
         '@media all and (min-width: 1500px)': {
             width: 690,
         },

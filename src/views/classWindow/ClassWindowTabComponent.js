@@ -16,7 +16,7 @@ const styles = theme => ({
             // width: 330
         },
         '& button':{
-            width:120,
+            width:100,
             minHeight:40,
             position:'relative',
             opacity:1,
@@ -26,7 +26,7 @@ const styles = theme => ({
             }
         },
         '& button.Mui-selected':{
-            width:120,
+            width:100,
             minHeight:40,
             color:'#000',
             fontWeight:600,
@@ -76,7 +76,7 @@ class ClassWindowTabComponent extends Component {
                         disableRipple
                     />
                     <Tab
-                        label='수강생별 강의보기'
+                        label='수강생별 보기'
                         disableRipple
                     />
                 </StyledTabs>

@@ -8,6 +8,7 @@ import {
 import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
+import ViewStudentsComponent from "./ViewStudentsComponent";
 
 const styles = theme => ({
     root:{
@@ -52,11 +53,16 @@ class ContentLectureClassWindowComponent extends Component {
                 {name: '윈도우 및 리눅스 방화벽'},
             ],
             previewPc: true,
-            typeButton1:false,
-            typeButton2:true,
+
+            //1단, 2단
+            typeButton1:true,
+            typeButton2:false,
 
             //이미지 1개
             image1:false,
+
+            //수강생
+            students: true,
 
             selectedValue: "a",
         };
@@ -68,7 +74,7 @@ class ContentLectureClassWindowComponent extends Component {
 
     render() {
         const { classes,classTab, handleChangeTabs } = this.props;
-        const { previewPc, typeButton1, typeButton2, image1} = this.state;
+        const { previewPc, typeButton1, typeButton2, image1, students} = this.state;
 
         return (
             <div className={classes.root}>
@@ -104,8 +110,17 @@ class ContentLectureClassWindowComponent extends Component {
                             previewPc={previewPc}
                         />
                         :
-
-                        null
+                        classTab === 2 ?
+                            <ViewStudentsComponent
+                                typeButton1={typeButton1}
+                                typeButton2={typeButton2}
+                                previewPc={previewPc}
+                                image1={image1}
+                                classTab={classTab}
+                                students={students}
+                            />
+                            :
+                            null
                 }
             </div>
         );
