@@ -13,10 +13,10 @@ const styles = _theme => ({
         margin: '30px 0 50px',
         '& .MuiTabs-flexContainer':{
             borderBottom: '3px solid #eeeeee',
-            width: 330
+            // width: 330
         },
         '& button':{
-            minWidth:90,
+            width:120,
             minHeight:40,
             position:'relative',
             opacity:1,
@@ -26,9 +26,8 @@ const styles = _theme => ({
             }
         },
         '& button.Mui-selected':{
-            minWidth:90,
+            width:120,
             minHeight:40,
-            backgroundColor:'#fff',
             color:'#000',
             fontWeight:600,
             borderRadius:50,

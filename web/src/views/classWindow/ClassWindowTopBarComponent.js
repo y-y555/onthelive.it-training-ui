@@ -113,6 +113,12 @@ const styles = _theme => ({
     captionGreen:{
         backgroundColor:'#00c880',
     },
+    captionBlue:{
+        backgroundColor:'#4282fa',
+    },
+    captionPurple:{
+        backgroundColor:'#8a42ff',
+    },
     lightTooltip: {
         backgroundColor: '#FFFFF5',
         color: '#000',
@@ -172,6 +178,12 @@ class ClassWindowTopBarComponent extends Component {
                     </Box>
                     <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionGreen)}>
                         <Typography className={classes.captionText}>실습</Typography>
+                    </Box>
+                    <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionBlue)}>
+                        <Typography className={classes.captionText}>평가</Typography>
+                    </Box>
+                    <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionPurple)}>
+                        <Typography className={classes.captionText}>과제</Typography>
                     </Box>
                     <Tooltip title="화상 강의를 하려면 눌러주세요." classes={{tooltip: classes.lightTooltip}}>
                         <Button
