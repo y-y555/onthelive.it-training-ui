@@ -6,6 +6,9 @@ import {withRouter} from "react-router-dom";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
+import LectureEndDialogComponent from "../dialog/LectureEndDialogComponent";
+import MailAuthenticationFailedDialogComponent from "../dialog/MailAuthenticationFailedDialogComponent";
+import CourseCompletionDialogComponent from "../dialog/CourseCompletionDialogComponent"
 
 const styles = _theme => ({
     root:{
@@ -149,6 +152,7 @@ class ClassWindowTopBarComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+            openEnd:false,
         };
     }
 
@@ -156,6 +160,15 @@ class ClassWindowTopBarComponent extends Component {
         this.props.history.push("/class");
     };
 
+    handleClickEnd = () => {
+        this.setState({ openEnd: true });
+    };
+
+    handleClose = () => {
+        this.setState({
+            openEnd: false,
+        });
+    };
     render() {
         const { classes } = this.props;
         const { isGuestUser } = this.props;
@@ -198,13 +211,21 @@ class ClassWindowTopBarComponent extends Component {
 
                 </Box>
                 <Box display='flex' alignItems='center'>
-                    <Button className={clsx(classes.buttonStyle, classes.btnStyle)} onClick={this.handleClickBack} disableRipple>
+                    <Button className={clsx(classes.buttonStyle, classes.btnStyle)} onClick={this.handleClickEnd} disableRipple>
                         {isGuestUser ? '수강완료' : '강의종료'}
                     </Button>
                     <Button className={classes.buttonStyle} onClick={this.handleClickBack} disableRipple>
                         나가기
                     </Button>
                 </Box>
+                <LectureEndDialogComponent
+                    openEnd={this.state.openEnd}
+                    handleClose={this.handleClose}
+                />
+                <CourseCompletionDialogComponent
+                    openEnd={this.state.openEnd}
+                    handleClose={this.handleClose}
+                />
             </div>
         );
     }
