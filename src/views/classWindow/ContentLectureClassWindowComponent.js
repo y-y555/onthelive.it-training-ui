@@ -55,8 +55,8 @@ class ContentLectureClassWindowComponent extends Component {
             previewPc: true,
 
             //1단, 2단
-            typeButton1:true,
-            typeButton2:false,
+            typeButton1:false,
+            typeButton2:true,
 
             //이미지 1개
             image1:false,

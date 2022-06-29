@@ -7,7 +7,7 @@ import {withStyles} from "@material-ui/core/styles";
 
 const styles = theme => ({
     root:{
-
+        width: '100%'
     },
     contentsBox:{
         width: 690,
@@ -17,7 +17,8 @@ const styles = theme => ({
         boxSizing:'border-box',
         padding: '25px 35px 5px',
         background:'#fff',
-        marginBottom: 20
+        marginBottom: 20,
+        margin:'0 auto'
     },
     contentsBox2:{
         width: '100%',
