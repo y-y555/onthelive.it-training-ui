@@ -52,11 +52,11 @@ class ContentLectureClassWindowComponent extends Component {
                 {name: '윈도우 및 리눅스 방화벽'},
             ],
             previewPc: true,
-            typeButton1:true,
-            typeButton2:false,
+            typeButton1:false,
+            typeButton2:true,
 
             //이미지 1개
-            image1:true,
+            image1:false,
 
             selectedValue: "a",
         };
