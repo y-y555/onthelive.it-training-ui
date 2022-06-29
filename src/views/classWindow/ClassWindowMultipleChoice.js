@@ -190,7 +190,12 @@ const styles = theme => ({
         '& .MuiFormControlLabel-root':{
             margin: 0
         },
-
+        '& .MuiIconButton-root':{
+            marginRight: 10,
+            '& .checked-icon2':{
+                fill:'#1664f5'
+            }
+        }
     }
 });
 

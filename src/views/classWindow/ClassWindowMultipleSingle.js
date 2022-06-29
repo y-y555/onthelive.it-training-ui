@@ -180,6 +180,7 @@ const styles = theme => ({
             margin: 0
         },
         '& .MuiIconButton-root':{
+            marginRight: 10,
             '& svg':{
                 width: 18,
                 height: 18
