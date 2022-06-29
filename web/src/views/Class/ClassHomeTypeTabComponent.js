@@ -1,12 +1,9 @@
 import React, {Component} from 'react';
-import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
-import RoomTestImg2 from "../../common/images/RoomTestImg2.png";
 import {withStyles} from "@material-ui/core/styles";
 import {Tab, Tabs, Typography} from "@material-ui/core";
-import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

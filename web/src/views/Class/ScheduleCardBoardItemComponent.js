@@ -12,7 +12,7 @@ import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClap
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
 import {withRouter} from "react-router-dom";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
     },
     content:{

@@ -7,12 +7,11 @@ import {
     Button,
     FormControl,
     FormControlLabel,
-    OutlinedInput, Radio,
+    OutlinedInput,
+    Radio,
     RadioGroup,
     TextareaAutosize,
     Typography,
-    Paper,
-
 } from "@material-ui/core";
 import Gallery from "./imgGallery/Gallery";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
@@ -20,7 +19,7 @@ import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg
 import ColorCheckIcon from "../../common/images/ColorCheckIcon.svg";
 import ToggleButtonGroup from '@material-ui/lab/ToggleButtonGroup';
 import ToggleButton from '@material-ui/lab/ToggleButton';
-import { SketchPicker } from 'react-color'
+import {SketchPicker} from 'react-color'
 import reactCSS from 'reactcss'
 
 const styles = theme => ({

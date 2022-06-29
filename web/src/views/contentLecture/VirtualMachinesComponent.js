@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    IconButton,
-    MenuItem,
-    Popover,
-    Radio,
-    Typography
-} from "@material-ui/core";
+import {Box, IconButton, MenuItem, Popover, Radio, Typography} from "@material-ui/core";
 import {ReactComponent as Book} from "../../common/images/Book.svg";
 import {ReactComponent as More} from "../../common/images/More.svg";
 import clsx from "clsx";

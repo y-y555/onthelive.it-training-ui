@@ -1,15 +1,17 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
-    BottomNavigation, BottomNavigationAction,
+    BottomNavigation,
+    BottomNavigationAction,
     Box,
     Button,
-    Checkbox, ClickAwayListener, FormControl,
+    Checkbox,
+    FormControl,
     FormControlLabel,
     IconButton,
-    Input, InputAdornment, MenuItem,
-    MenuList, Paper,
-    Popover, Popper, Select, TextField,
+    Input,
+    Select,
+    TextField,
     Typography
 } from "@material-ui/core";
 import clsx from "clsx";
@@ -17,15 +19,10 @@ import {ReactComponent as SurveyImgIcon} from "../../common/images/SurveyImgIcon
 import {ReactComponent as SurveyCloseIcon} from "../../common/images/SurveyCloseIcon.svg";
 import Sample1 from "../../common/images/Sample1.jpg";
 import {ReactComponent as SurveyDragIcon} from "../../common/images/SurveyDragIcon.svg";
-import {DragDropContext, Draggable, Droppable} from "react-beautiful-dnd";
-import {ReactComponent as MoreIcon} from "../../common/images/MoreIcon.svg";
 import {ReactComponent as PollCreatePlus} from "../../common/images/PollCreatePlus.svg";
 import {ReactComponent as ClipboardTextIcon} from "../../common/images/ClipboardTextIcon.svg";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
-import {ReactComponent as CalendarBlank2} from "../../common/images/CalendarBlank2.svg";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import CalendarComponent from "./CalendarComponent";
 import CalendarButtonComponent from "./CalendarButtonComponent";
 
 const styles = theme => ({

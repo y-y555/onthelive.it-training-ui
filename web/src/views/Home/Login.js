@@ -1,14 +1,23 @@
 import React, {Component} from 'react';
 import clsx from 'clsx';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, FormControl, OutlinedInput, InputAdornment, IconButton, FormControlLabel, Checkbox, Button, FormHelperText } from "@material-ui/core";
-import { ReactComponent as LoginUserIcon } from '../../common/images/LoginUserIcon.svg';
-import { ReactComponent as LoginPasswordIcon } from '../../common/images/LoginPasswordIcon.svg';
-import { ReactComponent as LoginEyeSlashIcon } from '../../common/images/LoginEyeSlashIcon.svg';
-import { ReactComponent as LoginEyeIcon } from '../../common/images/LoginEyeIcon.svg';
-import { ReactComponent as UnCheckedIcon } from '../../common/images/UnCheckedIcon.svg';
-import { ReactComponent as CheckedIcon } from '../../common/images/CheckedIcon.svg';
-import SocialLoginComponent from "./SocialLoginComponent";
+import {
+    Box,
+    Button,
+    Checkbox,
+    FormControl,
+    FormControlLabel,
+    IconButton,
+    InputAdornment,
+    OutlinedInput,
+    Typography
+} from "@material-ui/core";
+import {ReactComponent as LoginUserIcon} from '../../common/images/LoginUserIcon.svg';
+import {ReactComponent as LoginPasswordIcon} from '../../common/images/LoginPasswordIcon.svg';
+import {ReactComponent as LoginEyeSlashIcon} from '../../common/images/LoginEyeSlashIcon.svg';
+import {ReactComponent as LoginEyeIcon} from '../../common/images/LoginEyeIcon.svg';
+import {ReactComponent as UnCheckedIcon} from '../../common/images/UnCheckedIcon.svg';
+import {ReactComponent as CheckedIcon} from '../../common/images/CheckedIcon.svg';
 import {withRouter} from "react-router-dom";
 import {inject, observer} from "mobx-react";
 
@@ -117,6 +126,11 @@ const styles = theme => ({
     }
 });
 
+const RESPONSE_KEY_CODE = {
+    ESC: 27,
+    ENTER: 13,
+};
+
 class Login extends Component {
     constructor(props) {
         super(props);
@@ -150,13 +164,23 @@ class Login extends Component {
         this.props.authStore.changeLoginPassword(value);
     }
 
-    handleClickLoginBtn = (e) => {
-        e.preventDefault();
-
+    requestLogin = () => {
         this.props.authStore.doLogin({
             successAction : () => {
                 this.props.history.push("/rooms");
             }});
+    }
+
+    handleClickLoginBtn = (e) => {
+        e.preventDefault();
+
+        this.requestLogin();
+    }
+
+    handleKeyDown = (e) => {
+        if(e.keyCode === RESPONSE_KEY_CODE.ENTER) {
+            this.requestLogin();
+        }
     }
 
     render() {
@@ -211,6 +235,7 @@ class Login extends Component {
                             labelWidth={0}
                             placeholder="비밀번호"
                             onChange={this.handleChangeLoginPassword}
+                            onKeyDown={this.handleKeyDown}
                         />
                     </FormControl>
 

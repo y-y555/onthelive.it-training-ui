@@ -6,7 +6,7 @@ import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

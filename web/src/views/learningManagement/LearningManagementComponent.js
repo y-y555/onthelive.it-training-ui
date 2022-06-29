@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
-import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    Tab, Tabs
-} from "@material-ui/core";
+import {Box, Tab, Tabs} from "@material-ui/core";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
-import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";
 import DashboardComponent from "./DashboardComponent";
 import OpenLectureRoomCompononet from "./OpenLectureRoomCompononet";
 import LectureSupportManagementComponent from "./LectureSupportManagementComponent";
 import NoticeDialog from "./NoticeDialog";
-import CourseStudentManagementComponent from "./CourseStudentManagementComponent";
 import QuestionDialog from "./QuestionDialog";
 
 const styles = theme => ({

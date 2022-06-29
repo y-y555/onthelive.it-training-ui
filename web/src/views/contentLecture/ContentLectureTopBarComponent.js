@@ -18,10 +18,7 @@ import {ReactComponent as Eye} from "../../common/images/Eye.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import clsx from "clsx";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 import {withRouter} from "react-router-dom";
-import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
-import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
 
 const styles = theme => ({
     root:{

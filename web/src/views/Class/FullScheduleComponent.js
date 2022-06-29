@@ -2,23 +2,10 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import ClassNoticeComponent from "./ClassNoticeComponent";
 import ScheduleCardListItemComponent from "./ScheduleCardListItemComponent";
-import {
-    Box,
-    Button,
-    ClickAwayListener,
-    FormControl,
-    Input,
-    MenuItem,
-    Paper, Popper,
-    Select,
-    TextField,
-    Typography
-} from "@material-ui/core";
-import {ReactComponent as CalendarBlank} from "../../common/images/CalendarBlank.svg";
-import clsx from "clsx";
+import {Box, FormControl, MenuItem, Select, TextField} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

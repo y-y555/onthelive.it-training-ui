@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {ReactComponent as LogoFooterImg} from "../../common/images/LogoFooterImg.svg";
-import {Select, Typography, Box, FormControl, InputLabel, OutlinedInput, MenuItem, Link} from "@material-ui/core";
+import {Box, FormControl, Link, MenuItem, Select, Typography} from "@material-ui/core";
 
 const styles = theme => ({
     root:{

@@ -3,10 +3,8 @@ import ClassWindowTopBarComponent from "./ClassWindowTopBarComponent";
 import ContentLectureClassWindowComponent from "./ContentLectureClassWindowComponent";
 import {withStyles} from "@material-ui/core/styles";
 
-const styles = theme => ({
-    root:{
-
-    }
+const styles = _theme => ({
+    root:{}
 });
 
 class ClassWindowComponent extends Component {

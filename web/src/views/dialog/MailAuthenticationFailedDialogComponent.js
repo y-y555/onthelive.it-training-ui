@@ -1,6 +1,6 @@
 import React from "react";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, Dialog, DialogContent, DialogContentText, IconButton,DialogActions} from "@material-ui/core";
+import {Button, Dialog, DialogActions, DialogContent, DialogContentText, IconButton} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import clsx from "clsx";
 

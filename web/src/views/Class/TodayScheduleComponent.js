@@ -7,7 +7,7 @@ import ClassNumericalComponent from "./ClassNumericalComponent";
 import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
 import {Typography} from "@material-ui/core";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

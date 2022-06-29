@@ -4,7 +4,7 @@ import {IconButton, InputBase, Paper} from "@material-ui/core";
 import {ReactComponent as MagnifyingGlassIcon} from "../../common/images/MagnifyingGlassIcon.svg";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
     },
     searchBox:{

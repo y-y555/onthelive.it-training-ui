@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, FormControl, InputAdornment, OutlinedInput, Typography, FormHelperText} from "@material-ui/core";
-import clsx from "clsx";
+import {Box, Button, FormControl, InputAdornment, OutlinedInput, Typography} from "@material-ui/core";
 import {ReactComponent as LoginUserIcon} from "../../../common/images/LoginUserIcon.svg";
 import {ReactComponent as BackArrowIcon} from "../../../common/images/BackArrowIcon.svg";
 import {withRouter} from "react-router-dom";

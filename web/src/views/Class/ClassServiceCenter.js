@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, IconButton, Typography, Accordion, AccordionSummary, AccordionDetails } from "@material-ui/core";
+import {Accordion, AccordionDetails, AccordionSummary, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

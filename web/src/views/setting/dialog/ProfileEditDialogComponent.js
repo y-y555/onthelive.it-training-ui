@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Avatar, Box, Dialog, IconButton, Typography, Button, OutlinedInput, FormControl} from "@material-ui/core";
+import {Box, Button, Dialog, FormControl, IconButton, OutlinedInput, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as CameraIcon} from "../../../common/images/CameraIcon.svg";
 import TestAvatar from "../../../common/images/TestAvatar.jpg";

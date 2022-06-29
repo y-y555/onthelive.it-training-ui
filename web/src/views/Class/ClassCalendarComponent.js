@@ -3,13 +3,13 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, Typography} from "@material-ui/core";
 import clsx from "clsx";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
-import { Calendar, momentLocalizer } from 'react-big-calendar';
+import {Calendar, momentLocalizer} from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import 'moment/locale/ko';
 import ArrowIcon from "../../common/images/ArrowIcon.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

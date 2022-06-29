@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Typography, Box, IconButton, MenuItem, Popover} from "@material-ui/core";
+import {Box, IconButton, MenuItem, Popover, Typography} from "@material-ui/core";
 import clsx from "clsx";
 import {ReactComponent as MoreIcon} from "../../common/images/MoreIcon.svg";
-const styles = theme => ({
+
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

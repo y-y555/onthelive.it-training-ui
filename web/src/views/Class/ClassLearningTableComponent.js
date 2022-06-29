@@ -1,27 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Avatar,
-    Box,
-    Button,
-    FormControl,
-    IconButton,
-    Menu,
-    MenuItem,
-    Select,
-    TableCell,
-    Typography
-} from "@material-ui/core";
+import {Avatar, Box, Button, FormControl, MenuItem, Select} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import {ReactComponent as Browsers} from "../../common/images/Browsers.svg";
 import clsx from "clsx";
-import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
-import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
-import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
-import SplashImg01 from "../../common/images/SplashImg01.jpg";
-import SplashImg02 from "../../common/images/SplashImg02.jpg";
-import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
-import {ReactComponent as PlayIcon} from "../../common/images/PlayIcon.svg";
+
 const styles = theme => ({
     root:{
         '@media all and (min-width: 1500px)': {

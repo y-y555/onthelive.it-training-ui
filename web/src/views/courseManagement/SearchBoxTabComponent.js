@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, IconButton, InputBase, Tab, Tabs} from "@material-ui/core";
-import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 
 const styles = theme => ({

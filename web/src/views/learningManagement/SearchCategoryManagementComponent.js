@@ -1,29 +1,31 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
-    Box, Button, Checkbox,
+    Box,
+    Button,
+    Checkbox,
     Chip,
     FormControl,
-    FormControlLabel,
     IconButton,
+    Input,
+    InputBase,
+    ListItemText,
     MenuItem,
     Popover,
     Select,
-    Typography,
-    Input,
-    ListItemText, InputBase, Icon
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as ListIcon} from "../../common/images/ListIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownTinyIcon.svg";
-import {ReactComponent as Funnel} from "../../common/images/Funnel.svg";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import {ButtonBack, ButtonNext, CarouselProvider, Dot, DotGroup, Slide, Slider} from "pure-react-carousel";
+import {ButtonBack, ButtonNext, CarouselProvider, Slide, Slider} from "pure-react-carousel";
 import {ReactComponent as ArrowLeftIcon} from "../../common/images/ArrowIcon.svg";
 import {ReactComponent as ArrowRightIcon} from "../../common/images/CaretRightIcon.svg";
 import {ReactComponent as Close} from "../../common/images/Close.svg";
 import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
+
 const styles = theme => ({
     root:{
         '& > div':{

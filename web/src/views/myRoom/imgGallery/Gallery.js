@@ -8,7 +8,7 @@ import galleryImg5 from "../../../common/images/galleryImg5.jpg";
 import galleryImg6 from "../../../common/images/galleryImg6.jpg";
 import galleryImg7 from "../../../common/images/galleryImg7.jpg";
 import CameraIcon from "../../../common/images/CameraIcon.svg";
-import {Typography, Box} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import GalleryCheckCircleIcon from "../../../common/images/GalleryCheckCircleIcon.svg";
 
 const styles = theme => ({

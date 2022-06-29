@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, Typography} from "@material-ui/core";
-import clsx from "clsx";
 import {ReactComponent as MagnifyingGlassMinus} from "../../common/images/MagnifyingGlassMinus.svg";
 
 const styles = theme => ({

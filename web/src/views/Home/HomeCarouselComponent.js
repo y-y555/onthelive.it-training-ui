@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Chip, Button} from "@material-ui/core";
+import {Box, Button, Chip, Typography} from "@material-ui/core";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { CarouselProvider, Slider, Slide ,ButtonBack,ButtonNext} from 'pure-react-carousel';
+import {ButtonBack, ButtonNext, CarouselProvider, Slide, Slider} from 'pure-react-carousel';
 import {ReactComponent as ArrowRightIcon} from '../../common/images/CaretRightIcon.svg';
 import {ReactComponent as ArrowLeftIcon} from '../../common/images/ArrowIcon.svg';
 import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon.svg';
@@ -11,8 +11,6 @@ import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
 import {ReactComponent as HandsClappingIcon} from '../../common/images/HandsClappingIcon.svg';
 import {ReactComponent as UsersThreeIcon} from '../../common/images/UsersThreeIcon.svg';
 import {ReactComponent as BookmarksSimple} from '../../common/images/BookmarksSimple.svg';
-import {Typography} from "@material-ui/core";
-import clsx from "clsx";
 
 const styles = theme => ({
     root:{

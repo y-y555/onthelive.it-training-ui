@@ -1,35 +1,14 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    Select,
-    MenuItem,
-    FormControl,
-    Input,
-    Avatar,
-    Typography,
-    IconButton,
-    Tooltip,
-    Tabs,
-    Tab,
-    Popover,
-    FormControlLabel,
-    Checkbox
-} from "@material-ui/core";
-import {ReactComponent as RowsListIcon} from "../../common/images/RowsListIcon.svg";
-import {ReactComponent as SquaresFourIcon} from "../../common/images/SquaresFourIcon.svg";
+import {Box, Button, Checkbox, FormControlLabel, IconButton, Popover, Tab, Tabs, Typography} from "@material-ui/core";
 import ScheduleCardListItemComponent from "./ScheduleCardListItemComponent";
-import ScheduleCardBoardItemComponent from "./ScheduleCardBoardItemComponent";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as Funnel} from "../../common/images/Funnel.svg";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '& ul, ol':{
             margin:0,

@@ -1,19 +1,21 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
-    Box, Checkbox,
+    Box,
+    Button,
+    Checkbox,
     Dialog,
-    FormControl, FormControlLabel, IconButton,
-    InputBase,
-    MenuItem,
-    OutlinedInput,
-    Select,
-    TextareaAutosize,
-    Typography,
-    Button, Popover,
-    MenuList,
+    FormControl,
+    FormControlLabel,
+    IconButton,
     ListItemIcon,
-    ListItemText
+    ListItemText,
+    MenuItem,
+    MenuList,
+    OutlinedInput,
+    Popover,
+    TextareaAutosize,
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";

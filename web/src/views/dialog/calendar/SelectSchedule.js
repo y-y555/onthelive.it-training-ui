@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { withStyles } from '@material-ui/core/styles';
+import {withStyles} from '@material-ui/core/styles';
 import {Box, Button, ClickAwayListener, Paper, Popper, Typography} from "@material-ui/core";
 import {ReactComponent as CalendarBlank} from "../../../common/images/CalendarBlank.svg";
 import {ReactComponent as AlarmIcon} from "../../../common/images/AlarmIcon.svg";

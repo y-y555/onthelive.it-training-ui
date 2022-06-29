@@ -1,18 +1,9 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-    Typography,
-    Box,
-    Select,
-    FormControl,
-    Radio,
-    RadioGroup,
-    FormControlLabel, Checkbox, Button
-} from "@material-ui/core";
+import {Box, Checkbox, FormControl, FormControlLabel, Radio, RadioGroup, Select, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
-import {ReactComponent as ClearAll} from "../../common/images/ClearAll.svg";
 
 const useStyles = makeStyles({
     root:{

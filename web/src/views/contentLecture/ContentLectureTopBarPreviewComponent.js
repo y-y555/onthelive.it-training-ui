@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    IconButton,
-    InputBase, MenuItem, Popover,
-    Tooltip,
-    Typography
-} from "@material-ui/core";
+import {Box, Button, IconButton, Popover, Tooltip, Typography} from "@material-ui/core";
 import {ReactComponent as Desktop} from "../../common/images/Desktop.svg";
 import {ReactComponent as Mobile} from "../../common/images/Mobile.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
@@ -18,9 +11,8 @@ import {ReactComponent as Paperclip} from "../../common/images/Paperclip.svg";
 import {ReactComponent as FileIcon} from "../../common/images/FileIcon.svg";
 import {ReactComponent as DownloadSimpleIcon} from "../../common/images/DownloadSimpleIcon.svg";
 import {ReactComponent as ArrowIcon} from "../../common/images/ArrowIcon.svg";
-import ImageContentsComponent from "./ImageContentsComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         height: 59,
         boxSizing:'border-box',

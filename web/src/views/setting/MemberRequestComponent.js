@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, FormControl, MenuItem, Select, Typography, Button, Avatar} from "@material-ui/core";
+import {Avatar, Box, Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import TestAvatar from "../../common/images/TestAvatar.jpg";
-import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
 
 const styles = theme => ({
     root:{

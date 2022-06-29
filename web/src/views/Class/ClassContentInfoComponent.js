@@ -9,7 +9,7 @@ import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClap
 import {Button} from "@material-ui/core";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         marginBottom: 80
     },

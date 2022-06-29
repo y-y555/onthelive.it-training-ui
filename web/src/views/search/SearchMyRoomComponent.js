@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box} from "@material-ui/core";
 import SearchMyRoomTabComponent from "./SearchMyRoomTabComponent";
 import SearchScheduleComponent from "./SearchScheduleComponent";
 import SearchBoardComponent from "./SearchBoardComponent";

@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Tabs, Tab, FormControl, Select, MenuItem, IconButton, InputBase} from "@material-ui/core";
+import {Box, FormControl, InputBase, MenuItem, Select, Tab, Tabs} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as CalendarBlank2} from "../../common/images/CalendarBlank2.svg";
 import RoomCarouselComponent from "./RoomCarouselComponent";
 
 const styles = theme => ({

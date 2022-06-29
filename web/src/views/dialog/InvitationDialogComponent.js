@@ -3,14 +3,15 @@ import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
+    Button,
     Checkbox,
+    ClickAwayListener,
     Dialog,
     FormControlLabel,
-    Typography,
-    Button,
+    IconButton,
     Paper,
-    ClickAwayListener,
-    Popper, IconButton
+    Popper,
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";

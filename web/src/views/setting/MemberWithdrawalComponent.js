@@ -3,7 +3,6 @@ import {withStyles} from "@material-ui/core/styles";
 import {Avatar, Box, Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import TestAvatar from "../../common/images/TestAvatar.jpg";
-import clsx from "clsx";
 import MemberWithdrawalDialogComponent from "./dialog/MemberWithdrawalDialogComponent";
 
 const styles = theme => ({

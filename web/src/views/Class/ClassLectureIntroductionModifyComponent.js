@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Button} from "@material-ui/core";
 import clsx from "clsx";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

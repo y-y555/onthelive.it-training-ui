@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Box, Button, Typography } from '@material-ui/core';
+import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core/styles';
+import {Box, Button, Typography} from '@material-ui/core';
 import IntroductionDialogComponent from '../dialog/IntroductionDialogComponent';
-import { getNoticeContents } from '../../common/Validation';
-import { ClassMainPath } from '../../common/ClassMainPath';
-import { withRouter } from '../../components/WithRouter';
+import {getNoticeContents} from '../../common/Validation';
+import {ClassMainPath} from '../../common/ClassMainPath';
+import {withRouter} from '../../components/WithRouter';
 
 const styles = _theme => ({
     root: {

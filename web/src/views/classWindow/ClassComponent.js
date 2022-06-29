@@ -9,7 +9,7 @@ import ClassWindowQuizContents from "./ClassWindowQuizContents";
 import clsx from "clsx";
 import ConsoleComponent from "./ConsoleComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width: '100%'
     },

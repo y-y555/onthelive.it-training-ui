@@ -1,22 +1,7 @@
 import React, {Component} from 'react';
-import {
-    Avatar,
-    Box,
-    Button,
-    Checkbox,
-    Dialog,
-    FormControlLabel,
-    IconButton,
-    InputBase,
-    Typography
-} from "@material-ui/core";
+import {Box, Button, Dialog, IconButton, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../../common/images/DialogCloseIcon.svg";
 import {withStyles} from "@material-ui/core/styles";
-import {ReactComponent as MagnifyingGlassIcon} from "../../../common/images/MagnifyingGlassIcon.svg";
-import {ReactComponent as AsideUserIcon} from "../../../common/images/AsideUserIcon.svg";
-import TestAvatar from "../../../common/images/TestAvatar.jpg";
-import {ReactComponent as UnCheckedIcon} from "../../../common/images/UnCheckedIcon.svg";
-import {ReactComponent as CheckedIcon} from "../../../common/images/CheckedIcon.svg";
 import clsx from "clsx";
 
 const styles = theme => ({

@@ -1,14 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    Box,
-    Typography,
-    FormControl,
-    RadioGroup,
-    FormControlLabel,
-    Radio, Input
-} from "@material-ui/core";
+import {Box, FormControl, FormControlLabel, Input, Radio, RadioGroup, Typography} from "@material-ui/core";
 import RadioButtonUncheckedIcon from "@material-ui/icons/RadioButtonUnchecked";
 import RadioButtonCheckedIcon from "@material-ui/icons/RadioButtonChecked";
 import Sample1 from "../../../common/images/Sample1.jpg";

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box, Button, Checkbox, Typography} from "@material-ui/core";
+import {Box, Button, Checkbox, Typography} from "@material-ui/core";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as LogoNaverIcon} from "../../../common/images/LogoNaverIcon.svg";

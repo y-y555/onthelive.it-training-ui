@@ -1,20 +1,13 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Box, Button, ListItemIcon, ListItemText, MenuItem, Popover, Tab, Tabs } from '@material-ui/core';
-import { ReactComponent as PlusCircleIcon } from '../../common/images/PlusCircleIcon.svg';
-import { ReactComponent as HandsClappingIcon } from '../../common/images/HandsClappingIcon.svg';
-import { ReactComponent as ChalkboardTeacher } from '../../common/images/ChalkboardTeacher.svg';
-import { ReactComponent as VideoCamera } from '../../common/images/VideoCamera.svg';
-import ScheduleRegistrationComponent from '../dialog/ScheduleRegistrationComponent';
-import YesOrNoDialog from '../../components/common/YesOrNoDialog';
-import { inject, observer } from 'mobx-react';
-import { ClassMainPath } from '../../common/ClassMainPath';
-import { GroupJoinRequestPath } from '../../stores/ClassStore';
-import { ToastsStore } from 'react-toasts';
-import { withRouter } from '../../components/WithRouter';
-import { PATH_UTIL } from '../../common/util/path.util';
+import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core/styles';
+import {Box, Tab, Tabs} from '@material-ui/core';
+import {inject, observer} from 'mobx-react';
+import {ClassMainPath} from '../../common/ClassMainPath';
+import {ToastsStore} from 'react-toasts';
+import {withRouter} from '../../components/WithRouter';
+import {PATH_UTIL} from '../../common/util/path.util';
 import CoachMarkForm from '../../components/common/CoachMarkForm';
-import { USER_TYPE } from '../../stores/UserStore';
+import {USER_TYPE} from '../../stores/UserStore';
 
 const styles = theme => ({
     root: {

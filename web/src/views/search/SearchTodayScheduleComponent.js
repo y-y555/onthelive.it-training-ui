@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Tab, Tabs, Box} from "@material-ui/core";
+import {Box, Tab, Tabs} from "@material-ui/core";
 import SearchStudyComponent from "./SearchStudyComponent";
 import SearchWebinarComponent from "./SearchWebinarComponent";
 import SearchCodingComponent from "./SearchCodingComponent";

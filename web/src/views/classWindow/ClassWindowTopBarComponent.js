@@ -1,30 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    FormControl,
-    IconButton,
-    InputBase,
-    MenuItem,
-    Select,
-    Tooltip,
-    Typography
-} from "@material-ui/core";
-import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
-import {ReactComponent as Desktop} from "../../common/images/Desktop.svg";
-import {ReactComponent as Mobile} from "../../common/images/Mobile.svg";
-import {ReactComponent as Eye} from "../../common/images/Eye.svg";
-import {ReactComponent as Info} from "../../common/images/Info.svg";
+import {Box, Button, Tooltip, Typography} from "@material-ui/core";
 import clsx from "clsx";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         height: 59,
         boxSizing:'border-box',

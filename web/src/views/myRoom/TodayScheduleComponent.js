@@ -1,16 +1,14 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Button} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
-import {ReactComponent as AlarmIcon} from "../../common/images/AlarmIcon.svg";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
-import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
 
 const styles = theme => ({

@@ -1,24 +1,24 @@
 import React, {Component} from 'react';
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
 import {
-    Box,
-    Input,
-    Typography,
-    IconButton,
-    Button,
-    FormControlLabel,
-    Checkbox,
-    Popover,
-    MenuList,
-    MenuItem,
-    Select,
-    FormControl,
+    BottomNavigation,
     BottomNavigationAction,
-    BottomNavigation
+    Box,
+    Button,
+    Checkbox,
+    FormControl,
+    FormControlLabel,
+    IconButton,
+    Input,
+    MenuItem,
+    MenuList,
+    Popover,
+    Select,
+    Typography
 } from "@material-ui/core";
-import { ReactComponent as SurveyImgIcon } from "../../../common/images/SurveyImgIcon.svg";
-import { ReactComponent as SurveyCloseIcon } from "../../../common/images/SurveyCloseIcon.svg";
+import {ReactComponent as SurveyImgIcon} from "../../../common/images/SurveyImgIcon.svg";
+import {ReactComponent as SurveyCloseIcon} from "../../../common/images/SurveyCloseIcon.svg";
 import Sample1 from '../../../common/images/Sample1.jpg';
 import {ReactComponent as MoreIcon} from "../../../common/images/MoreIcon.svg";
 import {ReactComponent as SurveyDragIcon} from "../../../common/images/SurveyDragIcon.svg";

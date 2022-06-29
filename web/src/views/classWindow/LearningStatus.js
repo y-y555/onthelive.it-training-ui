@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 
-const styles = theme => ({
-    root:{
-
-    }
+const styles = _theme => ({
+    root:{}
 });
 
 class LearningStatus extends Component {

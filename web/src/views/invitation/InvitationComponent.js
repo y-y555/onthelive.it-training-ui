@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from '@material-ui/core/styles';
-import {Box, Typography, Button} from '@material-ui/core';
+import {Box, Button, Typography} from '@material-ui/core';
 import {ReactComponent as OntheliveLogo} from '../../common/images/OntheliveLogo.svg';
 import RoomTestImg1 from '../../common/images/RoomTestImg1.png';
 

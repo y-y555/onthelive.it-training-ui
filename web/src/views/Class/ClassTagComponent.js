@@ -1,13 +1,10 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Chip, Button} from "@material-ui/core";
+import {Box, Button, Chip, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownTinyIcon} from "../../common/images/ArrowDownTinyIcon.svg"
-import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
-import RoomTestImg2 from "../../common/images/RoomTestImg2.png";
-import RoomTestImg3 from "../../common/images/RoomTestImg3.png";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:235,

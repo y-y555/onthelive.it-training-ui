@@ -1,19 +1,12 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Dialog,
-    IconButton,
-    Typography,
-    InputBase, Button, Avatar,
-    Checkbox
-} from "@material-ui/core";
+import {Avatar, Box, Button, Checkbox, Dialog, IconButton, InputBase, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as MagnifyingGlassIcon} from "../../common/images/MagnifyingGlassIcon.svg";
 import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
 import TestAvatar from "../../common/images/TestAvatar.jpg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

@@ -2,13 +2,13 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
-    Typography,
-    Dialog,
-    OutlinedInput,
-    FormControl,
     Button,
+    Dialog,
+    FormControl,
+    IconButton,
+    OutlinedInput,
     TextareaAutosize,
-    IconButton
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 

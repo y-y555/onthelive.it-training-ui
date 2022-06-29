@@ -3,32 +3,23 @@ import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
-    FormControl,
-    IconButton,
-    InputAdornment,
-    OutlinedInput,
-    Typography,
     Button,
-    Avatar,
-    Select,
-    FormHelperText,
-    FormControlLabel,
     Checkbox,
-    MenuItem,
-    Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions,
+    FormControl,
+    FormControlLabel,
+    FormHelperText,
+    IconButton,
+    Input,
+    InputAdornment,
     Link,
     Popover,
-    Input,
     Snackbar,
+    Typography,
 } from "@material-ui/core";
 import {ReactComponent as LoginEyeIcon} from "../../common/images/LoginEyeIcon.svg";
 import {ReactComponent as LoginEyeSlashIcon} from "../../common/images/EyeClosedIcon.svg";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffLineIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnFillIcon.svg";
-import TestAvatar from "../../common/images/TestAvatar.jpg";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
-import EmailCertificationDialogComponent from "../dialog/EmailCertificationDialogComponent";
 
 
 const styles = theme => ({

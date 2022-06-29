@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import SearchCategoryManagementComponent from "./SearchCategoryManagementComponent";
-import CourseAllStudentManagementTableComponent from "./CourseAllStudentManagementTableComponent";
 import CourseClassManagementTableComponent from "./CourseClassManagementTableComponent";
 
 const styles = theme => ({

@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    Typography,
-    Box,
-    Select,
-    FormControl,
-} from "@material-ui/core";
+import {Box, FormControl, Select, Typography,} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles({

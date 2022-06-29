@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Box, Dialog, IconButton, Typography, Button, Avatar} from '@material-ui/core';
+import {Avatar, Box, Button, Dialog, IconButton, Typography} from '@material-ui/core';
 import {ReactComponent as DialogCloseIcon} from '../../common/images/DialogCloseIcon.svg';
 import {withStyles} from '@material-ui/core/styles';
 import TestAvatar from "../../common/images/TestAvatar.jpg";

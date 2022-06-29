@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
-import clsx from 'clsx';
-import {Box, Dialog, IconButton, Typography, Button, Avatar} from '@material-ui/core';
-import {ReactComponent as DialogCloseIcon} from '../../common/images/DialogCloseIcon.svg';
+import {Box, Button, Dialog, Typography} from '@material-ui/core';
 import {withStyles} from '@material-ui/core/styles';
-import RoomTestImg1 from '../../common/images/RoomTestImg1.png';
-import TestAvatar from "../../common/images/TestAvatar.jpg";
 
 const styles = theme => ({
     root:{

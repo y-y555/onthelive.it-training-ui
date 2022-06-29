@@ -8,7 +8,7 @@ import ContentLectureSectionComponent from "./ContentLectureSectionComponent";
 import ContentLecturePreviewComponent from "./ContentLecturePreviewComponent";
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     }

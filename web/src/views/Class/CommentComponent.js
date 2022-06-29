@@ -4,9 +4,10 @@ import {
     Avatar,
     Box,
     Button,
-    FormControl, Icon,
+    FormControl,
     IconButton,
-    Input, Menu,
+    Input,
+    Menu,
     MenuItem,
     Popover,
     Select,
@@ -31,7 +32,6 @@ import {ReactComponent as Emoticon6} from "../../common/images/Emoticon6.svg";
 import {ReactComponent as Emoticon7} from "../../common/images/Emoticon7.svg";
 import {ReactComponent as Emoticon8} from "../../common/images/Emoticon8.svg";
 import {ReactComponent as ModalCloseIcon} from "../../common/images/ModalCloseIcon.svg";
-import {ReactComponent as DownloadIcon} from "../../common/images/DownloadIcon.svg";
 import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
 import ProfileDialogComponent from "../dialog/ProfileDialogComponent";
 

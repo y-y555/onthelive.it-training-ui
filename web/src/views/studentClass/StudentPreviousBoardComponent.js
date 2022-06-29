@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Typography, Box } from '@material-ui/core';
+import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core/styles';
+import {Box, Typography} from '@material-ui/core';
+
 const styles = theme => ({
     root: {
         '@media all and (min-width: 1500px)': {

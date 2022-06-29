@@ -1,16 +1,12 @@
 import React, {Component} from 'react';
-import {
-    Box,
-    Button, Typography
-} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
 import CalendarShape from "../dialog/calendar/CalendarShape";
 import Deadline from "./Deadline";
 import {ReactComponent as ClearAll} from "../../common/images/ClearAll.svg";
-// import MeetingTime from "./MeetingTime";
 
 
-const style = theme => ({
+const style = _theme => ({
     root:{
         padding:15,
         borderRadius:10,

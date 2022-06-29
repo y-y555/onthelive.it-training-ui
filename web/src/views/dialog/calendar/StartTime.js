@@ -1,14 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import {
-    Typography,
-    Box,
-    Select,
-    FormControl,
-    Radio,
-    RadioGroup,
-    FormControlLabel
-} from "@material-ui/core";
+import {Box, FormControl, FormControlLabel, Radio, RadioGroup, Select, Typography} from "@material-ui/core";
 import {makeStyles} from "@material-ui/core/styles";
 
 const useStyles = makeStyles({

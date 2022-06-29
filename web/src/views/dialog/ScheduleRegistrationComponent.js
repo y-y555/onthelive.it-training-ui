@@ -3,18 +3,18 @@ import clsx from "clsx";
 import {
     Box,
     Button,
-    Checkbox,
     Dialog,
-    FormControl, FormControlLabel,
+    FormControl,
+    FormControlLabel,
+    IconButton,
     OutlinedInput,
+    Radio,
+    RadioGroup,
     TextareaAutosize,
-    Typography,
-    TextField, IconButton, FormHelperText, RadioGroup, Radio
+    Typography
 } from "@material-ui/core";
-import Autocomplete from '@material-ui/lab/Autocomplete';
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {withStyles} from "@material-ui/core/styles";
-import SelectSchedule from "./calendar/SelectSchedule";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Link, InputBase, IconButton, Chip} from "@material-ui/core";
+import {Box, Chip, IconButton, InputBase, Link, Typography} from "@material-ui/core";
 import SplashImg01 from '../../common/images/SplashImg01.jpg';
 import SplashImg02 from '../../common/images/SplashImg02.jpg';
 import {ReactComponent as CaretRightIcon} from '../../common/images/CaretRightIcon.svg';
@@ -8,7 +8,7 @@ import HomeCarouselComponent from "./HomeCarouselComponent";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 import {ReactComponent as ThreeStarIcon} from "../../common/images/ThreeStarIcon.svg";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import {CarouselProvider, Slider, Slide, ButtonBack, ButtonNext, DotGroup, Dot} from 'pure-react-carousel';
+import {CarouselProvider, Dot, DotGroup, Slide, Slider} from 'pure-react-carousel';
 import clsx from "clsx";
 import Footer from "../footer/Footer";
 

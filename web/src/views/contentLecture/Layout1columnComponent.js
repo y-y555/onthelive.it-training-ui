@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box} from "@material-ui/core";
-import clsx from "clsx";
 import DragDropComponent from "./DragDropComponent";
-import SurveyCreateComponent from "../dialog/survey/SurveyCreateComponent";
 
 const styles = theme => ({
     root:{

@@ -1,19 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Book} from "@material-ui/icons";
-import {
-    Avatar,
-    Box,
-    Button,
-    FormControl,
-    Menu,
-    MenuItem,
-    Select,
-    TableCell,
-    Typography,
-    TablePagination,
-    IconButton
-} from "@material-ui/core";
+import {Avatar, Box, Button, FormControl, Menu, MenuItem, Select, TablePagination, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
@@ -26,11 +13,9 @@ import {ReactComponent as BookmarksSimpleRed} from "../../common/images/Bookmark
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as PlayIcon} from "../../common/images/PlayIcon.svg";
 import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
-import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
-import {ReactComponent as X} from "../../common/images/X.svg";
 import CancelApprovalDialogComponent from "./CancelApprovalDialogComponent";
-import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
 import StudentStatusDetailComponent from "./StudentStatusDetailComponent";
+
 const styles = theme => ({
     root:{
         backgroundColor:'#fff',

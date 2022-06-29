@@ -1,12 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    BottomNavigation, BottomNavigationAction,
-    Box,
-    Typography
-} from "@material-ui/core";
-import Sample1 from "../../../common/images/Sample1.jpg";
+import {BottomNavigation, BottomNavigationAction, Box, Typography} from "@material-ui/core";
 
 const style = theme => ({
     root:{

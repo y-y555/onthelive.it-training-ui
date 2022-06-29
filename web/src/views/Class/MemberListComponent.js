@@ -1,17 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    FormControl,
-    Select,
-    MenuItem, Avatar, Typography, IconButton, Menu, Tab, Tabs
-} from "@material-ui/core";
-import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
-import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
-import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
-import clsx from "clsx";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
+import {Box, Button, IconButton, Tab, Tabs} from "@material-ui/core";
 import AddGroupDialogComponent from "../dialog/AddGroupDialogComponent";
 import InvitationDialogComponent from '../dialog/InvitationDialogComponent';
 import {ReactComponent as FolderPlusIcon} from "../../common/images/FolderPlusIcon.svg";
@@ -20,7 +9,7 @@ import ClassMemberGroupManagementComponent from "./ClassMemberGroupManagementCom
 import MemberGroupSearchDialogComponent from "./MemberGroupSearchDialogComponent";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root: {
         '@media all and (min-width: 1500px)': {
             width:730,

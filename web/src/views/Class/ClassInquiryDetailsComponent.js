@@ -1,11 +1,12 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Chip, FormControl, MenuItem, Select, Typography, Button, TextareaAutosize} from "@material-ui/core";
+import {Box, Button, Chip, FormControl, MenuItem, Select, TextareaAutosize, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
 import {ReactComponent as ArrowElbowDownRight} from "../../common/images/ArrowElbowDownRight.svg";
 import clsx from "clsx";
-const styles = theme => ({
+
+const styles = _theme => ({
     root:{
         paddingTop:30,
         '& .MuiChip-label':{

@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
-import { render } from "react-dom";
-import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Tabs, Tab, Button, MenuItem, Popover, ListItemText, ListItemIcon} from "@material-ui/core";
+import {Box, Button, ListItemIcon, ListItemText, MenuItem, Popover, Tab, Tabs} from "@material-ui/core";
 import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as VideoCamera} from "../../common/images/VideoCamera.svg";
 import {ReactComponent as ChalkboardTeacher} from "../../common/images/ChalkboardTeacher.svg";
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
-import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
 import {withRouter} from "react-router-dom";
 import {inject, observer} from "mobx-react";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         "& *": {
             fontFamily: 'NanumSquareRoundOTF!important' ,

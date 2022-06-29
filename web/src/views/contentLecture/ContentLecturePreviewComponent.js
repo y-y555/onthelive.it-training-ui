@@ -7,7 +7,7 @@ import {ReactComponent as CheckSquareOffset} from '../../common/images/CheckSqua
 import clsx from "clsx";
 import TestImg from "../../common/images/TestImg.png";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width:'100%',
         minHeight: 'calc(100vh - 59px)',

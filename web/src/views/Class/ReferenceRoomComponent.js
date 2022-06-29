@@ -1,33 +1,30 @@
 import React, {Component} from 'react';
-import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
 import {
-    Tab,
-    Tabs,
-    Typography,
-    Button,
     Box,
+    Button,
+    FormControl,
     IconButton,
-    Table,
-    TableHead,
-    TableBody,
-    TableRow,
-    TableCell,
     Menu,
     MenuItem,
-    Select, Input, FormControl,
-    TextField
+    Select,
+    Tab,
+    Table,
+    TableBody,
+    TableCell,
+    TableHead,
+    TableRow,
+    Tabs,
 } from '@material-ui/core';
 import {ReactComponent as FolderPlusIcon} from "../../common/images/FolderPlusFillIcon.svg";
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
 import {ReactComponent as FileIcon} from "../../common/images/FileIcon.svg";
 import {ReactComponent as ClipboardTextIcon} from "../../common/images/ClipboardTextIcon.svg";
 import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
-import {ReactComponent as DownloadSimpleIcon} from "../../common/images/DownloadSimpleIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import SurveyDialogComponent from "../dialog/SurveyDialogComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

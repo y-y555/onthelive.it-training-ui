@@ -3,7 +3,8 @@ import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
     Button,
-    Dialog, FormControl,
+    Dialog,
+    FormControl,
     FormControlLabel,
     IconButton,
     Radio,

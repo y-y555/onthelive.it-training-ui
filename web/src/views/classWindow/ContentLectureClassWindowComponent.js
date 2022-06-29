@@ -1,15 +1,11 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    Typography
-} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width:'100%',
         minHeight: 'calc(100vh - 59px)',

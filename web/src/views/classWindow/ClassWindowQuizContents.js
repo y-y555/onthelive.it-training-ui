@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
 import {Box, Input, Typography} from "@material-ui/core";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width: '100%',
     },

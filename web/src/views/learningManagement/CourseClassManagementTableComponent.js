@@ -1,30 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Book} from "@material-ui/icons";
-import {
-    Avatar,
-    Box,
-    Button,
-    FormControl,
-    Menu,
-    MenuItem,
-    Select,
-    TableCell,
-    Typography,
-    TablePagination,
-    Tabs,
-    Tab,
-    IconButton
-} from "@material-ui/core";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import clsx from "clsx";
-import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
-import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
-import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
-import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
+import {Box, Button, IconButton, Tab, Tabs} from "@material-ui/core";
 import {ReactComponent as DownloadSimpleIcon} from "../../common/images/DownloadSimpleIcon.svg";
 import {ReactComponent as FolderPlusFillIcon} from "../../common/images/FolderPlusFillIcon.svg";
 import MemberCourseStatusManagementComponent from "./MemberCourseStatusManagementComponent";
+
 const styles = theme => ({
     root:{
         backgroundColor:'#fff',

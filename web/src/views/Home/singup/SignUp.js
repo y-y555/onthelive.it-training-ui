@@ -1,7 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
-    Box, Button, Checkbox,
+    Box,
+    Button,
+    Checkbox,
     FormControl,
     IconButton,
     InputAdornment,
@@ -16,7 +18,6 @@ import ReCAPTCHA from "react-google-recaptcha";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../../common/images/CheckCircleAgreeOnIcon.svg";
 import clsx from "clsx";
-import SocialLoginComponent from "../SocialLoginComponent";
 import PasswordCheckComponent from "../PasswordCheckComponent";
 import {withRouter} from "react-router-dom";
 

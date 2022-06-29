@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
+    Button,
     Dialog,
-    IconButton,
-    Typography,
-    Radio,
-    FormControlLabel,
-    RadioGroup,
     FormControl,
-    Button
+    FormControlLabel,
+    IconButton,
+    Radio,
+    RadioGroup,
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as RadioUnchecked} from "../../../common/images/RadioUnchecked.svg";

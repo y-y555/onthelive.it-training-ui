@@ -1,18 +1,15 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Button, Avatar, FormControlLabel, Switch} from "@material-ui/core";
+import {Avatar, Box, Button, FormControlLabel, Switch, Typography} from "@material-ui/core";
 import SwitchCheckIcon from "../../common/images/SwitchCheckIcon.svg";
 import SwitchCloseIcon from "../../common/images/SwitchCloseIcon.svg";
-import ProfileDialogComponent from "../dialog/ProfileDialogComponent";
 import ProfileEditDialogComponent from "./dialog/ProfileEditDialogComponent";
 import NoticeChangeDialogComponent from "./dialog/NoticeChangeDialogComponent";
 import RoomOpenDialogComponent from "./dialog/RoomOpenDialogComponent";
 import CommunityDialogComponent from "./dialog/CommunityDialogComponent";
 import {withRouter} from "react-router-dom";
-import AddAdminDialogComponent from "./dialog/AddAdminDialogComponent";
 import WithdrawalDialogComponent from "./dialog/WithdrawalDialogComponent";
-import {Delete} from "@material-ui/icons";
 import DeleteDialogComponent from "./dialog/DeleteDialogComponent";
 
 const styles = theme => ({

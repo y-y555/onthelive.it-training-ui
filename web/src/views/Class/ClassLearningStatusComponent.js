@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import ClassNumericalComponent from "./ClassNumericalComponent";
 import ClassLearningTableComponent from "./ClassLearningTableComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
 
 });
 class ClassLearningStatusComponent extends Component {

@@ -4,7 +4,7 @@ import ScheduleCardListItemComponent from "./ScheduleCardListItemComponent";
 import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
 import {Typography} from "@material-ui/core";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

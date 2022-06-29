@@ -1,18 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    Box,
-    Typography,
-    FormControl,
-    FormGroup,
-    FormControlLabel,
-    Checkbox,
-    Input
-} from "@material-ui/core";
+import {Box, Checkbox, FormControl, FormControlLabel, FormGroup, Input, Typography} from "@material-ui/core";
 import CheckBoxOutlineBlankIcon from '@material-ui/icons/CheckBoxOutlineBlank';
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
-import Sample1 from "../../../common/images/Sample1.jpg";
 
 const style = theme => ({
     root:{

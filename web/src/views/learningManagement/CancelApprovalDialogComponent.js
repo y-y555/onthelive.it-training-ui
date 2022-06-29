@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Typography,
-    Dialog,
-    OutlinedInput,
-    FormControl,
-    Button,
-    TextareaAutosize,
-    IconButton, Select, MenuItem, InputBase
-} from "@material-ui/core";
+import {Box, Button, Dialog, IconButton, InputBase, TextareaAutosize, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import clsx from "clsx";
 
 const styles = theme => ({

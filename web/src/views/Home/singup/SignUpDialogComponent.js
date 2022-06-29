@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, Typography,} from "@material-ui/core";
-import {ReactComponent as LogoNaverIcon} from "../../../common/images/LogoNaverIcon.svg";
 import {withRouter} from "react-router-dom";
 
 const styles = theme => ({

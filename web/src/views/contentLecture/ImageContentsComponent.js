@@ -1,11 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, IconButton, ListItemIcon, ListItemText, MenuItem, Popover, Typography} from "@material-ui/core";
+import {Box, Button, IconButton, MenuItem, Popover, Typography} from "@material-ui/core";
 import {ReactComponent as ImgInputImage} from "../../common/images/ImgInputImage.svg";
 import {ReactComponent as More} from "../../common/images/More.svg";
-import TestImage from "../../common/images/TestImage.png";
 import TestImage2 from "../../common/images/TestImage2.png";
-import TestImage3 from "../../common/images/TestImage3.jpg";
 import {FileUploader} from "react-drag-drop-files";
 import clsx from "clsx";
 
@@ -230,7 +228,7 @@ class ImageContentsComponent extends Component {
                             {file ?
                                 <Box className={classes.imgBox} style={left ? {justifyContent:'flex-start'} : right ? {justifyContent:'flex-end'} : {justifyContent:'center'}}>
                                     {/* src -> 파일 업로드 image 미리보기 */}
-                                    <img src={TestImage2} alt='test-image' />
+                                    <img src={TestImage2} alt='test-view' />
                                 </Box>
                                 :
                                 <>

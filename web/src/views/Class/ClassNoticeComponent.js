@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, IconButton, Menu, MenuItem, Typography} from "@material-ui/core";
-import clsx from "clsx";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import { CarouselProvider, Slider, Slide, DotGroup } from 'pure-react-carousel';
+import {CarouselProvider, DotGroup, Slide, Slider} from 'pure-react-carousel';
 import NoticeDialogComponent from "../dialog/NoticeDialogComponent";
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         marginBottom:30,
         '& .carousel__slide-focus-ring':{

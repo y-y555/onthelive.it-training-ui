@@ -1,18 +1,14 @@
-import React from 'react';
-import { useEffect } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+import React, {useEffect} from 'react';
+import {makeStyles} from '@material-ui/core/styles';
 import {Box} from "@material-ui/core";
 import ClassTitleComponent from "./ClassTitleComponent";
 import ClassTabTriggerComponent from "./ClassTabTriggerComponent";
 import ClassTagComponent from "./ClassTagComponent";
 import ClassAsideComponent from "./ClassAsideComponent";
 import TodayScheduleComponent from "./TodayScheduleComponent";
-import FullScheduleComponent from "./FullScheduleComponent";
 import ReferenceRoomComponent from "./ReferenceRoomComponent";
 import ClassCommunityComponent from "./ClassCommunityComponent";
-import MemberListComponent from "./MemberListComponent";
 import ClassBoardDetailViewComponent from "./ClassBoardDetailViewComponent";
-import ClassCalendarComponent from "./ClassCalendarComponent";
 import SettingComponent from "../setting/SettingComponent";
 import MemberRequestComponent from "../setting/MemberRequestComponent";
 import AddAdminComponent from "../setting/AddAdminComponent";
@@ -21,13 +17,11 @@ import MemberPermissionSettingComponent from "../setting/MemberPermissionSetting
 import ClassSelectTagComponent from "./ClassSelectTagComponent";
 import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
 import ClassAssignmentTableCompononet from "./ClassAssignmentTableCompononet";
-import ClassLectureIntroductionComponent from "./ClassLectureIntroductionComponent";
 import ClassLectureIntroductionModifyComponent from "./ClassLectureIntroductionModifyComponent";
 import ClassInquiryComponent from "./ClassInquiryComponent";
 
 
-
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((_theme) => ({
     root:{
         boxSizing:'content-box',
         "& .sticky":{

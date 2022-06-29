@@ -1,16 +1,11 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Avatar, Box, Button, FormControl, IconButton, MenuItem, Select, Typography} from "@material-ui/core";
-import CancelApprovalDialogComponent from "./CancelApprovalDialogComponent";
+import {Box, Button, IconButton, Typography} from "@material-ui/core";
 import clsx from "clsx";
-import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
-import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
-import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
-import {ReactComponent as Browsers} from "../../common/images/Browsers.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as PlayIcon} from "../../common/images/PlayIcon.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
+
 const styles = theme => ({
     root:{
 

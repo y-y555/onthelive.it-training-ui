@@ -1,13 +1,14 @@
-import React, { Component } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import { Avatar, Box, Button, FormControl, IconButton, Menu, MenuItem, Select, TableCell, Typography } from '@material-ui/core';
-import { ReactComponent as ArrowDownIcon } from '../../common/images/ArrowDownIcon.svg';
-import { ReactComponent as Browsers } from '../../common/images/Browsers.svg';
+import React, {Component} from 'react';
+import {withStyles} from '@material-ui/core/styles';
+import {Avatar, Box, Button, FormControl, MenuItem, Select, Typography} from '@material-ui/core';
+import {ReactComponent as ArrowDownIcon} from '../../common/images/ArrowDownIcon.svg';
+import {ReactComponent as Browsers} from '../../common/images/Browsers.svg';
 import clsx from 'clsx';
-import { ReactComponent as CheckCircleAgreeOffIcon } from '../../common/images/CheckCircleAgreeOffIcon.svg';
-import { ReactComponent as CheckCircleAgreeOnIcon } from '../../common/images/CheckCircleAgreeOnIcon.svg';
-import { ReactComponent as AsideUserIcon } from '../../common/images/AsideUserIcon.svg';
+import {ReactComponent as CheckCircleAgreeOffIcon} from '../../common/images/CheckCircleAgreeOffIcon.svg';
+import {ReactComponent as CheckCircleAgreeOnIcon} from '../../common/images/CheckCircleAgreeOnIcon.svg';
+import {ReactComponent as AsideUserIcon} from '../../common/images/AsideUserIcon.svg';
 import StudentPreviousBoardComponent from './StudentPreviousBoardComponent';
+
 const styles = theme => ({
     root: {
         '@media all and (min-width: 1500px)': {
@@ -176,7 +177,6 @@ const styles = theme => ({
         color: '#000',
         fontSize: '0.875rem',
         padding: '6px 23px',
-        marginLeft: 20,
         '&:hover': {
             backgroundColor: '#fff',
         },
@@ -190,7 +190,8 @@ const styles = theme => ({
         },
     },
 });
-class StudentClassEvaluationTableCompononet extends Component {
+
+class ClassAssignmentTableCompononet extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -200,14 +201,14 @@ class StudentClassEvaluationTableCompononet extends Component {
             anchorGeneral: null,
             listItem: false,
             LearningList: [
-                { name: '변요한', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '참여완료' },
-                { name: '박서윤', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '미참여' },
-                { name: '김민준', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '참여중' },
+                { name: '변요한', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '학습완료' },
+                { name: '박서윤', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '학습전' },
+                { name: '김민준', lastDate: '2022.5.31', learnCont: '5', learnTime: '30', learnTimeTotal: '50', state: '학습중' },
             ],
             boardList: [
-                { name: '평가', count: '3' },
-                { name: '평가 참여', count: '2' },
-                { name: '미참여', count: '1' },
+                { name: '과제', count: '3' },
+                { name: '제출 완료', count: '2' },
+                { name: '미제출', count: '1' },
             ],
         };
     }
@@ -286,14 +287,12 @@ class StudentClassEvaluationTableCompononet extends Component {
                                 <span className={classes.groupInfo}>2022.6.1. | 과제기한 : ~2022.6.1. | 제출일 : 2022.5.11 오후 2:22 </span>
                             </Box>
                         </Box>
-                        <Box display="flex">
-                            <Typography className={classes.stateStyle} style={{ color: '#f51666' }}>
-                                참여완료
-                            </Typography>
-                            <Button className={classes.btnStyle} disableRipple>
-                                결과보기
-                            </Button>
-                        </Box>
+                        {/*<Typography>*/}
+                        {/*    <span style={{ fontSize: '1.875rem' }}>20</span>명*/}
+                        {/*</Typography>*/}
+                        <Button className={classes.btnStyle} disableRipple>
+                            제출 완료
+                        </Button>
                     </Box>
                     {this.state.listItem === true ? (
                         <Box className={classes.listStyleOn}>
@@ -350,15 +349,15 @@ class StudentClassEvaluationTableCompononet extends Component {
                                                     </span>
                                                 </Box>
                                             </Box>
-                                            {list.state === '참여완료' ? (
+                                            {list.state === '학습완료' ? (
                                                 <Typography className={classes.stateStyle} style={{ color: '#f51666' }}>
-                                                    참여완료
+                                                    학습완료
                                                 </Typography>
-                                            ) : list.state === '미참여' ? (
-                                                <Typography className={classes.stateStyle}>미참여</Typography>
-                                            ) : list.state === '참여중' ? (
+                                            ) : list.state === '학습전' ? (
+                                                <Typography className={classes.stateStyle}>학습 전</Typography>
+                                            ) : list.state === '학습중' ? (
                                                 <Typography className={classes.stateStyle} style={{ color: '#1664f5' }}>
-                                                    참여 중
+                                                    학습 중
                                                 </Typography>
                                             ) : null}
                                         </Box>
@@ -378,12 +377,12 @@ class StudentClassEvaluationTableCompononet extends Component {
                                 <span className={classes.groupInfo}>2022.6.1. | 과제기한 : ~2022.6.1. | 제출일 : -</span>
                             </Box>
                         </Box>
-                        <Box display="flex">
-                            <Typography className={classes.stateStyle}>미참여</Typography>
-                            <Button className={clsx(classes.btnStyle, classes.btnStyleActive)} disableRipple>
-                                참여하기
-                            </Button>
-                        </Box>
+                        {/*<Typography>*/}
+                        {/*    <span style={{ fontSize: '1.875rem' }}>17</span>명*/}
+                        {/*</Typography>*/}
+                        <Button className={clsx(classes.btnStyle, classes.btnStyleActive)} disableRipple>
+                            제출하기
+                        </Button>
                     </Box>
                 </Box>
             </div>
@@ -391,4 +390,4 @@ class StudentClassEvaluationTableCompononet extends Component {
     }
 }
 
-export default withStyles(styles)(StudentClassEvaluationTableCompononet);
+export default withStyles(styles)(ClassAssignmentTableCompononet);

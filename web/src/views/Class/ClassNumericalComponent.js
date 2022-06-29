@@ -1,15 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
-import {ReactComponent as Info} from "../../common/images/Info.svg";
-import {Typography, Box, Button, Tooltip, IconButton} from "@material-ui/core";
-import {grey} from "@material-ui/core/colors";
-import clsx from 'clsx';
-import {ReactComponent as X} from "../../common/images/X.svg";
+import {Box} from "@material-ui/core";
 import ProgressRate from "./ProgressRate";
 import StudyTime from "./StudyTime";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

@@ -1,20 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Avatar,
-    Box,
-    Dialog,
-    IconButton,
-    Typography,
-    Button,
-    OutlinedInput,
-    FormControl,
-    TextareaAutosize, TextField
-} from "@material-ui/core";
+import {Box, Button, Dialog, FormControl, IconButton, OutlinedInput, TextField, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import clsx from "clsx";
 import Autocomplete from "@material-ui/lab/Autocomplete";
-import MemberGroupSearchDialogComponent from "../Class/MemberGroupSearchDialogComponent";
 
 const styles = theme => ({
     root:{

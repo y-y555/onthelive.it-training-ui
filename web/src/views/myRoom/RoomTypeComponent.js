@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Button} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 import {ReactComponent as BackArrowIcon} from "../../common/images/BackArrowIcon.svg";
 import {withRouter} from "react-router-dom";
 

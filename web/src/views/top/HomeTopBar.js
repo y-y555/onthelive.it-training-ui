@@ -1,8 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, IconButton, InputBase, Select, Typography} from "@material-ui/core";
+import {Box, Button, IconButton, InputBase} from "@material-ui/core";
 import {ReactComponent as OntheliveLogo} from "../../common/images/ItLogo.svg";
-import {ReactComponent as SelectArrow} from "../../common/images/SelectArrow.svg";
 import {Link, withRouter} from "react-router-dom";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 

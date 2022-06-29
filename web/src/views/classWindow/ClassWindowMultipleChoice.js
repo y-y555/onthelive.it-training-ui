@@ -6,7 +6,7 @@ import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

@@ -1,10 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-
-import {ReactComponent as FileFillIcon} from "../../common/images/FileFillIcon.svg";
-
 import ClassContentInfoComponent from "./ClassContentInfoComponent";
-import ClassContentSearchComponent from "./ClassContentSearchComponent";
 import ClassAsiadeLatestComponent from "./ClassAsiadeLatestComponent";
 
 

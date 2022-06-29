@@ -1,10 +1,9 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box} from "@material-ui/core";
 import Layout1ColumnComponent from "./Layout1columnComponent";
 import Layout2ColumnComponent from "./Layout2columnComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width:'calc(100% - 133px)',
         minHeight: 'calc(100vh - 59px)',

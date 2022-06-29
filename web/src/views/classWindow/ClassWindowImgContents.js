@@ -5,7 +5,7 @@ import {ReactComponent as CheckSquareOffset} from "../../common/images/CheckSqua
 import TestImg from "../../common/images/TestImg.png";
 import {withStyles} from "@material-ui/core/styles";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

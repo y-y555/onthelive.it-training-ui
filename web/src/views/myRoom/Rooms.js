@@ -5,7 +5,6 @@ import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
 import MyRoomTopComponent from "./MyRoomTopStudentComponent";
 import Footer from "../footer/Footer";
-import CourseManagementComponent from "../courseManagement/CourseManagementComponent";
 import LearningManagementComponent from "../learningManagement/LearningManagementComponent";
 
 const styles = theme => ({

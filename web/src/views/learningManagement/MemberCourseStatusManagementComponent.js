@@ -10,8 +10,7 @@ import {
     MenuItem,
     Select,
     TablePagination,
-    Typography,
-    Tooltip
+    Typography
 } from "@material-ui/core";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
@@ -26,7 +25,6 @@ import {ReactComponent as PlayIcon} from "../../common/images/PlayIcon.svg";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import {ReactComponent as CaretLeftIcon} from "../../common/images/CaretLeftIcon.svg";
 import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
-import {ReactComponent as X} from "../../common/images/X.svg";
 
 const styles = theme => ({
     root:{

@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, FormControl, InputBase, MenuItem, Select, Tab, Tabs, Typography} from "@material-ui/core";
-import {ReactComponent as CaretDown} from "../../common/images/CaretDown.svg";
-import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
+import {Box, Button, Tab, Tabs} from "@material-ui/core";
 
 const styles = theme => ({
     root:{

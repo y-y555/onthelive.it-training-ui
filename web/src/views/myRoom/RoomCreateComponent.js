@@ -5,19 +5,17 @@ import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
     Button,
-    Checkbox,
     FormControl,
     FormControlLabel,
     OutlinedInput,
-    Typography,
     Radio,
     RadioGroup,
-    TextareaAutosize
+    TextareaAutosize,
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as BackArrowIcon} from "../../common/images/BackArrowIcon.svg";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
-import GalleryCheckCircleIcon from "../../common/images/GalleryCheckCircleIcon.svg";
 
 import Gallery from "./imgGallery/Gallery";
 

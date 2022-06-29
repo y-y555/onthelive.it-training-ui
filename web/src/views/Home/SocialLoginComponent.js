@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Button, Box, Typography} from "@material-ui/core";
-import { ReactComponent as LogoNaverIcon } from '../../common/images/LogoNaverIcon.svg';
-import { ReactComponent as LogoKakaoIcon } from '../../common/images/LogoKakaoIcon.svg';
-import { ReactComponent as LogoFacebookIcon } from '../../common/images/LogoFacebookIcon.svg';
-import { ReactComponent as LogoGoogleIcon } from '../../common/images/LogoGoogleIcon.svg';
+import {Button, Typography} from "@material-ui/core";
+import {ReactComponent as LogoNaverIcon} from '../../common/images/LogoNaverIcon.svg';
+import {ReactComponent as LogoKakaoIcon} from '../../common/images/LogoKakaoIcon.svg';
+import {ReactComponent as LogoFacebookIcon} from '../../common/images/LogoFacebookIcon.svg';
+import {ReactComponent as LogoGoogleIcon} from '../../common/images/LogoGoogleIcon.svg';
 import {withRouter} from "react-router-dom";
 
 const styles = theme => ({

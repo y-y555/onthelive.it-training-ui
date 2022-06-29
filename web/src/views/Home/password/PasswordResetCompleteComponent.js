@@ -1,16 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, FormControl, IconButton, InputAdornment, OutlinedInput, Typography} from "@material-ui/core";
-import {ReactComponent as BackArrowIcon} from "../../../common/images/BackArrowIcon.svg";
-import {ReactComponent as LoginUserIcon} from "../../../common/images/LoginUserIcon.svg";
-import {ReactComponent as LoginPasswordIcon} from "../../../common/images/LoginPasswordIcon.svg";
-import {ReactComponent as LoginEyeIcon} from "../../../common/images/LoginEyeIcon.svg";
-import {ReactComponent as LoginEyeSlashIcon} from "../../../common/images/LoginEyeSlashIcon.svg";
-import {ReactComponent as PasswordNumberCheckedIcon} from "../../../common/images/PasswordNumberCheckedIcon.svg";
-import clsx from "clsx";
-import {ReactComponent as PasswordNumberCheckedErrorIcon} from "../../../common/images/PasswordNumberCheckedErrorIcon.svg";
-import {ReactComponent as PasswordNumberUnCheckedIcon} from "../../../common/images/PasswordNumberUnCheckedIcon.svg";
-import PasswordCheckComponent from "../PasswordCheckComponent";
+import {Box, Button, Typography} from "@material-ui/core";
 
 const styles = theme => ({
     root:{

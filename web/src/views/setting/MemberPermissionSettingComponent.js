@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, OutlinedInput, Select, MenuItem, FormControl} from "@material-ui/core";
+import {Box, FormControl, MenuItem, OutlinedInput, Select, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 
 const styles = theme => ({

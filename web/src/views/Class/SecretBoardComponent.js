@@ -1,18 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box, Button,
-    FormControl,
-    IconButton,
-    Input,
-    InputBase,
-    MenuItem,
-    Paper,
-    Select,
-    Tab,
-    Tabs,
-    Typography
-} from "@material-ui/core";
+import {Box, Button, FormControl, IconButton, MenuItem, Select, Tab, Tabs, Typography} from "@material-ui/core";
 import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
@@ -22,7 +10,6 @@ import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
 import clsx from "clsx";
 import {ReactComponent as PencilLine} from "../../common/images/PencilLine.svg";
 import {ReactComponent as NoFilesIcon} from "../../common/images/NoFilesIcon.svg";
-
 
 
 const styles = theme => ({

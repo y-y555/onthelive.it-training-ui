@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, FormControl, InputAdornment, OutlinedInput, Typography, FormHelperText} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import clsx from "clsx";
 import {ReactComponent as PasswordNumberCheckedIcon} from "../../common/images/PasswordNumberCheckedIcon.svg";
 import {ReactComponent as PasswordNumberCheckedErrorIcon} from "../../common/images/PasswordNumberCheckedErrorIcon.svg";

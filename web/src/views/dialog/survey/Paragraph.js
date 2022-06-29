@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    Box,
-    TextareaAutosize,
-    Typography
-} from "@material-ui/core";
+import {Box, TextareaAutosize, Typography} from "@material-ui/core";
 
 const style = theme => ({
     root:{

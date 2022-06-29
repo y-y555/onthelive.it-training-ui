@@ -1,16 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Dialog,
-    IconButton,
-    Typography,
-    Button,
-    MenuItem,
-    Menu,
-    OutlinedInput,
-    FormControl
-} from "@material-ui/core";
+import {Box, Button, Dialog, IconButton, Menu, MenuItem, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as ChatsCircle} from "../../common/images/ChatsCircle.svg";
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";

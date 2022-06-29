@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, IconButton, InputBase, Paper, Tab, Tabs} from "@material-ui/core";
-import {ReactComponent as FolderPlusIcon} from "../../common/images/FolderPlusIcon.svg";
+import {Box, Button, Tab, Tabs} from "@material-ui/core";
 import FreeBoardComponent from "./FreeBoardComponent";
 import SecretBoardComponent from "./SecretBoardComponent";
 import WritingDialogComponent from "../dialog/WritingDialogComponent";
 import TopicDialogComponent from "../dialog/TopicDialogComponent";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

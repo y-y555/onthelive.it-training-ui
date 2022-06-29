@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import SearchCategoryManagementComponent from "./SearchCategoryManagementComponent";
 import CourseOpenLectureTableComponent from "./CourseOpenLectureTableComponent"
+
 const styles = theme => ({
 });
 class OpenLectureRoomCompononet extends Component {

@@ -3,7 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Button, MenuItem, Popover} from "@material-ui/core";
 import clsx from "clsx";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width:'100%',
         display:'flex',

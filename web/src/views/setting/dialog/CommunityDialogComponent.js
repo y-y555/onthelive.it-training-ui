@@ -1,13 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Dialog,
-    FormControlLabel,
-    IconButton,
-    Switch,
-    Typography
-} from "@material-ui/core";
+import {Box, Dialog, FormControlLabel, IconButton, Switch, Typography} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../../common/images/DialogCloseIcon.svg";
 import SwitchCloseIcon from "../../../common/images/SwitchCloseIcon.svg";
 import SwitchCheckIcon from "../../../common/images/SwitchCheckIcon.svg";

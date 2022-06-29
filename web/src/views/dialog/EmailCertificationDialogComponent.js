@@ -1,17 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Avatar,
-    Box,
-    Dialog,
-    DialogContent,
-    DialogContentText,
-    DialogTitle,
-    IconButton, Link,
-    Typography
-} from "@material-ui/core";
+import {Dialog, DialogContent, DialogContentText, DialogTitle, IconButton, Link} from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
-import TestAvatar from "../../common/images/TestAvatar.jpg";
 
 const styles = theme => ({
     root:{

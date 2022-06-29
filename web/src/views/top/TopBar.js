@@ -2,16 +2,18 @@ import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
 import {
-    Box,
-    IconButton,
-    InputBase,
     Avatar,
     Badge,
-    Popover,
+    Box,
     Button,
-    Typography,
+    FormControl,
+    IconButton,
+    InputBase,
+    MenuItem,
     MenuList,
-    MenuItem, Select, FormControl
+    Popover,
+    Select,
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as OntheliveLogo} from "../../common/images/ItLogo.svg";
 import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";

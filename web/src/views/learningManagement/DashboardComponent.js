@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, IconButton, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowCounterClockwise} from "../../common/images/ArrowCounterClockwise.svg";
-import {ReactComponent as Info} from "../../common/images/Info.svg";
 import LectureStatusComponent from "./LectureStatusComponent";
 import LearningStatusComponent from "./LearningStatusComponent";
 

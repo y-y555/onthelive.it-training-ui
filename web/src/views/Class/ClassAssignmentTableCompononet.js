@@ -1,12 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Avatar, Box, FormControl, IconButton, Menu, MenuItem, Select, TableCell, Typography} from "@material-ui/core";
+import {Avatar, Box, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import {ReactComponent as Browsers} from "../../common/images/Browsers.svg";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
+
 const styles = theme => ({
     root:{
         '@media all and (min-width: 1500px)': {

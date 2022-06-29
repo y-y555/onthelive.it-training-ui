@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {ReactComponent as FileFillIcon} from "../../common/images/FileFillIcon.svg";
-import {Box, Typography, Button} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 
 const styles = theme => ({
     root:{

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Avatar, Box, FormControl, IconButton, Menu, MenuItem, Select, Typography, Tooltip} from "@material-ui/core";
+import {Avatar, Box, FormControl, IconButton, Menu, MenuItem, Select, Tooltip, Typography} from "@material-ui/core";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
@@ -10,7 +10,7 @@ import {ReactComponent as ChartLineUpIcon} from "../../common/images/ChartLineUp
 import {ReactComponent as UserListIcon} from "../../common/images/UserListIcon.svg";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

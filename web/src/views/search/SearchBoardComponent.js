@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, Typography} from "@material-ui/core";
+import {Box, Typography} from "@material-ui/core";
 import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
 import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";

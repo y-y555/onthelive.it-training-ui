@@ -1,21 +1,16 @@
 import React, {Component} from 'react';
-import {Avatar, Box, Button, IconButton, Tooltip, Typography} from "@material-ui/core";
+import {Box, Button, IconButton, Tooltip, Typography} from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
-import {ReactComponent as SmileyFillIcon} from "../../common/images/SmileyFillIcon.svg";
 import {ReactComponent as AlarmFillIcon} from "../../common/images/AlarmFillIcon.svg";
-import {ReactComponent as LinkFillIcon} from "../../common/images/LinkFillIcon.svg";
 import {ReactComponent as ChartBarFillIcon} from "../../common/images/ChartBarFillIcon.svg";
-import {ReactComponent as StudentFillIcon} from "../../common/images/StudentFillIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
-import {ReactComponent as ChatIcon} from "../../common/images/ChatIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
 import {ReactComponent as BookmarksSimpleGreen} from "../../common/images/BookmarksSimpleGreen.svg";
 import {ReactComponent as BookmarksSimpleRed} from "../../common/images/BookmarksSimpleRed.svg";
 import clsx from "clsx";
 import {withRouter} from "react-router-dom";
-import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as LockKey} from "../../common/images/LockKey.svg";
 

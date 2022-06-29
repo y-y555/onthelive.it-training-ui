@@ -4,7 +4,7 @@ import TopBar from "./views/top/TopBar";
 import Home from "./views/Home/Home";
 import Rooms from "./views/myRoom/Rooms";
 import {withStyles} from "@material-ui/core/styles";
-import {BrowserRouter as Router, Route, Switch, Redirect, withRouter} from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch, Redirect} from "react-router-dom";
 import Login from "./views/Home/Login";
 import SignUp from "./views/Home/singup/SignUp";
 import SocialAgreeComponent from "./views/Home/singup/SocialAgreeComponent";

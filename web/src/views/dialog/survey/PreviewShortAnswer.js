@@ -1,11 +1,7 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    Box,
-    Input,
-    Typography
-} from "@material-ui/core";
+import {Box, Input, Typography} from "@material-ui/core";
 import Sample1 from "../../../common/images/Sample1.jpg";
 
 const style = theme => ({

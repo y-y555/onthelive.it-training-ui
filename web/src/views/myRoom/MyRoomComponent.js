@@ -1,42 +1,19 @@
 import React, {Component} from 'react';
 import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Typography,
-    Button,
-    MenuItem,
-    Select,
-    FormControl,
-    InputBase,
-    IconButton,
-    Dialog,
-    DialogTitle,
-    DialogContent,
-    DialogActions,
-    Tab, Tabs
-} from "@material-ui/core";
+import {Box, Button, FormControl, InputBase, MenuItem, Select, Tab, Tabs, Typography} from "@material-ui/core";
 import {ReactComponent as ButtonPlusIcon} from "../../common/images/ButtonPlusIcon.svg";
-import {ReactComponent as NewPostIcon} from "../../common/images/NewPostIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
-import {ReactComponent as PasswordNumberUnCheckedIcon} from "../../common/images/PasswordNumberUnCheckedIcon.svg";
-import {ReactComponent as AsideSettingIcon} from "../../common/images/AsideSettingIcon.svg";
 import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
 import RoomTestImg2 from "../../common/images/RoomTestImg2.png";
 import RoomTestImg3 from "../../common/images/RoomTestImg3.png";
 import {withRouter} from "react-router-dom";
-import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
-import HiddenGroupManagementDialogComponent from "../dialog/HiddenGroupManagementDialogComponent";
-import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
-import {ReactComponent as CalendarBlank2} from "../../common/images/CalendarBlank2.svg";
 import {ReactComponent as LiveIcon} from "../../common/images/LiveIcon.svg";
 import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
-import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIcon.svg";
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
-import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 
 const styles = theme => ({
@@ -605,7 +582,7 @@ class MyRoomComponent extends Component {
                                 <Box key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
                                         disableRipple onClick={this.handleClickClass} >
                                     <Box className={classes.imgBox}>
-                                        <img src={rooms.img} alt='room image'/>
+                                        <img src={rooms.img} alt='room'/>
                                         <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10, borderRadius:3, overflow:'hidden'}}>
                                             {rooms.live === true &&
                                                 <Box className={classes.liveBox}>
@@ -660,7 +637,7 @@ class MyRoomComponent extends Component {
                             ))
                         }
                         <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
-                            <img src={RoomTestImg3} alt='room image'/>
+                            <img src={RoomTestImg3} alt='room'/>
                             <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
                                 <Box display='flex' flexDirection='column' alignItems='flex-start'>
                                     <Typography className={clsx(classes.buttonText, classes.guideText)}>강사 가이드</Typography>

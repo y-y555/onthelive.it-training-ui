@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box,Typography, Button} from "@material-ui/core";
+import {Box, Button, Typography} from "@material-ui/core";
 import {ReactComponent as BackgroundImageIcon} from "../../common/images/BackgroundImageIcon.svg";
 import IntroductionDialogComponent from "../dialog/IntroductionDialogComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:1440,

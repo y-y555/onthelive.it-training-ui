@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Avatar, Box, Button, FormControl, MenuItem, Select, Typography} from "@material-ui/core";
-import CancelApprovalDialogComponent from "./CancelApprovalDialogComponent";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import {ReactComponent as AsideUserIcon} from "../../common/images/AsideUserIcon.svg";
 import {ReactComponent as Browsers} from "../../common/images/Browsers.svg";
+
 const styles = theme => ({
     root:{
 

@@ -1,15 +1,14 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Tabs, Tab, TabPanel, Radio, FormControlLabel, Link, Button} from "@material-ui/core";
+import {Box, Button, Link, Tab, Tabs} from "@material-ui/core";
 import SearchCategoryComponent from "./SearchCategoryComponent";
-import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
-import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as CheckCircleAgreeOffIcon} from "../../common/images/CheckCircleAgreeOffIcon.svg";
 import {ReactComponent as CheckCircleAgreeOnIcon} from "../../common/images/CheckCircleAgreeOnIcon.svg";
 import HomeCarouselComponent from "../Home/HomeCarouselComponent";
 import {ReactComponent as CaretRightIcon} from "../../common/images/CaretRightIcon.svg";
 import {ReactComponent as ArrowUp} from "../../common/images/ArrowUpIcon.svg";
+
 const styles = theme => ({
     root:{
     },

@@ -6,7 +6,6 @@ import {ReactComponent as PlayCircle} from "../../common/images/PlayCircle.svg";
 import {ReactComponent as Code} from "../../common/images/Code.svg";
 import {ReactComponent as Exam} from "../../common/images/Exam.svg";
 import {ReactComponent as Notebook} from "../../common/images/Notebook.svg";
-import {ReactComponent as PasswordNumberUnCheckedIcon} from "../../common/images/PasswordNumberUnCheckedIcon.svg";
 import clsx from "clsx";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
@@ -16,7 +15,7 @@ import {ReactComponent as Paperclip} from "../../common/images/Paperclip.svg";
 import {ReactComponent as Close} from "../../common/images/Close.svg";
 import {ReactComponent as X} from "../../common/images/X.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width: 133,
         minHeight: 'calc(100vh - 59px)',

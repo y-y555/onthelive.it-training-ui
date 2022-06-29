@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Tabs, Tab, Box, Button} from "@material-ui/core";
+import {Box, Button, Tab, Tabs} from "@material-ui/core";
 import ClassServiceCenter from "./ClassServiceCenter";
 import ClassInquiryDetailsComponent from "./ClassInquiryDetailsComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width:730,

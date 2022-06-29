@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import clsx from "clsx";
 import {withStyles} from "@material-ui/core/styles";
-import {
-    Box,
-    Button,
-    Tab, Tabs
-} from "@material-ui/core";
+import {Box, Button, Tab, Tabs} from "@material-ui/core";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as BedgeNewIcon} from "../../common/images/BedgeNewIcon.svg";
 import {ReactComponent as PlusCircleIcon} from "../../common/images/PlusCircleIcon.svg";

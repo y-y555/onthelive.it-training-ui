@@ -2,13 +2,17 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {
     Box,
-    Typography,
-    Dialog,
-    OutlinedInput,
-    FormControl,
     Button,
+    Dialog,
+    FormControl,
+    IconButton,
+    InputBase,
+    ListItemIcon,
+    MenuItem,
+    OutlinedInput,
+    Select,
     TextareaAutosize,
-    IconButton, Select, MenuItem, InputBase, ListItemIcon
+    Typography
 } from "@material-ui/core";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";

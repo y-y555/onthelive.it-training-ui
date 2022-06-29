@@ -2,10 +2,9 @@ import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
 import {Box, IconButton, Typography} from "@material-ui/core";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
-import clsx from "clsx";
 import {ReactComponent as X} from "../../common/images/X.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
 
     },

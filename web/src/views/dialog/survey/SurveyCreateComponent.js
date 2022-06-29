@@ -1,13 +1,9 @@
 import React, {Component} from 'react';
-import { withStyles } from "@material-ui/core/styles";
+import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
-import {
-    Box,
-    Typography,
-    Button,
-} from "@material-ui/core";
-import { ReactComponent as PollCreatePlus } from "../../../common/images/PollCreatePlus.svg";
-import { ReactComponent as SurveyDragIcon } from "../../../common/images/SurveyDragIcon.svg";
+import {Box, Button, Typography,} from "@material-ui/core";
+import {ReactComponent as PollCreatePlus} from "../../../common/images/PollCreatePlus.svg";
+import {ReactComponent as SurveyDragIcon} from "../../../common/images/SurveyDragIcon.svg";
 import Paragraph from "./Paragraph";
 import SurveyQuestion from "./SurveyQuestion";
 import ParagraphAdd from "./ParagraphAdd";

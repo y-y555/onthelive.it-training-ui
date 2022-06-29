@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Typography, Button, IconButton, Menu, MenuItem, Avatar} from "@material-ui/core";
+import {Avatar, Box, Button, IconButton, Menu, MenuItem, Typography} from "@material-ui/core";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
 import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVerticalIcon.svg";
@@ -9,9 +9,8 @@ import {ReactComponent as AlarmFillIcon} from "../../common/images/AlarmFillIcon
 import CommentComponent from "./CommentComponent";
 import ClassContentSearchComponent from "./ClassContentSearchComponent";
 import MemberProfileDialogComponent from "../dialog/MemberProfileDialogComponent";
-import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width: 1440,

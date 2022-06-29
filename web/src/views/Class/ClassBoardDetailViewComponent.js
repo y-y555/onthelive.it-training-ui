@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, IconButton, MenuItem, Typography, Menu} from "@material-ui/core";
+import {Box, Button, IconButton, Menu, MenuItem, Typography} from "@material-ui/core";
 import {ReactComponent as EyeTinyIcon} from "../../common/images/EyeIcon.svg";
 import {ReactComponent as HandsClappingIcon} from "../../common/images/HandsClappingIcon.svg";
 import {ReactComponent as ChatCircleDotsIcon} from "../../common/images/ChatCircleDotsIcon.svg";
@@ -8,7 +8,7 @@ import {ReactComponent as MoreIcon} from "../../common/images/DotsThreeOutlineVe
 import CommentComponent from "./CommentComponent";
 
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         '@media all and (min-width: 1500px)': {
             width: 730,

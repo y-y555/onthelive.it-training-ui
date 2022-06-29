@@ -7,7 +7,7 @@ import TestVideoImg from "../../common/images/TestVideoImg.png";
 
 const DUMMY_VM_ACCESS_URL = 'http://146.56.37.19/guacamole/#/client/MzEAYwBteXNxbA==';
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         width: 690,
         boxSizing:'border-box',

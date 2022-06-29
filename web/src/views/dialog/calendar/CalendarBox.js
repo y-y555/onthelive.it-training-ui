@@ -1,8 +1,5 @@
 import React, {Component} from 'react';
-import {
-    Box,
-    Button
-} from "@material-ui/core";
+import {Box, Button} from "@material-ui/core";
 import {withStyles} from "@material-ui/core/styles";
 import CalendarShape from "./CalendarShape";
 import StartTime from "./StartTime";
