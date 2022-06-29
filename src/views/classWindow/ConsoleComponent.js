@@ -33,15 +33,29 @@ const styles = theme => ({
         position: 'relative',
         width:'100%',
         height: 360,
-        background:'#848484',
+        background:'transparent',
         marginBottom: 14,
         marginTop: 14,
         cursor:'pointer',
         backgroundImage:`url(${TestVideoImg})`,
         backgroundPosition: 'center',
-        backgroundSize:'cover',
+        backgroundSize:'contain',
+        backgroundRepeat:'no-repeat',
         '@media all and (max-width: 1300px)': {
             height: 280,
+        },
+    },
+    textBox:{
+        width:'50%',
+        height: '50%',
+        '&::after':{
+            content:"이미지를 클릭하면 새탭에서콘솔이 실행됩니다.",
+            fontSize: '1rem',
+            background:'red',
+            color:'#fff',
+            width: 100,
+            height: 100,
+            display:'block'
         },
     },
     boxStyle2:{
@@ -76,7 +90,8 @@ class ConsoleComponent extends Component {
                 {!typeButton2 ?
                     <Box display='flex' flexDirection='column' alignItems='center'>
                         <Box display='flex' justifyContent='center' alignItems='center' className={classes.boxStyle}>
-                            <Typography className={clsx(classes.titleText, classes.textColor)}>이미지를 클릭하면 새탭에서<br/>콘솔이 실행됩니다.</Typography>
+                            <Box className={classes.textBox} />
+                            {/*<Typography className={clsx(classes.titleText, classes.textColor)}>이미지를 클릭하면 새탭에서<br/>콘솔이 실행됩니다.</Typography>*/}
                         </Box>
                         <Typography className={clsx(classes.titleText, classes.bold)}>Windows 10 and later x64 </Typography>
                     </Box>
