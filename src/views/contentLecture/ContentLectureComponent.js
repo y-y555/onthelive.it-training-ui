@@ -107,22 +107,22 @@ class ContentLectureComponent extends Component {
                             handleClickInfoDialog={this.handleClickInfoDialog}
 
                         />
-                        {this.state.lectureClass ?
-                            <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>
-                            :
-                            <Box display='flex'>
-                                <ContentLectureSideBarComponent
-                                    typeButton1={this.state.typeButton1}
-                                    typeButton2={this.state.typeButton2}
-                                    handleChangeTypeButton1={this.handleChangeTypeButton1}
-                                    handleChangeTypeButton2={this.handleChangeTypeButton2}
-                                />
-                                <ContentLectureSectionComponent
-                                    typeButton1={this.state.typeButton1}
-                                    typeButton2={this.state.typeButton2}
-                                />
-                            </Box>
-                        }
+                        {/*{this.state.lectureClass ?*/}
+                        {/*    <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>*/}
+                        {/*    :*/}
+                        {/*    <Box display='flex'>*/}
+                        {/*        <ContentLectureSideBarComponent*/}
+                        {/*            typeButton1={this.state.typeButton1}*/}
+                        {/*            typeButton2={this.state.typeButton2}*/}
+                        {/*            handleChangeTypeButton1={this.handleChangeTypeButton1}*/}
+                        {/*            handleChangeTypeButton2={this.handleChangeTypeButton2}*/}
+                        {/*        />*/}
+                        {/*        <ContentLectureSectionComponent*/}
+                        {/*            typeButton1={this.state.typeButton1}*/}
+                        {/*            typeButton2={this.state.typeButton2}*/}
+                        {/*        />*/}
+                        {/*    </Box>*/}
+                        {/*}*/}
 
                     </>
                 }
