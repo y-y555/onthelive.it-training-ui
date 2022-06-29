@@ -26,7 +26,7 @@ import NotificationComponent from "../Notification/NotificationComponent";
 import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon.svg";
 import {inject, observer} from "mobx-react";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         display:'flex',
         justifyContent:'center',
@@ -237,7 +237,6 @@ const StyledBadge = withStyles((theme) => ({
         height:12,
         borderRadius:'50%',
         background:'#00c880',
-        overlap : 'rectangular',
     },
 }))(Badge);
 
@@ -250,7 +249,6 @@ const StyledBadgeMember = withStyles((theme) => ({
         height:15,
         borderRadius:'50%',
         background:'#00c880',
-        overlap : 'rectangular',
     },
 }))(Badge);
 
@@ -312,6 +310,7 @@ class TopBar extends Component {
 
     render() {
         const { classes } = this.props;
+        const { loginUser } = this.props.authStore;
         const { anchorEl, notificationOpen } = this.state;
         const open = Boolean(anchorEl);
         const bellIconClassName = notificationOpen ? classes.iconColor : null;
@@ -373,12 +372,17 @@ class TopBar extends Component {
                                 anchorOrigin={{
                                     vertical: 'bottom',
                                     horizontal: 'right',
-                                    overlap : 'rectangular',
                                 }}
                                 variant="dot"
                                 overlap='rectangular'
                             >
-                                <Avatar className={classes.avatar}>N</Avatar>
+                                <Avatar
+                                    src={TestAvatar}
+                                    alt="profile image"
+                                    className={classes.avatar}
+                                >
+                                    N
+                                </Avatar>
                             </StyledBadge>
                         </IconButton>
 
@@ -404,17 +408,26 @@ class TopBar extends Component {
                                             anchorOrigin={{
                                                 vertical: 'bottom',
                                                 horizontal: 'right',
-                                                overlap : 'rectangular',
                                             }}
                                             variant="dot"
                                             overlap='rectangular'
                                         >
-                                            <Avatar src={TestAvatar} alt="profile image" className={classes.avatarMember}>N</Avatar>
+                                            <Avatar
+                                                src={TestAvatar}
+                                                alt="profile image"
+                                                className={classes.avatarMember}
+                                            >
+                                                N
+                                            </Avatar>
                                         </StyledBadgeMember>
                                     </Box>
                                     <Box>
-                                        <Typography className={classes.nameText}>김민희</Typography>
-                                        <Typography className={classes.emailText} noWrap>minikim81@gmail.com</Typography>
+                                        <Typography className={classes.nameText}>
+                                            {loginUser.name}
+                                        </Typography>
+                                        <Typography className={classes.emailText} noWrap>
+                                            {loginUser.email}
+                                        </Typography>
                                         <FormControl variant="outlined" className={classes.formControl}>
                                             <Select
                                                 value={this.state.filter}
@@ -435,7 +448,9 @@ class TopBar extends Component {
                                         className={classes.menuItem}
                                         disableRipple
                                         onClick={this.handleClickLogout}
-                                    >로그아웃</MenuItem>
+                                    >
+                                        로그아웃
+                                    </MenuItem>
                                 </MenuList>
                             </Box>
                         </Popover>

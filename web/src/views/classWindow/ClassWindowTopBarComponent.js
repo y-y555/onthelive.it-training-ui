@@ -158,6 +158,7 @@ class ClassWindowTopBarComponent extends Component {
 
     render() {
         const { classes } = this.props;
+        const { isGuestUser } = this.props;
 
         return (
             <div className={classes.root}>
@@ -198,7 +199,7 @@ class ClassWindowTopBarComponent extends Component {
                 </Box>
                 <Box display='flex' alignItems='center'>
                     <Button className={clsx(classes.buttonStyle, classes.btnStyle)} onClick={this.handleClickBack} disableRipple>
-                        수강완료
+                        {isGuestUser ? '수강완료' : '강의종료'}
                     </Button>
                     <Button className={classes.buttonStyle} onClick={this.handleClickBack} disableRipple>
                         나가기

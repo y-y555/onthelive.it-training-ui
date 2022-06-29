@@ -63,7 +63,7 @@ class ContentLectureClassWindowComponent extends Component {
     };
 
     render() {
-        const { classes,classTab, handleChangeTabs } = this.props;
+        const { classes,classTab, handleChangeTabs, isGuestUser } = this.props;
         const { previewPc, typeButton1, typeButton2, image1} = this.state;
 
         return (
@@ -77,13 +77,16 @@ class ContentLectureClassWindowComponent extends Component {
                     </Box>
                 </Box>
 
+                {
+                    !isGuestUser &&
+                    <Box className={classes.tabContentsBox} >
+                        <ClassWindowTabComponent
+                            classTab={classTab}
+                            handleChangeTabs={handleChangeTabs}
+                        />
+                    </Box>
+                }
 
-                <Box className={classes.tabContentsBox} >
-                    <ClassWindowTabComponent
-                        classTab={classTab}
-                        handleChangeTabs={handleChangeTabs}
-                    />
-                </Box>
 
                 {classTab === 0 ?
                     <ClassComponent

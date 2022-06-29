@@ -530,14 +530,14 @@ class MyRoomComponent extends Component {
                     <Box display='flex' justifyContent='space-between' mb={5}>
                         <Tabs value={classTab} onChange={this.handleChangeTabs} className={classes.trigger}>
                             <Tab label="전체 (15)"
-                                 disableRipple
+                                 disableripple
                                  icon={<BedgeNewIcon className={classes.iconStyle} />}
                             />
                             <Tab label="진행중 (5)"
-                                 disableRipple
+                                 disableripple
                                  icon={<BedgeNewIcon className={classes.iconStyle} />}
                             />
-                            <Tab label="종료 (10)" disableRipple />
+                            <Tab label="종료 (10)" disableripple />
                         </Tabs>
 
                         <Box display='flex' justifyContent='flex-end' alignItems='center'>
@@ -559,7 +559,7 @@ class MyRoomComponent extends Component {
 
                     <Box display='flex' flexWrap='wrap'>
                         <Box style={{position:'relative'}}>
-                            <Button className={classes.roomCreateButton} disableRipple onClick={this.handleClickRoomType.bind(this)}>
+                            <Button className={classes.roomCreateButton} disableripple onClick={this.handleClickRoomType.bind(this)}>
                                 <Box className={classes.buttonIcon}>
                                     <ButtonPlusIcon/>
                                 </Box>
@@ -569,8 +569,8 @@ class MyRoomComponent extends Component {
                             {/*    <Typography className={classes.stepText}>단계 1 of 4</Typography>*/}
                             {/*    <Typography className={classes.stepContents}>수업, 스터디 등 유형별 모임을 만들어 보세요.</Typography>*/}
                             {/*    <Box display='flex' justifyContent='space-between' alignItems='center' >*/}
-                            {/*        <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableRipple>더 이상 안보기</Button>*/}
-                            {/*        <Button className={classes.stepBtn} disableRipple>*/}
+                            {/*        <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableripple>더 이상 안보기</Button>*/}
+                            {/*        <Button className={classes.stepBtn} disableripple>*/}
                             {/*            다음*/}
                             {/*        </Button>*/}
                             {/*    </Box>*/}
@@ -579,8 +579,11 @@ class MyRoomComponent extends Component {
 
                         {this.state.classTab === 0 &&
                             this.state.roomList.map((rooms, i) => (
-                                <Box key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
-                                        disableRipple onClick={this.handleClickClass} >
+                                <Box
+                                    key={i}
+                                    className={clsx(classes.roomCreateButton, classes.roomButton)}
+                                    disableripple
+                                    onClick={this.handleClickClass} >
                                     <Box className={classes.imgBox}>
                                         <img src={rooms.img} alt='room'/>
                                         <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10, borderRadius:3, overflow:'hidden'}}>
@@ -625,10 +628,10 @@ class MyRoomComponent extends Component {
                                             <BedgeNewIcon className={classes.badge}/>
                                         </Box>
                                         {/*<Box display='flex' justifyContent='center' alignItems='center' style={{width: '100%'}}>*/}
-                                        {/*    <Button className={classes.buttonStyle} disableRipple>*/}
+                                        {/*    <Button className={classes.buttonStyle} disableripple>*/}
                                         {/*        수강생 현황*/}
                                         {/*    </Button>*/}
-                                        {/*    <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} onClick={this.handleClickClass} disableRipple>*/}
+                                        {/*    <Button className={clsx(classes.buttonStyle, classes.buttonStyle2)} onClick={this.handleClickClass} disableripple>*/}
                                         {/*        강의실 입장*/}
                                         {/*    </Button>*/}
                                         {/*</Box>*/}
@@ -636,7 +639,7 @@ class MyRoomComponent extends Component {
                                 </Box>
                             ))
                         }
-                        <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
+                        <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableripple>
                             <img src={RoomTestImg3} alt='room'/>
                             <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
                                 <Box display='flex' flexDirection='column' alignItems='flex-start'>

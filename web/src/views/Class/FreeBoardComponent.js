@@ -331,8 +331,9 @@ class FreeBoardComponent extends Component {
                 </Box>
                 {board === 0 &&
                     <Box>
-                        {this.state.cardViewList.map((cardView, i) => (
-                            <Box className={classes.cardBox}>
+                        {
+                            this.state.cardViewList.map((cardView, i) => (
+                            <Box key={i} className={classes.cardBox}>
                                 <Box className={classes.boxInPadding}>
                                     <Box className={classes.title}>
                                         {cardView.notice === true &&

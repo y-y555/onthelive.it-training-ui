@@ -277,8 +277,9 @@ class ClassAssignmentTableCompononet extends Component {
                                 <Box className={classes.userBar}>
                                     <AsideUserIcon/> <span>{this.state.LearningList.length}명</span></Box>
                                 <Box>
-                                    {this.state.LearningList.map((list, i) => (
-                                        <Box className={classes.listItemStyle}>
+                                    {
+                                        this.state.LearningList.map((list, i) => (
+                                        <Box key={i} className={classes.listItemStyle}>
                                             <Box className={classes.flexCenter}>
                                                 <Avatar className={classes.avatar}><Browsers/></Avatar>
                                                 <Box display='flex' flexDirection='column'>
