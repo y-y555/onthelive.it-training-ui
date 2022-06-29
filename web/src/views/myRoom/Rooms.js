@@ -41,8 +41,8 @@ class Rooms extends Component {
                     </>
                 }
                 {classTab === 1 &&
-                    // <CourseManagementComponent/>
-                    <LearningManagementComponent/>
+                     <CourseManagementComponent/>
+                    //<LearningManagementComponent/>
                 }
                 <Footer/>
             </div>
