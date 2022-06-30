@@ -559,7 +559,7 @@ class ScheduleCardListItemComponent extends Component {
                         <Box className={classes.asideControl}>
                             <Box>
                                 <Box display="flex" alignItems="center" mb={2}>
-                                    <Box className={clsx(classes.rightBox, classes.rightBox2)}>진행종료</Box>
+                                    <Box className={clsx(classes.rightBox, classes.rightBox2)}>예정</Box>
                                     <Typography className={classes.rightText}>
                                         <BookmarksSimpleRed />
                                         고급
