@@ -475,199 +475,199 @@ class ScheduleCardListItemComponent extends Component {
                     </Box>
                 </Box>
 
-                {/* VOD, 실습  */}
-                <Box className={clsx(classes.listBox, classes.vodBox)}>
-                    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>
-                        <Box>
-                            <Box display="flex" alignItems="center">
-                                <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionVod)}>
-                                    <VodIcon />
-                                    <Typography className={classes.captionText}>VOD</Typography>
-                                </Box>
-                                <Box
-                                    display="flex"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    className={clsx(classes.caption, classes.captionGreen)}
-                                >
-                                    <Typography className={classes.captionText}>실습</Typography>
-                                </Box>
-                                <Box
-                                    display="flex"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    className={clsx(classes.caption, classes.captionBlue)}
-                                >
-                                    <Typography className={classes.captionText}>평가</Typography>
-                                </Box>
-                                <Box
-                                    display="flex"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    className={clsx(classes.caption, classes.captionPurple)}
-                                >
-                                    <Typography className={classes.captionText}>과제</Typography>
-                                </Box>
-                            </Box>
+                {/*/!* VOD, 실습  *!/*/}
+                {/*<Box className={clsx(classes.listBox, classes.vodBox)}>*/}
+                {/*    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>*/}
+                {/*        <Box>*/}
+                {/*            <Box display="flex" alignItems="center">*/}
+                {/*                <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionVod)}>*/}
+                {/*                    <VodIcon />*/}
+                {/*                    <Typography className={classes.captionText}>VOD</Typography>*/}
+                {/*                </Box>*/}
+                {/*                <Box*/}
+                {/*                    display="flex"*/}
+                {/*                    justifyContent="center"*/}
+                {/*                    alignItems="center"*/}
+                {/*                    className={clsx(classes.caption, classes.captionGreen)}*/}
+                {/*                >*/}
+                {/*                    <Typography className={classes.captionText}>실습</Typography>*/}
+                {/*                </Box>*/}
+                {/*                <Box*/}
+                {/*                    display="flex"*/}
+                {/*                    justifyContent="center"*/}
+                {/*                    alignItems="center"*/}
+                {/*                    className={clsx(classes.caption, classes.captionBlue)}*/}
+                {/*                >*/}
+                {/*                    <Typography className={classes.captionText}>평가</Typography>*/}
+                {/*                </Box>*/}
+                {/*                <Box*/}
+                {/*                    display="flex"*/}
+                {/*                    justifyContent="center"*/}
+                {/*                    alignItems="center"*/}
+                {/*                    className={clsx(classes.caption, classes.captionPurple)}*/}
+                {/*                >*/}
+                {/*                    <Typography className={classes.captionText}>과제</Typography>*/}
+                {/*                </Box>*/}
+                {/*            </Box>*/}
 
-                            <Typography className={classes.titleText}>디지털 포렌식 전문가 2급 자격 대비반</Typography>
-                            <Typography variant="subtitle1" className={classes.subText}>
-                                디지털 포렌식의 기본적인 내용을 전체적으로 평가하며 컴퓨터 구조, 네트워크, 데이터베이스, 기초실무 이론을 습득할 수
-                                있다.
-                            </Typography>
-                            <ul className={classes.avatarList}>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <div className={classes.avatarLastStyle}>+12</div>
-                                </li>
-                            </ul>
-                        </Box>
-                        <Box className={classes.asideControl}>
-                            <Box>
-                                <Box display="flex" alignItems="center" mb={2}>
-                                    <Box className={classes.rightBox}>진행종료</Box>
-                                    <Typography className={classes.rightText}>
-                                        <BookmarksSimpleGreen />
-                                        중급
-                                    </Typography>
-                                </Box>
+                {/*            <Typography className={classes.titleText}>디지털 포렌식 전문가 2급 자격 대비반</Typography>*/}
+                {/*            <Typography variant="subtitle1" className={classes.subText}>*/}
+                {/*                디지털 포렌식의 기본적인 내용을 전체적으로 평가하며 컴퓨터 구조, 네트워크, 데이터베이스, 기초실무 이론을 습득할 수*/}
+                {/*                있다.*/}
+                {/*            </Typography>*/}
+                {/*            <ul className={classes.avatarList}>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <div className={classes.avatarLastStyle}>+12</div>*/}
+                {/*                </li>*/}
+                {/*            </ul>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.asideControl}>*/}
+                {/*            <Box>*/}
+                {/*                <Box display="flex" alignItems="center" mb={2}>*/}
+                {/*                    <Box className={classes.rightBox}>진행종료</Box>*/}
+                {/*                    <Typography className={classes.rightText}>*/}
+                {/*                        <BookmarksSimpleGreen />*/}
+                {/*                        중급*/}
+                {/*                    </Typography>*/}
+                {/*                </Box>*/}
 
-                                <Box className={classes.iconButtonBox}>
-                                    {/*<Tooltip title="링크" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><LinkFillIcon/></IconButton></Tooltip>*/}
-                                    <Tooltip title="학습결과" placement="right" classes={{ tooltip: classes.lightTooltip }}>
-                                        <IconButton>
-                                            <ChartBarFillIcon />
-                                        </IconButton>
-                                    </Tooltip>
-                                    {/*<Tooltip title="학생관리" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><StudentFillIcon/></IconButton></Tooltip>*/}
-                                </Box>
-                            </Box>
-                            <Button
-                                className={clsx(classes.btnOutlineStyle, classes.btnOutlineStyle1)}
-                                disableRipple
-                                onClick={(e) => {
-                                    if(authStore.isGuestUser) {
-                                        return false;
-                                    } else {
-                                        this.handleClickAttend(e);
-                                    }
+                {/*                <Box className={classes.iconButtonBox}>*/}
+                {/*                    /!*<Tooltip title="링크" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><LinkFillIcon/></IconButton></Tooltip>*!/*/}
+                {/*                    <Tooltip title="학습결과" placement="right" classes={{ tooltip: classes.lightTooltip }}>*/}
+                {/*                        <IconButton>*/}
+                {/*                            <ChartBarFillIcon />*/}
+                {/*                        </IconButton>*/}
+                {/*                    </Tooltip>*/}
+                {/*                    /!*<Tooltip title="학생관리" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><StudentFillIcon/></IconButton></Tooltip>*!/*/}
+                {/*                </Box>*/}
+                {/*            </Box>*/}
+                {/*            <Button*/}
+                {/*                className={clsx(classes.btnOutlineStyle, classes.btnOutlineStyle1)}*/}
+                {/*                disableRipple*/}
+                {/*                onClick={(e) => {*/}
+                {/*                    if(authStore.isGuestUser) {*/}
+                {/*                        return false;*/}
+                {/*                    } else {*/}
+                {/*                        this.handleClickAttend(e);*/}
+                {/*                    }*/}
 
-                                }}
-                            >
-                                {authStore.isGuestUser ? '신청하기' : '강의보기'}
-                            </Button>
-                        </Box>
-                    </Box>
-                    <Box className={classes.boxFooter}>
-                        <Box className={classes.ftCount}>
-                            <Box>
-                                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}
-                            </Box>
-                            <Box>
-                                <ChatCircleDotsIcon /> 2{' '}
-                            </Box>
-                        </Box>
-                        <Box className={classes.ftAdded}>
-                            <Button disableripple onClick={this.handleChangeLikeButton}>
-                                <HandsClappingIcon /> 좋아요
-                            </Button>
-                            <Button disableripple onClick={this.handleClickDetail}>
-                                <ChatCircleDotsIcon /> 댓글 달기
-                            </Button>
-                        </Box>
-                    </Box>
-                </Box>
+                {/*                }}*/}
+                {/*            >*/}
+                {/*                {authStore.isGuestUser ? '신청하기' : '강의보기'}*/}
+                {/*            </Button>*/}
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*    <Box className={classes.boxFooter}>*/}
+                {/*        <Box className={classes.ftCount}>*/}
+                {/*            <Box>*/}
+                {/*                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}*/}
+                {/*            </Box>*/}
+                {/*            <Box>*/}
+                {/*                <ChatCircleDotsIcon /> 2{' '}*/}
+                {/*            </Box>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.ftAdded}>*/}
+                {/*            <Button disableripple onClick={this.handleChangeLikeButton}>*/}
+                {/*                <HandsClappingIcon /> 좋아요*/}
+                {/*            </Button>*/}
+                {/*            <Button disableripple onClick={this.handleClickDetail}>*/}
+                {/*                <ChatCircleDotsIcon /> 댓글 달기*/}
+                {/*            </Button>*/}
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*</Box>*/}
 
-                {/* 비공개  */}
-                <Box className={clsx(classes.listBox, classes.privateBox)}>
-                    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>
-                        <Box>
-                            <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionPrivate)}>
-                                <LockKey />
-                                <Typography className={classes.captionTextPrivate}>비공개</Typography>
-                            </Box>
+                {/*/!* 비공개  *!/*/}
+                {/*<Box className={clsx(classes.listBox, classes.privateBox)}>*/}
+                {/*    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>*/}
+                {/*        <Box>*/}
+                {/*            <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionPrivate)}>*/}
+                {/*                <LockKey />*/}
+                {/*                <Typography className={classes.captionTextPrivate}>비공개</Typography>*/}
+                {/*            </Box>*/}
 
-                            <Typography className={clsx(classes.titleText, classes.privateText)}>국제표준 및 보안검사</Typography>
-                            <Typography variant="subtitle1" className={clsx(classes.subText, classes.privateText)}>
-                                본 과정에서는 기술유출방지 및 핵심정보의 보호를 위한 국제표준규격의 이해와 정보관리 전략(정보보호거버넌스 등)을 실제 사례와 함께 다룹니다.
-                            </Typography>
-                            <ul className={classes.avatarList}>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <div className={classes.avatarLastStyle}>+12</div>
-                                </li>
-                            </ul>
-                        </Box>
-                        <Box className={classes.asideControl}>
-                            <Box>
-                                <Box display="flex" alignItems="center" mb={2}>
-                                    <Box className={clsx(classes.rightBox, classes.rightBox2)}>예정</Box>
-                                    <Typography className={classes.rightText}>
-                                        <BookmarksSimpleRed />
-                                        고급
-                                    </Typography>
-                                </Box>
-                            </Box>
-                            {
-                                !authStore.isGuestUser &&
-                                <Button
-                                    className={clsx(classes.btnOutlineStyle, classes.btnPrivate)}
-                                    disableripple
-                                    onClick={this.handleClickAttend}
-                                >
-                                    강의보기
-                                </Button>
-                            }
+                {/*            <Typography className={clsx(classes.titleText, classes.privateText)}>국제표준 및 보안검사</Typography>*/}
+                {/*            <Typography variant="subtitle1" className={clsx(classes.subText, classes.privateText)}>*/}
+                {/*                본 과정에서는 기술유출방지 및 핵심정보의 보호를 위한 국제표준규격의 이해와 정보관리 전략(정보보호거버넌스 등)을 실제 사례와 함께 다룹니다.*/}
+                {/*            </Typography>*/}
+                {/*            <ul className={classes.avatarList}>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <div className={classes.avatarLastStyle}>+12</div>*/}
+                {/*                </li>*/}
+                {/*            </ul>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.asideControl}>*/}
+                {/*            <Box>*/}
+                {/*                <Box display="flex" alignItems="center" mb={2}>*/}
+                {/*                    <Box className={clsx(classes.rightBox, classes.rightBox2)}>예정</Box>*/}
+                {/*                    <Typography className={classes.rightText}>*/}
+                {/*                        <BookmarksSimpleRed />*/}
+                {/*                        고급*/}
+                {/*                    </Typography>*/}
+                {/*                </Box>*/}
+                {/*            </Box>*/}
+                {/*            {*/}
+                {/*                !authStore.isGuestUser &&*/}
+                {/*                <Button*/}
+                {/*                    className={clsx(classes.btnOutlineStyle, classes.btnPrivate)}*/}
+                {/*                    disableripple*/}
+                {/*                    onClick={this.handleClickAttend}*/}
+                {/*                >*/}
+                {/*                    강의보기*/}
+                {/*                </Button>*/}
+                {/*            }*/}
 
-                        </Box>
-                    </Box>
-                    <Box className={classes.boxFooter}>
-                        <Box className={classes.ftCount}>
-                            <Box>
-                                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}
-                            </Box>
-                            <Box>
-                                <ChatCircleDotsIcon /> 2{' '}
-                            </Box>
-                        </Box>
-                        <Box className={classes.ftAdded}>
-                            <Button disableripple onClick={this.handleChangeLikeButton}>
-                                <HandsClappingIcon /> 좋아요
-                            </Button>
-                            <Button disableripple onClick={this.handleClickDetail}>
-                                <ChatCircleDotsIcon /> 댓글 달기
-                            </Button>
-                        </Box>
-                    </Box>
-                </Box>
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*    <Box className={classes.boxFooter}>*/}
+                {/*        <Box className={classes.ftCount}>*/}
+                {/*            <Box>*/}
+                {/*                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}*/}
+                {/*            </Box>*/}
+                {/*            <Box>*/}
+                {/*                <ChatCircleDotsIcon /> 2{' '}*/}
+                {/*            </Box>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.ftAdded}>*/}
+                {/*            <Button disableripple onClick={this.handleChangeLikeButton}>*/}
+                {/*                <HandsClappingIcon /> 좋아요*/}
+                {/*            </Button>*/}
+                {/*            <Button disableripple onClick={this.handleClickDetail}>*/}
+                {/*                <ChatCircleDotsIcon /> 댓글 달기*/}
+                {/*            </Button>*/}
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*</Box>*/}
 
                 {/*  종료  */}
                 {/*<Box className={classes.listBox}>*/}

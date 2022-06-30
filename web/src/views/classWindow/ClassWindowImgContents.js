@@ -188,8 +188,7 @@ class ClassWindowImgContents extends Component {
                             <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>준비물을 확인해주세요!</Typography>
                         </Box>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2) : classes.textStyle}>
-                            ·실습은 윈도우 가상 환경에서 진행됩니다.<br/>
-                            ·강의 실습을 원할하게 하기 위해서는 램 8GB, 하드디스크 용량 100GB 정도가 필요합니다.<br/>
+                            ·실습은 Windows10 가상 환경에서 진행됩니다.<br/>
                             ·준비물에 대한 자세한 내용은 오리엔테이션 수업을 참고 부탁드립니다.
                         </Typography>
                     </Box>
