@@ -71,7 +71,7 @@ class ClassTitleComponent extends Component {
         super(props);
         this.state = {
             dialogOpen:false,
-            text:"엑셀 강의에 부록처럼 달린 스프레드시트 수업은 이제 그만! 진짜 배우고 싶었던 엑셀 강의에 부록처럼 달린 스프레드시트 수업은 이제 그만!"
+            text:"서버용 시스템으로 많이 활용되고 있는 유닉스와 리눅스 보안에 대해 다각도로 살펴보고, 보다 안전한 서버 운영을 위한 보안 설정 방법을 ..."
         };
     }
 
@@ -94,7 +94,9 @@ class ClassTitleComponent extends Component {
                     {/*<BackgroundImageIcon/>*/}
                 </Box>
                 <Box className={classes.titleBox}>
-                    <Typography variant="h3">구글 스프레드시트로 게을러도 완벽하게 일하는 법</Typography>
+                    <Typography variant="h3">
+                        UNIX/Linux 보안 실무반
+                    </Typography>
                     <Box>
                         <span className={classes.subTextBox}>
                             {this.ellipsisText(this.state.text)}
