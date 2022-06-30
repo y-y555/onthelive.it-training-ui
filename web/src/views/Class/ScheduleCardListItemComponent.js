@@ -19,6 +19,7 @@ import { ReactComponent as EyeTinyIcon } from '../../common/images/EyeIcon.svg';
 import { ReactComponent as VodIcon } from '../../common/images/VodIcon.svg';
 import { ReactComponent as LockKey } from '../../common/images/LockKey.svg';
 import { ReactComponent as AsideUserIcon } from '../../common/images/AsideUserIcon.svg';
+import {inject, observer} from "mobx-react";
 
 const styles = _theme => ({
     root: {
