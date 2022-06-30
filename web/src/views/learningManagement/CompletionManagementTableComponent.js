@@ -1,48 +1,80 @@
 import React, { Component } from 'react';
 import { withStyles } from '@material-ui/core/styles';
-import { Avatar, Box, Button, FormControl, IconButton, Menu, MenuItem, Select, Typography, TablePagination } from '@material-ui/core';
+import { Avatar, Box, Button, FormControl, IconButton, MenuItem, Select, TablePagination, Typography, Input, Menu } from '@material-ui/core';
 import clsx from 'clsx';
 import { ReactComponent as CheckCircleAgreeOffIcon } from '../../common/images/CheckCircleAgreeOffIcon.svg';
 import { ReactComponent as CheckCircleAgreeOnIcon } from '../../common/images/CheckCircleAgreeOnIcon.svg';
+import { ReactComponent as ArrowDownIcon } from '../../common/images/ArrowDownIcon.svg';
 import { ReactComponent as AsideUserIcon } from '../../common/images/AsideUserIcon.svg';
+import { ReactComponent as Browsers } from '../../common/images/Browsers.svg';
+import { ReactComponent as CaretRightIcon } from '../../common/images/CaretRightIcon.svg';
+import { ReactComponent as CaretLeftIcon } from '../../common/images/CaretLeftIcon.svg';
 import { ReactComponent as DotIcon } from '../../common/images/DotIcon.svg';
 import { ReactComponent as PlayIcon } from '../../common/images/PlayIcon.svg';
 import { ReactComponent as Info } from '../../common/images/Info.svg';
-import { ReactComponent as Browsers } from '../../common/images/Browsers.svg';
-import { ReactComponent as ArrowDownIcon } from '../../common/images/ArrowDownIcon.svg';
-import { ReactComponent as ChalkboardTeacher } from '../../common/images/ChalkboardTeacher.svg';
 import { ReactComponent as MoreIcon } from '../../common/images/DotsThreeOutlineVerticalIcon.svg';
-import { ReactComponent as CaretLeftIcon } from '../../common/images/CaretLeftIcon.svg';
-import { ReactComponent as CaretRightIcon } from '../../common/images/CaretRightIcon.svg';
-
-const styles = _theme => ({
-    root: {
-        // display: 'flex',
-        // alignItems: 'center',
-        // padding: '20px 30px',
-        // boxSizing: 'border-box',
-        // margin: '0 auto',
-
-        '@media all and (min-width: 1500px)': {
-            width: 750,
-        },
-        width: 620,
-        padding: '20px 30px',
-        margin: '0 auto',
-        '& ul, ol': {
-            margin: 0,
-            padding: 0,
-            listStyle: 'none',
-        },
-    },
+const styles = theme => ({
+    root: {},
     flexCenter: {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
     },
+    checkBoxStyle: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#656565',
+        fontSize: '0.875rem',
+        cursor: 'pointer',
+        '& svg': {
+            width: 20,
+            height: 20,
+            marginRight: 4,
+            color: '#656565',
+        },
+    },
+    checkBoxStyleOn: {
+        color: '#0097FF',
+    },
+    formControl: {
+        display: 'flex',
+        alignItems: 'flex-end',
+        '&>div': {
+            fontSize: '0.75rem',
+            fontWeight: 600,
+            '&:before, &:after': {
+                content: '',
+                display: 'none',
+                width: 0,
+                size: 0,
+            },
+        },
+        '& .MuiSelect-select:focus': {
+            background: 'transparent',
+        },
+        '& .MuiSelect-select.MuiSelect-select': {
+            paddingRight: 0,
+        },
+    },
+    menuItem: {
+        fontFamily: 'NanumSquareRoundOTF',
+        fontSize: '0.875rem',
+        color: '#0d0d0d',
+        '&:hover': {
+            background: '#d3d7db',
+        },
+        '&.Mui-selected:hover': {
+            background: '#d3d7db',
+        },
+        '&.Mui-selected': {
+            background: 'transparent',
+        },
+    },
     listStyle: {
         position: 'relative',
         marginBottom: 60,
+        padding: '0 30px 30px',
         '&:last-child': {
             marginBottom: 0,
         },
@@ -81,6 +113,11 @@ const styles = _theme => ({
         fontSize: '0.75rem',
         color: '#666666',
         marginTop: 7,
+    },
+    tableBtnStyle: {
+        '&:hover': {
+            background: 'transparent',
+        },
     },
     listItemContent: {
         // padding: 21,
@@ -140,6 +177,19 @@ const styles = _theme => ({
         fontSize: '0.813rem',
         paddingTop: '0.187rem',
     },
+    defaultTxt: {
+        fontSize: '0.625rem',
+        marginTop: 7,
+        textAlign: 'right',
+    },
+    inputStyle: {
+        width: '2rem',
+        '& input': {
+            textAlign: 'right',
+            padding: 0,
+            marginTop: 3,
+        },
+    },
     btnStyle: {
         padding: 0,
         marginLeft: 6,
@@ -151,7 +201,20 @@ const styles = _theme => ({
             backgroundColor: '#fff',
         },
     },
-    titleText: {
+    buttonStyle: {
+        padding: '3px 10px',
+        marginLeft: 20,
+        fontSize: '0.875rem',
+        color: '#000',
+        minWidth: 'auto',
+        marginTop: 7,
+        border: '1px solid #bfbfbf',
+        borderRadius: 4,
+        '&:hover': {
+            backgroundColor: '#fff',
+        },
+    },
+    titleTxt: {
         fontSize: '0.75rem',
         color: '#666',
     },
@@ -174,59 +237,14 @@ const styles = _theme => ({
         },
     },
 });
-
-class LearningStatus extends Component {
+class CompletionManagementTableComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            LearningList: [
-                {
-                    userName: '김온더',
-                    className: '강의실명',
-                    date: '2021.12.01.',
-                    name: '변요한',
-                    lastDate: '2022.5.31',
-                    learnCont: '5',
-                    learnTime: '30',
-                    learnTimeTotal: '50',
-                    viewActive: false,
-                },
-                {
-                    userName: '김온더',
-                    className: '강의실명',
-                    date: '2021.12.02.',
-                    name: '박서윤',
-                    lastDate: '2022.5.31',
-                    learnCont: '5',
-                    learnTime: '30',
-                    learnTimeTotal: '50',
-                    viewActive: false,
-                },
-                {
-                    userName: '김온더',
-                    className: '강의실명',
-                    date: '2021.12.02.',
-                    name: '김민준',
-                    lastDate: '2022.5.31',
-                    learnCont: '5',
-                    learnTime: '30',
-                    learnTimeTotal: '50',
-                    viewActive: false,
-                },
-            ],
             anchorEl: null,
-            page: 0,
-            rowsPerPage: 5,
+            input: true,
         };
     }
-
-    handleChangePage = (event, page) => {
-        this.setState({ page });
-    };
-
-    handleChangeRowsPerPage = event => {
-        this.setState({ rowsPerPage: event.target.value });
-    };
     clickMore = event => {
         this.setState({ anchorEl: event.currentTarget });
     };
@@ -235,6 +253,12 @@ class LearningStatus extends Component {
         this.setState({ anchorEl: null });
     };
 
+    handChangeInput = () => {
+        this.setState({ input: !this.state.input });
+    };
+
+    handChangeInput;
+
     render() {
         const { classes } = this.props;
         const { anchorEl } = this.state;
@@ -242,20 +266,45 @@ class LearningStatus extends Component {
             <div className={classes.root}>
                 <Box className={classes.listStyle}>
                     <Box className={classes.listItemContent}>
-                        <Box className={classes.userBar}>
-                            <AsideUserIcon /> <span>{this.state.LearningList.length}개</span>
+                        <Box display="flex" alignItems="center" justifyContent="space-between">
+                            <Box
+                                onClick={this.handleChangeCheckBox}
+                                className={this.props.checkBox ? classes.checkBoxStyle : clsx(classes.checkBoxStyle, classes.checkBoxStyleOn)}
+                            >
+                                {this.props.checkBox ? <CheckCircleAgreeOffIcon /> : <CheckCircleAgreeOnIcon />}
+                                수강생 없는 강의만
+                            </Box>
+                            <FormControl className={classes.formControl}>
+                                <Select
+                                    value={this.props.filter}
+                                    onChange={this.handleChangeSort}
+                                    displayEmpty
+                                    IconComponent={() => (
+                                        <Box style={{ width: 16, height: 16, marginLeft: 5 }}>
+                                            <ArrowDownIcon />{' '}
+                                        </Box>
+                                    )}
+                                >
+                                    <MenuItem value="최근등록일순" className={classes.menuItem}>
+                                        최근 등록일 순
+                                    </MenuItem>
+                                    <MenuItem value="최근제출일순" className={classes.menuItem}>
+                                        최근 제출일 순
+                                    </MenuItem>
+                                </Select>
+                            </FormControl>
                         </Box>
                         <Box>
-                            {this.state.LearningList.map((list, i) => (
+                            {this.props.LearningList.map((list, i) => (
                                 <Box className={classes.listItemStyle} style={{ padding: '6px 0' }}>
                                     <Box className={classes.flexCenter}>
                                         <Avatar className={classes.avatar}>
-                                            <AsideUserIcon />
+                                            <Browsers />
                                         </Avatar>
                                         <Box display="flex" flexDirection="column">
                                             <Typography className={classes.name}>{list.userName} </Typography>
                                             <span className={classes.groupInfo}>
-                                                마지막 학습일 : {list.date} | 학습횟수 {list.learnCont}회 | 학습시간 {list.learnTime}분 / {list.learnTimeTotal}분
+                                                {list.className} | 수강생 : {list.count} | 난이도 : {list.level}
                                             </span>
                                         </Box>
                                     </Box>
@@ -272,7 +321,12 @@ class LearningStatus extends Component {
                                                                 <DotIcon /> LIVE
                                                             </span>
                                                             <Typography className={classes.numTxt}>
-                                                                <span>20</span>분
+                                                                {this.state.input === false ? (
+                                                                    <Input placeholder={list.live} className={classes.inputStyle}></Input>
+                                                                ) : (
+                                                                    <span onClick={this.handChangeInput}>{list.live}</span>
+                                                                )}
+                                                                분
                                                             </Typography>
                                                         </Box>
                                                         <Box>
@@ -280,17 +334,20 @@ class LearningStatus extends Component {
                                                                 <PlayIcon /> VOD
                                                             </span>
                                                             <Typography className={classes.numTxt}>
-                                                                <span>70</span>분
+                                                                {this.state.input === false ? (
+                                                                    <Input placeholder={list.vod} className={classes.inputStyle}></Input>
+                                                                ) : (
+                                                                    <span onClick={this.handChangeInput}>{list.vod}</span>
+                                                                )}
+                                                                분
                                                             </Typography>
                                                         </Box>
                                                         <Box>
                                                             <span className={classes.tag} style={{ backgroundColor: '#00c880' }}>
                                                                 실습
                                                             </span>
-                                                            <Typography className={clsx(classes.numTxt, classes.onlyTxt)}>완료</Typography>
-                                                            <Button className={classes.btnStyle} disableRipple>
-                                                                실습보기
-                                                            </Button>
+                                                            <Typography className={clsx(classes.numTxt, classes.onlyTxt)}>{list.training}</Typography>
+                                                            <Typography className={classes.defaultTxt}>이상</Typography>
                                                         </Box>
                                                     </>
                                                 ) : null}
@@ -310,36 +367,76 @@ class LearningStatus extends Component {
                                                         )}
                                                     </span>
                                                     <Typography className={classes.numTxt}>
-                                                        <span>40</span>점
+                                                        {this.state.input === false ? (
+                                                            <Input placeholder={list.evaluation} className={classes.inputStyle}></Input>
+                                                        ) : (
+                                                            <span onClick={this.handChangeInput}>{list.evaluation}</span>
+                                                        )}
+                                                        점
                                                     </Typography>
-                                                    <Button className={classes.btnStyle} disableRipple>
-                                                        채점하기
-                                                    </Button>
+                                                    <Typography className={classes.defaultTxt}>이상</Typography>
                                                 </Box>
                                                 <Box>
                                                     <span className={classes.tag} style={{ backgroundColor: '#8a42ff' }}>
                                                         과제
                                                     </span>
                                                     <Typography className={classes.numTxt}>
-                                                        <span>98</span>점
+                                                        {this.state.input === false ? (
+                                                            <Input placeholder={list.assignment} className={classes.inputStyle}></Input>
+                                                        ) : (
+                                                            <span onClick={this.handChangeInput}>{list.assignment}</span>
+                                                        )}
+                                                        점
                                                     </Typography>
-                                                    <Button className={classes.btnStyle} disableRipple>
-                                                        과제보기
-                                                    </Button>
+                                                    <Typography className={classes.defaultTxt}>이상</Typography>
                                                 </Box>
                                             </Box>
                                         </Box>
 
-                                        <Box style={{ marginLeft: 20 }}>
-                                            <Box display="flex" justifyContent="flex-end">
-                                                <Typography className={classes.titleText}>진도률</Typography>
-                                                <IconButton className={classes.iconBtnStyle} onClick={this.handleClickAverageTooltip} disableRipple>
-                                                    <Info />
-                                                </IconButton>
-                                            </Box>
+                                        <Box style={{ marginLeft: 20 }} display="flex" flexDirection="column" alignItems="flex-end">
+                                            <Typography className={classes.titleTxt}>수료기준 진도율</Typography>
                                             <Typography className={classes.resultTxt}>
                                                 <b>100</b>%
                                             </Typography>
+                                        </Box>
+                                        <Box display="flex">
+                                            {this.state.input === false ? (
+                                                <Button disableRipple className={classes.buttonStyle} onClick={this.handChangeInput}>
+                                                    완료
+                                                </Button>
+                                            ) : (
+                                                <Button
+                                                    disableRipple
+                                                    className={classes.tableBtnStyle}
+                                                    aria-owns={anchorEl ? 'simple-menu' : undefined}
+                                                    aria-haspopup="true"
+                                                    onClick={this.clickMore}
+                                                    disableTouchRipple
+                                                    disableFocusRipple
+                                                >
+                                                    <MoreIcon />
+                                                </Button>
+                                            )}
+
+                                            <Menu
+                                                id="simple-menu"
+                                                anchorEl={anchorEl}
+                                                open={Boolean(anchorEl)}
+                                                onClose={this.clickMoreClose}
+                                                className={classes.menuBox}
+                                                anchorOrigin={{
+                                                    vertical: 'bottom',
+                                                    horizontal: 'right',
+                                                }}
+                                                transformOrigin={{
+                                                    vertical: 'top',
+                                                    horizontal: 'right',
+                                                }}
+                                            >
+                                                <MenuItem onClick={this.clickMoreClose} className={classes.menuItem}>
+                                                    수료기준 수정
+                                                </MenuItem>
+                                            </Menu>
                                         </Box>
                                     </Box>
                                 </Box>
@@ -350,9 +447,9 @@ class LearningStatus extends Component {
                     <TablePagination
                         rowsPerPageOptions={[5, 10, 25]}
                         component="div"
-                        count={this.state.LearningList.length}
-                        rowsPerPage={this.state.rowsPerPage}
-                        page={this.state.page}
+                        count={this.props.LearningList.length}
+                        rowsPerPage={this.props.rowsPerPage}
+                        page={this.props.page}
                         backIconButtonProps={{
                             'aria-label': '페이지당 행 수',
                         }}
@@ -363,11 +460,11 @@ class LearningStatus extends Component {
                         onChangeRowsPerPage={this.handleChangeRowsPerPage}
                     />
 
-                    {this.state.listItem === true ? (
+                    {this.props.listItem === true ? (
                         <Box className={classes.listStyleOn}>
                             <Box className={classes.listItemStyleOn} onClick={this.listItemChange}>
                                 <Avatar className={classes.avatar}>
-                                    <AsideUserIcon />
+                                    <Browsers />
                                 </Avatar>
                                 <Box display="flex" flexDirection="column">
                                     <span className={classes.titleName}>김온더</span>
@@ -382,4 +479,4 @@ class LearningStatus extends Component {
     }
 }
 
-export default withStyles(styles)(LearningStatus);
+export default withStyles(styles)(CompletionManagementTableComponent);

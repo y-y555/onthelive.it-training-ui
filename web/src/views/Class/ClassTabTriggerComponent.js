@@ -185,16 +185,15 @@ class ClassTabTriggerComponent extends Component {
                              icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
                         <Tab label="커뮤니티" disableripple />
-                        <Tab label="문의" disableRipple />
+                        <Tab label="문의" disableripple />
                     </Tabs>
                     {
                         !authStore.isGuestUser
                             ?
                                 <Button
                                     className={classes.btnStyle}
-                                    disableRipple
-                                    aria-owns={open ? 'simple-popper' : undefined}
-                                    onClick={this.handleClickPopover}
+                                    disableripple
+                                    onClick={this.handleClickContentLecture}
                                 >
                                     <PlusCircleIcon/>
                                     강의 만들기
@@ -202,38 +201,6 @@ class ClassTabTriggerComponent extends Component {
                             : <Box className={classes.emptyBtnStyle} />
 
                     }
-
-
-                    <Popover
-                        id="simple-popper"
-                        open={open}
-                        anchorEl={anchorEl}
-                        onClose={this.handleClosePopover}
-                        className={classes.popoverBox}
-                        anchorOrigin={{
-                            vertical: 'bottom',
-                            horizontal: 'right',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'right',
-                        }}
-                    >
-                        <MenuItem onClick={this.handleClickOpen}>
-                            <ListItemIcon>
-                                <VideoCamera/>
-                            </ListItemIcon>
-                            <ListItemText inset primary="라이브 강의" />
-                        </MenuItem>
-
-                        <MenuItem onClick={this.handleClickContentLecture}>
-                            <ListItemIcon>
-                                <ChalkboardTeacher/>
-                            </ListItemIcon>
-                            <ListItemText inset primary="콘텐츠 강의" />
-                        </MenuItem>
-                    </Popover>
-
                 </Box>
 
                 <ScheduleRegistrationComponent handleClose={this.handleClose} dialogOpen={this.state.dialogOpen}/>

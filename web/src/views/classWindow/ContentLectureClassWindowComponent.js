@@ -4,6 +4,7 @@ import {Box, Button, Typography} from "@material-ui/core";
 import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
+import ViewStudentsComponent from "./ViewStudentsComponent";
 
 const styles = _theme => ({
     root:{
@@ -48,11 +49,16 @@ class ContentLectureClassWindowComponent extends Component {
                 {name: '윈도우 및 리눅스 방화벽'},
             ],
             previewPc: true,
+
+            //1단, 2단
             typeButton1:false,
             typeButton2:true,
 
             //이미지 1개
             image1:false,
+
+            //수강생
+            students: true,
 
             selectedValue: "a",
         };
@@ -63,8 +69,8 @@ class ContentLectureClassWindowComponent extends Component {
     };
 
     render() {
-        const { classes,classTab, handleChangeTabs, isGuestUser } = this.props;
-        const { previewPc, typeButton1, typeButton2, image1} = this.state;
+        const { classes, classTab, handleChangeTabs, isGuestUser } = this.props;
+        const { previewPc, typeButton1, typeButton2, image1, students } = this.state;
 
         return (
             <div className={classes.root}>
@@ -103,8 +109,17 @@ class ContentLectureClassWindowComponent extends Component {
                             previewPc={previewPc}
                         />
                         :
-
-                        null
+                        classTab === 2 ?
+                            <ViewStudentsComponent
+                                typeButton1={typeButton1}
+                                typeButton2={typeButton2}
+                                previewPc={previewPc}
+                                image1={image1}
+                                classTab={classTab}
+                                students={students}
+                            />
+                            :
+                            null
                 }
             </div>
         );

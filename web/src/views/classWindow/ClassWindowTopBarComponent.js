@@ -13,9 +13,9 @@ const styles = _theme => ({
     root:{
         height: 59,
         boxSizing:'border-box',
-        display:'flex',
-        justifyContent:'space-between',
-        alignItems:'center',
+        // display:'flex',
+        // justifyContent:'space-between',
+        // alignItems:'center',
         borderBottom:'1px solid #c0c2c3',
         padding:'13px 12px',
     },
@@ -176,6 +176,7 @@ class ClassWindowTopBarComponent extends Component {
 
         return (
             <div className={classes.root}>
+                <Box display='flex' alignItems='center' justifyContent='space-between'>
                 <Box display='flex' alignItems='center'>
                     <Typography className={classes.textStyle}>강사 강의실</Typography>
                     <Box className={classes.lineStyle}/>
@@ -218,6 +219,7 @@ class ClassWindowTopBarComponent extends Component {
                     <Button className={classes.buttonStyle} onClick={this.handleClickBack} disableRipple>
                         나가기
                     </Button>
+                </Box>
                 </Box>
                 <LectureEndDialogComponent
                     openEnd={!isGuestUser && this.state.openEnd}
