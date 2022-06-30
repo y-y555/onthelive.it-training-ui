@@ -167,27 +167,6 @@ public class ApplicationConfiguration implements AsyncConfigurer {
         return new RestTemplate(factory);
     }
 
-//    @Bean
-//    public FileUploader fileUploader() {
-//        return new OCIObjectStorageUploader(encoding, ociAccessUrl, ociNameSpace, bucketName, awsUrl, regionName, accessKey, secretKey, ociFolderName);
-//    }
-//
-//    @Bean
-//    public EmailSender emailSender() {
-//        return new OCIEmailSender();
-////        return new CommonEmailSender();
-//    }
-//
-//    @Bean
-//    public CommonUtil commonUtil() {
-//        return new CommonUtil();
-//    }
-//
-//    @Bean
-//    public FileUtil fileUtil(){
-//        return new FileUtil();
-//    }
-
     @Bean
     public TaskScheduler taskScheduler() {
         ThreadPoolTaskScheduler scheduler = new ThreadPoolTaskScheduler();

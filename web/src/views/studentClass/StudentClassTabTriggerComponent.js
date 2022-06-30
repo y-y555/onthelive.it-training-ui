@@ -185,7 +185,8 @@ class ClassTabTriggerComponent extends Component {
     };
 
     handleClickContentLecture = e => {
-        this.props.navigate('/contentLecture');
+        // this.props.navigate('/contentLecture');
+        this.props.history.push('/contentLecture');
     };
 
     handleClickJoinBtn = () => {
