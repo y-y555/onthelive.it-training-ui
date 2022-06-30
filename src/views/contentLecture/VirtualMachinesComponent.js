@@ -14,10 +14,15 @@ import clsx from "clsx";
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 import {ReactComponent as WindowsIcon} from "../../common/images/WindowsIcon.svg";
-import {ReactComponent as LinuxLogo} from "../../common/images/LinuxLogo.svg";
+
 import {ReactComponent as AppleLogo} from "../../common/images/AppleLogo.svg";
 import {ReactComponent as AndroidLogo} from "../../common/images/AndroidLogo.svg";
 import CalendarButtonComponent from "./CalendarButtonComponent";
+import {ReactComponent as Info} from "../../common/images/Info.svg";
+import WindowsImg from "../../common/images/WindowsImg.png";
+import LinuxImg from "../../common/images/LinuxImg.png";
+import WindowsLogo from "../../common/images/WindowsLogo.png";
+import LinuxLogo from "../../common/images/LinuxLogo.png";
 
 const styles = theme => ({
     root:{
@@ -25,7 +30,6 @@ const styles = theme => ({
     },
     videoBox:{
         width: '100%',
-        height: 430,
         border: '1px solid rgba(0, 0, 0, 0.6)',
         borderRadius: 8,
         boxSizing: 'border-box',
@@ -77,25 +81,16 @@ const styles = theme => ({
     listBox:{
         width: '100%',
         marginBottom: 10,
-        height: 'calc(100% - 40px - 58px)',
+        minHeight: 'calc(100% - 40px - 58px)',
         padding: '10px 24px',
-        overflowY:'auto',
         boxSizing: 'border-box',
         display:'flex',
         justifyContent:'center',
         alignItems:'center',
-        "&::-webkit-scrollbar": {
-            width:'5px',
-        },
-        "&::-webkit-scrollbar-thumb": {
-            background:'#dbdbdb',
-            borderRadius:'10px',
-            backgroundClip:'padding-box',
-        },
-        "&::-webkit-scrollbar-track": {
-            background:'transparent',
-            marginTop:10
-        },
+    },
+    listBox2:{
+        flexDirection:'column',
+        justifyContent:'flex-start',
     },
     textButton:{
         padding:0,
@@ -139,6 +134,47 @@ const styles = theme => ({
         '& .MuiTypography-root':{
             fontSize: '0.75rem',
             color:'#333'
+        }
+    },
+    infoText:{
+        fontSize: '0.75rem'
+    },
+    imgBox:{
+        width:292,
+        overflow:'hidden',
+        display:'flex',
+        alignItems:'center',
+        padding: 0,
+        borderRadius: 0,
+        '&:hover':{
+            background:'transparent'
+        },
+        '& img':{
+            maxWidth: '100%',
+            margin:'0 auto'
+        }
+    },
+    imgBox2:{
+        width:255,
+        '& img':{
+            maxWidth: '100%',
+            margin:'0 auto'
+        }
+    },
+    absoluteText:{
+        position:'absolute',
+        top:0,
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
+        padding: '20px 10px',
+        boxSizing:'border-box',
+        height: '100%',
+        background:'rgba(0, 0, 0, 0.5)',
+        '& p':{
+            color:'#fff',
+            textAlign:'center',
+            fontSize:'0.875rem',
         }
     }
 });
@@ -212,10 +248,65 @@ class VirtualMachinesComponent extends Component {
                     <Box pl={3} pr={3} style={{width: '100%'}}>
                         <Typography className={classes.titleStyle}>사용자 가상머신</Typography>
                     </Box>
-                    <Box className={classes.listBox}>
-                        <Button className={classes.textButton} onClick={handleClickVirtualMachinesDialog} disableRipple><Typography>'사용자 가상머신 설정 및 관리'</Typography></Button>
-                        <Typography className={classes.textStyle}>에서 선택한 항목이 나타납니다.</Typography>
+                    {/*<Box className={classes.listBox}>*/}
+                    {/*    <Button className={classes.textButton} onClick={handleClickVirtualMachinesDialog} disableRipple><Typography>'사용자 가상머신 설정 및 관리'</Typography></Button>*/}
+                    {/*    <Typography className={classes.textStyle}>에서 선택한 항목이 나타납니다.</Typography>*/}
+                    {/*</Box>*/}
+
+
+                    <Box className={clsx(classes.listBox, classes.listBox2)}>
+                        <Box display='flex' justifyContent='flex-start' style={{width: '100%', marginBottom: 20}}>
+                            <Info style={{marginRight: 5}}/>
+                            <Typography className={classes.infoText}>이미지를 클릭하면 새탭에서 콘솔이 실행됩니다. </Typography>
+                        </Box>
+
+                         {/*1개 선택시*/}
+                         <Box >
+                             <Box display='flex' flexDirection='column'  alignItems='center' justifyContent='center' style={{width: '100%'}}>
+                                 <Box style={{position:'relative'}}>
+                                     <Button className={classes.imgBox} disableRipple>
+                                         <img src={WindowsImg} alt={"logo"}/>
+                                     </Button>
+                                     <Box className={classes.absoluteText}>
+                                         <Typography>사용자 환경으로 설정 중이며,
+                                             설치 완료되면 스크린샷이 나타납니다.
+                                             생성을 위해 수 분이 소요될 수 있습니다.<br/><br/>
+
+                                             빠른 강의 개설을 위해 미리 라이브러리에 설정해 놓는 것을 권장합니다.</Typography>
+                                     </Box>
+                                 </Box>
+
+                                 <Box display='flex' alignItems='center' style={{width: '100%'}} mt={1}>
+                                     <img src={WindowsLogo} alt={"logo"}/>
+                                     <Typography className={classes.listTitleText}>Windows 10</Typography>
+                                 </Box>
+                             </Box>
+                         </Box>
+
+                        {/* 2개 선택시 */}
+                        {/*<Box display='flex' flexWrap='wrap' justifyContent='space-between' style={{width: '100%'}}>*/}
+                        {/*    <Box display='flex' flexDirection='column'  alignItems='center'  >*/}
+                        {/*        <Button className={clsx(classes.imgBox, classes.imgBox2)} disableRipple>*/}
+                        {/*            <img src={WindowsImg} alt={"logo"}/>*/}
+                        {/*        </Button>*/}
+                        {/*        <Box display='flex' alignItems='center' style={{width: '100%'}} mt={1}>*/}
+                        {/*            <img src={WindowsLogo} alt={"logo"}/>*/}
+                        {/*            <Typography className={classes.listTitleText}>Windows 10</Typography>*/}
+                        {/*        </Box>*/}
+                        {/*    </Box>*/}
+                        {/*    <Box display='flex' flexDirection='column'  alignItems='center' justifyContent='center' >*/}
+                        {/*        <Button className={clsx(classes.imgBox, classes.imgBox2)} disableRipple>*/}
+                        {/*            <img src={LinuxImg} alt={"logo"}/>*/}
+                        {/*        </Button>*/}
+                        {/*        <Box display='flex' alignItems='center' style={{width: '100%'}} mt={1}>*/}
+                        {/*            <img src={LinuxLogo} alt={"logo"}/>*/}
+                        {/*            <Typography className={classes.listTitleText}>Windows 10</Typography>*/}
+                        {/*        </Box>*/}
+                        {/*    </Box>*/}
+                        {/*</Box>*/}
+
                     </Box>
+
 
                     <Box display='flex' justifyContent='space-between'>
                         <Button className={classes.bottomButton} onClick={handleClickVirtualMachinesDialog} disableRipple>
