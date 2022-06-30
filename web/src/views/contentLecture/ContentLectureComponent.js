@@ -7,6 +7,7 @@ import ContentLectureSideBarComponent from "./ContentLectureSideBarComponent";
 import ContentLectureSectionComponent from "./ContentLectureSectionComponent";
 import ContentLecturePreviewComponent from "./ContentLecturePreviewComponent";
 import ScheduleRegistrationComponent from "../dialog/ScheduleRegistrationComponent";
+import VirtualMachinesDialog from "./VirtualMachinesDialog";
 
 const styles = _theme => ({
     root:{
@@ -25,6 +26,9 @@ class ContentLectureComponent extends Component {
             previewMobile: false,
             //
             dialogOpen: false,
+            virtualMachinesDialogOpen: false,
+
+            lectureClass: false
         };
     }
 
@@ -73,15 +77,23 @@ class ContentLectureComponent extends Component {
         });
     };
 
+    handleClickVirtualMachinesDialog = () => {
+        console.log("!!!", this.state.virtualMachinesDialogOpen)
+        this.setState({
+            virtualMachinesDialogOpen: true,
+        });
+    };
+
     handleClose = () => {
         this.setState({
             dialogOpen: false,
+            virtualMachinesDialogOpen: false,
         });
     };
 
     render() {
         const { classes } = this.props;
-        const { preview } = this.state;
+        const { preview, dialogOpen } = this.state;
 
         return (
             <div className={classes.root}>
@@ -108,7 +120,11 @@ class ContentLectureComponent extends Component {
 
                         />
                         {this.state.lectureClass ?
-                            <ContentLecturePreviewComponent previewPc={this.state.previewPc} typeButton1={this.state.typeButton1} typeButton2={this.state.typeButton2}/>
+                            <ContentLecturePreviewComponent
+                                previewPc={this.state.previewPc}
+                                typeButton1={this.state.typeButton1}
+                                typeButton2={this.state.typeButton2}
+                            />
                             :
                             <Box display='flex'>
                                 <ContentLectureSideBarComponent
@@ -120,6 +136,7 @@ class ContentLectureComponent extends Component {
                                 <ContentLectureSectionComponent
                                     typeButton1={this.state.typeButton1}
                                     typeButton2={this.state.typeButton2}
+                                    handleClickVirtualMachinesDialog={this.handleClickVirtualMachinesDialog}
                                 />
                             </Box>
                         }
@@ -129,6 +146,9 @@ class ContentLectureComponent extends Component {
 
                 {/*강의 정보 확인*/}
                 <ScheduleRegistrationComponent handleClose={this.handleClose} dialogOpen={this.state.dialogOpen}/>
+
+                {/* 가상머신 dialog */}
+                <VirtualMachinesDialog virtualMachinesDialogOpen={this.state.virtualMachinesDialogOpen} handleClose={this.handleClose}/>
             </div>
         );
     }

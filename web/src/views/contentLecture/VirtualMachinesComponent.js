@@ -1,6 +1,13 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, IconButton, MenuItem, Popover, Radio, Typography} from "@material-ui/core";
+import {
+    Box, Button, Checkbox, FormControlLabel,
+    IconButton,
+    MenuItem,
+    Popover,
+    Radio,
+    Typography
+} from "@material-ui/core";
 import {ReactComponent as Book} from "../../common/images/Book.svg";
 import {ReactComponent as More} from "../../common/images/More.svg";
 import clsx from "clsx";
@@ -10,13 +17,11 @@ import {ReactComponent as WindowsIcon} from "../../common/images/WindowsIcon.svg
 import {ReactComponent as LinuxLogo} from "../../common/images/LinuxLogo.svg";
 import {ReactComponent as AppleLogo} from "../../common/images/AppleLogo.svg";
 import {ReactComponent as AndroidLogo} from "../../common/images/AndroidLogo.svg";
+import CalendarButtonComponent from "./CalendarButtonComponent";
 
 const styles = theme => ({
     root:{
         position:'relative',
-        "& .MuiButtonBase-root:hover":{
-            background:'transparent'
-        },
     },
     videoBox:{
         width: '100%',
@@ -24,10 +29,6 @@ const styles = theme => ({
         border: '1px solid rgba(0, 0, 0, 0.6)',
         borderRadius: 8,
         boxSizing: 'border-box',
-        display:'flex',
-        flexDirection:'column',
-        alignItems: 'center',
-        justifyContent:'center',
         marginBottom:20,
         padding: '34px 34px 17px'
     },
@@ -73,25 +74,16 @@ const styles = theme => ({
         color:'#0d0d0d',
         fontWeight: 600
     },
-    subTextStyle:{
-        fontSize:'1rem',
-        color:'#333',
-        margin: '14px 0 17px'
-    },
-    numberText:{
-        fontSize:'0.813rem',
-        color:'#A3A8AF',
-        marginLeft: 8
-    },
     listBox:{
         width: '100%',
-        marginTop: 11,
-        maxHeight: 260,
-        borderTop:'1px solid #A3A8AF',
-        borderBottom:'1px solid #A3A8AF',
+        marginBottom: 10,
+        height: 'calc(100% - 40px - 58px)',
         padding: '10px 24px',
         overflowY:'auto',
         boxSizing: 'border-box',
+        display:'flex',
+        justifyContent:'center',
+        alignItems:'center',
         "&::-webkit-scrollbar": {
             width:'5px',
         },
@@ -105,34 +97,50 @@ const styles = theme => ({
             marginTop:10
         },
     },
-    marginBox:{
-        width: '100%',
-        margin: '10px 0'
-    },
-    leftWidth:{
-        width: 'calc(100% - 32px)'
-    },
-    listText:{
-        width: 'calc(100% - 35px - 10px)',
-        fontSize: '1rem',
-        color:'#333',
-        fontWeight: 600,
-        marginLeft: 20,
-    },
-    formControl:{
-        marginTop:10,
-        marginBottom:25,
-        "& .MuiFormControlLabel-root":{
-            marginTop:20
+    textButton:{
+        padding:0,
+
+        '&:hover':{
+            background:'transparent',
         },
-        "& .MuiFormControlLabel-label":{
+        '& p':{
+            textDecoration:'underline',
             fontSize:'1rem',
-            color:'#333'
-        },
-        "& .MuiButtonBase-root:hover":{
-            background:'transparent'
+            fontWeight: 600,
         }
     },
+    textStyle:{
+        fontSize: '1rem',
+        color: '#333'
+    },
+    bottomButton:{
+        background:'rgba(20, 0, 254, 0.5)',
+        borderRadius: 5,
+        height: 40,
+        boxSizing:'border-box',
+        color:'#fff',
+        fontSize: '0.875rem',
+        '&:hover':{
+            background:'rgba(20, 0, 254, 0.5)',
+        }
+    },
+    radioBox:{
+        marginTop: 10,
+        '& .MuiIconButton-root':{
+            padding: 0,
+            marginRight: 10,
+            '& .checked-icon2':{
+                fill:'#1664f5'
+            }
+        },
+        '& .MuiFormControlLabel-root':{
+            margin: 0
+        },
+        '& .MuiTypography-root':{
+            fontSize: '0.75rem',
+            color:'#333'
+        }
+    }
 });
 
 class VirtualMachinesComponent extends Component {
@@ -141,6 +149,8 @@ class VirtualMachinesComponent extends Component {
         this.state = {
             anchorEl: null,
             selectedValue: "a",
+            startData: true,
+            endData: true
         };
     }
 
@@ -161,8 +171,8 @@ class VirtualMachinesComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
-        const { anchorEl } = this.state;
+        const { classes, handleClickVirtualMachinesDialog } = this.props;
+        const { anchorEl, startData, endData } = this.state;
 
         const open = Boolean(anchorEl);
 
@@ -200,94 +210,41 @@ class VirtualMachinesComponent extends Component {
                 </Box>
                 <Box className={classes.videoBox}>
                     <Box pl={3} pr={3} style={{width: '100%'}}>
-                        <Typography className={classes.titleStyle}>가상머신 OS선택</Typography>
-                        <Typography className={classes.subTextStyle}>아래 목록에서 실습에 사용할 항목을 선택해주세요. (다중선택 가능)</Typography>
-                        <Box display='flex' alignItems='center'>
-                            <Book/>
-                            <Typography className={classes.numberText}>3개</Typography>
-                        </Box>
+                        <Typography className={classes.titleStyle}>사용자 가상머신</Typography>
                     </Box>
-
                     <Box className={classes.listBox}>
-                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
-                            <Box display='flex' alignItems='center' className={classes.leftWidth}>
-                                <WindowsIcon/>
-                                <Typography className={classes.listText} noWrap>Windows 10 and later x64Windows 10 and later x64Windows 10 and later x64Windows 10 and later x64</Typography>
-                            </Box>
-                            <Radio
-                                checked={this.state.selectedValue === 'a'}
-                                onChange={this.handleChange}
-                                value="a"
-                                name="radio-button-demo"
-                                inputProps={{ 'aria-label': 'A' }}
-                                icon={<UnCheckedIcon/>}
-                                checkedIcon={<CheckedIcon/>}
-                            />
-                        </Box>
+                        <Button className={classes.textButton} onClick={handleClickVirtualMachinesDialog} disableRipple><Typography>'사용자 가상머신 설정 및 관리'</Typography></Button>
+                        <Typography className={classes.textStyle}>에서 선택한 항목이 나타납니다.</Typography>
+                    </Box>
 
-                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
-                            <Box display='flex' alignItems='center' className={classes.leftWidth}>
-                                <LinuxLogo/>
-                                <Typography className={classes.listText} noWrap>Onthelive - Linux</Typography>
-                            </Box>
-                            <Radio
-                                checked={this.state.selectedValue === 'b'}
-                                onChange={this.handleChange}
-                                value="b"
-                                name="radio-button-demo"
-                                inputProps={{ 'aria-label': 'B' }}
-                                icon={<UnCheckedIcon/>}
-                                checkedIcon={<CheckedIcon/>}
-                            />
-                        </Box>
+                    <Box display='flex' justifyContent='space-between'>
+                        <Button className={classes.bottomButton} onClick={handleClickVirtualMachinesDialog} disableRipple>
+                            사용자 가상머신 설정 및 관리
+                        </Button>
 
-                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
-                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
-                                <AppleLogo/>
-                                <Typography className={classes.listText} noWrap>New VM name</Typography>
+                        <Box>
+                            <Box display='flex' alignItems='center'>
+                                <CalendarButtonComponent startData={startData}/>
+                                <Typography style={{margin: '0 10px'}}>~</Typography>
+                                <CalendarButtonComponent endData={endData} />
                             </Box>
-                            <Radio
-                                checked={this.state.selectedValue === 'c'}
-                                onChange={this.handleChange}
-                                value="c"
-                                name="radio-button-demo"
-                                inputProps={{ 'aria-label': 'C' }}
-                                icon={<UnCheckedIcon/>}
-                                checkedIcon={<CheckedIcon/>}
-                            />
-                        </Box>
+                            <Box display='flex' alignItems='center' className={classes.radioBox}>
+                                <FormControlLabel
+                                    value="a"
+                                    control={
+                                        <Checkbox
+                                            icon={<UnCheckedIcon/>}
+                                            checkedIcon={<CheckedIcon/>}
+                                            disableRipple
+                                        />
+                                    }
+                                    label="강사가 직접 시작하기"
+                                />
+                            </Box>
 
-                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
-                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
-                                <AndroidLogo/>
-                                <Typography className={classes.listText} noWrap>Windows 10 and later x64</Typography>
-                            </Box>
-                            <Radio
-                                checked={this.state.selectedValue === 'd'}
-                                onChange={this.handleChange}
-                                value="d"
-                                name="radio-button-demo"
-                                inputProps={{ 'aria-label': 'D' }}
-                                icon={<UnCheckedIcon/>}
-                                checkedIcon={<CheckedIcon/>}
-                            />
-                        </Box>
-                        <Box display='flex' alignItems='center' justifyContent='space-between' className={classes.marginBox}>
-                            <Box display='flex' alignItems='center' className={classes.leftWidth} >
-                                <WindowsIcon/>
-                                <Typography className={classes.listText} noWrap>Windows 10 and later x64</Typography>
-                            </Box>
-                            <Radio
-                                checked={this.state.selectedValue === 'e'}
-                                onChange={this.handleChange}
-                                value="e"
-                                name="radio-button-demo"
-                                inputProps={{ 'aria-label': 'E' }}
-                                icon={<UnCheckedIcon/>}
-                                checkedIcon={<CheckedIcon/>}
-                            />
                         </Box>
                     </Box>
+
                 </Box>
             </div>
         );

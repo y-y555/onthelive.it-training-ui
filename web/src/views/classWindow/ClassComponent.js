@@ -3,6 +3,14 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box} from "@material-ui/core";
 import ClassWindowVideoContents from "./ClassWindowVideoContents";
 import ClassWindowMultipleSingle from "./ClassWindowMultipleSingle";
+import ClassWindowMultipleSingle2 from "./ClassWindowMultipleSingle2";
+import ClassWindowMultipleSingle3 from "./ClassWindowMultipleSingle3";
+import ClassWindowMultipleSingle4 from "./ClassWindowMultipleSingle4";
+import ClassWindowMultipleSingle5 from "./ClassWindowMultipleSingle5";
+import ClassWindowMultipleSingle6 from "./ClassWindowMultipleSingle6";
+import ClassWindowMultipleSingle7 from "./ClassWindowMultipleSingle7";
+import ClassWindowMultipleSingle8 from "./ClassWindowMultipleSingle8";
+import ClassWindowMultipleSingle9 from "./ClassWindowMultipleSingle9";
 import ClassWindowMultipleChoice from "./ClassWindowMultipleChoice";
 import ClassWindowImgContents from "./ClassWindowImgContents";
 import ClassWindowQuizContents from "./ClassWindowQuizContents";
@@ -86,7 +94,16 @@ class ClassComponent extends Component {
                                 {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.DDE}/>*/}
                                 {VideoContents}
                                 <ClassWindowImgContents typeButton2={typeButton2}/>
-                                <ClassWindowQuizContents typeButton2={typeButton2}/>
+                                {/*<ClassWindowQuizContents typeButton2={typeButton2}/>*/}
+                                <ClassWindowMultipleSingle typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle2 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle3 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle4 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle5 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle6 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle7 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle8 typeButton2={typeButton2}/>
+                                <ClassWindowMultipleSingle9 typeButton2={typeButton2}/>
                             </Box>
                             <Box className={clsx(classes.leftBox, classes.rightBox)}
                                  style={{height: 'calc(100vh - 59px - 111px)'}}>

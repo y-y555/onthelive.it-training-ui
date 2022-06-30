@@ -9,7 +9,7 @@ import {ReactComponent as CheckCircle} from "../../common/images/CheckCircle.svg
 import {ReactComponent as PasswordNumberCheckedErrorIcon} from "../../common/images/PasswordNumberCheckedErrorIcon.svg";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 
-const styles = _theme => ({
+const styles = theme => ({
     root:{
         width:'100%'
     },
@@ -238,9 +238,9 @@ class ClassWindowMultipleSingle extends Component {
                         }
                     </Box>
                     <Box className={classes.marginBottom}>
-                        <Typography style={{fontWeight:900}}>[퀴즈]</Typography>
+                        <Typography style={{fontWeight:600}}>[퀴즈]</Typography>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>
-                            “소프트웨어_개발_계약서.hwp” 문서에서 악성 행위를 수행하는 데이터 스트림이 사용하고 있는 압축 방식을 식별하세요.
+                            “malicious-8bc.docx” 문서가 최종적으로 통신을 수행하는 IP 및 포트를 식별하세요.
                         </Typography>
                     </Box>
 
@@ -263,7 +263,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="가. zlib"
+                                    label="가. 154.80.32.60:80"
                                 />
 
                                 {students &&
@@ -280,7 +280,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="나. snappy"
+                                    label="나. 154.80.32.60:443"
                                 />
                             </Box>
                             <Box className={classes.checkBox2}>
@@ -293,7 +293,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="다. lz4"
+                                    label="다. 14.57.9.89:80"
                                 />
                             </Box>
 
@@ -308,7 +308,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="라. gzip"
+                                    label="라. 14.57.9.89:443"
                                 />
                                 {students &&
                                     <PasswordNumberCheckedErrorIcon/>
