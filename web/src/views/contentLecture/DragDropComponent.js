@@ -316,7 +316,7 @@ class DragDropComponent extends Component {
     };
 
     render() {
-        const { classes, typeButton2 } = this.props;
+        const { classes, typeButton2 , handleClickVirtualMachinesDialog} = this.props;
         const { videoAnchorEl, trainingAnchorEl, evaluationAnchorEl, taskAnchorEl, tooltip, infoTooltip, video, training, evaluation, task } = this.state;
         const videoOpen = Boolean(videoAnchorEl);
         const trainingOpen = Boolean(trainingAnchorEl);
@@ -448,7 +448,7 @@ class DragDropComponent extends Component {
 
                     {/* 가상 머신*/}
                     {this.state.virtualMachinesButton &&
-                        <VirtualMachinesComponent/>
+                        <VirtualMachinesComponent handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog}/>
                     }
 
                     {/* 퀴즈*/}

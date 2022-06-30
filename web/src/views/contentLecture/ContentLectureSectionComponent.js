@@ -23,15 +23,15 @@ class ContentLectureSectionComponent extends Component {
     }
 
     render() {
-        const { classes, typeButton1, typeButton2 } = this.props;
+        const { classes, typeButton1, typeButton2, handleClickVirtualMachinesDialog } = this.props;
 
         return (
             <div className={classes.root}>
                 {typeButton1 &&
-                    <Layout1ColumnComponent/>
+                    <Layout1ColumnComponent handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog} />
                 }
                 {typeButton2 &&
-                    <Layout2ColumnComponent typeButton2={typeButton2}/>
+                    <Layout2ColumnComponent typeButton2={typeButton2} handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog}/>
                 }
             </div>
         );
