@@ -71,7 +71,7 @@ class ClassTitleComponent extends Component {
         super(props);
         this.state = {
             dialogOpen:false,
-            text:"서버용 시스템으로 많이 활용되고 있는 유닉스와 리눅스 보안에 대해 다각도로 살펴보고, 보다 안전한 서버 운영을 위한 보안 설정 방법을 ..."
+            text:"악성코드의 다양한 샘플 분석 방법을 이해하고 실습을 교육합니다. 최근 이슈되고 있는 문서형 악성코드, 파워쉘 악성코드, 랜섬웨어 악성코드 등을 실습 중심으로 교육합니다."
         };
     }
 
@@ -95,7 +95,7 @@ class ClassTitleComponent extends Component {
                 </Box>
                 <Box className={classes.titleBox}>
                     <Typography variant="h3">
-                        UNIX/Linux 보안 실무반
+                        악성코드 분석
                     </Typography>
                     <Box>
                         <span className={classes.subTextBox}>

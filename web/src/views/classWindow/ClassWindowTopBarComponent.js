@@ -187,7 +187,7 @@ class ClassWindowTopBarComponent extends Component {
                     <Typography className={classes.textStyle}>강사 강의실</Typography>
                     <Box className={classes.lineStyle}/>
                     <Box display='flex' alignItems='center'>
-                        <Typography className={classes.titleText}>웹 해킹 보안 입문</Typography>
+                        <Typography className={classes.titleText}>악성문서 파일 분석</Typography>
                     </Box>
 
                      <Box display='flex' justifyContent='center' alignItems='center' className={clsx(classes.caption, classes.captionLive)}>

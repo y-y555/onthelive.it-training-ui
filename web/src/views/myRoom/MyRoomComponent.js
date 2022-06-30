@@ -474,7 +474,7 @@ class MyRoomComponent extends Component {
             roomList: [
                 {
                     img:dummyImg1,
-                    title:"UNIX/Linux 보안 실무반",
+                    title:"악성코드 분석",
                     post: true,
                     lastTime: false,
                     lastTimeText:"",

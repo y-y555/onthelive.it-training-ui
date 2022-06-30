@@ -177,7 +177,7 @@ function createData(className, chip1, chip2, chip3, Live, VOD, practice, button,
     return { id, className, chip1, chip2, chip3, Live, VOD, practice, button, free, img};
 }
 const slides = [
-    createData('악성문서 파일 분석', '악성코드', "쉘코드", "DDEAUTO 명령어",false,true,true, false,false, dummyImg1),
+    createData('악성코드 분석', '악성코드', "쉘코드", "DDEAUTO 명령어",false,true,true, false,false, dummyImg1),
     createData('디지털 포렌식 전문가 2급 자격 대비반', "포렌식","자격","데이터", false,false,true, false,false, dummyImg2),
     createData('최신 해킹사례 및 분석', "사이버보안","랜섬웨어","모의훈련",false, true, false, false, true, dummyImg3),
     createData('국제표준 및 보안감사', "ISO","ISO27001","보안통제", true, false, false, false, false, dummyImg4),

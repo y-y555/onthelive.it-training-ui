@@ -152,32 +152,32 @@ class ClassWindowImgContents extends Component {
         return (
             <div className={classes.root}>
                 <Box className={typeButton2 ? clsx(classes.contentsBox,classes.contentsBox2) : classes.contentsBox}>
-                    {classTab === 2 &&
-                    <Box display='flex' flexDirection='column' justifyContent='center' alignItems='flex-end' style={{position:'relative'}} mb={1}>
-                        <Box display='flex' alignItems='center' >
-                            <Box display='flex' justifyContent='center' alignItems='center'
-                                 className={clsx(classes.caption, classes.captionPurple)}>
-                                {/*<Typography>평가</Typography>*/}
-                                <Typography>과제</Typography>
-                            </Box>
-                            {this.state.scoreButton ?
-                                <Box className={classes.inputBox}>
-                                    <Input
-                                        placeholder=""
-                                        inputProps={{
-                                            'aria-label': 'Description',
-                                        }}
-                                    />
-                                </Box>
-                                :
-                                <Typography className={classes.numberPurple}>-</Typography>
-                            }
-                            <Typography className={classes.numberPurple}>/100</Typography>
-                        </Box>
-                        <Button className={classes.buttonStyle} onClick={this.handleClickButton}
-                                disableRipple>채점하기</Button>
-                    </Box>
-                    }
+                    {/*{classTab === 2 &&*/}
+                    {/*<Box display='flex' flexDirection='column' justifyContent='center' alignItems='flex-end' style={{position:'relative'}} mb={1}>*/}
+                    {/*    <Box display='flex' alignItems='center' >*/}
+                    {/*        <Box display='flex' justifyContent='center' alignItems='center'*/}
+                    {/*             className={clsx(classes.caption, classes.captionPurple)}>*/}
+                    {/*            /!*<Typography>평가</Typography>*!/*/}
+                    {/*            <Typography>과제</Typography>*/}
+                    {/*        </Box>*/}
+                    {/*        {this.state.scoreButton ?*/}
+                    {/*            <Box className={classes.inputBox}>*/}
+                    {/*                <Input*/}
+                    {/*                    placeholder=""*/}
+                    {/*                    inputProps={{*/}
+                    {/*                        'aria-label': 'Description',*/}
+                    {/*                    }}*/}
+                    {/*                />*/}
+                    {/*            </Box>*/}
+                    {/*            :*/}
+                    {/*            <Typography className={classes.numberPurple}>-</Typography>*/}
+                    {/*        }*/}
+                    {/*        <Typography className={classes.numberPurple}>/100</Typography>*/}
+                    {/*    </Box>*/}
+                    {/*    <Button className={classes.buttonStyle} onClick={this.handleClickButton}*/}
+                    {/*            disableRipple>채점하기</Button>*/}
+                    {/*</Box>*/}
+                    {/*}*/}
                     <Box className={classes.marginBottom}>
                         <Typography className={typeButton2 ? clsx(classes.titleText, classes.titleText2) :classes.titleText}>[실습 가이드]</Typography>
                     </Box>
@@ -188,27 +188,27 @@ class ClassWindowImgContents extends Component {
                             <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>준비물을 확인해주세요!</Typography>
                         </Box>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2) : classes.textStyle}>
-                            ·실습은 윈도우 환경과 버추얼 박스 가상 환경에서 진행됩니다.<br/>
+                            ·실습은 윈도우 가상 환경에서 진행됩니다.<br/>
                             ·강의 실습을 원할하게 하기 위해서는 램 8GB, 하드디스크 용량 100GB 정도가 필요합니다.<br/>
                             ·준비물에 대한 자세한 내용은 오리엔테이션 수업을 참고 부탁드립니다.
                         </Typography>
                     </Box>
 
-                    <Box className={classes.imgBox1}>
-                        <Box className={classes.imgBox} style={{justifyContent:'center'}}>
-                            <img src={TestImg} alt="이미지"/>
-                        </Box>
-                    </Box>
-                    <Box mt={3} mb={2}>
-                        {classTab === 2 ?
-                            students ?
-                                <Button className={classes.studentBtn} disableRipple>다른 응답 제출</Button>
-                                :
-                                <Typography className={classes.answerText}>정답: 정답입니다.</Typography>
-                            :
-                            null
-                        }
-                    </Box>
+                    {/*<Box className={classes.imgBox1}>*/}
+                    {/*    <Box className={classes.imgBox} style={{justifyContent:'center'}}>*/}
+                    {/*        <img src={TestImg} alt="이미지"/>*/}
+                    {/*    </Box>*/}
+                    {/*</Box>*/}
+                    {/*<Box mt={3} mb={2}>*/}
+                    {/*    {classTab === 2 ?*/}
+                    {/*        students ?*/}
+                    {/*            <Button className={classes.studentBtn} disableRipple>다른 응답 제출</Button>*/}
+                    {/*            :*/}
+                    {/*            <Typography className={classes.answerText}>정답: 정답입니다.</Typography>*/}
+                    {/*        :*/}
+                    {/*        null*/}
+                    {/*    }*/}
+                    {/*</Box>*/}
                 </Box>
             </div>
         );
