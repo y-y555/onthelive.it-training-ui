@@ -129,6 +129,7 @@ const styles = theme => ({
         marginRight: 7,
         color: '#fff',
         '& svg': {
+            marginLeft: 2,
             marginRight: 3,
         },
     },
@@ -211,6 +212,7 @@ const styles = theme => ({
         fontSize: '0.875rem',
         fontWeight: 600,
         color: '#333',
+        marginLeft: 10,
         '& svg': {
             marginRight: 3,
         },
@@ -264,7 +266,31 @@ const styles = theme => ({
         '&:hover': {
             background: '#fff',
         },
+    btnOutlineStyle:{
+        border:'1px solid #bfbfbf',
+        color:'#333333',
+        fontWeight:600,
+        padding:'6px 27px',
+        borderRadius:7,
+        fontSize:'0.938rem',
+        "&:hover":{
+            background: 'transparent',
+        }
     },
+    btnOutlineStyleActive:{
+        border:'1px solid #0097ff',
+        backgroundColor:'#0097ff',
+        color:'#fff',
+        "&:hover":{
+            background: '#0097ff',
+        }
+    },
+    // btnPrivate:{
+    //     width: 116,
+    //     border:'1px solid rgba(0, 0, 0, 0.3)',
+    //     color:'#8f8f8f'
+    // },
+    //
     btnPrivate: {
         border: '1px solid #bfbfbf',
         color: '#bfbfbf',
@@ -323,6 +349,28 @@ const styles = theme => ({
             },
         },
     },
+    },
+    state:{
+        fontSize:'0.875rem',
+        border:'1px solid #8f8f8f',
+        padding:'3px 12px',
+        borderRadius:50,
+        color:'#8f8f8f',
+    },
+    stateActive:{
+        borderColor:'#0097ff',
+        color:'#0097ff'
+    },
+    stateEnd:{
+        borderColor:'#000000',
+        color:'#000'
+    },
+    freeText:{
+        color:'#1664f5',
+        fontSize:'0.875rem',
+        fontWeight:600,
+        marginRight:10,
+    }
 });
 
 class ScheduleCardListItemComponent extends Component {
@@ -355,10 +403,11 @@ class ScheduleCardListItemComponent extends Component {
                                 <DotIcon />
                                 <Typography className={classes.captionText}>LIVE</Typography>
                             </Box>
-                            <Typography className={classes.titleText}>ISMS-P 인증심사 및 심사원 대비반</Typography>
+                            <Typography className={classes.titleText}>악성문서 파일 분석</Typography>
                             <Typography variant="subtitle1" className={classes.subText}>
                                 본 과정은 ISMS-P 통합 인증심사를 위한 종합 가이드로, ISMS-P 인증심사를 앞두고 있는 기업의 실무자와 심사원 자격 대비를
                                 앞두고 있는 분들을 위한 과정입니다. ISMS-P...
+                                최근 공격자들은 자바스크립트, 오피스 문서파일, PDF 문서파일, HWP 문서파일, SWF 파일, RTF 파일 등을 악성코드로 사용하여 공격을 전개 합니다. 이러한 악성 파일...
                             </Typography>
                             <ul className={classes.avatarList}>
                                 <li>

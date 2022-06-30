@@ -3,8 +3,10 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box, Typography, Link, InputBase, IconButton, Chip} from "@material-ui/core";
 import SplashImg01 from '../../common/images/SplashImg01.jpg';
 import SplashImg02 from '../../common/images/SplashImg02.jpg';
+import SplashImg03 from '../../common/images/SplashImg03.jpg';
 import {ReactComponent as CaretRightIcon} from '../../common/images/CaretRightIcon.svg';
 import HomeCarouselComponent from "./HomeCarouselComponent";
+import HomeSecondCarouselComponent from "./HomeSecondCarouselComponent";
 import {ReactComponent as SearchIcon} from "../../common/images/SearchIcon.svg";
 import {ReactComponent as ThreeStarIcon} from "../../common/images/ThreeStarIcon.svg";
 import 'pure-react-carousel/dist/react-carousel.es.css';
@@ -217,12 +219,18 @@ class TopBar extends Component {
             splashList: [
                 {
                     id:1,
-                    img:SplashImg01,
+                    img:SplashImg03,
                     title:"정보보호 전문가가 되고 싶다면 부스트코스!",
                     subTitle:"실무형 실습강의로 정보보호 기술 역량을 키워보세요.",
                 },
                 {
                     id:2,
+                    img:SplashImg01,
+                    title:"정보보호 전문가가 되고 싶다면 부스트코스!",
+                    subTitle:"실무형 실습강의로 정보보호 기술 역량을 키워보세요.",
+                },
+                {
+                    id:3,
                     img:SplashImg02,
                     title:"자바 블록체인 네트워크 보안 AI 풀스택",
                     subTitle:"다양한 산업별 알고리즘 기법을 토대로 빅데이터 기술력을 높이세요!",
@@ -239,9 +247,10 @@ class TopBar extends Component {
                 <Box className={classes.splashBox} >
                     <CarouselProvider
                         naturalSlideWidth={1000}
-                        totalSlides={this.state.splashList.length}
                         isIntrinsicHeight
                         visibleSlides={1}
+                        totalSlides={3}
+                        // totalSlides={this.state.splashList.id}
                         // hasMasterSpinner='true'
                     >
                         <Slider>
@@ -262,9 +271,9 @@ class TopBar extends Component {
                         </Slider>
                         <div className={classes.wrap}>
                             <DotGroup>
-                                {this.state.splashList.map((rooms, i) => (
-                                    <Dot slide={this.state.splashList.id}/>
-                                ))}
+                                {/*{this.state.splashList.map((rooms, i) => (*/}
+                                {/*    <Dot slide={i} />*/}
+                                {/*))}*/}
                             </DotGroup>
                         </div>
                     </CarouselProvider>
@@ -296,7 +305,7 @@ class TopBar extends Component {
                     </Box>
                     <Box className={classes.sliderBox} style={{marginTop:90}}>
                         <Link variant={"h3"}>처음이라면, 오픈 강의부터 훑어보세요! <CaretRightIcon/></Link>
-                        <HomeCarouselComponent/>
+                        <HomeSecondCarouselComponent/>
                     </Box>
                     <Box className={classes.sliderBox} style={{marginTop:80}}>
                         <Link variant={"h3"}>

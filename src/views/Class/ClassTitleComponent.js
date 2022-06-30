@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import {Box,Typography, Button} from "@material-ui/core";
 import {ReactComponent as BackgroundImageIcon} from "../../common/images/BackgroundImageIcon.svg";
 import IntroductionDialogComponent from "../dialog/IntroductionDialogComponent";
+import dummyImg0 from "../../common/images/dummyImg0.jpg";
 
 const styles = theme => ({
     root:{
@@ -26,7 +27,11 @@ const styles = theme => ({
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        backgroundColor:'#D8F6FF',
+        // backgroundColor:'#D8F6FF',
+        backgroundImage:`url(${dummyImg0})`,
+        backgroundPosition:'0 0',
+        backgroundRepeat:'no-repeat',
+        backgroundSize:'cover',
         borderRadius:10,
         margin: '0 0 auto',
     },
@@ -86,7 +91,7 @@ class ClassTitleComponent extends Component {
         return (
             <div className={classes.root}>
                 <Box className={classes.visualBox}>
-                    <BackgroundImageIcon/>
+                    {/*<BackgroundImageIcon/>*/}
                 </Box>
                 <Box className={classes.titleBox}>
                     <Typography variant="h3">구글 스프레드시트로 게을러도 완벽하게 일하는 법</Typography>

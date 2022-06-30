@@ -233,8 +233,8 @@ class TodayScheduleComponent extends Component {
             checkBox:true,
             scheduleData: [
                 {
-                    roomName:"모의 해킹 클럽",
-                    title:"리눅스 커널 해킹",
+                    roomName:"UNIX/Linux 보안 실무반",
+                    title:"MS오피스 문서 분석 전략",
                     live: true,
                     vod: true,
                     training:true,
@@ -246,8 +246,8 @@ class TodayScheduleComponent extends Component {
                     private: false,
                 },
                 {
-                    roomName:"모의 해킹 클럽",
-                    title:"리눅스 커널 해킹",
+                    roomName:"UNIX/Linux 보안 실무반",
+                    title:"DDE 유형 악성 MS오피스 문서 파일 분석",
                     live: true,
                     vod: true,
                     training:false,
