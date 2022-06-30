@@ -17,6 +17,7 @@ import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIc
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
 import GalleryCheckCircleIcon from "../../common/images/GalleryCheckCircleIcon.svg";
+import {inject, observer} from "mobx-react";
 
 const styles = theme => ({
     root:{
@@ -539,7 +540,7 @@ class MyRoomComponent extends Component {
     };
 
     render() {
-        const { classes } = this.props;
+        const { classes, authStore } = this.props;
         const { classTab } = this.state;
 
         return (
@@ -576,24 +577,19 @@ class MyRoomComponent extends Component {
                     </Box>
 
                     <Box display='flex' flexWrap='wrap'>
-                        <Box style={{position:'relative'}}>
-                            <Button className={classes.roomCreateButton} disableripple onClick={this.handleClickRoomType.bind(this)}>
-                                <Box className={classes.buttonIcon}>
-                                    <ButtonPlusIcon/>
+                        {
+                            !authStore.isGuestUser && (
+                                <Box style={{position:'relative'}}>
+                                    <Button className={classes.roomCreateButton} disableripple onClick={this.handleClickRoomType.bind(this)}>
+                                        <Box className={classes.buttonIcon}>
+                                            <ButtonPlusIcon/>
+                                        </Box>
+                                        <Typography className={classes.buttonText}>강의실 만들기</Typography>
+                                    </Button>
                                 </Box>
-                                <Typography className={classes.buttonText}>강의실 만들기</Typography>
-                            </Button>
-                            {/*<Box className={classes.explanationBox}>*/}
-                            {/*    <Typography className={classes.stepText}>단계 1 of 4</Typography>*/}
-                            {/*    <Typography className={classes.stepContents}>수업, 스터디 등 유형별 모임을 만들어 보세요.</Typography>*/}
-                            {/*    <Box display='flex' justifyContent='space-between' alignItems='center' >*/}
-                            {/*        <Button className={classes.stepCheckBtn} startIcon={<PasswordNumberUnCheckedIcon />} disableripple>더 이상 안보기</Button>*/}
-                            {/*        <Button className={classes.stepBtn} disableripple>*/}
-                            {/*            다음*/}
-                            {/*        </Button>*/}
-                            {/*    </Box>*/}
-                            {/*</Box>*/}
-                        </Box>
+                            )
+                        }
+
 
                         {this.state.classTab === 0 &&
                             this.state.roomList.map((rooms, i) => (
@@ -666,16 +662,21 @@ class MyRoomComponent extends Component {
                                 </Box>
                             ))
                         }
-                        <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableripple>
-                            <Box className={classes.imgStyle}>
-                                {/*<img src={RoomTestImg3} alt='room image'/>*/}
-                            </Box>
-                            <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
-                                <Box display='flex' flexDirection='column' alignItems='flex-start'>
-                                    <Typography className={clsx(classes.buttonText, classes.guideText)}>강사 가이드</Typography>
-                                </Box>
-                            </Box>
-                        </Button>
+                        {
+                            !authStore.isGuestUser && (
+                                <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableripple>
+                                    <Box className={classes.imgStyle}>
+                                        {/*<img src={RoomTestImg3} alt='room image'/>*/}
+                                    </Box>
+                                    <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
+                                        <Box display='flex' flexDirection='column' alignItems='flex-start'>
+                                            <Typography className={clsx(classes.buttonText, classes.guideText)}>강사 가이드</Typography>
+                                        </Box>
+                                    </Box>
+                                </Button>
+                            )
+                        }
+
                     </Box>
 
                 </Box>
@@ -684,4 +685,4 @@ class MyRoomComponent extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(MyRoomComponent));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(MyRoomComponent))));

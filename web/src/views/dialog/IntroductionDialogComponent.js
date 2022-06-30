@@ -86,8 +86,7 @@ class IntroductionDialogComponent extends Component {
 
                     <Box className={classes.boxStyle}>
                         <Typography className={classes.textStyle}>
-                            수학 대표 컨텐츠 개념원리, 기초부터 심화과정까지 개념원리 인강 하나로!
-                            여기는 기초수학특강 모임방입니다.<br/>
+                            서버용 시스템으로 많이 활용되고 있는 유닉스와 리눅스 보안에 대해 다각도로 살펴보고, 보다 안전한 서버 운영을 위한 보안 설정 방법을 학습합니다.<br/>
                             😀🤡👏🏻👍🏻🤟🏻🐧☀️🌈<br/>
                             <span className={classes.spanStyle}>onthelive.kr</span>
                         </Typography>

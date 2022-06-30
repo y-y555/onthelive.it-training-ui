@@ -27,6 +27,9 @@ import {ReactComponent as ArrowDownIcon} from "../../common/images/ArrowDownIcon
 import {inject, observer} from "mobx-react";
 
 const styles = _theme => ({
+    hiddenRoot: {
+      display : 'none',
+    },
     root:{
         display:'flex',
         justifyContent:'center',
@@ -312,6 +315,16 @@ class TopBar extends Component {
         this.props.authStore.doLogout();
     }
 
+    getRootClassName = () => {
+        console.log(this.props.history)
+        const { classes } = this.props;
+        const currentPath = this.props.history.location.pathname;
+        if(currentPath === '/classWindow') {
+            return classes.hiddenRoot;
+        }
+        return classes.root;
+    }
+
 
     render() {
         const { classes } = this.props;
@@ -319,10 +332,11 @@ class TopBar extends Component {
         const { anchorEl, notificationOpen } = this.state;
         const open = Boolean(anchorEl);
         const bellIconClassName = notificationOpen ? classes.iconColor : null;
+        const rootClassName = this.getRootClassName();
 
         return (
-            <div className={classes.root} >
-                <Box className={classes.appBar}>
+            <div className={rootClassName} >
+                <Box className={classes.appBar} >
                     <Box display='flex' alignItems='center'>
                         <Link to="/rooms">
                             <OntheliveLogo/>

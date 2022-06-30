@@ -10,6 +10,7 @@ import CommentComponent from "./CommentComponent";
 import ClassContentSearchComponent from "./ClassContentSearchComponent";
 import MemberProfileDialogComponent from "../dialog/MemberProfileDialogComponent";
 import {withRouter} from "react-router-dom";
+import {inject, observer} from "mobx-react";
 
 const styles = _theme => ({
     root:{
@@ -250,7 +251,7 @@ class ClassScheduleDetailContentComponent extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, authStore } = this.props;
         const { anchorEl } = this.state;
 
         return (
@@ -258,7 +259,7 @@ class ClassScheduleDetailContentComponent extends Component {
                 <Box className={classes.center}>
                     <Box className={classes.titleStyle}>
                         <Box>
-                            <Typography variant="h3"> 외국어 쉽게 익히는 법 </Typography>
+                            <Typography variant="h3"> 악성문서 파일 분석 </Typography>
                         </Box>
                         <IconButton disableripple
                                     aria-owns={anchorEl ? 'simple-menu' : undefined}
@@ -277,7 +278,10 @@ class ClassScheduleDetailContentComponent extends Component {
                         </Menu>
                     </Box>
                     <Box className={classes.content}>
-                        <Typography className={classes.contentsText}>하반기 온라인 마케팅 기획 회의로 다음 목표는 상반기 대비 1,000% 달성입니다. 모두 아이디어 한개 이상씩 고민하여 참석하세요.</Typography>
+                        <Typography className={classes.contentsText}>
+                            본 과정은 ISMS-P 통합 인증심사를 위한 종합 가이드로, ISMS-P 인증심사를 앞두고 있는 기업의 실무자와 심사원 자격 대비를 앞두고 있는 분들을 위한 과정입니다. ISMS-P...
+                            최근 공격자들은 자바스크립트, 오피스 문서파일, PDF 문서파일, HWP 문서파일, SWF 파일, RTF 파일 등을 악성코드로 사용하여 공격을 전개 합니다.
+                        </Typography>
                         <Box display='flex' justifyContent='space-between' alignItems='flex-end'>
                             <Box>
                                 <ul className={classes.listStyle}>
@@ -296,7 +300,7 @@ class ClassScheduleDetailContentComponent extends Component {
                                 disableripple
                                 onClick={this.handleClickAttend}
                             >
-                                참석하기
+                                {authStore.isGuestUser ?  '학습하기' : '강의하기'}
                             </Button>
                         </Box>
                     </Box>
@@ -332,4 +336,4 @@ class ClassScheduleDetailContentComponent extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(ClassScheduleDetailContentComponent));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(ClassScheduleDetailContentComponent))));

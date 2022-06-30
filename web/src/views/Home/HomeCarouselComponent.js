@@ -15,8 +15,6 @@ import dummyImg1 from '../../common/images/dummyImg1.jpg';
 import dummyImg2 from '../../common/images/dummyImg2.jpg';
 import dummyImg3 from '../../common/images/dummyImg3.jpg';
 import dummyImg4 from '../../common/images/dummyImg4.jpg';
-import {Typography} from "@material-ui/core";
-import clsx from "clsx";
 
 const styles = _theme => ({
     root:{

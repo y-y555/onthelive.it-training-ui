@@ -19,6 +19,7 @@ import { ReactComponent as EyeTinyIcon } from '../../common/images/EyeIcon.svg';
 import { ReactComponent as VodIcon } from '../../common/images/VodIcon.svg';
 import { ReactComponent as LockKey } from '../../common/images/LockKey.svg';
 import { ReactComponent as AsideUserIcon } from '../../common/images/AsideUserIcon.svg';
+import {inject, observer} from "mobx-react";
 
 const styles = _theme => ({
     root: {
@@ -669,70 +670,70 @@ class ScheduleCardListItemComponent extends Component {
                 </Box>
 
                 {/*  종료  */}
-                <Box className={classes.listBox}>
-                    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>
-                        <Box>
-                            <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionEnd)}>
-                                <Typography className={classes.captionText}>종료</Typography>
-                            </Box>
-                            <Typography className={clsx(classes.titleText, classes.listBoxTitleEnd)}>온더라이브 기획미팅</Typography>
-                            <Typography variant="subtitle1" className={classes.subText}>
-                                하반기 온라인 마케팅 서비스 기획 회의
-                            </Typography>
-                            <ul className={classes.avatarList}>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <Avatar className={classes.avatar}>
-                                        <AsideUserIcon />
-                                    </Avatar>
-                                </li>
-                                <li>
-                                    <div className={classes.avatarLastStyle}>+12</div>
-                                </li>
-                            </ul>
-                        </Box>
-                        <Box className={classes.asideControl}>
-                            <Typography className={classes.rightText}>
-                                <BookmarksSimple />
-                                초급
-                            </Typography>
-                            <Box className={classes.iconButtonBox}>
-                                <Tooltip title="학습결과" placement="right" classes={{ tooltip: classes.lightTooltip }}>
-                                    <IconButton>
-                                        <ChartBarFillIcon />
-                                    </IconButton>
-                                </Tooltip>
-                            </Box>
-                        </Box>
-                    </Box>
-                    <Box className={classes.boxFooter}>
-                        <Box className={classes.ftCount}>
-                            <Box>
-                                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}
-                            </Box>
-                            <Box>
-                                <ChatCircleDotsIcon /> 2{' '}
-                            </Box>
-                        </Box>
-                        <Box className={classes.ftAdded}>
-                            <Button disableripple>
-                                <HandsClappingIcon /> 좋아요
-                            </Button>
-                            <Button disableripple onClick={this.handleClickDetail}>
-                                <ChatCircleDotsIcon /> 댓글 달기
-                            </Button>
-                        </Box>
-                    </Box>
-                </Box>
+                {/*<Box className={classes.listBox}>*/}
+                {/*    <Box className={classes.listBoxContent} onClick={this.handleClickDetail}>*/}
+                {/*        <Box>*/}
+                {/*            <Box display="flex" justifyContent="center" alignItems="center" className={clsx(classes.caption, classes.captionEnd)}>*/}
+                {/*                <Typography className={classes.captionText}>종료</Typography>*/}
+                {/*            </Box>*/}
+                {/*            <Typography className={clsx(classes.titleText, classes.listBoxTitleEnd)}>온더라이브 기획미팅</Typography>*/}
+                {/*            <Typography variant="subtitle1" className={classes.subText}>*/}
+                {/*                하반기 온라인 마케팅 서비스 기획 회의*/}
+                {/*            </Typography>*/}
+                {/*            <ul className={classes.avatarList}>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <Avatar className={classes.avatar}>*/}
+                {/*                        <AsideUserIcon />*/}
+                {/*                    </Avatar>*/}
+                {/*                </li>*/}
+                {/*                <li>*/}
+                {/*                    <div className={classes.avatarLastStyle}>+12</div>*/}
+                {/*                </li>*/}
+                {/*            </ul>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.asideControl}>*/}
+                {/*            <Typography className={classes.rightText}>*/}
+                {/*                <BookmarksSimple />*/}
+                {/*                초급*/}
+                {/*            </Typography>*/}
+                {/*            <Box className={classes.iconButtonBox}>*/}
+                {/*                <Tooltip title="학습결과" placement="right" classes={{ tooltip: classes.lightTooltip }}>*/}
+                {/*                    <IconButton>*/}
+                {/*                        <ChartBarFillIcon />*/}
+                {/*                    </IconButton>*/}
+                {/*                </Tooltip>*/}
+                {/*            </Box>*/}
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*    <Box className={classes.boxFooter}>*/}
+                {/*        <Box className={classes.ftCount}>*/}
+                {/*            <Box>*/}
+                {/*                <HandsClappingIcon className={this.state.like ? classes.iconColor : null} /> 5{' '}*/}
+                {/*            </Box>*/}
+                {/*            <Box>*/}
+                {/*                <ChatCircleDotsIcon /> 2{' '}*/}
+                {/*            </Box>*/}
+                {/*        </Box>*/}
+                {/*        <Box className={classes.ftAdded}>*/}
+                {/*            <Button disableripple>*/}
+                {/*                <HandsClappingIcon /> 좋아요*/}
+                {/*            </Button>*/}
+                {/*            <Button disableripple onClick={this.handleClickDetail}>*/}
+                {/*                <ChatCircleDotsIcon /> 댓글 달기*/}
+                {/*            </Button>*/}
+                {/*        </Box>*/}
+                {/*    </Box>*/}
+                {/*</Box>*/}
                 {/*  종료  */}
             </div>
         );
