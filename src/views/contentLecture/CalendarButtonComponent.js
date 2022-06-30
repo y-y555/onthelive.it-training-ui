@@ -120,7 +120,7 @@ class CalendarButtonComponent extends Component {
     };
 
     render() {
-        const { classes, allDate } = this.props;
+        const { classes, allDate, startDate, endDate } = this.props;
         const { open, arrow, arrowRef } = this.state;
 
         return (
@@ -132,7 +132,19 @@ class CalendarButtonComponent extends Component {
                     disableRipple
                 >
                     <CalendarBlank2/>
-                    <Typography> {allDate ? '전체 기간' : '기한 없음'}</Typography>
+                    <Typography>
+                        {allDate ?
+                            '전체 기간'
+                            :
+                            startDate ?
+                                '실습 시작 시간'
+                                :
+                                endDate ?
+                                    '실습 마감 시간'
+                                    :
+                                '기한 없음'
+                        }
+                    </Typography>
                     <ArrowDownIcon/>
                 </Button>
 

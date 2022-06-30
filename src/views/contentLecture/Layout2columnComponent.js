@@ -51,7 +51,7 @@ class Layout2ColumnComponent extends Component {
     }
 
     render() {
-        const { classes, typeButton2 } = this.props;
+        const { classes, typeButton2, handleClickVirtualMachinesDialog } = this.props;
 
         return (
             <div className={classes.root}>
@@ -59,7 +59,7 @@ class Layout2ColumnComponent extends Component {
 
                 <Box className={classes.box}>
                     <Box className={classes.lineColumnStyle}>
-                        <DragDropComponent typeButton2={typeButton2} />
+                        <DragDropComponent typeButton2={typeButton2} handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog} />
                     </Box>
                 </Box>
 
@@ -67,7 +67,7 @@ class Layout2ColumnComponent extends Component {
 
                 <Box className={classes.box}>
                     <Box className={classes.lineColumnStyle}>
-                        <DragDropComponent typeButton2={typeButton2}/>
+                        <DragDropComponent typeButton2={typeButton2} handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog}/>
                     </Box>
                 </Box>
             </div>

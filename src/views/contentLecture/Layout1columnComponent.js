@@ -46,14 +46,14 @@ class Layout1ColumnComponent extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, handleClickVirtualMachinesDialog } = this.props;
 
         return (
             <div className={classes.root}>
                 <Box className={classes.lineRowStyle}/>
                 <Box className={classes.dragDropBox}>
                     <Box className={classes.lineColumnStyle}>
-                        <DragDropComponent/>
+                        <DragDropComponent handleClickVirtualMachinesDialog={handleClickVirtualMachinesDialog}/>
                     </Box>
                 </Box>
 
