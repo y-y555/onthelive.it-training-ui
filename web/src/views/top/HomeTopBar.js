@@ -152,17 +152,6 @@ class HomeTopBar extends Component {
                         </Box>
                     </Box>
                     <Box display='flex' alignItems='center' className={classes.topBarRight}>
-                        {/*<Select*/}
-                        {/*    native*/}
-                        {/*    value={this.state.language}*/}
-                        {/*    onChange={(e) => this.handleLanguageSelect(e)}*/}
-                        {/*    className={classes.selectBox}*/}
-                        {/*    input={<BootstrapInput/>}*/}
-                        {/*    IconComponent={() => <SelectArrow />}*/}
-                        {/*>*/}
-                        {/*    <option value='Korean'>한국어</option>*/}
-                        {/*    <option value='English'>영어</option>*/}
-                        {/*</Select>*/}
                         <Button className={classes.buttonStyle} disableRipple onClick={this.handleClickLogin}>로그인</Button>
                         <Button className={classes.buttonStyle} disableRipple>회원가입</Button>
                         <Button className={classes.btnOutlineStyle} disableRipple>기업 서비스</Button>

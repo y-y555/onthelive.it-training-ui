@@ -85,8 +85,8 @@ class App extends React.Component {
         const { authStore } = this.props;
         const routes = authStore.loginState === LoginState.Authenticated ? ROUTES.private : ROUTES.public;
         if(routes.length) {
-            return routes.map(route => {
-                return <Route key={route.path} exact path={route.path} render={() => route.component} />;
+            return routes.map((route, index) => {
+                return <Route key={`${route.path}_${index}`} exact path={route.path} render={() => route.component} />;
             });
         }
 

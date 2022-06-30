@@ -92,14 +92,11 @@ class NotificationComponent extends Component {
         return (
             <div className={classes.root}>
                 <Drawer
-                    className={classes.drawer}
+                    // className={classes.drawer}
                     onClose={this.props.handleNotificationClose}
                     anchor="right"
                     open={this.props.notificationOpen}
                     className={classes.drawerPaper}
-                    // classes={{
-                    //     paper: classes.drawerPaper,
-                    // }}
                 >
                     <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.titleBox}>
                         <Typography className={classes.titleText}>알림</Typography>

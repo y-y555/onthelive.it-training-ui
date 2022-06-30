@@ -12,7 +12,7 @@ import {ReactComponent as HandsClappingIcon} from '../../common/images/HandsClap
 import {ReactComponent as UsersThreeIcon} from '../../common/images/UsersThreeIcon.svg';
 import {ReactComponent as BookmarksSimple} from '../../common/images/BookmarksSimple.svg';
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         position:'relative',
         // width:'calc(100vw - 64px)',
@@ -188,61 +188,61 @@ class HomeCarouselComponent extends Component {
         const { classes } = this.props;
         return (
             <div className={classes.root}>
-            <CarouselProvider
-                naturalSlideWidth={335}
-                // naturalSlideHeight={100}
-                totalSlides={slides.length}
-                isIntrinsicHeight
-                visibleSlides={2}
-            >
-                <Slider className={classes.carousel}>
-                    {slides.map(slide => (
-                    <Slide index={slide.id} className={classes.slideItem}>
-                        <div className={classes.video}>
-                            {slide.tag === '실습' ?
-                                <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
-                                :
-                                (slide.tag === "LIVE") ?
-                                    <span className={classes.tag} style={{backgroundColor:'#fb4a59'}}>
-                                        <DotIcon style={{width:10, height:10, marginRight:2}}/> LIVE</span>
+                <CarouselProvider
+                    naturalSlideWidth={335}
+                    // naturalSlideHeight={100}
+                    totalSlides={slides.length}
+                    isIntrinsicHeight
+                    visibleSlides={2}
+                >
+                    <Slider className={classes.carousel}>
+                        {slides.map((slide, index) => (
+                        <Slide key={index} index={slide.id} className={classes.slideItem}>
+                            <div className={classes.video}>
+                                {slide.tag === '실습' ?
+                                    <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
                                     :
-                                    (slide.tag === "VOD") ?
-                                        <span className={classes.tag} style={{backgroundColor:'#000'}}>
-                                            <PlayIcon style={{width:10, height:10, marginRight:2}}/> VOD</span>
+                                    (slide.tag === "LIVE") ?
+                                        <span className={classes.tag} style={{backgroundColor:'#fb4a59'}}>
+                                            <DotIcon style={{width:10, height:10, marginRight:2}}/> LIVE</span>
                                         :
-                                        null
-                            }
-                            <VideoPlayIcon/>
-                        </div>
-                        <Box className={classes.carouselContent}>
-                            <Box>
-                            {this.state.tagList.map((tag, i) => (
-                                <Chip
-                                    key={i}
-                                    label={tag.tag}
-                                    className={classes.chip}
-                                />
-                            ))}
-                            <Typography variant={'h5'}>{slide.className}</Typography>
+                                        (slide.tag === "VOD") ?
+                                            <span className={classes.tag} style={{backgroundColor:'#000'}}>
+                                                <PlayIcon style={{width:10, height:10, marginRight:2}}/> VOD</span>
+                                            :
+                                            null
+                                }
+                                <VideoPlayIcon/>
+                            </div>
+                            <Box className={classes.carouselContent}>
+                                <Box>
+                                {this.state.tagList.map((tag, i) => (
+                                    <Chip
+                                        key={`${tag.tag}_${i}`}
+                                        label={tag.tag}
+                                        className={classes.chip}
+                                    />
+                                ))}
+                                <Typography variant={'h5'}>{slide.className}</Typography>
+                                </Box>
+                                {slide.fileName === false ?
+                                    <Button className={classes.enterBtn}>강의실 입장</Button>
+                                    :
+                                    <ul className={classes.commentStyle}>
+                                        <li><HandsClappingIcon/> 1,200</li>
+                                        <li><UsersThreeIcon/> 200</li>
+                                        <li><BookmarksSimple/> 초급</li>
+                                    </ul>
+                                }
                             </Box>
-                            {slide.fileName === false ?
-                                <Button className={classes.enterBtn}>강의실 입장</Button>
-                                :
-                                <ul className={classes.commentStyle}>
-                                    <li><HandsClappingIcon/> 1,200</li>
-                                    <li><UsersThreeIcon/> 200</li>
-                                    <li><BookmarksSimple/> 초급</li>
-                                </ul>
-                            }
-                        </Box>
-                    </Slide>
-                    ))}
-                </Slider>
-                <Box className={classes.btnGroup}>
-                    <ButtonBack className={classes.btnLeftStyle}><ArrowLeftIcon/></ButtonBack>
-                    <ButtonNext className={classes.btnRightStyle}><ArrowRightIcon/></ButtonNext>
-                </Box>
-            </CarouselProvider>
+                        </Slide>
+                        ))}
+                    </Slider>
+                    <Box className={classes.btnGroup}>
+                        <ButtonBack className={classes.btnLeftStyle}><ArrowLeftIcon/></ButtonBack>
+                        <ButtonNext className={classes.btnRightStyle}><ArrowRightIcon/></ButtonNext>
+                    </Box>
+                </CarouselProvider>
             </div>
         );
     }

@@ -246,7 +246,7 @@ class TopBar extends Component {
                     >
                         <Slider>
                             {this.state.splashList.map((rooms, i) => (
-                            <Slide index={i}>
+                            <Slide key={i} index={i}>
                                 <Box className={classes.titleBox} style={{ backgroundImage: `url(${rooms.img})`, width:'100vw'}}>
                                     <Box>
                                     <Typography className={classes.titleText} component={"p"}>
@@ -263,7 +263,7 @@ class TopBar extends Component {
                         <div className={classes.wrap}>
                             <DotGroup>
                                 {this.state.splashList.map((rooms, i) => (
-                                    <Dot slide={this.state.splashList.id}/>
+                                    <Dot key={i} slide={this.state.splashList.id}/>
                                 ))}
                             </DotGroup>
                         </div>

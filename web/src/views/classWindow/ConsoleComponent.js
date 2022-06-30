@@ -6,8 +6,6 @@ import clsx from "clsx";
 import TestVideoImg from "../../common/images/TestVideoImg.png";
 import {inject, observer} from "mobx-react";
 
-const DUMMY_VM_ACCESS_URL = 'http://146.56.37.19/guacamole/#/client/MzEAYwBteXNxbA==';
-
 const styles = _theme => ({
     root:{
         width: 690,
