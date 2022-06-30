@@ -1,8 +1,8 @@
 import React, {Component} from 'react';
 import {withStyles} from "@material-ui/core/styles";
-import {Box, Button, Chip, Typography} from "@material-ui/core";
+import {Box, Chip, Button} from "@material-ui/core";
 import 'pure-react-carousel/dist/react-carousel.es.css';
-import {ButtonBack, ButtonNext, CarouselProvider, Slide, Slider} from 'pure-react-carousel';
+import { CarouselProvider, Slider, Slide ,ButtonBack,ButtonNext} from 'pure-react-carousel';
 import {ReactComponent as ArrowRightIcon} from '../../common/images/CaretRightIcon.svg';
 import {ReactComponent as ArrowLeftIcon} from '../../common/images/ArrowIcon.svg';
 import {ReactComponent as VideoPlayIcon} from '../../common/images/VideoPlayIcon.svg';
@@ -18,7 +18,7 @@ import dummyImg4 from '../../common/images/dummyImg4.jpg';
 import {Typography} from "@material-ui/core";
 import clsx from "clsx";
 
-const styles = _theme => ({
+const styles = theme => ({
     root:{
         position:'relative',
         // width:'calc(100vw - 64px)',
@@ -179,19 +179,20 @@ function createData(className, chip1, chip2, chip3, Live, VOD, practice, button,
     return { id, className, chip1, chip2, chip3, Live, VOD, practice, button, free, img};
 }
 const slides = [
-    createData('악성문서 파일 분석', '악성코드', "쉘코드", "DDEAUTO 명령어",false,true,true, false,false, dummyImg1),
+    createData('국제표준 및 보안감사', "ISO","ISO27001","보안통제", false, true, false, false, false, dummyImg4),
     createData('디지털 포렌식 전문가 2급 자격 대비반', "포렌식","자격","데이터", false,false,true, false,false, dummyImg2),
+    createData('악성문서 파일 분석', '악성코드', "쉘코드", "DDEAUTO 명령어",true,false,false, false,false, dummyImg1),
     createData('최신 해킹사례 및 분석', "사이버보안","랜섬웨어","모의훈련",false, true, false, false, true, dummyImg3),
-    createData('국제표준 및 보안감사', "ISO","ISO27001","보안통제", true, false, false, false, false, dummyImg4),
     {
 
     }
 ];
 
-class HomeCarouselComponent extends Component {
+class HomeSecondCarouselComponent extends Component {
     constructor(props) {
         super(props);
         this.state = {
+
         };
     }
     render() {
@@ -216,15 +217,15 @@ class HomeCarouselComponent extends Component {
                                     :
                                     null
                                 }
-                            {slide.practice === true ?
-                                <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
-                                :
-                                null
-                            }
-                            {slide.Live === true ?
-                                <span className={classes.tag} style={{backgroundColor:'#fb4a59'}}>
+                                {slide.practice === true ?
+                                    <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
+                                    :
+                                    null
+                                }
+                                {slide.Live === true ?
+                                    <span className={classes.tag} style={{backgroundColor:'#fb4a59'}}>
                                         <DotIcon style={{width:10, height:10, marginRight:2}}/> LIVE</span>
-                                :null}
+                                    :null}
                             </div>
                             <VideoPlayIcon className={classes.playBtn}/>
                             <img src={slide.img} alt={slide.id} style={{width:'100%', height:'100%'}}/>
@@ -247,18 +248,7 @@ class HomeCarouselComponent extends Component {
                                 </Box>
                             <Typography variant={'h5'}>{slide.className}</Typography>
                             </Box>
-                            {slide.fileName === false ?
                                 <Button className={classes.enterBtn}>강의실 입장</Button>
-                                :
-                                <ul className={classes.commentStyle}>
-                                    <li><HandsClappingIcon/> 1,200</li>
-                                    <li><UsersThreeIcon/> 200</li>
-                                    <li><BookmarksSimple/> 초급</li>
-                                    {slide.free === true ?
-                                    <li style={{color:'#1664F5', fontSize:'0.813rem'}}>무료강의</li>
-                                    : null}
-                                </ul>
-                            }
                         </Box>
                     </Slide>
                     ))}
@@ -274,4 +264,4 @@ class HomeCarouselComponent extends Component {
 }
 
 
-export default withStyles(styles)(HomeCarouselComponent);
+export default withStyles(styles)(HomeSecondCarouselComponent);
