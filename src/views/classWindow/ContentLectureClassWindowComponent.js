@@ -9,6 +9,7 @@ import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
 import ViewStudentsComponent from "./ViewStudentsComponent";
+import StudentsListComponent from "./StudentsListComponent";
 
 const styles = theme => ({
     root:{
@@ -55,8 +56,8 @@ class ContentLectureClassWindowComponent extends Component {
             previewPc: true,
 
             //1단, 2단
-            typeButton1:false,
-            typeButton2:true,
+            typeButton1:true,
+            typeButton2:false,
 
             //이미지 1개
             image1:false,
@@ -94,6 +95,10 @@ class ContentLectureClassWindowComponent extends Component {
                         handleChangeTabs={handleChangeTabs}
                     />
                 </Box>
+
+                {classTab === 2 &&
+                    <StudentsListComponent/>
+                }
 
                 {classTab === 0 ?
                     <ClassComponent

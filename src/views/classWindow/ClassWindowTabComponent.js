@@ -4,16 +4,18 @@ import {Tab, Tabs} from "@material-ui/core";
 
 const styles = theme => ({
     root:{
-
+        width: 690,
+        margin: '0 auto'
     },
     trigger:{
         display:'flex',
         alignItems:'center',
         justifyContent:'center',
-        margin: '30px 0 50px',
+        margin: '30px 0 30px',
         '& .MuiTabs-flexContainer':{
             borderBottom: '3px solid #eeeeee',
-            // width: 330
+            // width: 330,
+            justifyContent:'center'
         },
         '& button':{
             width:100,
@@ -47,7 +49,7 @@ const StyledTabs = withStyles(theme => ({
         backgroundColor: 'transparent',
         height: 3,
         '& > span': {
-            width: '70%',
+            width: '100%',
             background:'#1664f5'
         },
     },
