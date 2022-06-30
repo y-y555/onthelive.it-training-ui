@@ -266,17 +266,18 @@ const styles = theme => ({
         '&:hover': {
             background: '#fff',
         },
-    btnOutlineStyle:{
-        border:'1px solid #bfbfbf',
-        color:'#333333',
-        fontWeight:600,
-        padding:'6px 27px',
-        borderRadius:7,
-        fontSize:'0.938rem',
-        "&:hover":{
-            background: 'transparent',
-        }
     },
+    // btnOutlineStyle:{
+    //     border:'1px solid #bfbfbf',
+    //     color:'#333333',
+    //     fontWeight:600,
+    //     padding:'6px 27px',
+    //     borderRadius:7,
+    //     fontSize:'0.938rem',
+    //     "&:hover":{
+    //         background: 'transparent',
+    //     }
+    // },
     btnOutlineStyleActive:{
         border:'1px solid #0097ff',
         backgroundColor:'#0097ff',
@@ -348,7 +349,6 @@ const styles = theme => ({
                 opacity: '0.6',
             },
         },
-    },
     },
     state:{
         fontSize:'0.875rem',
