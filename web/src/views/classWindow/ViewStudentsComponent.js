@@ -8,6 +8,7 @@ import ClassWindowMultipleChoice from "./ClassWindowMultipleChoice";
 import ClassWindowQuizContents from "./ClassWindowQuizContents";
 import ClassWindowImgContents from "./ClassWindowImgContents";
 import clsx from "clsx";
+import {VodSource} from "../../common/TestSources";
 
 const styles = theme => ({
     root:{
@@ -49,16 +50,25 @@ class ViewStudentsComponent extends Component {
         this.state = {};
     }
 
+    renderVideos = () => {
+        const {typeButton2} = this.props;
+        return Object.values(VodSource).map(source => {
+            return <ClassWindowVideoContents typeButton2={typeButton2} videoSource={source} />;
+        })
+    }
+
     render() {
         const { classes, typeButton1, previewPc, typeButton2, image1, classTab, students} = this.props;
+        const VideoContents = this.renderVideos();
 
         return (
             <div className={classes.root}>
                 {typeButton1 ?
                     previewPc ?
                         <Box display='flex' flexDirection='column' alignItems='center'>
-                            <ClassWindowVideoContents typeButton2={typeButton2}/>
-                            <ConsoleComponent typeButton2={typeButton2} image1={image1}/>
+                            {/*<ClassWindowVideoContents typeButton2={typeButton2}/>*/}
+                            {VideoContents}
+                            {/*<ConsoleComponent typeButton2={typeButton2} image1={image1}/>*/}
                             <ClassWindowMultipleSingle
                                 typeButton2={typeButton2}
                                 classTab={classTab}
@@ -78,7 +88,8 @@ class ViewStudentsComponent extends Component {
                     previewPc ?
                         <Box display='flex' justifyContent='space-between'>
                             <Box className={classes.leftBox} style={{height: 'calc(100vh - 59px - 111px)'}}>
-                                <ClassWindowVideoContents typeButton2={typeButton2}/>
+                                {/*<ClassWindowVideoContents typeButton2={typeButton2}/>*/}
+                                {VideoContents}
                                 <ClassWindowMultipleSingle
                                     typeButton2={typeButton2}
                                     classTab={classTab}
@@ -92,10 +103,10 @@ class ViewStudentsComponent extends Component {
                                 <ClassWindowQuizContents typeButton2={typeButton2} classTab={classTab} students={students}/>
                                 <ClassWindowImgContents typeButton2={typeButton2} classTab={classTab} students={students}/>
                             </Box>
-                            <Box className={clsx(classes.leftBox, classes.rightBox)}
-                                 style={{height: 'calc(100vh - 59px - 111px)'}}>
-                                <ConsoleComponent typeButton2={typeButton2} image1={image1} />
-                            </Box>
+                            {/*<Box className={clsx(classes.leftBox, classes.rightBox)}*/}
+                            {/*     style={{height: 'calc(100vh - 59px - 111px)'}}>*/}
+                            {/*    <ConsoleComponent typeButton2={typeButton2} image1={image1} />*/}
+                            {/*</Box>*/}
                         </Box>
                         :
                         null

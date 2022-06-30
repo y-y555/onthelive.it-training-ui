@@ -111,8 +111,8 @@ class ContentLectureClassWindowComponent extends Component {
                         :
                         classTab === 2 ?
                             <ViewStudentsComponent
-                                typeButton1={typeButton1}
-                                typeButton2={typeButton2}
+                                typeButton1={true}
+                                typeButton2={false}
                                 previewPc={previewPc}
                                 image1={image1}
                                 classTab={classTab}
