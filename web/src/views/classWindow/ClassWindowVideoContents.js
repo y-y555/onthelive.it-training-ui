@@ -85,13 +85,17 @@ class ClassWindowVideoContents extends Component {
     }
 
     render() {
-        const { classes, typeButton2, userStore } = this.props;
+        const { classes, typeButton2, videoSource } = this.props;
 
         return (
             <div className={classes.root}>
                 <Box className={typeButton2 ? clsx(classes.contentsBox,classes.contentsBox2) : classes.contentsBox} >
                     <Box className={classes.marginBottom}>
-                        <Typography className={typeButton2 ? clsx(classes.titleText, classes.titleText2) :classes.titleText}>인터넷 기반의 각종 해킹, 침해에 대응하는 보안기술!</Typography>
+                        <Typography
+                            className={typeButton2 ? clsx(classes.titleText, classes.titleText2) :classes.titleText}
+                        >
+                            {videoSource.title}
+                        </Typography>
                     </Box>
 
 
@@ -100,18 +104,19 @@ class ClassWindowVideoContents extends Component {
                             {/*<img src={TestVideoImg} alt="동영상"/>*/}
 
                             {/*<VideoPlayIcon/>*/}
-                            <VideoPlayer videoSrc={userStore.videoSrc}/>
+                            <VideoPlayer videoSrc={videoSource.src}/>
 
                         </Box>
                     </Box>
 
                     <Box className={classes.marginBottom}>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2) : classes.textStyle}>
-                            · 윈도우 파일시스템 구조<br/>
-                            - Master File Table 및 개인정보파일 검색<br/><br/>
+                            {/*· 윈도우 파일시스템 구조<br/>*/}
+                            {/*- Master File Table 및 개인정보파일 검색<br/><br/>*/}
 
-                            · 메모리 분석, 파일 실행이력관리<br/>
-                            - 네트워크 프로토콜 구조
+                            {/*· 메모리 분석, 파일 실행이력관리<br/>*/}
+                            {/*- 네트워크 프로토콜 구조*/}
+                            {videoSource.comment}
                         </Typography>
                     </Box>
                 </Box>

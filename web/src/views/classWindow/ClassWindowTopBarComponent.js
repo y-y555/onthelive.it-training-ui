@@ -170,9 +170,16 @@ class ClassWindowTopBarComponent extends Component {
             this.handleClickBack();
         });
     };
+
+    handleClickEntranceRoom = (e, url) => {
+        console.log(url)
+        if(!url) return false;
+        window.open(url);
+    };
+
     render() {
         const { classes } = this.props;
-        const { isGuestUser } = this.props;
+        const { isGuestUser, roomEntranceUrl } = this.props;
 
         return (
             <div className={classes.root}>
@@ -204,7 +211,8 @@ class ClassWindowTopBarComponent extends Component {
                     <Tooltip title="화상 강의를 하려면 눌러주세요." classes={{tooltip: classes.lightTooltip}}>
                         <Button
                             className={classes.bottomButtonStyle}
-                            disableRipple
+                            disableripple
+                            onClick={(e) => this.handleClickEntranceRoom(e, roomEntranceUrl)}
                         >
                             <CameraOn/>
                             <Typography className={classes.buttonTextStyle}>화상 강의</Typography>

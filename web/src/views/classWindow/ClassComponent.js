@@ -8,6 +8,7 @@ import ClassWindowImgContents from "./ClassWindowImgContents";
 import ClassWindowQuizContents from "./ClassWindowQuizContents";
 import clsx from "clsx";
 import ConsoleComponent from "./ConsoleComponent";
+import {VodSource} from "../../common/TestSources";
 
 const styles = _theme => ({
     root:{
@@ -49,15 +50,25 @@ class ClassComponent extends Component {
         this.state = {};
     }
 
+    renderVideos = () => {
+        const {typeButton2} = this.props;
+        return Object.values(VodSource).map(source => {
+            return <ClassWindowVideoContents typeButton2={typeButton2} videoSource={source} />;
+        })
+    }
+
     render() {
         const {classes, typeButton1, previewPc, typeButton2, image1} = this.props;
-
+        const VideoContents = this.renderVideos();
         return (
             <div className={classes.root}>
                 {typeButton1 ?
                     previewPc ?
                         <Box display='flex' flexDirection='column' alignItems='center'>
-                            <ClassWindowVideoContents typeButton2={typeButton2}/>
+                            {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.MS}/>*/}
+                            {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.HWP}/>*/}
+                            {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.DDE}/>*/}
+                            {VideoContents}
                             <ConsoleComponent typeButton2={typeButton2} image1={image1}/>
                             <ClassWindowMultipleSingle typeButton2={typeButton2}/>
                             <ClassWindowMultipleChoice typeButton2={typeButton2}/>
@@ -70,7 +81,10 @@ class ClassComponent extends Component {
                     previewPc ?
                         <Box display='flex' justifyContent='space-between'>
                             <Box className={classes.leftBox} style={{height: 'calc(100vh - 59px - 111px)'}}>
-                                <ClassWindowVideoContents typeButton2={typeButton2}/>
+                                {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.MS}/>*/}
+                                {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.HWP}/>*/}
+                                {/*<ClassWindowVideoContents typeButton2={typeButton2} videoSource={VodSource.DDE}/>*/}
+                                {VideoContents}
                                 <ClassWindowImgContents typeButton2={typeButton2}/>
                                 <ClassWindowQuizContents typeButton2={typeButton2}/>
                             </Box>

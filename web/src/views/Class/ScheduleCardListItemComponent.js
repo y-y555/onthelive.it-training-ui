@@ -19,6 +19,7 @@ import { ReactComponent as EyeTinyIcon } from '../../common/images/EyeIcon.svg';
 import { ReactComponent as VodIcon } from '../../common/images/VodIcon.svg';
 import { ReactComponent as LockKey } from '../../common/images/LockKey.svg';
 import { ReactComponent as AsideUserIcon } from '../../common/images/AsideUserIcon.svg';
+import {inject, observer} from "mobx-react";
 
 const styles = _theme => ({
     root: {
@@ -349,7 +350,7 @@ class ScheduleCardListItemComponent extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, authStore } = this.props;
 
         return (
             <div className={classes.root}>
@@ -401,7 +402,7 @@ class ScheduleCardListItemComponent extends Component {
                                 disableripple
                                 onClick={this.handleClickAttend}
                             >
-                                강의하기
+                                {authStore.isGuestUser ?  '학습하기' : '강의하기'}
                             </Button>
                         </Box>
                     </Box>
@@ -509,9 +510,16 @@ class ScheduleCardListItemComponent extends Component {
                             <Button
                                 className={clsx(classes.btnOutlineStyle, classes.btnOutlineStyle1)}
                                 disableRipple
-                                onClick={this.handleClickAttend}
+                                onClick={(e) => {
+                                    if(authStore.isGuestUser) {
+                                        return false;
+                                    } else {
+                                        this.handleClickAttend(e);
+                                    }
+
+                                }}
                             >
-                                강의보기
+                                {authStore.isGuestUser ? '신청하기' : '강의보기'}
                             </Button>
                         </Box>
                     </Box>
@@ -580,9 +588,17 @@ class ScheduleCardListItemComponent extends Component {
                                     </Typography>
                                 </Box>
                             </Box>
-                            <Button className={clsx(classes.btnOutlineStyle, classes.btnPrivate)} disableripple>
-                                강의보기
-                            </Button>
+                            {
+                                !authStore.isGuestUser &&
+                                <Button
+                                    className={clsx(classes.btnOutlineStyle, classes.btnPrivate)}
+                                    disableripple
+                                    onClick={this.handleClickAttend}
+                                >
+                                    강의보기
+                                </Button>
+                            }
+
                         </Box>
                     </Box>
                     <Box className={classes.boxFooter}>
@@ -676,4 +692,4 @@ class ScheduleCardListItemComponent extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(ScheduleCardListItemComponent));
+export default withRouter(withStyles(styles)(inject('authStore')(observer(ScheduleCardListItemComponent))));

@@ -21,12 +21,12 @@ class ClassWindowComponent extends Component {
     };
 
     render() {
-        const { classes, authStore } = this.props;
+        const { classes, authStore, userStore } = this.props;
         const { classTab } = this.state;
 
         return (
             <div className={classes.root} >
-                <ClassWindowTopBarComponent isGuestUser={authStore.isGuestUser}/>
+                <ClassWindowTopBarComponent isGuestUser={authStore.isGuestUser} roomEntranceUrl={userStore.roomEntranceUrl}/>
                 <ContentLectureClassWindowComponent
                     classTab={classTab}
                     handleChangeTabs={this.handleChangeTabs}
@@ -37,4 +37,4 @@ class ClassWindowComponent extends Component {
     }
 }
 
-export default withStyles(styles)(inject('authStore')(observer(ClassWindowComponent)));
+export default withStyles(styles)(inject('authStore', 'userStore')(observer(ClassWindowComponent)));
