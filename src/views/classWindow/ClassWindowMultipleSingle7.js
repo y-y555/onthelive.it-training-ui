@@ -186,6 +186,11 @@ const styles = theme => ({
                 height: 18
             }
         }
+    },
+    box2:{
+        border: '1px solid #c0c0c0',
+        borderRadius:10,
+        padding: 15
     }
 });
 
@@ -238,10 +243,25 @@ class ClassWindowMultipleSingle extends Component {
                         }
                     </Box>
                     <Box className={classes.marginBottom}>
-                        <Typography style={{fontWeight:900}}>[퀴즈]</Typography>
+                        <Typography style={{fontWeight:600}}>[퀴즈]</Typography>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>
-                            “소프트웨어_개발_계약서.hwp” 문서에서 악성 행위를 수행하는 데이터 스트림이 사용하고 있는 압축 방식을 식별하세요.
+                            “[솜성회계협회] 나취업-이력서.hwp” 문서를 분석하여 아래의 데이터 스트림 중 이상징후가 식별되는 스트림을 식별해주세요.
                         </Typography>
+                        <Box className={classes.box2}>
+                            C:\lab\hwp\HandsOn-7>python3 C:\Tools\Oledump_V0_0_60\oledump.<br/>
+                            py malicious-b326a341.hwp<br/>
+                            1: 501 '\x05HwpSummaryInformation'<br/>
+                            2: 2015 'BinData/BIN0001.eps'<br/>
+                            3: 1766 'BinData/BIN0002.ole'<br/>
+                            4: 3989 'BodyText/Section0'<br/>
+                            5: 1202 'DocInfo'<br/>
+                            6: 524 'DocOptions/_LinkDoc'<br/>
+                            7: 256 'FileHeader'<br/>
+                            8: 2840 'PrvImage'<br/>
+                            9: 1632 'PrvText'<br/>
+                            10: 136 'Scripts/DefaultJScript'<br/>
+                            11: 13 'Scripts/JScriptVersion''
+                        </Box>
                     </Box>
 
                     <FormControl component="fieldset" className={classes.formControl}>
@@ -263,7 +283,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="가. zlib"
+                                    label="가. x05HwpSummaryInformation"
                                 />
 
                                 {students &&
@@ -280,7 +300,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="나. snappy"
+                                    label="나. BIN0001.eps"
                                 />
                             </Box>
                             <Box className={classes.checkBox2}>
@@ -293,7 +313,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="다. lz4"
+                                    label="다. DefaultJScript"
                                 />
                             </Box>
 
@@ -308,7 +328,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="라. gzip"
+                                    label="라. JScriptVersion"
                                 />
                                 {students &&
                                     <PasswordNumberCheckedErrorIcon/>

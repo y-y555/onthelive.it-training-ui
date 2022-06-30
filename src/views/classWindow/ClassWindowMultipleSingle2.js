@@ -238,9 +238,9 @@ class ClassWindowMultipleSingle extends Component {
                         }
                     </Box>
                     <Box className={classes.marginBottom}>
-                        <Typography style={{fontWeight:900}}>[퀴즈]</Typography>
+                        <Typography style={{fontWeight:600}}>[퀴즈]</Typography>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>
-                            “소프트웨어_개발_계약서.hwp” 문서에서 악성 행위를 수행하는 데이터 스트림이 사용하고 있는 압축 방식을 식별하세요.
+                            “소프트웨어_개발_계약서.hwp” 문서에서 최종적으로 생성하는 파일의 이름을 식별하세요.
                         </Typography>
                     </Box>
 
@@ -263,7 +263,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="가. zlib"
+                                    label="가. search.bat"
                                 />
 
                                 {students &&
@@ -280,7 +280,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="나. snappy"
+                                    label="나. update.bat"
                                 />
                             </Box>
                             <Box className={classes.checkBox2}>
@@ -293,7 +293,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="다. lz4"
+                                    label="다. ms_patch.bat"
                                 />
                             </Box>
 
@@ -308,7 +308,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="라. gzip"
+                                    label="라. ms_setting.bat"
                                 />
                                 {students &&
                                     <PasswordNumberCheckedErrorIcon/>

