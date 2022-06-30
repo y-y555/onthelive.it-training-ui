@@ -15,7 +15,6 @@ import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogClose
 import {ReactComponent as UnCheckedIcon} from "../../common/images/UnCheckedIcon.svg";
 import {ReactComponent as CheckedIcon} from "../../common/images/CheckedIcon.svg";
 import {ReactComponent as UploadIcon} from "../../common/images/UploadIcon.svg";
-import {ReactComponent as PasswordNumberCheckedIcon} from "../../common/images/PasswordNumberCheckedIcon.svg";
 import WindowsImg from "../../common/images/WindowsImg.png";
 import WindowsImg2 from "../../common/images/WindowsImg2.png";
 import LinuxImg from "../../common/images/LinuxImg.png";
