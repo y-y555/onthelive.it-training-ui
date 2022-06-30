@@ -225,7 +225,8 @@ class StudentClassEvaluationTableCompononet extends Component {
     };
 
     listItemChange = () => {
-        this.setState({ listItem: !this.state.listItem });
+        return false;
+        // this.setState({ listItem: !this.state.listItem });
     };
 
     handleClose = () => {

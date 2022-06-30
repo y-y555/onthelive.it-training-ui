@@ -96,7 +96,7 @@ class LectureEndDialogComponent extends React.Component {
                 >
                     <Box display='flex' justifyContent='space-between' alignItems='center' className={classes.titleBox}>
                         <Typography className={classes.titleText}>강의 종료</Typography>
-                        <IconButton disableRipple onClick={this.props.handleClose} className={classes.closeBtn}>
+                        <IconButton disableripple onClick={this.props.handleClose} className={classes.closeBtn}>
                             <DialogCloseIcon/>
                         </IconButton>
                     </Box>
@@ -113,7 +113,11 @@ class LectureEndDialogComponent extends React.Component {
                         </ul>
                     </DialogContent>
                     <DialogActions display='flex' justifyContent='flex-end'>
-                        <Button className={classes.buttonStyle} onClick={this.props.handleClose} disableRipple>
+                        <Button
+                            className={classes.buttonStyle}
+                            onClick={this.props.handleClose}
+                            disableripple
+                        >
                             강의 종료하기
                         </Button>
                     </DialogActions>

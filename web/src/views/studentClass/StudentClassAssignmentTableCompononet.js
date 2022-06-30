@@ -225,7 +225,8 @@ class StudentClassAssignmentTableComponent extends Component {
     };
 
     listItemChange = () => {
-        this.setState({ listItem: !this.state.listItem });
+        return false;
+        // this.setState({ listItem: !this.state.listItem });
     };
 
     handleClose = () => {
@@ -277,7 +278,10 @@ class StudentClassAssignmentTableComponent extends Component {
                 </Box>
 
                 <Box className={classes.listStyle}>
-                    <Box className={classes.listItemStyle} onClick={this.listItemChange}>
+                    <Box
+                        className={classes.listItemStyle}
+                        onClick={this.listItemChange}
+                    >
                         <Box className={classes.flexCenter}>
                             <Avatar className={classes.avatar}>
                                 <Browsers />

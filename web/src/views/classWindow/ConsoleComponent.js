@@ -115,13 +115,25 @@ class ConsoleComponent extends Component {
 
                         :
                         <Box display='flex' justifyContent='space-between' alignItems='flex-start'>
-                            <Box display='flex' flexDirection='column' alignItems='center' className={classes.layoutBox}>
+                            <Box
+                                display='flex'
+                                flexDirection='column'
+                                alignItems='center'
+                                className={classes.layoutBox}
+                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                            >
                                 <Box display='flex' justifyContent='center' alignItems='center' className={image1 ? classes.boxStyle : clsx(classes.boxStyle, classes.boxStyle2)}>
                                     <img src={TestVideoImg} alt="test_video"/>
                                 </Box>
                                 <Typography className={clsx(classes.titleText, classes.bold)}>Windows 10 and later x64 </Typography>
                             </Box>
-                            <Box display='flex' flexDirection='column' alignItems='center' className={classes.layoutBox}>
+                            <Box
+                                display='flex'
+                                flexDirection='column'
+                                alignItems='center'
+                                className={classes.layoutBox}
+                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                            >
                                 <Box display='flex' justifyContent='center' alignItems='center' className={image1 ? classes.boxStyle : clsx(classes.boxStyle, classes.boxStyle2)}>
                                     <img src={TestVideoImg} alt="test_video"/>
                                 </Box>

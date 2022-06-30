@@ -19,6 +19,9 @@ import ClassLearningStatusComponent from "./ClassLearningStatusComponent";
 import ClassAssignmentTableCompononet from "./ClassAssignmentTableCompononet";
 import ClassLectureIntroductionModifyComponent from "./ClassLectureIntroductionModifyComponent";
 import ClassInquiryComponent from "./ClassInquiryComponent";
+import {inject, observer} from "mobx-react";
+import StudentClassAssignmentTableCompononet from "../studentClass/StudentClassAssignmentTableCompononet";
+import StudentClassEvaluationTableCompononet from "../studentClass/StudentClassEvaluationTableCompononet";
 
 
 const useStyles = makeStyles((_theme) => ({
@@ -79,7 +82,7 @@ const useStyles = makeStyles((_theme) => ({
     },
 }));
 
-export default function ClassMainComponent() {
+function ClassMainComponent(props) {
     const classes = useStyles();
     const [classTab, setClassTab] = React.useState(0);
     const [setting, setSetting] = React.useState(false);
@@ -93,6 +96,8 @@ export default function ClassMainComponent() {
     const [memberWithdrawal, setMemberWithdrawalOpen] = React.useState(false);
     const [memberPermissionSetting, setMemberPermissionSetting] = React.useState(false);
     const [classSelectTag, setClassSelectTag] = React.useState(false);
+
+    const { authStore } = props;
 
     const handleChange = (event, newValue) => {
         setClassTab(newValue);
@@ -212,6 +217,24 @@ export default function ClassMainComponent() {
         };
     }, []);
 
+
+    const AssignmentTable = () => {
+        if(authStore.isGuestUser) {
+            return <StudentClassAssignmentTableCompononet />;
+        }
+
+        return <ClassAssignmentTableCompononet />;
+    };
+
+    const EvaluationTable = () => {
+        if(authStore.isGuestUser) {
+            return <StudentClassEvaluationTableCompononet />;
+        }
+
+        return <ClassAssignmentTableCompononet />;
+    };
+
+
     return (
         <div className={classes.root}>
             <ClassTitleComponent/>
@@ -245,10 +268,10 @@ export default function ClassMainComponent() {
                     }
                     {classTab === 3 &&
                     // <ClassCalendarComponent/>
-                        <ClassAssignmentTableCompononet/>
+                        <AssignmentTable />
                     }
                     {classTab === 4 &&
-                        <ClassAssignmentTableCompononet/>
+                        <EvaluationTable />
                     }
                     {classTab === 5 &&
                         <ReferenceRoomComponent/>
@@ -316,3 +339,5 @@ export default function ClassMainComponent() {
         </div>
     );
 }
+
+export default inject('authStore')(observer(ClassMainComponent))

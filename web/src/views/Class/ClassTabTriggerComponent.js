@@ -176,15 +176,15 @@ class ClassTabTriggerComponent extends Component {
                             disableRipple
                             icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
-                        <Tab label="강의소개" disableRipple />
-                        <Tab label="학습현황" disableRipple />
-                        <Tab label="과제" disableRipple />
-                        <Tab label="평가" disableRipple />
+                        <Tab label="강의소개" disableripple />
+                        <Tab label="학습현황" disableripple />
+                        <Tab label="과제" disableripple />
+                        <Tab label="평가" disableripple />
                         <Tab label="자료실"
-                             disableRipple
+                             disableripple
                              icon={<BedgeNewIcon className={classes.iconStyle} />}
                         />
-                        <Tab label="커뮤니티" disableRipple />
+                        <Tab label="커뮤니티" disableripple />
                         <Tab label="문의" disableRipple />
                     </Tabs>
                     {

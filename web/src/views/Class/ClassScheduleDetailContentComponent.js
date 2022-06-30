@@ -9,6 +9,7 @@ import {ReactComponent as AlarmFillIcon} from "../../common/images/AlarmFillIcon
 import CommentComponent from "./CommentComponent";
 import ClassContentSearchComponent from "./ClassContentSearchComponent";
 import MemberProfileDialogComponent from "../dialog/MemberProfileDialogComponent";
+import {withRouter} from "react-router-dom";
 
 const styles = _theme => ({
     root:{
@@ -243,6 +244,11 @@ class ClassScheduleDetailContentComponent extends Component {
         this.setState({ memberDialog: true });
     };
 
+    handleClickAttend = e => {
+        e.stopPropagation();
+        this.props.history.push("/classWindow");
+    }
+
     render() {
         const { classes } = this.props;
         const { anchorEl } = this.state;
@@ -254,7 +260,7 @@ class ClassScheduleDetailContentComponent extends Component {
                         <Box>
                             <Typography variant="h3"> 외국어 쉽게 익히는 법 </Typography>
                         </Box>
-                        <IconButton disableRipple
+                        <IconButton disableripple
                                     aria-owns={anchorEl ? 'simple-menu' : undefined}
                                     aria-haspopup="true"
                                     onClick={this.handleClickEdit}
@@ -285,7 +291,13 @@ class ClassScheduleDetailContentComponent extends Component {
                                     <li><div className={classes.avatarLastStyle}>+12</div></li>
                                 </ul>
                             </Box>
-                            <Button className={classes.btnOutlineStyle} disableRipple>참석하기</Button>
+                            <Button
+                                className={classes.btnOutlineStyle}
+                                disableripple
+                                onClick={this.handleClickAttend}
+                            >
+                                참석하기
+                            </Button>
                         </Box>
                     </Box>
                     <Box className={classes.chipBox}>
@@ -298,10 +310,10 @@ class ClassScheduleDetailContentComponent extends Component {
                             <Box><ChatCircleDotsIcon/> 2 </Box>
                         </Box>
                         <Box className={classes.ftAdded}>
-                            <Button disableRipple onClick={this.handleChangeGoodToggle} className={this.state.GoodToggle ? classes.active : null}>
+                            <Button disableripple onClick={this.handleChangeGoodToggle} className={this.state.GoodToggle ? classes.active : null}>
                                 <HandsClappingIcon/> 좋아요
                             </Button>
-                            <Button disableRipple>
+                            <Button disableripple>
                                 <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
@@ -320,4 +332,4 @@ class ClassScheduleDetailContentComponent extends Component {
     }
 }
 
-export default withStyles(styles)(ClassScheduleDetailContentComponent);
+export default withRouter(withStyles(styles)(ClassScheduleDetailContentComponent));

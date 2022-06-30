@@ -5,9 +5,9 @@ import TodayScheduleComponent from "./TodayScheduleComponent";
 import {withRouter} from "react-router-dom";
 import MyRoomTopComponent from "./MyRoomTopStudentComponent";
 import Footer from "../footer/Footer";
-import LearningManagementComponent from "../learningManagement/LearningManagementComponent";
+import CourseManagementComponent from "../courseManagement/CourseManagementComponent";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         display:'flex',
         flexDirection:'column',
@@ -41,7 +41,7 @@ class Rooms extends Component {
                     </>
                 }
                 {classTab === 1 &&
-                     <CourseManagementComponent/>
+                     <CourseManagementComponent />
                     //<LearningManagementComponent/>
                 }
                 <Footer/>

@@ -7,7 +7,6 @@ import {ReactComponent as VodIcon} from "../../common/images/VodIcon.svg";
 import {ReactComponent as DotIcon} from "../../common/images/DotIcon.svg";
 import {ReactComponent as CameraOn} from "../../common/images/CameraOn.svg";
 import LectureEndDialogComponent from "../dialog/LectureEndDialogComponent";
-import MailAuthenticationFailedDialogComponent from "../dialog/MailAuthenticationFailedDialogComponent";
 import CourseCompletionDialogComponent from "../dialog/CourseCompletionDialogComponent"
 
 const styles = _theme => ({
@@ -167,6 +166,8 @@ class ClassWindowTopBarComponent extends Component {
     handleClose = () => {
         this.setState({
             openEnd: false,
+        }, () => {
+            this.handleClickBack();
         });
     };
     render() {
@@ -219,11 +220,11 @@ class ClassWindowTopBarComponent extends Component {
                     </Button>
                 </Box>
                 <LectureEndDialogComponent
-                    openEnd={this.state.openEnd}
+                    openEnd={!isGuestUser && this.state.openEnd}
                     handleClose={this.handleClose}
                 />
                 <CourseCompletionDialogComponent
-                    openEnd={this.state.openEnd}
+                    openEnd={isGuestUser && this.state.openEnd}
                     handleClose={this.handleClose}
                 />
             </div>

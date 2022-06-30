@@ -40,7 +40,7 @@ public class AuthenticationController {
     }
 
     @PostMapping("/signout")
-    public ResponseEntity logout(HttpServletRequest httpRequest, HttpServletResponse resp, @RequestBody LmsUser user) {
+    public ResponseEntity logout(HttpServletRequest httpRequest, HttpServletResponse resp) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
 
         if (auth != null){
@@ -51,7 +51,7 @@ public class AuthenticationController {
     }
 
     @GetMapping("/signcheck")
-    public ResponseEntity<LmsSimpleUser> check(HttpServletRequest httpRequest) {
+    public ResponseEntity<LmsSimpleUser> check(HttpServletRequest httpRequest, HttpServletResponse httpResponse) {
         final LmsSimpleUser user = authenticationService.getUser();
 
         if(user == null) {

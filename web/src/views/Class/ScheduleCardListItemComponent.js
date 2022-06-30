@@ -320,7 +320,7 @@ class ScheduleCardListItemComponent extends Component {
                             </Box>
                             <Button
                                 className={classes.btnOutlineStyle}
-                                disableRipple
+                                disableripple
                                 onClick={this.handleClickAttend}
                             >
                                 참석하기
@@ -333,10 +333,10 @@ class ScheduleCardListItemComponent extends Component {
                             <Box><ChatCircleDotsIcon/> 2 </Box>
                         </Box>
                         <Box className={classes.ftAdded}>
-                            <Button disableRipple onClick={this.handleChangeLikeButton}>
+                            <Button disableripple onClick={this.handleChangeLikeButton}>
                                 <HandsClappingIcon/> 좋아요
                             </Button>
-                            <Button disableRipple onClick={this.handleClickDetail}>
+                            <Button disableripple onClick={this.handleClickDetail}>
                                 <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
@@ -371,7 +371,13 @@ class ScheduleCardListItemComponent extends Component {
                                     {/*<Tooltip title="학생관리" placement="right" classes={{ tooltip: classes.lightTooltip }}><IconButton><StudentFillIcon/></IconButton></Tooltip>*/}
                                 </Box>
                             </Box>
-                            <Button className={classes.btnOutlineStyle} disableRipple>학습하기</Button>
+                            <Button
+                                className={classes.btnOutlineStyle}
+                                disableripple
+                                onClick={this.handleClickAttend}
+                            >
+                                학습하기
+                            </Button>
                         </Box>
                     </Box>
                     <Box className={classes.boxFooter}>
@@ -380,10 +386,10 @@ class ScheduleCardListItemComponent extends Component {
                             <Box><ChatCircleDotsIcon/> 2 </Box>
                         </Box>
                         <Box className={classes.ftAdded}>
-                            <Button disableRipple onClick={this.handleChangeLikeButton}>
+                            <Button disableripple onClick={this.handleChangeLikeButton}>
                                 <HandsClappingIcon/> 좋아요
                             </Button>
-                            <Button disableRipple onClick={this.handleClickDetail}>
+                            <Button disableripple onClick={this.handleClickDetail}>
                                 <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
@@ -408,7 +414,7 @@ class ScheduleCardListItemComponent extends Component {
                             <Box>
                                 <Typography className={classes.rightText}><BookmarksSimpleRed/>고급</Typography>
                             </Box>
-                            <Button className={clsx(classes.btnOutlineStyle, classes.btnPrivate)} disableRipple>예정</Button>
+                            <Button className={clsx(classes.btnOutlineStyle, classes.btnPrivate)} disableripple>예정</Button>
                         </Box>
                     </Box>
                     <Box className={classes.boxFooter}>
@@ -417,10 +423,10 @@ class ScheduleCardListItemComponent extends Component {
                             <Box><ChatCircleDotsIcon/> 2 </Box>
                         </Box>
                         <Box className={classes.ftAdded}>
-                            <Button disableRipple onClick={this.handleChangeLikeButton}>
+                            <Button disableripple onClick={this.handleChangeLikeButton}>
                                 <HandsClappingIcon/> 좋아요
                             </Button>
-                            <Button disableRipple onClick={this.handleClickDetail}>
+                            <Button disableripple onClick={this.handleClickDetail}>
                                 <ChatCircleDotsIcon/> 댓글 달기
                             </Button>
                         </Box>
@@ -453,10 +459,10 @@ class ScheduleCardListItemComponent extends Component {
                             <Box><ChatCircleDotsIcon/> 2 </Box>
                         </Box>
                         <Box className={classes.ftAdded}>
-                            <Button disableRipple>
+                            <Button disableripple>
                                 <HandsClappingIcon/> 좋아요
                             </Button>
-                            <Button disableRipple onClick={this.handleClickDetail}>
+                            <Button disableripple onClick={this.handleClickDetail}>
                                 <ChatCircleDotsIcon /> 댓글 달기
                             </Button>
                         </Box>

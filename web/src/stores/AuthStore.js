@@ -83,6 +83,7 @@ export default class AuthStore {
             if(user) {
                 this.loginState = LoginState.Authenticated;
                 this.loginUser = user;
+
             } else {
                 this.loginState = LoginState.NotAuthenticated;
                 this.loginUser = {...EmptyUser};
@@ -98,7 +99,7 @@ export default class AuthStore {
             yield this.authRepository.signOut();
 
             this.login = {...EmptyLogin};
-            this.loginState = LoginState.Authenticated;
+            this.loginState = LoginState.NotAuthenticated;
             this.loginUser = {...EmptyUser};
         } catch(error) {
             this.login = Object.assign({}, EmptyLogin);
