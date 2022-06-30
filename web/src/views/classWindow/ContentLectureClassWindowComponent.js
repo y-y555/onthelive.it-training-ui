@@ -5,6 +5,7 @@ import ClassWindowTabComponent from "./ClassWindowTabComponent";
 import ClassComponent from "./ClassComponent";
 import LearningStatus from "./LearningStatus";
 import ViewStudentsComponent from "./ViewStudentsComponent";
+import {LoginState} from "../../stores/AuthStore";
 
 const styles = _theme => ({
     root:{
@@ -71,6 +72,7 @@ class ContentLectureClassWindowComponent extends Component {
     render() {
         const { classes, classTab, handleChangeTabs, isGuestUser } = this.props;
         const { previewPc, typeButton1, typeButton2, image1, students } = this.state;
+        const isLoginUser = this.props.loginState === LoginState.Authenticated;
 
         return (
             <div className={classes.root}>
@@ -100,6 +102,7 @@ class ContentLectureClassWindowComponent extends Component {
                         typeButton2={typeButton2}
                         previewPc={previewPc}
                         image1={image1}
+                        isLoginUser={isLoginUser}
                     />
                     :
                     classTab === 1 ?

@@ -11,6 +11,12 @@ import {ReactComponent as PlayIcon} from '../../common/images/PlayIcon.svg';
 import {ReactComponent as HandsClappingIcon} from '../../common/images/HandsClappingIcon.svg';
 import {ReactComponent as UsersThreeIcon} from '../../common/images/UsersThreeIcon.svg';
 import {ReactComponent as BookmarksSimple} from '../../common/images/BookmarksSimple.svg';
+import galleryImg1 from '../../common/images/galleryImg1.jpg';
+import galleryImg2 from '../../common/images/galleryImg2.jpg';
+import galleryImg3 from '../../common/images/galleryImg3.jpg';
+import galleryImg4 from '../../common/images/galleryImg4.jpg';
+import galleryImg5 from '../../common/images/galleryImg5.jpg';
+import {withRouter} from "react-router-dom";
 
 const styles = _theme => ({
     root:{
@@ -54,6 +60,9 @@ const styles = _theme => ({
         alignItems: 'center',
         justifyContent: 'center',
         position:'relative',
+        '& .playIcon':{
+            position:'absolute'
+        }
     },
     tag:{
         fontSize:'1.125rem',
@@ -153,15 +162,15 @@ const styles = _theme => ({
 });
 
 let id = 0;
-function createData(className, chip, tag, button) {
+function createData(className, chip, tag, button, img) {
     id += 1;
-    return { id, className, chip, tag, button};
+    return { id, className, chip, tag, button, img};
 }
 const slides = [
-    createData('ISMS-P 인증심사 및 심사원 대비반', '22년 1기 1반', false, false),
-    createData('디지털 포렌식 전문가 2급 자격 대비반', '상시', '실습', false),
-    createData('최신 해킹사례 및 분석', '1학기', 'LIVE', false),
-    createData('최신 해킹사례 및 분석', '1학기', 'VOD', false),
+    createData('ISMS-P 인증심사 및 심사원 대비반', '22년 1기 1반', false, false, galleryImg1),
+    createData('디지털 포렌식 전문가 2급 자격 대비반', '상시', '실습', false, galleryImg2),
+    createData('최신 해킹사례 및 분석', '1학기', 'LIVE', false, galleryImg3),
+    createData('최신 해킹사례 및 분석', '1학기', 'VOD', false, galleryImg4),
     {
         'chip':[
           "22년 1기 1반"  ,
@@ -184,6 +193,12 @@ class HomeCarouselComponent extends Component {
             ],
         };
     }
+
+    handleClickAttend = e => {
+        e.stopPropagation();
+        this.props.history.push("/classWindow");
+    }
+
     render() {
         const { classes } = this.props;
         return (
@@ -197,8 +212,8 @@ class HomeCarouselComponent extends Component {
                 >
                     <Slider className={classes.carousel}>
                         {slides.map((slide, index) => (
-                        <Slide key={index} index={slide.id} className={classes.slideItem}>
-                            <div className={classes.video}>
+                        <Slide key={index} index={slide.id} className={classes.slideItem} >
+                            <div className={classes.video} onClick={this.handleClickAttend}>
                                 {slide.tag === '실습' ?
                                     <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
                                     :
@@ -212,7 +227,8 @@ class HomeCarouselComponent extends Component {
                                             :
                                             null
                                 }
-                                <VideoPlayIcon/>
+                                <img src={slide.img} style={{width : 'inherit'}} />
+                                <VideoPlayIcon className={'playIcon'} />
                             </div>
                             <Box className={classes.carouselContent}>
                                 <Box>
@@ -249,4 +265,4 @@ class HomeCarouselComponent extends Component {
 }
 
 
-export default withStyles(styles)(HomeCarouselComponent);
+export default withRouter(withStyles(styles)(HomeCarouselComponent));

@@ -28,6 +28,7 @@ class ClassWindowComponent extends Component {
             <div className={classes.root} >
                 <ClassWindowTopBarComponent isGuestUser={authStore.isGuestUser} roomEntranceUrl={userStore.roomEntranceUrl}/>
                 <ContentLectureClassWindowComponent
+                    loginState={authStore.loginState}
                     classTab={classTab}
                     handleChangeTabs={this.handleChangeTabs}
                     isGuestUser={authStore.isGuestUser}

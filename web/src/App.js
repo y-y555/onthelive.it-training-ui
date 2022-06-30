@@ -66,6 +66,7 @@ const ROUTES = {
         {path : "/passwordFind", component : <PasswordFindComponent/>},
         {path : "/passwordReset", component : <PasswordResetComponent/>},
         {path : "/passwordComplete", component : <PasswordResetCompleteComponent/>},
+        {path : "/classWindow", component : <ClassWindowComponent/>},
     ]
 }
 
