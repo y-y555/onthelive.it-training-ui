@@ -37,7 +37,13 @@ export default class AuthStore {
         this.loginUser = {...EmptyUser};
         this.loginState = LoginState.None;
 
+        this.notificationOpen = false;
+
         makeAutoObservable(this);
+    }
+
+    changeNotificationState = (isOpen) => {
+        this.notificationOpen = isOpen;
     }
 
     changeLoginEmail = (value) => {
@@ -72,6 +78,8 @@ export default class AuthStore {
         } catch (e) {
             this.loginState = LoginState.NotAuthenticated;
             this.loginUser = {...EmptyUser};
+
+            this.changeNotificationState(true)
         }
     }
 

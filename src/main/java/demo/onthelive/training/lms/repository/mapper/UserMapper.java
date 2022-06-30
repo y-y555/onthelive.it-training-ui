@@ -2,6 +2,7 @@ package demo.onthelive.training.lms.repository.mapper;
 
 import demo.onthelive.training.lms.model.user.LmsSimpleUser;
 import demo.onthelive.training.lms.model.user.LmsUser;
+import demo.onthelive.training.lms.model.user.LmsUserConfig;
 import demo.onthelive.training.lms.model.user.support.LmsUserType;
 import org.apache.ibatis.annotations.Param;
 
@@ -19,5 +20,7 @@ public interface UserMapper {
     LmsSimpleUser selectUserById(long id);
 
     LmsSimpleUser checkUserEmail(String userEmail);
+
+    List<LmsUserConfig> selectUserConfigs(long userId);
 
 }

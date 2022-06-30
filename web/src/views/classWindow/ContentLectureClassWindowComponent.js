@@ -55,7 +55,7 @@ class ContentLectureClassWindowComponent extends Component {
             typeButton2:true,
 
             //이미지 1개
-            image1:false,
+            image1:true,
 
             //수강생
             students: true,

@@ -4,6 +4,7 @@ import demo.onthelive.training.lms.exception.ErrorCode;
 import demo.onthelive.training.lms.exception.LMSException;
 import demo.onthelive.training.lms.model.user.LmsSimpleUser;
 import demo.onthelive.training.lms.model.user.LmsUser;
+import demo.onthelive.training.lms.model.user.LmsUserConfig;
 import demo.onthelive.training.lms.model.user.support.LmsUserState;
 import demo.onthelive.training.lms.model.user.support.LmsUserType;
 import demo.onthelive.training.lms.repository.UserRepository;
@@ -156,6 +157,14 @@ public class UserService {
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         log.trace("localDateTimeFormatter formatting result = {}", sliceStr);
         return sliceStr;
+    }
+
+    public List<LmsUserConfig> getUserConfigs(long userId) {
+        try {
+            return repository.selectUserConfigs(userId);
+        } catch (Exception e) {
+            throw new LMSException(CanNotFoundUserConfigs, "Failed get user configs");
+        }
     }
 
 }

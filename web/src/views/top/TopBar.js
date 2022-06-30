@@ -262,6 +262,11 @@ class TopBar extends Component {
         };
     }
 
+    componentDidMount() {
+        const { loginUser } = this.props.authStore;
+        this.props.userStore.getUserConfigs(loginUser.id);
+    }
+
     handleChangeFilter = event => {
         this.setState({ filter: event.target.value });
     };
@@ -461,4 +466,4 @@ class TopBar extends Component {
     }
 }
 
-export default withRouter(withStyles(styles)(inject('authStore')(observer(TopBar))));
+export default withRouter(withStyles(styles)(inject('authStore', 'userStore')(observer(TopBar))));

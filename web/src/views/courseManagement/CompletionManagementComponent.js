@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Box, Typography } from '@material-ui/core';
 import { ReactComponent as Info } from '../../common/images/Info.svg';
 import clsx from 'clsx';
-import CompletionManagementTableComponent from './CompletionManagementTableComponent';
+import CompletionManagementTableComponent from '../learningManagement/CompletionManagementTableComponent';
 const styles = theme => ({
     root: {
         width: '100%',

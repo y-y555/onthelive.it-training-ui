@@ -3,6 +3,7 @@ import {withStyles} from "@material-ui/core/styles";
 import clsx from "clsx";
 import {Box, Typography} from "@material-ui/core";
 import VideoPlayer from "../video/VideoPlayer";
+import {inject, observer} from "mobx-react";
 
 
 const styles = _theme => ({
@@ -84,7 +85,7 @@ class ClassWindowVideoContents extends Component {
     }
 
     render() {
-        const { classes, typeButton2} = this.props;
+        const { classes, typeButton2, userStore } = this.props;
 
         return (
             <div className={classes.root}>
@@ -99,7 +100,7 @@ class ClassWindowVideoContents extends Component {
                             {/*<img src={TestVideoImg} alt="동영상"/>*/}
 
                             {/*<VideoPlayIcon/>*/}
-                            <VideoPlayer videoSrc={null}/>
+                            <VideoPlayer videoSrc={userStore.videoSrc}/>
 
                         </Box>
                     </Box>
@@ -119,4 +120,4 @@ class ClassWindowVideoContents extends Component {
     }
 }
 
-export default withStyles(styles)(ClassWindowVideoContents);
+export default withStyles(styles)(inject('userStore')(observer(ClassWindowVideoContents)));

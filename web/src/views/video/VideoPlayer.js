@@ -16,6 +16,7 @@ const useStyles = makeStyles(theme => ({
 }));
 
 function VideoPlayer(props) {
+    console.log("Video Playing src = ", props.videoSrc);
     const classes = useStyles();
     return (
         <>

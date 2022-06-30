@@ -28,7 +28,7 @@ import ClassWindowComponent from "./views/classWindow/ClassWindowComponent";
 import {inject, observer} from "mobx-react";
 import {LoginState} from "./stores/AuthStore";
 
-const styles = theme => ({
+const styles = _theme => ({
     root:{
         "& *": {
             fontFamily: 'NanumSquareRoundOTF' ,

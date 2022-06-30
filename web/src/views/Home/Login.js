@@ -20,6 +20,7 @@ import {ReactComponent as UnCheckedIcon} from '../../common/images/UnCheckedIcon
 import {ReactComponent as CheckedIcon} from '../../common/images/CheckedIcon.svg';
 import {withRouter} from "react-router-dom";
 import {inject, observer} from "mobx-react";
+import ConfirmDialog from "../../common/components/ConfirmDialog";
 
 const styles = theme => ({
     root:{
@@ -184,7 +185,7 @@ class Login extends Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, authStore } = this.props;
 
         return (
             <div className={classes.root}>
@@ -283,6 +284,13 @@ class Login extends Component {
                     {/*/>*/}
 
                 </Box>
+
+                <ConfirmDialog
+                    open={authStore.notificationOpen}
+                    title={'알림'}
+                    msg={'이메일과 비밀번호를 확인하여 다시 시도해주세요.'}
+                    changeDialogOpen={isOpen => authStore.changeNotificationState(isOpen)}
+                 />
             </div>
         );
     }

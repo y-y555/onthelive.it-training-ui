@@ -4,6 +4,7 @@ import {Box, Typography} from "@material-ui/core";
 import {ReactComponent as Info} from "../../common/images/Info.svg";
 import clsx from "clsx";
 import TestVideoImg from "../../common/images/TestVideoImg.png";
+import {inject, observer} from "mobx-react";
 
 const DUMMY_VM_ACCESS_URL = 'http://146.56.37.19/guacamole/#/client/MzEAYwBteXNxbA==';
 
@@ -71,13 +72,14 @@ class ConsoleComponent extends Component {
     }
 
     handleClickVmImage = (e, url) => {
+        console.log(`handleClickVmImage access url = ${url}`)
         e.stopPropagation();
 
         window.open(url);
     }
 
     render() {
-        const { classes, typeButton2, image1 } = this.props;
+        const { classes, typeButton2, image1, userStore } = this.props;
 
         return (
             <div className={typeButton2 ? classes.root2 : classes.root}>
@@ -93,7 +95,7 @@ class ConsoleComponent extends Component {
                             justifyContent='center'
                             alignItems='center'
                             className={classes.boxStyle}
-                            onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                            onClick={(e) => this.handleClickVmImage(e, userStore.vmAccessUrl)}
                         >
                             <img src={TestVideoImg} alt="test_video"/>
                         </Box>
@@ -107,7 +109,7 @@ class ConsoleComponent extends Component {
                                 justifyContent='center'
                                 alignItems='center'
                                 className={classes.boxStyle}
-                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                                onClick={(e) => this.handleClickVmImage(e, userStore.vmAccessUrl)}
                             >
                                 <img src={TestVideoImg} alt="test_video"/>
                             </Box>
@@ -121,7 +123,7 @@ class ConsoleComponent extends Component {
                                 flexDirection='column'
                                 alignItems='center'
                                 className={classes.layoutBox}
-                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                                onClick={(e) => this.handleClickVmImage(e, userStore.vmAccessUrl)}
                             >
                                 <Box display='flex' justifyContent='center' alignItems='center' className={image1 ? classes.boxStyle : clsx(classes.boxStyle, classes.boxStyle2)}>
                                     <img src={TestVideoImg} alt="test_video"/>
@@ -133,7 +135,7 @@ class ConsoleComponent extends Component {
                                 flexDirection='column'
                                 alignItems='center'
                                 className={classes.layoutBox}
-                                onClick={(e) => this.handleClickVmImage(e, DUMMY_VM_ACCESS_URL)}
+                                onClick={(e) => this.handleClickVmImage(e, userStore.vmAccessUrl)}
                             >
                                 <Box display='flex' justifyContent='center' alignItems='center' className={image1 ? classes.boxStyle : clsx(classes.boxStyle, classes.boxStyle2)}>
                                     <img src={TestVideoImg} alt="test_video"/>
@@ -149,4 +151,4 @@ class ConsoleComponent extends Component {
     }
 }
 
-export default withStyles(styles)(ConsoleComponent);
+export default withStyles(styles)(inject('userStore')(observer(ConsoleComponent)));

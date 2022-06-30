@@ -15,6 +15,7 @@
         <!-- User  -->
         <typeAlias type="demo.onthelive.training.lms.model.user.LmsUser"                               alias="LmsUser" />
         <typeAlias type="demo.onthelive.training.lms.model.user.LmsSimpleUser"                         alias="LmsSimpleUser" />
+        <typeAlias type="demo.onthelive.training.lms.model.user.LmsUserConfig"                         alias="LmsUserConfig" />
         <typeAlias type="demo.onthelive.training.lms.model.user.support.LmsUserType"                   alias="LmsUserType" />
         <typeAlias type="demo.onthelive.training.lms.model.user.support.LmsUserState"                  alias="LmsUserState" />
 

@@ -2,6 +2,7 @@ package demo.onthelive.training.lms.repository;
 
 import demo.onthelive.training.lms.model.user.LmsSimpleUser;
 import demo.onthelive.training.lms.model.user.LmsUser;
+import demo.onthelive.training.lms.model.user.LmsUserConfig;
 import demo.onthelive.training.lms.model.user.support.LmsUserType;
 import demo.onthelive.training.lms.repository.mapper.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,9 @@ public class UserRepository {
 
     public LmsSimpleUser checkUserEmail(String userEmail) {
         return mapper.checkUserEmail(userEmail);
+    }
+
+    public List<LmsUserConfig> selectUserConfigs(long userId) {
+        return mapper.selectUserConfigs(userId);
     }
 }
