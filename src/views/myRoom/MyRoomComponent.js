@@ -23,7 +23,8 @@ import {ReactComponent as PasswordNumberUnCheckedIcon} from "../../common/images
 import {ReactComponent as AsideSettingIcon} from "../../common/images/AsideSettingIcon.svg";
 import RoomTestImg1 from "../../common/images/RoomTestImg1.png";
 import RoomTestImg2 from "../../common/images/RoomTestImg2.png";
-import RoomTestImg3 from "../../common/images/RoomTestImg3.png";
+import roomGuideImg from "../../common/images/roomGuideImg.jpg";
+import dummyImg1 from "../../common/images/dummyImg1.jpg";
 import {withRouter} from "react-router-dom";
 import {ReactComponent as DialogCloseIcon} from "../../common/images/DialogCloseIcon.svg";
 import HiddenGroupManagementDialogComponent from "../dialog/HiddenGroupManagementDialogComponent";
@@ -38,6 +39,7 @@ import {ReactComponent as UsersThreeIcon} from "../../common/images/UsersThreeIc
 import {ReactComponent as BookmarksSimple} from "../../common/images/BookmarksSimple.svg";
 import {ReactComponent as BellRingingIcon} from "../../common/images/BellRingingIcon.svg";
 import CalendarButtonComponent from "../contentLecture/CalendarButtonComponent";
+import GalleryCheckCircleIcon from "../../common/images/GalleryCheckCircleIcon.svg";
 
 const styles = theme => ({
     root:{
@@ -128,6 +130,14 @@ const styles = theme => ({
         width:270,
         height:180,
     },
+    imgStyle:{
+        backgroundImage:`url(${roomGuideImg})`,
+        backgroundPosition:'0 0',
+        backgroundRepeat:'no-repeat',
+        width:'100%',
+        height:'180px',
+        borderRadius:10,
+    },
     liveBox:{
         width: 66,
         background: '#fb4a59',
@@ -154,6 +164,13 @@ const styles = theme => ({
         display:'flex',
         justifyContent:'center',
         alignItems:'center'
+    },
+    practice:{
+        background:'#00c880',
+        width:50,
+        '& p':{
+            marginLeft:0,
+        }
     },
     likeBoxTitle:{
         fontSize: '0.75rem',
@@ -478,35 +495,36 @@ class MyRoomComponent extends Component {
             value: '업데이트순',
             roomList: [
                 {
-                    img:RoomTestImg1,
-                    title:"영어 스터디",
+                    img:dummyImg1,
+                    title:"UNIX/Linux 보안 실무반",
                     post: true,
                     lastTime: false,
                     lastTimeText:"",
-                    chip:"수업",
-                    chip2:"수업",
-                    chip3:"수업",
-                    live: true,
+                    chip:"악성코드",
+                    chip2:"쉘코드",
+                    chip3:"DDEAUTO 명령어",
+                    live: false,
                     vod:true,
+                    practice:true,
                     student: '200',
                     like: '1200',
                     level: 1,
                 },
-                {
-                    img:RoomTestImg2,
-                    title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초",
-                    post: false,
-                    postText:"",
-                    lastTime: true,
-                    chip:"특강",
-                    chip2:"수업",
-                    chip3:"수업",
-                    live: false,
-                    vod:false,
-                    student: '100',
-                    like: '200',
-                    level: 1,
-                },
+                // {
+                //     img:RoomTestImg2,
+                //     title:"C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초C 프로그래밍 언어 기초",
+                //     post: false,
+                //     postText:"",
+                //     lastTime: true,
+                //     chip:"특강",
+                //     chip2:"수업",
+                //     chip3:"수업",
+                //     live: false,
+                //     vod:false,
+                //     student: '100',
+                //     like: '200',
+                //     level: 1,
+                // },
             ],
             dialogOpen: false,
 
@@ -605,19 +623,28 @@ class MyRoomComponent extends Component {
                                 <Box key={i} className={clsx(classes.roomCreateButton, classes.roomButton)}
                                         disableRipple onClick={this.handleClickClass} >
                                     <Box className={classes.imgBox}>
-                                        <img src={rooms.img} alt='room image'/>
+
+                                            <img src={rooms.img} alt='room image'/>
+
                                         <Box display='flex' alignItems='center' style={{position:'absolute', top: 10, left: 10, borderRadius:3, overflow:'hidden'}}>
-                                            {rooms.live === true &&
-                                                <Box className={classes.liveBox}>
-                                                    <LiveIcon/>
-                                                    <Typography>LIVE</Typography>
-                                                </Box>
-                                            }
+
                                             {rooms.vod === true &&
                                                 <Box className={clsx(classes.liveBox, classes.vodBox)}>
                                                     <VodIcon/>
                                                     <Typography>VOD</Typography>
                                                 </Box>
+                                            }
+                                            {rooms.live === true &&
+                                            <Box className={classes.liveBox}>
+                                                <LiveIcon/>
+                                                <Typography>LIVE</Typography>
+                                            </Box>
+                                            }
+                                            {rooms.practice === true &&
+                                            <Box className={clsx(classes.liveBox, classes.practice)}>
+                                                <Typography>실습</Typography>
+                                            </Box>
+                                                // <span className={classes.tag} style={{backgroundColor:'#00c880'}}>실습</span>
                                             }
                                         </Box>
                                     </Box>
@@ -660,7 +687,9 @@ class MyRoomComponent extends Component {
                             ))
                         }
                         <Button className={clsx(classes.roomCreateButton, classes.roomButton)} disableRipple>
-                            <img src={RoomTestImg3} alt='room image'/>
+                            <Box className={classes.imgStyle}>
+                                {/*<img src={RoomTestImg3} alt='room image'/>*/}
+                            </Box>
                             <Box display='flex' flexDirection='column' alignItems='flex-start' className={classes.roomTextBox}>
                                 <Box display='flex' flexDirection='column' alignItems='flex-start'>
                                     <Typography className={clsx(classes.buttonText, classes.guideText)}>강사 가이드</Typography>
