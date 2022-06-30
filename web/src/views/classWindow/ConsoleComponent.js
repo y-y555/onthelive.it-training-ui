@@ -72,7 +72,6 @@ class ConsoleComponent extends Component {
     }
 
     handleClickVmImage = (e, url) => {
-        console.log(`handleClickVmImage access url = ${url}`)
         e.stopPropagation();
 
         window.open(url);

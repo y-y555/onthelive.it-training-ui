@@ -172,7 +172,6 @@ class ClassWindowTopBarComponent extends Component {
     };
 
     handleClickEntranceRoom = (e, url) => {
-        console.log(url)
         if(!url) return false;
         window.open(url);
     };
