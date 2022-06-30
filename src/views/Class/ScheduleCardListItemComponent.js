@@ -579,10 +579,9 @@ class ScheduleCardListItemComponent extends Component {
                                 <Typography className={classes.captionTextPrivate}>비공개</Typography>
                             </Box>
 
-                            <Typography className={clsx(classes.titleText, classes.privateText)}>디지털 포렌식 전문가 2급 자격 대비반</Typography>
+                            <Typography className={clsx(classes.titleText, classes.privateText)}>국제표준 및 보안검사</Typography>
                             <Typography variant="subtitle1" className={clsx(classes.subText, classes.privateText)}>
-                                디지털 포렌식의 기본적인 내용을 전체적으로 평가하며 컴퓨터 구조, 네트워크, 데이터베이스, 기초실무 이론을 습득할 수
-                                있다.
+                                본 과정에서는 기술유출방지 및 핵심정보의 보호를 위한 국제표준규격의 이해와 정보관리 전략(정보보호거버넌스 등)을 실제 사례와 함께 다룹니다.
                             </Typography>
                             <ul className={classes.avatarList}>
                                 <li>
